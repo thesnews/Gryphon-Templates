@@ -1,0 +1,70 @@
+{% extends "gryphon/base.mbl" %}
+
+{% block content %}
+
+{% import 'macros/render.mbl' as mediaRender %}
+{% set topMedia = media.shift() %}
+
+<div id="col1">
+<h2>Featured Media:</h2>
+	
+	{{ mediaRender.media(topMedia) }}
+	<br />
+	{{ topMedia.authors.splat('name')|join(', ') }} / {{ topMedia.source }}
+	<br />
+	{{ topMedia.caption_formatted }}
+	
+</div>
+
+<div id="col2">
+
+	<h2>Recent Galleries:</h2>
+	
+	{% fetch galleries from gallery with [
+			'where': 'status = 1',
+			'order': 'created desc',
+			'limit': 5
+		] %}
+		
+	<ul class="listview">
+	
+	{% for item in galleries %}
+		<li>
+			<a href="{{ item.urlDefault }}">
+				{{ item.title }}
+				<span class="quiet">({{ item.created|date('m/d/y') }})</span>
+			</a>
+		</li>
+	{% endfor %}
+	
+	</ul>
+	
+	<br />
+	<h2>Recent Videos:</h2>
+	
+	{% fetch videos from media with [
+			'where': 'status = 1 and type = "video"',
+			'order': 'created desc',
+			'limit': 5
+		] %}
+		
+	<ul class="listview">
+	
+	{% for item in videos %}
+		<li>
+			<a href="{{ item.urlDefault }}">
+				{{ item.title }}
+				<span class="quiet">({{ item.created|date('m/d/y') }})</span>
+			</a>
+		</li>
+	{% endfor %}
+	
+
+	
+	
+	
+</div>
+
+
+
+{% endblock content %}

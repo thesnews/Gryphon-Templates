@@ -1,0 +1,16 @@
+body {
+	font-size: 12px;
+	color: #000;
+}
+
+.advertisement, #ticker, #etc, #wx, #nav, #footer ul, #tools, .comment-container, .tab-box, .tab-header, #featured-classifieds, hr, #article-related, .standard-sidebar, .reprint, .pod-pointer, #sidebar {
+	display: none;
+}
+
+a {
+	color: #000;
+}
+
+#print-info {
+	margin-bottom: 2em;
+}

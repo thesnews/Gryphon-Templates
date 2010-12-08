@@ -1,0 +1,68 @@
+{% helper weather %}
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>The State News{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" media="all" href="{{ 'style/gryphon/mobile/css/master.css'|url }}"/>
+		
+		<!-- iOS Specific Stuff -->
+		<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no">
+		<link rel="apple-touch-icon-precomposed" href="{{ 'style/gryphon/mobile/img/webclip.png'|url }}"/>
+		
+		<script type="text/javascript" src="{{ 'javascript/vendor/mootools/mootools-1.2.4-compressed.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style/gryphon/mobile/js/base.js'|url }}"></script>
+	</head>
+
+	<body>
+	
+		<ul id="section_selector" class="">
+				<img src="{{ 'style/gryphon/mobile/img/section_selector_arrow.png'|url }}" alt="section selector" />
+				<li>
+					<form method="get" action="{{ 'search'|url }}">
+						<input class="replace-text" type="search" name="q" value="Search State News" />
+						<input type="submit" name="submit" value="Go" width="24" height="24" alt="search">			
+					</form>
+				</li>
+				<li><a href="{{ '/'|url }}">Front Page</a></li>
+				<li><a href="{{ 'section/news'|url }}">News</a></li>
+				<li><a href="{{ 'section/sports'|url }}">Sports</a></li>
+				<li><a href="{{ 'section/opinion'|url }}">Opinion</a></li>
+				<li><a href="{{ 'section/features'|url }}">Features</a></li>
+				<li><a href="{{ 'section/entertainment'|url }}">Entertainment</a></li>
+				<li><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
+			</ul>
+		
+		<div id="header">
+			<a href="{{ 'index.php'|url }}"><img id="logo" src="{{ 'style/gryphon/images/logo.png'|url }}" alt="The State News" /></a>
+			<a href="#section_selector" class="btn" id="section_select">Navigation &darr;</a>
+			
+			<div id="wx">
+				<div>{{ now|date('<b>l</b> F j, Y') }}</div>
+				<b>{{ weather }}</b>, {{ weather.temp }}&deg; F<span> | {{ weather.tempC }}&deg; C</span>
+			</div>
+			
+			
+		</div>
+		
+		<div style="clear: both;"></div>
+		
+		<div id="content">
+	
+			{% block content %}
+			{% endblock %}
+		
+		</div>
+		
+		<div id="footer">
+			&copy; 2010 The State News<br />
+			Viewing mobile version. | Switch to <a href="#">standard</a><br />
+			Powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a>.
+		</div>
+		
+	</body>
+	
+</html>

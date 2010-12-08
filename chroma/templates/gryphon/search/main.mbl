@@ -1,0 +1,43 @@
+{% extends "gryphon/base.mbl" %}
+
+
+
+{% block content %}
+
+	
+	
+	
+	<div id="fullcol">
+	<h1>Search Results</h1>
+	<br />
+	<form method="get" action="{{ 'search'|url }}" id="full_mobile">
+		<input class="replace-text" type="search" name="q" value="{{ query }}" />
+		<input type="submit" name="submit" value="Go" width="24" height="24" alt="search">			
+	</form>
+
+
+	<div class="pagination">
+			<span>
+			{% for page in pagination %}
+				<a href="{{ page.url }}">{{ page.label }}</a>
+			{% endfor %}
+			</span>
+		</div>
+	
+		<ul class="listview">
+			{% for item in hits %}
+				<li>
+					<a href="{{ item.url|url }}">{{ item.title }} <span class="quiet">({{ item.created|date('m/d/y') }})</span></a>
+				</li>
+			{% endfor %}
+			
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	
+{% endblock content %}

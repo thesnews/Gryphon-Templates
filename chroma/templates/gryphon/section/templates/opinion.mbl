@@ -1,0 +1,59 @@
+{% extends "gryphon/base.mbl" %}
+
+
+
+{% block content %}
+
+	{% set topStory = articles.shift() %}
+	{% set featuredStories = articles.shift(2) %}
+	{% import "macros/article.mbl" as articleRender %}
+	
+	<div id="col1">
+		{% fetch editorials from article with [
+			'where': 'status = 1',
+			'order': 'weight desc, created desc',
+			'limit': 3,
+			'withTags': ['Editorials']
+		] %}
+		
+	<h2>Our Voice:</h2>
+
+	{% for article in editorials %}
+		{{ articleRender.subFeatured(article) }}
+	{% endfor %}
+	</div>
+	
+	<div id="col2">
+		{% fetch cartoons from media with [
+			'where': 'status = 1',
+			'order': 'created desc',
+			'limit': 5,
+			'withTags': ['Editorial Cartoon']
+		] %}
+
+		{% set cartoon = cartoons.shift() %}
+		
+		<h2>Latest Cartoon:</h2>
+
+		<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" style="border: none;" class="photo" /></a>
+		<div class="info">By <a href="{{ cartoon.authors[0].urlSearch }}">{{ cartoon.authors[0].name }}</a></div>
+		
+		<h2>Columns:</h2>
+
+		{% fetch articles from article with [
+			'where': 'status = 1',
+			'order': 'weight desc, created desc',
+			'limit': 3,
+			'withTags': ['Columns']
+		] %}
+		
+		{% for article in articles %}
+			{{ articleRender.subFeatured(article) }}
+		{% endfor %}
+	</div>
+	
+	
+	
+	
+	
+{% endblock content %}

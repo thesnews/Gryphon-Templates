@@ -1,0 +1,19 @@
+{% extends 'gryphon/base_mm.mbl' %}
+{% block header %}
+	<a href="{{ referrer|url }}" class="back btn">&larr; Back</a>
+	<h1>Multimedia: Photo</h1>
+{% endblock %}
+
+{% block content %}
+	{% set image = media.shift() %}
+	{% helper dswSync %}
+	
+	<img src="{{ image.url }}" class="photo"/>
+	<div class="info">
+		{{ image.authors.splat('name')|join(', ') }}
+		&middot; {{ image.source }}
+	</div>
+	
+	{{ image.caption_formatted }}
+	
+{% endblock %}

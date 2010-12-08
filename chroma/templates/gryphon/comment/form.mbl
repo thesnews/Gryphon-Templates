@@ -1,0 +1,64 @@
+{% helper config %}
+<a name="comment_form"></a>
+<form method="post" action="{{ commentUrl }}" class="gray">
+	<input type="hidden" name="key" value="{{ commentKey }}" />
+	<input type="hidden" name="type" value="{{ commentItem.modelString }}" />
+	<input type="hidden" name="id" value="{{ commentItem.uid }}" />
+	
+		<div id="disclaimers">
+			<p>
+				<b>All fields are required.</b>
+			</p>
+			
+			<p>The State News reserves the right to remove any comment deemed racially derogatory, inflammatory, or spammatory. Repeat offenders may have their IP address banned from posting future comments. Please be nice.</p>
+			
+			<p>
+				<b>Format options:</b><br />
+
+				Links: "my link":http://my.url.com<br />
+				Bold: *something!"<br />
+				Italic: _OMG!_
+			</p>
+			
+		</div>
+	
+		<div id="fields">
+		
+		<fieldset id="comment-userinfo">
+
+				<label for="comment-name">Name: </label>
+				<input type="text" name="name" id="comment-name" value="{{ comment.name }}" />
+
+				<label for="comment-email">Email address:</label>
+				<input type="text" name="email" id="comment-email" value="{{ comment.email }}" />
+	
+		</fieldset>
+
+		<fieldset>
+		
+				<label for="comment-body">Your comment (HTML not allowed).</label>
+				<textarea name="comment" id="comment-body" rows="6" cols="30">{{ comment.comment }}</textarea>
+				
+			<div id="turing">
+				<script type="text/javascript">
+				var RecaptchaOptions = {
+					theme : 'white'
+				};
+				</script>
+				{% if turing %}
+			
+					{{ turing }}
+			
+				{% endif %}
+			</div>
+			
+			
+		</fieldset>
+	
+		<input type="submit" id="comment-submit" value="Add Comment" />	
+		
+		</div>
+
+				
+
+</form>

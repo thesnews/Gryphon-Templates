@@ -1,0 +1,32 @@
+{% extends "gryphon/base.mbl" %}
+
+
+
+{% block content %}
+
+	{% set topStory = articles.shift() %}
+	{% set featuredStories = articles.shift(2) %}
+	{% import "macros/article.mbl" as articleRender %}
+	
+	<div id="col1">
+		{{ articleRender.featured(topStory) }}
+		<ul class="listview">
+			{% for article in articles.shift((articles.length)/2) %}
+				<li>
+					<a href="{{ article.url }}">{{ article.headline }} <span class="quiet">({{ article.created|date('m/d/y') }})</span></a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	
+	<div id="col2">
+		{% for article in featuredStories %}
+			{{ articleRender.subFeatured(article) }}
+		{% endfor %}
+	</div>
+	
+	
+	
+	
+	
+{% endblock content %}
