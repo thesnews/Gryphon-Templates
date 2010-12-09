@@ -81,39 +81,37 @@
 	</script>
 </head>
 <body>
-	test
-	<div id="print-info">
-		<h3>The State News</h3>
-		URL: {{ '/'|qualifiedUrl }}<br />
-		Current Date: {{ now|date('r') }}
-	</div>
-
-	<div id="wrapper"> <!-- CENTERS EVERYTHING -->
-		
+	
+	<div class="container_12"> <!-- CENTERS EVERYTHING -->
+		<div id="ticker">
+			<span id="date">{{ now|date('l F j, Y') }}  &nbsp;&nbsp;  Detroit, MI | Since 2009 | &nbsp;&nbsp;{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
+			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
+				
+				<form id="search" method="get" action="{{ 'search'|url }}" class="search-form">
+					<input class="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
+					<input id="search_field" class="search replace-text" type="text" name="search" value="Search Detroit Softworks" />
+				</form> 
+				
+		</div>
 	
 		<div id="logo_wrapper">
-			<!-- Here goes the Detroit Softworks Logo-->
+			<a href="#"><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>
 		</div>
 	
-		<div id="etc">
-		
 			
-			
-		
-		</div>
-		
 		<div id="border"> <!-- PUTS 1px GRAY BORDER WITH 1px PADDING AROUND NAV, CONTENT, FOOTER.  -->
 				
-			
+			<div id="header">
+				
+				
+				{% include "gryphon/navigation.tpl" %}
+
+		
+			</div>
+		
 
 			<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
-				{% if not suppressLeaderBoard %}
-					<div class="grid_12">
-						{% include 'gryphon/ads/leaderboard.tpl' %}
-					</div>
-					<hr />
-				{% endif %}
-
+				
 				{# THIS IS THE MAIN CONTENT BLOCK #}
 				{% block content %}{% endblock %}
 				

@@ -8,32 +8,6 @@
 
 
 <div class="container_12">
-			<div class="grid_12 dark" id="ticker">
-				<div>
-					<span id="date"><?php echo date("l F j, Y"); ?></span> 
-					<span id="founded">Detroit, MI | Since 2009</span>
-					<span id="wx">Partly Cloudy, Hi 65 / Lo 42</span>
-					<span id="links"><a href="#">Contact Us</a> | <a href="#">Advertise</a> | <a href="#">Classifieds</a> | <a href="#">Feeds</a></span>
-				</div>
-				<form method="get" action="#" id="search">
-					<input id="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
-					<input id="search_field" type="text" name="search" value="Search Detroit Softworks" />
-				</form>
-			</div>
-			<div class="grid_12 leaderboard">
-				<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url}} " alt="advertisement" />
-			</div>
-			<div class="grid_12" id="header">
-				<a href="#"><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>
-				<ul>
-					<li class="active"><a href="index.php">Front Page</a></li>
-					<li><a href="section.php">News</a></li>
-					<li><a href="#">Sports</a></li>
-					<li><a href="#">Opinion</a></li>
-					<li><a href="#">Features</a></li>
-					<li><a href="#">Multimedia</a></li>
-				</ul>
-			</div>
 			
 			
 			<div class="grid_12">
@@ -105,38 +79,54 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. <a href="#" class="dark"><span>More</span></a></p>
 						</div>
 					</div>
+					
+					{% fetch news from article with [
+					'limit': 6,
+					'order': 'weight desc, created desc',
+					'where': 'status = 1',
+					'withTags': ['news']
+					]
+		%}
 					<div class="grid_9 alpha omega">
 						<div class="grid_3 alpha">
 							<ul class="more_from">
 								<li><h3>More from <a href="#">News</a>:</h3></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
+								{% for article in articles %}
+								<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
+								{% endfor %}
+							</ul>
+							
 							</ul>
 						</div>
+						
+		{% fetch sports from article with [
+					'limit': 6,
+					'order': 'weight desc, created desc',
+					'where': 'status = 1',
+					'withTags': ['sports']
+					]
+		%}
 						<div class="grid_3">
 							<ul class="more_from">
 								<li><h3>More from <a href="#">Sports</a>:</h3></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
+								{% for item in sports %}
+								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
+								{% endfor %}
 							</ul>
 						</div>
+						{% fetch opinion from article with [
+					'limit': 6,
+					'order': 'weight desc, created desc',
+					'where': 'status = 1',
+					'withTags': ['opinion']
+					]
+		%}
 						<div class="grid_3 omega">
 							<ul class="more_from">
 								<li><h3>More from <a href="#">Opinion</a>:</h3></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
-								<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></li>
+								{% for item in opinion %}
+								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
+							{% endfor %}
 							</ul>
 						</div>
 					</div>
