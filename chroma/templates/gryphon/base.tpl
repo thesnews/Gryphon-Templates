@@ -34,6 +34,10 @@
 		<script type="text/javascript" src="{{ 'javascript/vendor/rosewood.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'javascript/base.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'javascript/expandable.js'|url }}"></script>
+		
+		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-1.3.2.min.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style_chroma  /js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
 
 		<script src="{{ 'javascript/vendor/video-js/video.js'|url }}" type="text/javascript" charset="utf-8"></script>
 	{% else %}
@@ -85,15 +89,7 @@
 	</div>
 
 	<div id="wrapper"> <!-- CENTERS EVERYTHING -->
-		<div id="ticker">
-			<span id="date">{{ now|date('l F j, Y') }}  &nbsp;&nbsp;  Detroit, MI | Since 2009 | &nbsp;&nbsp;{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
-			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="http://advertise.statenews.com">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
-				
-				<!--<form method="get" action="{{ 'search'|url }}" class="search-form">
-				<input class="search_button" type="image" name="submit" src="{{ 'style_chroma//images/search_button.png'|url }}" width="24" height="24" alt="search">			
-				<input class="search replace-text" type="text" name="q" value="Search the State News" />
-				</form> -->
-		</div>
+		
 	
 		<div id="logo_wrapper">
 			<!-- Here goes the Detroit Softworks Logo-->
@@ -108,17 +104,7 @@
 		
 		<div id="border"> <!-- PUTS 1px GRAY BORDER WITH 1px PADDING AROUND NAV, CONTENT, FOOTER.  -->
 				
-			<div id="nav">
-				
-				
-				{% include "gryphon/navigation.tpl" %}
-
-				
-				
-				
-		
-			</div>
-		
+			
 
 			<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
 				{% if not suppressLeaderBoard %}
