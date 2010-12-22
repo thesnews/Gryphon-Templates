@@ -1,0 +1,124 @@
+{% extends isXHR ? 'roost/roost/base.xhr.mbl' : 'roost/roost/base.mbl' %}
+
+{% block content %}
+	{% helper config %}
+
+	{#
+	  This fetches related properties by owner. If the owner doesn't have any
+	  other properties, this fectches other properties with the same rent level.
+	#}
+	{% set related = property.getRelated(3) %}
+	{% set relatedLabel = 'Related Properties' %}
+	
+	{% if related.length == 0 %}
+		{% set related = property.getSimilar('rent', property.rent, '3') %}
+		{% set relatedLabel = 'Similar Properties' %}
+	{% endif %}
+
+
+	{% set amenitiesMap = config.get('roost:amenitiesMap') %}
+	<div class="block">
+		<h1 id="header" class="box">
+			<a href="{{ 'roost:roost'|url }}"><img src="{{ 'roost/frontend/stylev2/images/hg_logo_mobile.png'|url }}" alt="HousingGuide" /></a>
+		</h1>
+	
+		<h2 class="subhead box">
+			
+			<a href="{{ request_referrer|default('roost:roost'|url) }}" class="button back"><span class="beak"></span><span>Back</span></a>
+			
+			{{ property.name }}
+			
+			<div class="tools">
+				{% if property.url %}
+					<a href="{{ property.url }}" target="_blank" class="url"><span>Website</span></a>
+				{% endif %}
+				
+				{% if property.email %}
+					<a href="{{ ('roost:roost/contact/'~property.uid)|url }}" class="mail"><span>Email</span></a>
+				{% endif %}
+				
+				<a href="{{ property.urlMap }}" target="_blank" class="map"><span>Map</span></a>
+			</div>
+			
+		</h2>
+
+		<div id="col1">
+		
+			<div class="box">
+		
+				<a href="{{ property.urlMap }}" target="_blank"><img src="{{ property.urlStaticMap }}" class="no-tab" style="float:right;border:1px solid #e1e1e1;" /></a>
+	
+				<h3>{{ property.name }}</h3>
+				
+				<hr class="spacer" />
+				<strong class="small">{{ property.type }} | {{ property.rentLabel }} per {{ property.rent_modifier }}{% if property.lease %} | {{ property.leaseLabel }} lease {% endif %}</strong>
+				
+				<p>
+					{{ property.street }}<br />
+					{{ property.city }}, {{ property.zip }}
+				</p>
+				
+				{{ property.description_formatted }}
+				
+	
+			</div>
+			
+			<h4 class="box subhead">Amenities</h4>
+	
+			<div class="box">
+				<ul>
+				{% for amenity, label in amenitiesMap %}
+					{% if property[amenity] %}
+						<li>{{ label }}</li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+	
+			</div>
+			
+			<h4 class="box subhead">Contact</h4>
+			<div class="box">
+				<strong>{{ property.contact }}</strong><br />
+				Phone: {{ property.phone }}<br />
+				{% if property.email %}
+					<a class="email" href="{{ ('roost:roost/contact/'~property.uid)|url }}" class="email">Contact via email</a><br />
+				{% endif %}
+	
+				{% if property.url %}
+					<a class="website" href="{{ property.url }}">Visit website</a>
+				{% endif %}
+	
+			</div>
+	
+		</div>
+		<div id="col2">
+
+			<div class="box">
+				<div class="map" data-coordinates="{{ property.latlon }}" data-type="{{ property.type }}"></div>
+			</div>
+
+			<h3 class="box subhead">Related</h3>
+	
+			<div class="box">
+				{% for prop in related %}
+					<div class="summary">
+						<img src="{{ prop.urlStaticMap }}" style="float: right;margin: 0 0 5px 5px;border: 1px solid #e1e1e1;" />
+						<h3><a href="{{ prop.urlListing }}" class="transition">{{ prop.name }}</a></h3>
+						<strong>
+							{{ prop.type }} | {{ prop.rentLabel }} per {{ prop.rent_modifier }}{% if prop.lease %} | {{ prop.leaseLabel }} lease {% endif %}
+						</strong><br />
+						{{ prop.summary_formatted }}
+					</div>
+				{% endfor %}
+	
+			</div>
+		</div>
+		
+		<div id="footer" class="box">
+			&copy; 2010 The State News<br />
+			Viewing mobile version. | Switch to <a href="#">standard</a><br />
+			Powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a>.
+		</div>
+
+	</div>
+{% endblock %}

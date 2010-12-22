@@ -1,0 +1,7 @@
+Hi there. We need you to verify your email address before we can post the following comment
+
+{{ comment }}
+
+Commenting on {{ url }}
+
+Verify your email: {{ url_verify }}

@@ -1,0 +1,72 @@
+{% macro featured(article) %}
+	{% helper dswSync %} {# bring the 'dswSync' helper into the macro context #}
+	{% set topImage = article.media.grab('type', 'image')[0] %}
+	{% set showHeadline = 1 %}
+	
+	{% if topImage %}
+		{% if 'vertical'|in(topImage.meta) %}
+			{% set showHeadline = 0 %}
+			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
+	
+			<div class="image">
+				<a href="{{ article.url }}">
+					<img src="{{ topImage.url }}"  alt="{{ article.headline }}" class="col_2" />
+				</a>
+				<div class="info small">
+					{{ topImage.authors.splat('name')|join(', ') }} /
+					{{ topImage.source }}
+				</div>
+				{% if dswSync.buyURL(topImage) %}
+					<a href="{{ dswSync.buyURL(topImage) }}" class="reprint"><img style="border: none;" class="reprint_icon" src="{{ 'style/gryphon/images/reprint.png'|url }}" alt="Reprints" /></a>
+				{% endif %}
+	
+			</div>
+		{% else %}
+			<div class="image">
+				<a href="{{ article.url }}">
+					<img src="{{ topImage.url }}"  alt="{{ article.headline }}" class="col_5" />
+				</a>
+				<div class="info">
+					<span class="credit">
+						{{ topImage.authors.splat('name')|join(', ') }} /
+						{{ topImage.source }}
+					</span>
+					{% if dswSync.buyURL(topImage) %}
+						<a href="{{ dswSync.buyURL(topImage) }}" class="reprint"><img style="border: none;" class="reprint_icon" src="{{ 'style/gryphon/images/reprint.png'|url }}" alt="Reprints" /></a>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
+
+	<div class="article">
+		{% if showHeadline %}
+			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
+		{% endif %}
+		
+		<div class="small">
+			{{ article.created|date('m/d/y') }}			
+			{% if article.authors.length %}
+				By {{ article.authors.splat('name')|join(', ') }}
+			{% endif %}
+			(<a href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>)
+		</div>
+		
+		<p>{{ article.abstract_formatted }} <a href="{{ article.url }}">Read more &#187;</a></p>		
+	</div>
+{% endmacro %}
+
+{% macro subFeatured(article) %}
+	<div class="article">
+		<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
+		
+		<div class="small">
+			{{ article.created|date('m/d/y') }}
+			{% if article.authors.length %}
+				By {{ article.authors.splat('name')|join(', ') }}
+			{% endif %} (<a href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>)
+		</div>
+		
+		<p>{{ article.abstract_formatted }} <a href="{{ article.url }}">Read more &#187;</a></p>	
+	</div>
+{% endmacro %}

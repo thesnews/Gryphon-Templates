@@ -1,0 +1,120 @@
+/* IE6 SUPPLEMENTAL STYLESHEET */
+
+body {
+	background-image: none;
+	background-color: #1a1a1a;
+	}
+
+div#ticker {
+	background-image: none;
+	background-color: #333;
+	}
+	
+div#logo_wrapper {
+	background-image: none;
+	}
+	
+ul#cat li#frontpage, ul#cat li#news, ul#cat li#sports, ul#cat li#opinion, ul#cat li#features, ul#cat li#entertainment, ul#cat 	li#multimedia, ul#subcat a, ul#subcat a:hover, ul#subcat a:visited, ul#subcat a:active {
+	background-image: none;
+	}
+	
+ul#subcat li.active {
+	background-image: none;
+	text-decoration: underline;
+	}
+	
+div.container_12#footer {
+	background-image: none;
+	}
+
+#logo_wrapper a {
+	background-image: url(../images/ie6/sn_logo_header.png);
+	text-decoration: none;
+	}
+	
+a#facebook_icon {
+	background-image: url(../images/ie6/facebook.png);
+	}
+
+a#twitter_icon {
+	background-image: url(../images/ie6/twitter.png);
+	}
+
+a#rss_icon {
+	background-image: url(../images/ie6/rss.png);
+	}
+	
+a#gryphon_logo_footer {
+	background-image: url(../images/ie6/gryphon_logo_footer.png);
+	}
+	
+a#sn_logo_footer {
+	background-image: url(../images/ie6/sn_logo_footer.png);
+	}
+	
+span#search_options {
+	margin-top: 3px;
+	}
+
+span#search_options a.first-child {
+	background-image: none;
+	}
+	
+	
+ul.media_video div.meta, ul.media_slide div.meta {
+	background-image: none;
+	background-color: #808080;
+	position: relative;
+	}
+	
+ul.media_video div.meta a, ul.media_video div.meta a {
+	color: #fff;
+	}
+	
+.image img.col_5 {
+	width: 373px;
+}
+
+#pod_container {
+}
+	#pod_main {
+		width: 280px;
+	}
+
+	#pod_previews {
+		overflow: hidden;
+		text-align: center;
+	}
+		#pod_previews img {
+			height: 25px;
+			border: 2px solid #fff;
+		}
+			#pod_previews img.selected {
+				border: 2px solid #333;
+			}
+.advertisement img {
+	border: 0;
+}
+
+ul.bullet li {
+		background: url( ../images/ie6/bullet_black.png ) no-repeat 0px -2px;
+	}
+
+h4.media_sound {
+	background-image: url(../images/ie6/media-sound.png);
+	height: 20px;
+	}
+	
+h4.media_slide {
+	background-image: url(../images/ie6/media-slide.png);
+	height: 20px;
+	}
+	
+h4.media_video {
+	background-image: url(../images/ie6/media-video.png);
+	height: 20px;
+	}
+	
+.image img.col_2 {
+	width: 140px;
+	}

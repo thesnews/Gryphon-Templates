@@ -1,0 +1,19 @@
+{% extends 'gryphon/base_mm.mbl' %}
+{% block header %}
+	<a href="{{ referrer|url }}" class="back btn">&larr; Back</a>
+	<h1>Multimedia: Photo</h1>
+{% endblock %}
+
+{% block content %}
+	{% set video = media.shift() %}
+	{% import 'macros/render.tpl' as mediaRender %}
+	
+	{{ mediaRender.media(video) }}
+	<div class="info">
+		{{ video.authors.splat('name')|join(', ') }}
+		&middot; {{ image.source }}
+	</div>
+	
+	{{ video.caption_formatted }}
+	
+{% endblock %}

@@ -1,0 +1,14 @@
+Flagged comment:
+
+{{ comment }}
+
+Name: {{ name }} <{{ email }}>
+IP: {{ ip }}
+Time {{ created|date('g:ia m/d') }}
+Flagged By: {{ ip_flagger }}
+Comments from flagging user:
+
+{{ comment_flagger }}
+
+Manage: {{ url_edit }}
+View: {{ url }}

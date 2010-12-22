@@ -1,0 +1,12 @@
+<ul class="link-list">
+	{% if properties.length %}
+		{% for property in properties %}
+			<li class="item-link" data-url="{{ property.urlListing }}">
+				<h4><a href="{{ property.urlListing }}" class="transition">{{ property.name }}</a></h4>
+				<strong>{{ property.type }} - {{ property.address }}</strong>
+			</li>
+		{% endfor %}
+	{% else %}
+		<li>Sorry, no properties could be found near your current location.</li>
+	{% endif %}
+</ul>

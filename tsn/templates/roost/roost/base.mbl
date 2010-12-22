@@ -1,0 +1,45 @@
+{% helper config %}
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>TSN Housing</title>
+		<link rel="stylesheet" media="all" href="{{ 'roost/frontend/stylev2/screen/mobile.css'|url }}"/>
+		
+		<!-- iOS Specific Stuff -->
+		<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0"/>
+
+		<link rel="apple-touch-icon-precomposed" href="{{ 'roost/frontend/stylev2/images/apple-touch-icon-57x57-precomposed.png'|url }}" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'roost/frontend/stylev2/images/apple-touch-icon-72x72-precomposed.png'|url }}" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'roost/frontend/stylev2/images/apple-touch-icon-114x114-precomposed.png'|url }}" />
+		
+		<script type="text/javascript">
+			// set some defaults
+			roost = {
+				latlon: [{{ config.get("roost:map:default:latLon") }}]
+			}
+		</script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&region=US"></script>
+
+		{% if config.get('debug') %}
+			<script type="text/javascript" src="{{ 'javascript/vendor/zepto/zepto.js'|url }}"></script>
+			<script type="text/javascript" src="{{ 'roost/frontend/javascript/mobile.js'|url }}"></script>
+		{% else %}
+			{# zepto is compressed with the mobile file #}
+			<script type="text/javascript" src="{{ 'roost/frontend/javascript/mobile.compressed.js'|url }}"></script>
+		{% endif %}
+	</head>
+
+	<body>
+		
+		<div id="main">
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+		
+	</body>
+	
+</html>

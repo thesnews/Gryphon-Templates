@@ -1,0 +1,40 @@
+{% helper weather %}
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>The State News{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" media="all" href="{{ 'style/gryphon/mobile/css/master.css'|url }}"/>
+		
+		<!-- iOS Specific Stuff -->
+		<meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no">
+		<link rel="apple-touch-icon-precomposed" href="{{ 'style/gryphon/mobile/img/webclip.png'|url }}"/>
+		
+		<script type="text/javascript" src="{{ 'javascript/vendor/mootools/mootools-1.2.4-compressed.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style/gryphon/mobile/js/base.js'|url }}"></script>
+		{% block scripts %}{% endblock %}
+	</head>
+
+	<body class="multimedia">
+		<div id="header">
+			{% block header %}
+			{% endblock %}
+		</div>
+		
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+		<div id="footer">
+			&copy; 2010 The State News<br />
+			Viewing mobile version. | Switch to <a href="#">standard</a><br />
+			Powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a>.
+		</div>
+		
+	</body>
+	
+</html>

@@ -1,0 +1,8 @@
+Hi there. The following comment is waiting in the moderation queue
+
+{{ comment }}
+
+Commenting on: {{ url }}
+Email: {{ email }}
+IP: {{ ip }}
+Manage this comment: {{ url_edit }}
