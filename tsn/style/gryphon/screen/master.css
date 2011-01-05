@@ -1841,6 +1841,7 @@ div.pagination span a:hover {
 
 .multimedia-box, #pow-box {
 	height: 200px;
+	overflow: hidden;
 	
 }
 	.multimedia-pagers {
