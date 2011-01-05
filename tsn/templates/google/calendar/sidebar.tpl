@@ -38,8 +38,12 @@
 	<h5>Show me:</h5>		
 	<ul class="bullet">
 		<li><a href="{{ 'google:calendar'|url }}">Most Recent</a></li>
-		<li><a href="{{ 'google:calendar'|url(['range':'week']) }}">This Week</a></li>
-		<li><a href="{{ 'google:calendar'|url(['range':'month']) }}">This Month</a></li>
+		<li><a href="{{ 'google:calendar'|url(['range':'week']) }}">Current Week</a></li>
+		<li><a href="{{ 'google:calendar'|url(['range':'month']) }}">Current Month</a></li>
+		{% if timestamp %}
+			{% set week = calendar.build('week', timestamp) %}
+			<li><a href="{{ 'google:calendar'|url(['range':'week','time':week.days[0].time]) }}">Week of {{ week.days[0].time|date('m/d') }}</a></li>
+		{% endif %}
 	</ul>
 	
 	<hr class="spacer" />

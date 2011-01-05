@@ -26,7 +26,11 @@
 					<h4 class="calendar">{% if timestamp %}{{ timestamp|date('m/d/y') }}{% else %}Most Recent Events{% endif %}</h4>
 					<span class="calendar">
 					{% for page in pagination %}
-						<a href="{{ page.url }}">{{ page.label }}</a>
+						{% if page.isCurrent %}
+							<strong>{{ page.label }}</strong>
+						{% else %}
+							<a href="{{ page.url }}">{{ page.label }}</a>
+						{% endif %}						
 					{% endfor %}
 					</span>
 				</div>
@@ -55,7 +59,11 @@
 				<div class="pagination">
 					<span class="calendar">
 					{% for page in pagination %}
-						<a href="{{ page.url }}">{{ page.label }}</a>
+						{% if page.isCurrent %}
+							<strong>{{ page.label }}</strong>
+						{% else %}
+							<a href="{{ page.url }}">{{ page.label }}</a>
+						{% endif %}						
 					{% endfor %}
 					</span>
 				</div>
@@ -63,7 +71,17 @@
 			{% else %}
 			
 				<h5>Hmmm... no events found for this day and/or category.</h5>
-			
+				
+				{% fetch next from google:calendarEvent with [
+					'where': 'start_time > :ts',
+					'limit': 1,
+					'order': 'start_time asc',
+					'bind': [':ts': timestamp]
+				] %}
+				
+				{% if next %}
+					Looks like the next date we have events for is <a href="{{ 'google:calendar'|url(['time':next[0].start_time]) }}">{{ next[0].start_time|date('m/d/Y') }}</a>.
+				{% endif %}
 			{% endif %}
 		</div>
 	</div>
