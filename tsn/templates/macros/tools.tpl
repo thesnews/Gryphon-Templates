@@ -15,7 +15,7 @@
 {% endmacro %}
 
 {% macro twitter(item) %}
-	<a class="twitter" href="http://twitter.com/home?status=Just read {{ item.url }}"  target="_blank" title="Share on Twitter">Share on Twitter</a></li>
+	<a class="twitter" href="http://twitter.com/home?status=Just read {{ item.url }}"  target="_blank" title="Share on Twitter">Share on Twitter</a>
 {% endmacro %}
 
 {% macro digg(item) %}

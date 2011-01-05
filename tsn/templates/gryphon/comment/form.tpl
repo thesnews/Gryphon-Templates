@@ -20,7 +20,7 @@
 			</div>
 			<div class="grid_2 omega">
 				{% if config.get('gryphon:comments:emailVerification') %}
-					<p class="box gray">If this is the first time you've commented, your comment won't appear until you've verified your email address.</p>
+					<p class="box gray"><strong>Please note:</strong> If this is the first time you've commented with this email address, your comment won't appear until you've verified the address.</p>
 				{% endif %}
 			</div>
 
@@ -56,7 +56,7 @@
 			
 			</div>
 			<div class="grid_4 omega">
-				<p class="box gray" style="width: 260px; float: right;">Due to a recent uptick in spam we've been forced to upgrade our comment verification procedures. The first step is the new CAPTCHA system to the left. If you have questions or concerns, please do not hesitate to <a href="{{ 'page/contact'|url }}">contact us</a>.</p>
+				<p class="box gray" style="width: 260px; float: right;">Please make sure you've entered a valid email address. You will be required to verify it before your comment is published. If you have questions or concerns, please do not hesitate to <a href="{{ 'page/contact'|url }}">contact us</a>.</p>
 			</div>
 			
 			

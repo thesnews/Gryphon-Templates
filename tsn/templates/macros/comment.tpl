@@ -5,7 +5,7 @@
 	
 	<h3>Commentary</h3>
 	
-	<p>Add your $0.02, <a href="#comment_form">go to the comment form</a> or follow the <a href="{{ article.url }}.xml" class="feed_link">comment feed</a></p>
+	<p>Add your $0.02, <a href="#comment_form">go to the comment form</a> or follow the <a href="{{ item.url }}.xml" class="feed_link">comment feed</a></p>
 	
 	{% set showAdmin = commentHelper.userHasSession() %}
 

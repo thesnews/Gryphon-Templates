@@ -7,6 +7,21 @@
 
 {% block content %}
 
+{% set months = [
+	'01': 'January',
+	'02': 'February',
+	'03': 'March',
+	'04': 'April',
+	'05': 'May',
+	'06': 'June',
+	'07': 'July',
+	'08': 'August',
+	'09': 'September',
+	'10': 'October',
+	'11': 'November',
+	'12': 'December'
+] %}
+
 <div class="grid_8">
 	<h1>Archives</h1>
 
@@ -35,133 +50,53 @@
 			<div>
 				<label>From:</label>
 				<select name="ts_month">
-											<option value="0" selected="selected">Month</option>
-											<option value="01">January</option>
-											<option value="02">February</option>
-											<option value="03">March</option>
-											<option value="04">April</option>
-											<option value="05">May</option>
-											<option value="06">June</option>
-											<option value="07">July</option>
-											<option value="08">August</option>
-											<option value="09">September</option>
-											<option value="10">October</option>
-											<option value="11">November</option>
-											<option value="12">December</option>
-									</select>
+					<option value="0">Month</option>
+					{% for val,label in months %}
+						<option value="{{ val }}"{% if query.time_startMonth == val %} selected="selected"{% endif %}>{{ label }}</option>
+					{% endfor %}
+				</select>
 				<select name="ts_day">
 					<option value="0">Day</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
-									<option value="15">15</option>
-									<option value="16">16</option>
-									<option value="17">17</option>
-									<option value="18">18</option>
-									<option value="19">19</option>
-									<option value="20">20</option>
-									<option value="21">21</option>
-									<option value="22">22</option>
-									<option value="23">23</option>
-									<option value="24">24</option>
-									<option value="25">25</option>
-									<option value="26">26</option>
-									<option value="27">27</option>
-									<option value="28">28</option>
-									<option value="29">29</option>
-									<option value="30">30</option>
-									<option value="31">31</option>
-								</select>
+				{% for i in 1..31 %}
+					<option value="{{ i }}"{% if query.time_startDay == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
 				<select name="ts_year">
 				<option value="0">Year</option>
-									<option value="2001">2001</option>
-									<option value="2002">2002</option>
-									<option value="2003">2003</option>
-									<option value="2004">2004</option>
-									<option value="2005">2005</option>
-									<option value="2006">2006</option>
-									<option value="2007">2007</option>
-									<option value="2008">2008</option>
-									<option value="2009">2009</option>
-									<option value="2010">2010</option>
-								</select>
+				{% set b = 2001 %}
+				{% set n = now|date('Y') %}
+				
+				{% for i in b..n %}
+					<option value="{{ i }}"{% if query.time_startYear == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
+
 			</div>
 			
 			<div>
 				<label>To:</label>
 				<select name="te_month">
-											<option value="0" selected="selected">Month</option>
-											<option value="01">January</option>
-											<option value="02">February</option>
-											<option value="03">March</option>
-											<option value="04">April</option>
-											<option value="05">May</option>
-											<option value="06">June</option>
-											<option value="07">July</option>
-											<option value="08">August</option>
-											<option value="09">September</option>
-											<option value="10">October</option>
-											<option value="11">November</option>
-											<option value="12">December</option>
-									</select>
+					<option value="0">Month</option>
+					{% for val,label in months %}
+						<option value="{{ val }}"{% if query.time_endMonth == val %} selected="selected"{% endif %}>{{ label }}</option>
+					{% endfor %}
+				</select>
 				<select name="te_day">
-				<option value="0">Day</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
-									<option value="15">15</option>
-									<option value="16">16</option>
-									<option value="17">17</option>
-									<option value="18">18</option>
-									<option value="19">19</option>
-									<option value="20">20</option>
-									<option value="21">21</option>
-									<option value="22">22</option>
-									<option value="23">23</option>
-									<option value="24">24</option>
-									<option value="25">25</option>
-									<option value="26">26</option>
-									<option value="27">27</option>
-									<option value="28">28</option>
-									<option value="29">29</option>
-									<option value="30">30</option>
-									<option value="31">31</option>
-								</select>
+					<option value="0">Day</option>
+				{% for i in 1..31 %}
+					<option value="{{ i }}"{% if query.time_endDay == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
 				<select name="te_year">
 				<option value="0">Year</option>
-									<option value="2001">2001</option>
-									<option value="2002">2002</option>
-									<option value="2003">2003</option>
-									<option value="2004">2004</option>
-									<option value="2005">2005</option>
-									<option value="2006">2006</option>
-									<option value="2007">2007</option>
-									<option value="2008">2008</option>
-									<option value="2009">2009</option>
-									<option value="2010">2010</option>
-								</select>
+				{% set b = 2001 %}
+				{% set n = now|date('Y') %}
+				
+				{% for i in b..n %}
+					<option value="{{ i }}"{% if query.time_endYear == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
+
 			</div>
 			
 		</fieldset>
@@ -210,134 +145,55 @@
 		<fieldset class="noborder" id="from_to_date2">
 			<div>
 				<label>From:</label>
+
 				<select name="ts_month">
-											<option value="0" selected="selected">Month</option>
-											<option value="01">January</option>
-											<option value="02">February</option>
-											<option value="03">March</option>
-											<option value="04">April</option>
-											<option value="05">May</option>
-											<option value="06">June</option>
-											<option value="07">July</option>
-											<option value="08">August</option>
-											<option value="09">September</option>
-											<option value="10">October</option>
-											<option value="11">November</option>
-											<option value="12">December</option>
-									</select>
+					<option value="0">Month</option>
+					{% for val,label in months %}
+						<option value="{{ val }}"{% if query.time_startMonth == val %} selected="selected"{% endif %}>{{ label }}</option>
+					{% endfor %}
+				</select>
 				<select name="ts_day">
 					<option value="0">Day</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
-									<option value="15">15</option>
-									<option value="16">16</option>
-									<option value="17">17</option>
-									<option value="18">18</option>
-									<option value="19">19</option>
-									<option value="20">20</option>
-									<option value="21">21</option>
-									<option value="22">22</option>
-									<option value="23">23</option>
-									<option value="24">24</option>
-									<option value="25">25</option>
-									<option value="26">26</option>
-									<option value="27">27</option>
-									<option value="28">28</option>
-									<option value="29">29</option>
-									<option value="30">30</option>
-									<option value="31">31</option>
-								</select>
+				{% for i in 1..31 %}
+					<option value="{{ i }}"{% if query.time_startDay == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
 				<select name="ts_year">
 				<option value="0">Year</option>
-									<option value="2001">2001</option>
-									<option value="2002">2002</option>
-									<option value="2003">2003</option>
-									<option value="2004">2004</option>
-									<option value="2005">2005</option>
-									<option value="2006">2006</option>
-									<option value="2007">2007</option>
-									<option value="2008">2008</option>
-									<option value="2009">2009</option>
-									<option value="2010">2010</option>
-								</select>
+				{% set b = 2001 %}
+				{% set n = now|date('Y') %}
+				
+				{% for i in b..n %}
+					<option value="{{ i }}"{% if query.time_startYear == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
+
 			</div>
 			
 			<div>
 				<label>To:</label>
 				<select name="te_month">
-											<option value="0" selected="selected">Month</option>
-											<option value="01">January</option>
-											<option value="02">February</option>
-											<option value="03">March</option>
-											<option value="04">April</option>
-											<option value="05">May</option>
-											<option value="06">June</option>
-											<option value="07">July</option>
-											<option value="08">August</option>
-											<option value="09">September</option>
-											<option value="10">October</option>
-											<option value="11">November</option>
-											<option value="12">December</option>
-									</select>
+					<option value="0">Month</option>
+					{% for val,label in months %}
+						<option value="{{ val }}"{% if query.time_endMonth == val %} selected="selected"{% endif %}>{{ label }}</option>
+					{% endfor %}
+				</select>
 				<select name="te_day">
-				<option value="0">Day</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
-									<option value="15">15</option>
-									<option value="16">16</option>
-									<option value="17">17</option>
-									<option value="18">18</option>
-									<option value="19">19</option>
-									<option value="20">20</option>
-									<option value="21">21</option>
-									<option value="22">22</option>
-									<option value="23">23</option>
-									<option value="24">24</option>
-									<option value="25">25</option>
-									<option value="26">26</option>
-									<option value="27">27</option>
-									<option value="28">28</option>
-									<option value="29">29</option>
-									<option value="30">30</option>
-									<option value="31">31</option>
-								</select>
+					<option value="0">Day</option>
+				{% for i in 1..31 %}
+					<option value="{{ i }}"{% if query.time_endDay == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
 				<select name="te_year">
 				<option value="0">Year</option>
-									<option value="2001">2001</option>
-									<option value="2002">2002</option>
-									<option value="2003">2003</option>
-									<option value="2004">2004</option>
-									<option value="2005">2005</option>
-									<option value="2006">2006</option>
-									<option value="2007">2007</option>
-									<option value="2008">2008</option>
-									<option value="2009">2009</option>
-									<option value="2010">2010</option>
-								</select>
+				{% set b = 2001 %}
+				{% set n = now|date('Y') %}
+				
+				{% for i in b..n %}
+					<option value="{{ i }}"{% if query.time_endYear == i %} selected="selected"{% endif %}>{{ i }}</option>
+				{% endfor %}
+				</select>
+
 			</div>
 			
 		</fieldset>

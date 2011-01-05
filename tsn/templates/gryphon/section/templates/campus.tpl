@@ -1,6 +1,6 @@
 {% extends "gryphon/base.tpl" %}
 
-{% block title %}The State News :: Campus{{ section.name }}{% endblock %}
+{% block title %}Campus{% endblock %}
 {% block active %}news{% endblock %}
 {% block subActive %}Campus{% endblock %}
 
