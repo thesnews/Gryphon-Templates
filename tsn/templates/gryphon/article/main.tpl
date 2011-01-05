@@ -142,7 +142,7 @@
 
 		{% for gallery in galleries %}
 			<div class="gallery sidebar-item expandable">
-				<a href="{{ gallery.urlDefault }}"><img src="{{ gallery.urlPreview }}" alt="{{ gallery.base_name }}" class="preview" /></a>
+				<a href="{{ gallery.galleries[0].urlDefault }}"><img src="{{ gallery.urlPreview }}" alt="{{ gallery.base_name }}" class="preview" /></a>
 				<span>Gallery: {{ gallery.galleries[0].title|clip(15) }}</span>
 			</div>
 		{% endfor %}
