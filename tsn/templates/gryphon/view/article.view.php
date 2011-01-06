@@ -47,6 +47,8 @@ function main($request, $payload, $kwargs=array()) {
 		M::init('gryphon:shortUrl')->generateFromUrl(
 		$a->url));
 
+	$a->urlShort = $payload['shortUrl'];
+
 	$ext = 'tpl';
 	if( $request->isMobile() ) {
 		$ext = 'mbl';

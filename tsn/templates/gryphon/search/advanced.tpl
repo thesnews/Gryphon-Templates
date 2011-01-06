@@ -140,12 +140,30 @@
 
 <hr class="spacer" />
 
-{% if query %}<h5 class="bordered">SEARCH RESULTS:</h5>{% endif %}
+{% if query %}
+	<h5 class="bordered">SEARCH RESULTS:</h5>
+
+		<div class="pagination">
+			<span>
+			{% for page in pagination %}
+				{% if page.isCurrent %}
+					<strong>{{ page.label }}</strong>
+				{% else %}
+					<a href="{{ page.url }}">{{ page.label }}</a>
+				{% endif %}
+			{% endfor %}
+			</span>
+		</div>
+
+{% endif %}
 <ul class="search-results">
 		{% for item in hits %}
 			<li>
-				<h4><a href="{{ item.url|url }}">{{ item.title }}</a></h4> <em>({{ item.created|timeSince }})</em>
+				<h4 style="clear:both;"><a href="{{ item.url|url }}">{{ item.title }}</a></h4> <em>({{ item.created|timeSince }})</em>
 				<br />
+				{% if item.type == 'media' and item.misc.urlThumbnail %}
+					<img src="{{ item.misc.urlThumbnail }}" style="float:left;padding: 5px 5px 5px 0;" />
+				{% endif %}
 				{{ item.description }}
 			</li>
 		{% endfor %}
@@ -156,7 +174,11 @@
 	<div class="pagination">
 		<span>
 			{% for page in pagination %}
-				<a href="{{ page.url }}">{{ page.label }}</a>
+				{% if page.isCurrent %}
+					<strong>{{ page.label }}</strong>
+				{% else %}
+					<a href="{{ page.url }}">{{ page.label }}</a>
+				{% endif %}
 			{% endfor %}
 		</span>
 	</div>
