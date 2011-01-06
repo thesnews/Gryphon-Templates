@@ -1,13 +1,7 @@
 {% helper request %}
 
-{% if request.isMobile() %}
-	{# some hackery to resize for mobile... still working on a better solution #}
-	{% set videoWidth = 475 %}
-	{% set videoHeight = 266 %}
-{% else %}
-	{% set videoWidth = 605 %}
-	{% set videoHeight = 340 %}
-{% endif %}
+{% set videoWidth = 475 %}
+{% set videoHeight = 266 %}
 
 {% if media.pathOriginalMp4|exists %}
 	{# video-js #}
@@ -15,8 +9,17 @@
 	   base.tpl file, FYI #}
 
 	<!-- Begin VideoJS -->
+	{#
+		What the hell is going on here?
+		
+		Well, we're setting up a HTML5 video container with a fallback to the
+		flash based JWPlayer. In the case of the video sizing, we're setting a
+		defined size for desktop browsers but just setting the width to 100%
+		for mobile browsers.
+	#}
+	
 	<div class="video-js-box">
-	  <video id="video_{{ media.uid }}" class="video-js shadow-item" width="{{ videoWidth }}" height="{{ videoHeight }}" poster="{{ media.url }}" controls preload>
+	  <video id="video_{{ media.uid }}" class="video-js shadow-item" {% if not request.clientWantsMobile() %}width="{{ videoWidth }}" height="{{ videoHeight }}"{% else %}width="100%"{% endif %} poster="{{ media.url }}" controls preload>
 		<source src="{{ media.urlOriginalMp4 }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		<source src="{{ media.urlOriginalOgg }}" type='video/ogg; codecs="theora, vorbis"'>
 		<!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
