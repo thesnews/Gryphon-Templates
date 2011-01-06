@@ -1,7 +1,7 @@
 {% helper request %}
 
-{% set videoWidth = 475 %}
-{% set videoHeight = 266 %}
+{% set videoWidth = 605 %}
+{% set videoHeight = 340 %}
 
 {% if media.pathOriginalMp4|exists %}
 	{# video-js #}
