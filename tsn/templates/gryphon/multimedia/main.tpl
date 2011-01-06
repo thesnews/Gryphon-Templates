@@ -46,7 +46,7 @@
 		{% else %}
 			<div class="grid_4 omega">
 		{% endif %}
-			<a href="{{ item.urlDefault }}"><img src="{{ item.urlThumbnail }}" class="thumbnail" /></a>
+			<a href="{{ item.urlDefault }}"><img src="{{ item.urlThumbnail }}" class="thumbnail" style="max-width:100px;" /></a>
 
 			<span class="small"><a href="{{ ('gryphon:multimedia/'~item.type)|url }}">{{ item.fileType|capitalize }}</a>:</span>
 			
