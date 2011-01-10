@@ -8,7 +8,7 @@
 	<h1>Recent section front pages</h1>
 	
 	<p>
-		The ten most recent front page PDFs for our print edition are available for download. To find more front page PDFs, please use our <a href="{{ 'gryphon:search'|url }}?a=1">advanced search</a>.
+		The ten most recent front page PDFs for our print edition are available for download. To find more front page PDFs, please use our <a href="{{ 'gryphon:search'|url }}?a=1&ty=media&tg=pdf">advanced search</a>.
 	</p>
 	
 	<hr class="spacer" />

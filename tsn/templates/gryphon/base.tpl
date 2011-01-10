@@ -257,7 +257,7 @@
 								] %}
 							
 								<ul>
-								<li><a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" /></a></li>
+								<li><a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlThumbnail }}" alt="frontpage" /></a></li>
 								<li><a href="{{ 'page/pdf'|url }}">More Page Fronts</a></li>
 								<li><a href="http://reprints.statenews.com">Reprints</a></li>
 							</ul>
