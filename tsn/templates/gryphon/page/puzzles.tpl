@@ -17,12 +17,16 @@
 
 	<div class="gray box">	
 		<h4>Recent print edition solutons</h4>
+		{% fetch puzzles from gryphon:media with [
+			'where': 'media:status = 1',
+			'order': 'media:created desc',
+			'limit': '5',
+			'withTags': ['puzzle_solutions']
+		] %}
 		<ul>
-			<li><a href="#">Solutions for Wednesday, October 6</a></li>
-			<li><a href="#">Solutions for Tuesday, October 5</a></li>
-			<li><a href="#">Solutions for Tuesday, October 4</a></li>
-			<li><a href="#">Solutions for Friday, October 1</a></li>
-			<li><a href="#">Solutions for Thursday, October 6</a></li>
+			{% for puzzle in puzzles %}
+				<li><a href="{{ puzzle.urlOriginal }}">{{ puzzle.title }}</a></li>
+			{% endfor %}
 		</ul>
 	</div>
 	<hr />

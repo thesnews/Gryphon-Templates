@@ -35,10 +35,17 @@
 						{% endfor %}
 					</ul>
 				</li>
+				<li><a name="podcasts"></a><strong>Podcasts:</strong>
+					<ul>
+						<li><a href="http://www.statenews.com/index.php/feeds/sports.xml">Sports Podcast</a></li>
+						<li><a href="http://www.statenews.com/index.php/feeds/opinion.xml">Opinion Podcast</a></li>
+						<li><a href="http://www.statenews.com/index.php/feeds/entertainment.xml">Entertainment Podcast</a></li>
+					</ul>
+				</li>
 				<li><strong>Sections:</strong>
 					<ul>
-						<li><a href="<?php echo Foundry::link( 'section/pageOne.xml' ) ?>">Top Stories</a></li>
-						<li><a href="<?php echo Foundry::link( 'section/news.xml' ) ?>">News</a>
+						<li><a href="{{ 'gryphon:section/pageOne.xml'|url }}">Top Stories</a></li>
+						<li><a href="{{ 'gryphon:section/news.xml'|url }}">News</a>
 							<ul>
 								<li><a href="<?php echo Foundry::link( 'section/city.xml' ) ?>">City</a></li>
 								<li><a href="<?php echo Foundry::link( 'section/campus.xml' ) ?>">Campus</a></li>

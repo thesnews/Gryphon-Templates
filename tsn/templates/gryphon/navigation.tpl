@@ -78,7 +78,8 @@
 			'multimedia/living_city': 'Living City',
 			'multimedia/soundSlide': 'Slideshows',
 			'multimedia/audio': 'Audio',
-			'multimedia/interactive': 'Interactives'
+			'multimedia/interactive': 'Interactives',
+			'page/feeds#podcasts': 'Podcasts'
 		]
 	]
 ] %}
