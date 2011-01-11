@@ -19,7 +19,7 @@
 	#}
 	
 	<div class="video-js-box">
-	  <video id="video_{{ media.uid }}" class="video-js shadow-item" {% if not request.clientWantsMobile() %}width="{{ videoWidth }}" height="{{ videoHeight }}"{% else %}width="100%"{% endif %} poster="{{ media.url }}" controls preload>
+	  <video id="video_{{ media.uid }}" class="video-js shadow-item" {% if not request.clientWantsMobile %}width="{{ videoWidth }}" height="{{ videoHeight }}"{% else %}width="100%"{% endif %} poster="{{ media.url }}" controls preload>
 		<source src="{{ media.urlOriginalMp4 }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		<source src="{{ media.urlOriginalOgg }}" type='video/ogg; codecs="theora, vorbis"'>
 		<!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->

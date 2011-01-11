@@ -1,5 +1,5 @@
 {% helper weather %}
-
+{% helper request %}
 <!doctype html>
 <html lang="en">
 
@@ -60,7 +60,7 @@
 		
 		<div id="footer">
 			&copy; 2011 The State News<br />
-			Viewing mobile version. | Switch to <a href="#">standard</a><br />
+			Viewing mobile version. | Switch to <a href="{{ request }}?_mo=1">standard</a><br />
 			Powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a>.
 		</div>
 		
