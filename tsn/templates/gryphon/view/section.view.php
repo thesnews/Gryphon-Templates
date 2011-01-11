@@ -44,7 +44,7 @@ function main($request, $payload, $kwargs=array()) {
 	$s = $payload['section'];
 
 	$ext = 'tpl';
-	if( $request->isMobile() ) {
+	if( $request->isMobile() && $request->clientWantsMobile ) {
 		$ext = 'mbl';
 	}
 	

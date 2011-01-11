@@ -27,7 +27,7 @@ use foundry\model as M;
 function main($request, $payload, $kwargs=array()) {
 
 	$ext = 'tpl';
-	if( $request->isMobile() ) {
+	if( $request->isMobile() && $request->clientWantsMobile ) {
 		$ext = 'mbl';
 	}
 

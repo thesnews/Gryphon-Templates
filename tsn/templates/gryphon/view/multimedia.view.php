@@ -28,7 +28,7 @@ function main($request, $payload, $kwargs=array()) {
 	$slug = $payload['slug'];
 
 	$ext = 'tpl';
-	if( $request->isMobile() ) {
+	if( $request->isMobile() && $request->clientWantsMobile ) {
 		$ext = 'mbl';
 	}
 	

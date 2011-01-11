@@ -48,7 +48,7 @@ function main($request, $payload, $kwargs=array()) {
 		$a->url));
 
 	$ext = 'tpl';
-	if( $request->isMobile() ) {
+	if( $request->isMobile() && $request->clientWantsMobile ) {
 		$ext = 'mbl';
 	}
 	
