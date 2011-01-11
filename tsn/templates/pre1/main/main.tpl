@@ -54,6 +54,10 @@
 			{% endfor %}
 			</ul>
 			
+			<div class="box gray">
+				<strong><a href="{{ 'tsn:mail/classified/4'|url }}">Submit a classified ad request</a></strong>
+			</div>
+			
 		</div>
 		<hr class="spacer" />
 	</div>

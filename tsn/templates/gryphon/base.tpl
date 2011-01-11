@@ -257,7 +257,7 @@
 								] %}
 							
 								<ul>
-								<li><a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" /></a></li>
+								<li><a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlThumbnail }}" alt="frontpage" /></a></li>
 								<li><a href="{{ 'page/pdf'|url }}">More Page Fronts</a></li>
 								<li><a href="http://reprints.statenews.com">Reprints</a></li>
 							</ul>
@@ -272,7 +272,7 @@
 						</div>
 						
 						<div id="copyright" class="small">
-							All Content &copy; Copyright 2011, The State News | Valid <a href="http://validator.w3.org/check/referer">HTML</a> & <a href="http://jigsaw.w3.org/css-validator/validator?uri=#">CSS</a><br />
+							All Content &copy; Copyright 2011, The State News<!-- | Valid <a href="http://validator.w3.org/check/referer">HTML</a> & <a href="http://jigsaw.w3.org/css-validator/validator?uri=#">CSS</a>--><br />
 							Proudly powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a><br />
 
 							<a id="sn_logo_footer" href="http://statenews.com"></a>

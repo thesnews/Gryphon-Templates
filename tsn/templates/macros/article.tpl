@@ -1,5 +1,6 @@
 {% macro abstract5Col(article) %}
 	{% helper dswSync %} {# bring the 'dswSync' helper into the macro context #}
+	{% set topMug = article.media.grab('meta', 'mugshot', true)[0] %}
 	{% set topImage = article.media.grab('type', 'image')[0] %}
 	{% set showHeadline = 1 %}
 	
@@ -56,6 +57,9 @@
 			
 		</div>
 		
+		{% if topMug %}
+			<img src="{{ topMug.url }}" style="float:left;padding:5px 5px 5px 0;" />
+		{% endif %}
 		<p>{{ article.abstract_formatted }} <a href="{{ article.url }}">Read more &#187;</a></p>
 		
 		{% if article.multimedia.length %}

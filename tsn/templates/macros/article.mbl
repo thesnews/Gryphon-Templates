@@ -1,5 +1,6 @@
 {% macro featured(article) %}
 	{% helper dswSync %} {# bring the 'dswSync' helper into the macro context #}
+	{% set topMug = article.media.grab('meta', 'mugshot', true)[0] %}
 	{% set topImage = article.media.grab('type', 'image')[0] %}
 	{% set showHeadline = 1 %}
 	
@@ -52,7 +53,12 @@
 			(<a href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>)
 		</div>
 		
-		<p>{{ article.abstract_formatted }} <a href="{{ article.url }}">Read more &#187;</a></p>		
+		{% if topMug %}
+			<img src="{{ topMug.url }}" style="float:left;padding:5px 5px 5px 0;" />
+		{% endif %}
+		<p>{{ article.abstract_formatted }} <a href="{{ article.url }}">Read more &#187;</a></p>
+		
+		<br style="clear:both;" />
 	</div>
 {% endmacro %}
 
