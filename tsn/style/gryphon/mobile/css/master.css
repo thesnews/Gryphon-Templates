@@ -368,7 +368,38 @@ input#comment-name, input#comment-email {
 	width: 300px;
 	float: right;
 	}
-	
+
+.box {
+	padding: 10px;
+}
+	.box p {
+		font-size: 14px;
+	}
+.gray {
+	background: #f1f1f1;
+}	
+
+	hr.spacer {
+		background: inherit;
+		border: 0;
+		height: .2em;
+	}
+strong {
+	font-weight: bold;
+}
+
+ul.classified-list {
+	margin: 10px 0 20px 0;
+	}
+
+ul.classified-list li {
+	line-height: 1.5em;
+	border-bottom: 1px dashed #dfdfdf;
+	font-size: 14px;
+	padding: 10px 0;
+	}
+
+
 /* Formatting
 --------------------------------------------- */
 
@@ -404,7 +435,11 @@ h1 {
 	font-size: 25px;
 	font-weight: bold;
 	}
-	
+
+h3 {
+	font-weight: bold;
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-decoration: none !important;
 	font-size: 20px;
@@ -524,6 +559,9 @@ div.pagination span a:hover {
 #photo_container {
 	background: url(../../images/throbber_333.gif) center center no-repeat;
 }
+.small {
+	font-size: 12px;
+}
 
 /* SMALLER MOBILE STYLING (for devices with widths < 480px)
 --------------------------------------------- */
@@ -589,7 +627,7 @@ div.pagination span a:hover {
 			}
 		
 	#section_selector.open {
-		height: 420px;
+		height: 520px;
 		}
 		
 		#section_selector img {

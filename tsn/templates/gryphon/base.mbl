@@ -32,9 +32,11 @@
 				<li><a href="{{ 'section/sports'|url }}">Sports</a></li>
 				<li><a href="{{ 'section/opinion'|url }}">Opinion</a></li>
 				<li><a href="{{ 'section/features'|url }}">Features</a></li>
-				<li><a href="{{ 'section/entertainment'|url }}">Entertainment</a></li>
 				<li><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
+				<li><a href="{{ 'pre1:main'|url }}">Classifieds</a></li>
+				<li><a href="{{ 'page/contact'|url }}">Contact us</a></li>
 				<li><a href="{{ 'roost:roost'|url }}" target="_blank">Housing Guide</a></li>
+				
 			</ul>
 		
 		<div id="header">
