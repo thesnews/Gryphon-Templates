@@ -8,17 +8,11 @@
 
 
 <div class="container_12">
-			
+			{% include "gryphon/ads/leaderboard.tpl" %}
 			
 			<div class="grid_12">
 				<div class="grid_5 alpha">
-					<h1><a href="article.php">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h1>
-					<div class="dark byline">
-						<span class="date"><?php echo date("M d, Y"); ?></span>
-						<a class="author" href="#">John Doe</a>
-						<a class="comment" href="#">0 Comments</a>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. <a href="#" class="dark"><span>More</span></a></p>
+					{{ articleRender.abstract5Col(topStory) }}
 				</div>
 				<div class="grid_7 omega">
 					<div id="featured_stories">
@@ -31,7 +25,7 @@
 					    	<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="featured" />
 							<div class="caption">
 								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							</div>
 					    </div>
 					    <div id="featured_story2">
@@ -52,32 +46,77 @@
 				</div>
 			</div>
 			<div class="grid_12" id="secondary">
-				<div class="grid_9 alpha">
+							<div class="grid_9 alpha">
 					<div class="grid_9 alpha omega">
 						<div class="grid_3 alpha">
-							<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-							<div class="dark byline">
-								<span class="date"><?php echo date("M d, Y"); ?></span>
-								<a class="author" href="#">John Doe</a>
+							{% fetch news from article with [
+					'limit': 6,
+					'order': 'weight desc, created desc',
+					'where': 'status = 1',
+					'withTags': ['news']
+					]
+		%}
+								{% set topPost = news.shift() %}
+				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+				<div class="dark byline">
+				{% if topPost.authors.length %}
+						By {{ topPost.authors.splat('name')|join(', ') }}
+						<span class="byline_divider">|</span>
+					{% endif %}
+					Published {{ topPost.created|date('m/d') }}
+						<p>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. <a href="#" class="dark"><span>More</span></a></p>
+					{{ topPost.abstract_formatted }}
+					 <a href="#" class="dark"><span>More</span></a>
+				</p>				
+							
 						</div>
 						<div class="grid_3">
-							<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-							<div class="dark byline">
-								<span class="date"><?php echo date("M d, Y"); ?></span>
-								<a class="author" href="#">John Doe</a>
+						{% fetch sports from article with [
+					'limit': 6,
+					'order': 'weight desc, created desc',
+					'where': 'status = 1',
+					'withTags': ['sports']
+					]
+		%}
+		{% set topPost = sports.shift() %}
+				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+				<div class="dark byline">
+				{% if topPost.authors.length %}
+						By {{ topPost.authors.splat('name')|join(', ') }}
+						<span class="byline_divider">|</span>
+					{% endif %}
+					Published {{ topPost.created|date('m/d') }}
+						<p>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. <a href="#" class="dark"><span>More</span></a></p>
-						</div>
+						{{ topPost.abstract_formatted }}
+					 <a href="#" class="dark"><span>More</span></a>
+				</p>				
+							
+						</div>		
 						<div class="grid_3 omega">
-							<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-							<div class="dark byline">
-								<span class="date"><?php echo date("M d, Y"); ?></span>
-								<a class="author" href="#">John Doe</a>
+							{% fetch opinion from article with [
+					'limit': 6,
+					'order': 'weight desc, created desc',
+					'where': 'status = 1',
+					'withTags': ['opinion']
+					]
+		%}
+		{% set topPost = opinion.shift() %}
+				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+				<div class="dark byline">
+				{% if topPost.authors.length %}
+						By {{ topPost.authors.splat('name')|join(', ') }}
+						<span class="byline_divider">|</span>
+					{% endif %}
+					Published {{ topPost.created|date('m/d') }}
+						<p>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. <a href="#" class="dark"><span>More</span></a></p>
-						</div>
+					{{ topPost.abstract_formatted }}
+					 <a href="#" class="dark"><span>More</span></a>
+				</p>				
+							
+						</div>		
 					</div>
 					
 					{% fetch news from article with [
@@ -132,7 +171,7 @@
 					</div>
 				</div>
 				<div class="grid_3 omega" style="text-align: right;">
-					<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+					{% include "gryphon/ads/skyscraper.tpl" %}
 				</div>
 			</div>
 			<div class="grid_12">
@@ -344,98 +383,7 @@
 					<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: right" />
 				</div>
 			</div>
-			<div class="grid_12" id="footer">
-				<div class="grid_2 alpha">
-					<ul>
-						<li><h3>News</h3></li>
-						<li><a href="#">Campus</a></li>
-						<li><a href="#">City</a></li>
-						<li><a href="#">Police Briefs</a></li>
-						<li><a href="#">Crime Map</a></li>
-					</ul>
-					<ul>
-						<li><h3>Opinion</h3></li>
-						<li><a href="#">Editorials</a></li>
-						<li><a href="#">Columns</a></li>
-						<li><a href="#">Letters</a></li>
-					</ul>
-					<ul>
-						<li><h3>Entertainment</h3></li>
-						<li><a href="#">Dining Guide</a></li>
-						<li><a href="#">Calendar</a></li>
-					</ul>
-				</div>
-				<div class="grid_2">
-					<ul>
-						<li><h3>Sports</h3></li>
-						<li><a href="#">Baseball</a></li>
-						<li><a href="#">Basketball</a></li>
-						<li><a href="#">Cross Country</a></li>
-						<li><a href="#">Football</a></li>
-						<li><a href="#">Golf</a></li>
-						<li><a href="#">Gymnastics</a></li>
-						<li><a href="#">Ice Hockey</a></li>
-						<li><a href="#">Soccer</a></li>
-						<li><a href="#">Softball</a></li>
-						<li><a href="#">Swimming &amp; Diving</a></li>
-						<li><a href="#">Track & Field</a></li>
-						<li><a href="#">Volleyball</a></li>
-					</ul>
-				</div>
-				<div class="grid_2">
-					<ul>
-						<li><a href="#">Blogs</a></li>
-						<li><a href="#">Classifieds</a></li>
-						<li><a href="#">Religious Guide</a></li>
-						<li><a href="#">Puzzles</a></li>
-						<li><a href="#">Mobile Edition</a></li>
-					</ul>
-					<ul>
-						<li><h3>Multimedia</h3></li>
-						<li><a href="#">Videos</a></li>
-						<li><a href="#">Photo Galleries</a></li>
-						<li><a href="#">Podcasts</a></li>
-					</ul>
-					<ul>
-						<li><h3>Features</h3></li>
-						<li><a href="#">Special Editions</a></li>
-					</ul>
-				</div>
-				<div class="grid_2">
-					<ul>
-						<li><a href="#">Archives</a></li>
-						<li><a href="#">Search</a></li>
-						<li><a href="#">Feeds</a></li>
-						<li><a href="#">Photo Reprints</a></li>
-						<li><a href="#">Advertise With Us</a></li>
-						<li><a href="#">Alumni</a></li>
-						<li><a href="#">Work Here</a></li>
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-					</ul>
-					<ul>
-						<li class="title">Follow Us:</li>
-						<li><a class="facebook" href="#">Facebook</a></li>
-						<li><a class="twitter" href="#">Twitter</a></li>
-					</ul>
-				</div>
-
-				<div class="grid_2" style="width: 120px;">
-					<ul>
-						<li><a href="#"><img class="front_pdf" src="{{ 'style_chroma/images/dummy/front_pdf.jpg'|url }}" alt="frontpage" /></a></li>
-						<li><a href="#">More Page Fronts</a></li>
-						<li><a href="#">Reprints</a></li>
-					</ul>
-				</div>
-				<div class="grid_2 omega">
-					<p><b>Detroit Softworks</b> offers a hosted CMS, web ad management, and reprint sales solution for your publication. With unprecedented control over your site’s design and Web ads, content delivery via state-of-the art Macintosh server hardware, and ecommerce-grade security, you can rest easy in the knowledge that <b>It. Just. Works.</b></p>
-				</div>
-				<div class="clear"></div>
-				<div id="copyright">
-					<p>&copy; Copyright 2009 Detroit Softworks. All Rights Reserved.<br /><small>Valid <a href="http://validator.w3.org/check/referer">HTML5</a> and <a href="#">CSS3</a></small><p>
-					<a id="powered" href="http://detroitsoftworks.com">Powered by Detroit Softworks</a>
-				</div>
-			</div>
+			
 		</div>
 
 {% endblock content %}

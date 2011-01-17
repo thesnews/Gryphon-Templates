@@ -18,8 +18,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="generator" content="Gryphon {{ config.appVersion }} (Foundry {{ config.foundryVersion }})" />
 
-	<meta name="title" content="The State News{{ title|default(" :: Michigan State University's Independent Voice") }}" />
-	<meta name="description" content="{{ description|default("Michigan State University's Independent Voice") }}" />
+	<meta name="title" content="Detroit Softworks{{ title|default(" :: Detroit Softworks") }}" />
+	<meta name="description" content="{{ description|default("Detroit Softworks") }}" />
 
 	<script type="text/javascript" src="{{ 'javascript/vendor/mootools/mootools-1.2.4-compressed.js'|url }}"></script>
 
@@ -27,7 +27,7 @@
 		<meta name="robots" content="noindex, nofollow" />
 	{% endif %}
 
-	<title>Detroit Softworks{{ title|default(" :: Michigan State University's Independent Voice") }}</title>
+	<title>Detroit Softworks{{ title|default(" :: Detroit Softworks") }}</title>
 
 	{% if config.get('debug') %}
 		<script type="text/javascript" src="{{ 'javascript/vendor/offspring.js'|url }}"></script>
@@ -37,7 +37,7 @@
 		
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-1.3.2.min.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'style_chroma  /js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
 
 		<script src="{{ 'javascript/vendor/video-js/video.js'|url }}" type="text/javascript" charset="utf-8"></script>
 	{% else %}
@@ -49,7 +49,7 @@
 	{% block links %}{% endblock %}
 
 	<link rel="icon" type="image/png" href="{{ 'style_chroma/images/favico.png'|url }}" />
-	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/master.css?021610'|url }}" />
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/master.css'|url }}" />
 	<link rel="stylesheet" type="text/css" media="print" href="{{ 'style_chroma/print/master.css'|url }}" />
 	<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/ie6.css'|url }}" />
@@ -115,8 +115,6 @@
 				{# THIS IS THE MAIN CONTENT BLOCK #}
 				{% block content %}{% endblock %}
 				
-				<hr />
-				
 				<div class="grid_12">
 					<div class="advertisement leaderboard">
 						<script type="text/javascript"><!--
@@ -141,29 +139,60 @@
 			<div class="container_12" id="footer">
 				<div class="grid_2">
 							<ul>
-								<li class="title"><a href="{{ 'section/news'|url }}">News</a></li>
+								<li><h3>News</h3></li>
+								<li><a href="{{ 'section/campus'|url }}">Campus</a></li>
+								<li><a href="{{ 'section/city'|url }}">City</a></li>
+								<li><a href="{{ 'section/briefs'|url }}">Police Briefs</a></li>
+								<li><a href="{{ 'crime'|url }}">Crime Map</a></li>
 							</ul>
 							<ul>
-								<li class="title"><a href="{{ 'section/opinion'|url }}">Opinion</a></li>							
+								<li><h3>Opinion</h3></li>
+								<li><a href="{{ 'section/editorials'|url }}">Editorials</a></li>
+								<li><a href="{{ 'section/columns'|url }}">Columns</a></li>	
+								<li><a href="{{ 'section/letters'|url }}">Letters</a></li>				
 							</ul>
 							<ul>
-								<li class="title"><a href="{{ 'section/features'|url }}">Features</a></li>
+								<li><h3>Entertainment</h3></li>
+								<li><a href="{{ 'section/dining'|url }}">Dining Guide</a></li>
+								<li><a href="{{ 'section/calendar'|url }}">Calendar</a></li>
 							</ul>
 						</div>
 						
 						<div class="grid_2">
 							<ul>
-								<li class="title"><a href="{{ 'section/sports'|url }}">Sports</a></li>	
+								<li><h3>Sports</h3></li>
+								<li><a href="{{ 'section/baseball'|url }}">Baseball</a></li>
+								<li><a href="{{ 'section/basketball'|url }}">Basketball</a></li>	
+								<li><a href="{{ 'section/crosscountry'|url }}">Cross Country</a></li>
+								<li><a href="{{ 'section/football'|url }}">Football</a></li>
+								<li><a href="{{ 'section/golf'|url }}">Golf</a></li>
+								<li><a href="{{ 'section/gymnastics'|url }}">Gymnastics</a></li>
+								<li><a href="{{ 'section/hockey'|url }}">Ice Hockey</a></li>
+								<li><a href="{{ 'section/soccer'|url }}">Soccer</a></li>
+								<li><a href="{{ 'section/softball'|url }}">Softball</a></li>
+								<li><a href="{{ 'section/swimmingdiving'|url }}">Swimming & Diving</a></li>
+								<li><a href="{{ 'section/trackfield'|url }}">Track & Field</a></li>
+								<li><a href="{{ 'section/volleyball'|url }}">Volleyball</a></li>
 							</ul>
 						</div>
 						
 						<div class="grid_2">
 							<ul>
-								<li class="title"><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
-								<li><a href="{{ 'multimedia/living_city'|url }}">Living City</a></li>
-								<li><a href="{{ 'multimedia/flashVideo'|url }}">Video</a></li>
+								<li><a href="{{ 'blog'|url }}">blogs</a></li>
+								<li><a href="{{ 'smartPub'|url }}">Classifieds</a></li>
+								<li><a href="{{ 'page/religious'|url }}">Religious Guide</a></li>
+								<li><a href="{{ 'page/puzzles'|url }}">Puzzles</a></li>
+								<li><a href="{{ 'page/mobile'|url }}">Mobile Edition</a></li>
+							</ul>
+							<ul>
+								<li><h3>Multimedia</h3></li>
+								<li><a href="{{ 'multimedia/flashVideo'|url }}">Videos</a></li>
 								<li><a href="{{ 'gallery'|url }}">Photo Galleries</a></li>
 								<li><a href="{{ 'multimedia'|url }}">Podcasts</a></li>
+							</ul>
+							<ul>
+								<li><h3>Features</h3></li>
+								<li></li><a href="{{ 'section/features'|url }}">Special Editions</a></li>
 							</ul>
 						</div>
 						
@@ -174,7 +203,7 @@
 								<li><a id="feeds" href="{{ 'page/feeds'|url }}">Feeds</a></li>
 								<li><a href="http://reprints.statenews.com">Photo Reprints</a></li>
 								<li><a href="http://advertise.statenews.com">Advertise With Us</a></li>
-								<li><a href="http://snaa.statenews.com">SN Alumni</a></li>
+								<li><a href="http://snaa.statenews.com">Alumni</a></li>
 								<li><a href="{{ 'page/work'|url }}">Work Here</a></li>
 								<li><a href="{{ 'page/contact'|url }}">Contact Us</a></li>
 								<li><a href="{{ 'page/privacy'|url }}">Privacy Policy</a></li>
@@ -203,22 +232,20 @@
 						</div>
 						
 						<div class="grid_2">
-							<p><b>The State News</b> is published by the students of <a href="http://www.msu.edu">Michigan State University</a>. <b>State News, Inc.</b> is a nonprofit corporation. Its current 990 tax form is available for review upon request at <i>435 E. Grand River Avenue</i> during business hours.</p>
+							
 
 							<a id="gryphon_logo_footer" title="Gryphon CMS" href="http://detroitsoftworks.com/index.php/page/gryphon"></a>
 							<a id="dsw_logo_footer" title="Detroit Softworks" href="http://detroitsoftworks.com/"></a>
 
 						</div>
+						<p><b>Detroit Softworks</b> offers a hosted CMS, web ad management, and reprint sales solution for your publication. With unprecedented control over your site’s design and Web ads, content delivery, and ecommerce-grade security, you can rest easy in the knowledge that <b>It. Just. Works.</b></p>
 						
+										
+						<div class="clear"></div>
 						<div id="copyright" class="small">
 							All Content &copy; Copyright 2010, The State News | Valid <a href="http://validator.w3.org/check/referer">HTML</a> & <a href="http://jigsaw.w3.org/css-validator/validator?uri=#">CSS</a><br />
 							Proudly powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a><br />
-
-							<a id="sn_logo_footer" href="http://statenews.com"></a>
-							
 						</div>
-						
-						<div class="clear"></div>
 			</div>
 		
 		</div>
