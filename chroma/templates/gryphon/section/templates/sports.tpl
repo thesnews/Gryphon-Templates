@@ -8,68 +8,30 @@
 
 {% set topStory = articles.shift() %}
 {% set secondaryStories = articles.shift(3) %}
-{% import "macros/article.tpl" as articleRender %}
+{% import "macros/articlesports.tpl" as articleRender %}
 
-<div class="grid_8">
+<div class="grid_12">
 
-	<div class="grid_3 alpha">
+	<div class="grid_4 alpha">
+	
+		{{ articleRender.abstract4Col(topStory) }}	
 
-		<h5 class="bordered">
-			SPORTS:
-		</h5>
 		
-		{% for article in secondaryStories %}
-			{{ articleRender.abstract3Col(article) }}
-		{% endfor %}
-		
-		
-		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-		<script>
-		new TWTR.Widget({
-		  version: 2,
-		  type: 'profile',
-		  rpp: 10,
-		  interval: 10000,
-		  width: 'auto',
-		  height: 300,
-		  theme: {
-			shell: {
-			  background: '#94af94',
-			  color: '#ffffff'
-			},
-			tweets: {
-			  background: '#ffffff',
-			  color: '#333333',
-			  links: '#5e8c5e'
-			}
-		  },
-		  features: {
-			scrollbar: true,
-			loop: true,
-			live: false,
-			hashtags: true,
-			timestamp: true,
-			avatars: false,
-			behavior: 'default'
-		  }
-		}).render().setUser('thesnews_sports').start();
-		</script>
 		
 	</div>
 
-	<div class="grid_5 omega">
+	<div class="grid_3 omega">
 
-		{{ articleRender.abstract5Col(topStory) }}		
+				{% for article in secondaryStories %}
+			{{ articleRender.abstract3Col(article) }}
+		{% endfor %}
 
-		<hr class="spacer" />
-
-		<h5 class="bordered">SPORTS MULTIMEDIA:<span><a href="{{ 'multimedia'|url }}">More multimedia &#187;</a></span></h5>	
 		{% fetch multimedia from media with [
-			'limit': 10,
+			'limit': 2,
 			'order': 'self:weight desc, self:created desc',
 			'withTags': ['Multimedia Box','sports']
 		] %}
-		{% include "gryphon/main/box.tpl" %}
+
 
 
 	</div>
@@ -89,9 +51,6 @@
 <div class="grid_8">
 	
 	<div class="grid_6 alpha">
-
-		<h5 class="bordered">MORE SPORTS:</h5>
-
 		<div class="grid_3 alpha">
 			{% set topPost = articles.shift() %}
 			<h3><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h3>
@@ -154,7 +113,7 @@
 
 		<hr class="spacer" />
 
-		<h5 class="bordered">MORE TEAMS:</h5>
+		<h5 class="bordered">Sports:</h5>
 		<ul class="grid_3 alpha">
 
 			<li><h3><a href="/index.php/section/baseball">Baseball</a></h3></li>
@@ -179,17 +138,5 @@
 		</ul>
 
 	</div>
-	<div class="grid_2 omega">
-		{% include 'gryphon/ads/skyscraper.tpl' %}
-	</div>
-
-	<hr class="spacer" />
 	
-</div>
-<div class="grid_4">
-	{% include 'gryphon/main/sidebar-lower.tpl' %}
-</div>
-
-<hr class="spacer" />
-
 {% endblock content %}

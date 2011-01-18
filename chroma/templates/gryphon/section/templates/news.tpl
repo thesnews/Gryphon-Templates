@@ -1,4 +1,4 @@
-   {% extends "gryphon/base.tpl" %}
+{% extends "gryphon/base.tpl" %}
 
 {% block title %} :: {{ section.name }}{% endblock %}
 {% block active %}news{% endblock %}
@@ -9,84 +9,121 @@
 
 {% set topStory = articles.shift() %}
 {% set featuredStories = articles.shift(2) %}
-{% import "macros/article.tpl" as articleRender %}
+{% import "macros/articlenew.tpl" as articleRender %}
 
-<div class="grid_8">
-	<div class="alpha grid_5">
-		{{ articleRender.abstract5Col(topStory) }}		
-		
-		<hr class="spacer" />
-
-		<h5 class="bordered">MORE News:</h5>
-
-			<ul>
-				{% for article in articles %}
-					<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4> <span class="small">(updated {{ article.updated|timeSince }})</span></li>
-				{% endfor %}
-			</ul>
-		
-	</div>
-	<div class="omega grid_3">
-		<h5 class="bordered">
-			NEWS:
-		</h5>
+<div class="grid_12">
+				<div class="grid_4 alpha">
+					
+						{{ articleRender.abstract4Col(topStory) }}
+				</div>
+				<div class="grid_3">
 		{% for article in featuredStories %}
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
-	</div>
-
-	<hr class="spacer" />
-	
-	<div class="alpha grid_6">
-		<h5 class="bordered">
-			NATION &amp; WORLD:
-			<span>powered by <a href="http://nytimes.com">The New York Times</a></span>
-		</h5>
-		
-
-		{% fetch items from nyt:newswireItem with [
-			'order': 'updated desc',
-			'limit': 8
-		] %}
-		<div class="grid_3 alpha">
-			<ul>
-			{% for item in items.shift((items.length)/2) %}
-				<li>
-					<h4><a href="{{ item.url }}">{{ item.title }}</a></h4><br />
-					<span class="small">{{ item.byline }}</span>
+				</div>				
+				<div class="grid_3">
+		{% for article in featuredStories %}
+			{{ articleRender.abstract3Col(article) }}
+		{% endfor %}	
 					
-					<p>{{ item.abstract }}</p>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-		<div class="grid_3 omega">
-			<ul>
-			{% for item in items %}
-				<li>
-					<h4><a href="{{ item.url }}">{{ item.title }}</a></h4><br />
-					<span class="small">{{ item.byline }}</span>
+				</div>
+				<div class="grid_2 omega" style="text-align: right;">
+					<img src="style_chroma/images/ads/skyscraper.png" alt="advertisement" />
+				</div>
+			</div>
+			<div class="grid_12" id="secondary">
+				<div class="grid_4 alpha">
+				
+					<img src="style_chroma/images/ads/square.png" alt="advertisement" />
 					
-					<p>{{ item.abstract }}</p>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-			
-		<hr />
-		<a href="http://developer.nytimes.com/" style="border:none;"><img src="{{ 'images/poweredby_nytimes_150c.png'|url }}" border="0" style="border:none;"/></a>
+						
+							
+				</div>
+				<div class="grid_5">
+				{% for article in articles %}
+				<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
+						<div class="dark byline">
+							<span class="date">{{ article.created|date('m/d') }}</span>
+							<a class="author">
+							{% if article.authors.length %}
+							{{ article.authors.splat('name')|join(', ') }}
+							{% endif %}</a>
+						</div>
+						<p>{{ article.abstract_formatted|clip(300) }}<br /><a href="{{ article.url }}" class="dark"><span>More</span></a></p>
+						{% endfor %}
 
-	</div>
-	<div class="omega grid_2">
-		{% include "gryphon/ads/skyscraper.tpl" %}
-	</div>
+					
+					</div>
+				<div class="grid_3 omega">
+					<div id="section_tabs">
+						<ul id="section_tabs_nav">
+							<li id="news_tab"><a href="#news">News</a></li>
+							<li id="sports_tab"><a href="#sports">Sports</a></li>
+							<li id="opinion_tab"><a href="#opinion">Opinion</a></li>
+							<li id="entertainment_tab"><a href="#entertainment">Entertainment</a></li>
+							<li id="multimedia_tab"><a href="#multimedia">Multimedia</a></li>
+							<li id="comments_tab"><a href="#comments">Comments</a></li>
+						</ul>
+						<div id="news">
+							<ul>
+								<li><h3>Top Stories in <a href="#">News</a>:</h3></li>
+								<li><a href="#">Here is an interesting news article!</a></li>
+								<li><a href="#">Here is an interesting news article!</a></li>
+								<li><a href="#">Here is an interesting news article!</a></li>
+								<li><a href="#">Here is an interesting news article!</a></li>
+								<li><a href="#">Here is an interesting news article!</a></li>
+							</ul>
+						</div>
+						<div id="sports">
+							<ul>
+								<li><h3>Top Stories in <a href="#">Sports</a>:</h3></li>
+								<li><a href="#">Here is a cool sports article!</a></li>
+								<li><a href="#">Here is a cool sports article!</a></li>
+								<li><a href="#">Here is a cool sports article!</a></li>
+								<li><a href="#">Here is a cool sports article!</a></li>
+							</ul>
+						</div>
+						<div id="opinion">
+							<ul>
+								<li><h3>Top Stories in <a href="#">Opinion</a>:</h3></li>
+								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
+								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
+								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
+								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
+								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
+							</ul>
+						</div>
+						<div id="entertainment">
+							<ul>
+								<li><h3>Top Stories in <a href="#">Entertainment</a>:</h3></li>
+								<li><a href="#">Here is an interesting entertainment article!</a></li>
+								<li><a href="#">Here is an interesting entertainment article!</a></li>
+								<li><a href="#">Here is an interesting entertainment article!</a></li>
+							</ul>
+						</div>
+						<div id="multimedia">
+							<ul>
+								<li><h3>Top <a href="#">Multimedia</a> Pieces:</h3></li>
+								<li><a href="#">Here is a link to a multimedia piece!</a></li>
+								<li><a href="#">Here is a link to a multimedia piece!</a></li>
+								<li><a href="#">Here is a link to a multimedia piece!</a></li>
+								<li><a href="#">Here is a link to a multimedia piece!</a></li>
+								<li><a href="#">Here is a link to a multimedia piece!</a></li>
+							</ul>
+						</div>
+						<div id="comments">
+							<ul>
+								<li><h3>Recent Comments in <a href="#">News</a>:</h3></li>
+								<li><a href="#">John</a> said: "Lorem ipsum dolor sit amet..." <small>(21 mins ago)</small></li>
+								<li><a href="#">Bob</a> said: "Lorem ipsum dolor sit amet, consectetur adipisicing..." <small>(41 mins ago)</small></li>
+								<li><a href="#">Lenny</a> said: "Lorem ipsum dolor sit amet..." <small>(1 hrs ago)</small></li>
+								<li><a href="#">Curly</a> said: "Lorem ipsum dolor sit amet, consectetur adipisicing..." <small>(6 hrs ago)</small></li>
+								<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
+							</ul>
+						</div>
+					</div>
 
-</div>
-
-<div class="grid_4">
-	{% include "gryphon/main/sidebar-standard.tpl" %}
-</div>
-
-<hr class="spacer" />
+				</div>
+			</div>
 
 {% endblock content %}
