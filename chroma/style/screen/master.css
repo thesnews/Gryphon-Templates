@@ -421,6 +421,8 @@ div.leaderboard {
 ***********************************/
 div#ticker {
 	font-size: 0.9em;
+	padding: 5px;
+	background: url(../images/bg/dark.png);
 }
 
 div#ticker div {
