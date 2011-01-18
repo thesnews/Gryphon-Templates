@@ -275,6 +275,11 @@
 							All Content &copy; Copyright 2011, The State News<!-- | Valid <a href="http://validator.w3.org/check/referer">HTML</a> & <a href="http://jigsaw.w3.org/css-validator/validator?uri=#">CSS</a>--><br />
 							Proudly powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a><br />
 
+
+							<a href="http://www.w3.org/html/logo/">
+							<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-css3-multimedia-semantics.png" width="229" height="64" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Multimedia, and Semantics" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Multimedia, and Semantics">
+							</a>
+
 							<a id="sn_logo_footer" href="http://statenews.com"></a>
 							
 						</div>
