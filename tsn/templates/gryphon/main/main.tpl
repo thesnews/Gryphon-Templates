@@ -33,8 +33,11 @@
 		</a>
 -->
 
-		<a href="{{ 'calendar'|url }}">
+		{#<a href="{{ 'calendar'|url }}">
 			<img src="{{ 'style/gryphon/images/calendar_ad.png'|url }}" alt="Event Calendar" style="border: none;"/>
+		</a>#}
+		<a href="{{ 'section/mlk'|url }}">
+			<img src="http://www.statenews.com/media/00/00/04/16/41623_mlk2011_linkerf.png" style="border:none;"/>
 		</a>
 		<br />
 		<br />
@@ -82,12 +85,6 @@
 	<hr class="spacer" />
 	
 	<div class="box gray">
-		{% include 'tsn/poll/recent.tpl' %}
-	</div>
-	
-	<hr class="spacer" />
-	
-	<div class="box gray">
 		{% include "pre1/featured.tpl" %}
 	</div>
 
@@ -101,6 +98,13 @@
 	</div>
 
 	<hr class="spacer" />
+
+	<div class="box gray">
+		{% include 'tsn/poll/recent.tpl' %}
+	</div>
+	
+	<hr class="spacer" />
+	
 
 	<div id="newsletter-signup"><div>
 		<form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=statenews/top', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
