@@ -85,7 +85,9 @@ body.multimedia {
 		}
 
 
-
+.advertisement {
+	text-align: center;
+}
 #header {
 	height: 65px;
 	}

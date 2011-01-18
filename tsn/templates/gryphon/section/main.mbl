@@ -10,6 +10,9 @@
 	
 	<div id="col1">
 		{{ articleRender.featured(topStory) }}
+
+		{% include 'gryphon/ads/mobile.mbl' %}
+
 		<ul class="listview">
 			{% for article in articles.shift((articles.length)/2) %}
 				<li>

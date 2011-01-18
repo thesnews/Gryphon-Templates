@@ -23,6 +23,9 @@
 	{% endif %}
 	
 		{{ articleRender.featured(topStory) }}
+		
+		{% include 'gryphon/ads/mobile.mbl' %}
+		
 		<ul class="listview">
 			{% for article in articles %}
 				<li>

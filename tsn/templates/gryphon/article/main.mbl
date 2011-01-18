@@ -155,6 +155,9 @@
 		<br />
 		
 	
+			{% include 'gryphon/ads/mobile.mbl' %}
+
+	
 	<div id="comments_label">
 		<h1>Comments</h1>
 		<a class="btn" href="#comment_form">Add a Comment</a>
