@@ -769,6 +769,11 @@ ul.frontpage_pdf div {
 		height: 125px;
 		width: 125px;
 	}
+
+	.classsponsor {
+		height: 60px;
+		width: 234px;
+	}
 	
 	.rectangle {
 		height: 250px;
