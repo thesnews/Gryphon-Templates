@@ -30,7 +30,7 @@
 			</div>
 		{% endif %}
 	{% endif %}
-	</div>
+
 
 
 		{% if showHeadline %}
@@ -40,10 +40,10 @@
 					
 						<span class="date">{{ article.created|date('m/d') }}</span>
 						
-						<a class="author">
+						
 						{% if article.authors.length %}
-							By {{ article.authors.splat('name')|join(', ') }}
-						{% endif %}</a>
+							<a class="author">{{ article.authors.splat('name')|join(', ') }}</a>
+						{% endif %}
 						
 						<a class="comment" href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>
 						
@@ -51,7 +51,7 @@
 					
 					<p>{{ article.abstract_formatted }} 
 					<a href="{{ article.url }}" class="dark"><span>More</span></a></p>
-					
+			</div>		
 
 {% endmacro %}
 

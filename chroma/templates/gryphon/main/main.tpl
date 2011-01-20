@@ -7,183 +7,151 @@
 {% import "macros/article.tpl" as articleRender %}
 
 
-
-<div class="container_12">
-			{% include "gryphon/ads/leaderboard.tpl" %}
-			
 			<div class="grid_12">
-				<div class="grid_5 alpha">
+				
 					{{ articleRender.abstract5Col(topStory) }}
-
-				</div>
-				<div class="grid_7 omega">
-					<div id="featured_stories">
-					    <ul>
-					        <li class="active"><a href="#featured_story1"><img src="style_chroma/images/dummy/ftr1.jpg" alt="featured" /></a></li>
-					        <li><a href="#featured_story2"><img src="style_chroma/images/dummy/ftr2.jpg" alt="featured" /></a></li>
-					        <li><a href="#featured_story3"><img src="style_chroma/images/dummy/ftr3.jpg" alt="featured" /></a></li>
-					    </ul>
-					    <div id="featured_story1">
-					    	<img src="style_chroma/images/dummy/ftr1.jpg" alt="featured" />
-							<div class="caption">
-								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-					    </div>
-					    <div id="featured_story2">
-					       <img src="style_chroma/images/dummy/ftr2.jpg" alt="featured" />
-							<div class="caption">
-								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-					    </div>
-					    <div id="featured_story3">
-					        <img src="style_chroma/images/dummy/ftr3.jpg" alt="featured" />
-							<div class="caption">
-								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-					    </div>
-					</div>
-				</div>
 			</div>
 			<div class="grid_12" id="secondary">
-							<div class="grid_9 alpha">
-					<div class="grid_9 alpha omega">
-						<div class="grid_3 alpha">
-
-
-							{% fetch news from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['news']
-					]
-		%}
-								{% set topPost = news.shift() %}
-				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
-				<div class="dark byline">
-				{% if topPost.authors.length %}
-						By {{ topPost.authors.splat('name')|join(', ') }}
-						<span class="byline_divider">|</span>
-					{% endif %}
-					Published {{ topPost.created|date('m/d') }}
-						<p>
-							</div>
-					{{ topPost.abstract_formatted }}
-					 <a href="#" class="dark"><span>More</span></a>
-				</p>				
-							
+				
+				<div class="grid_9 alpha">
+					<div class="grid_3 alpha">
+						{% fetch news from article with [
+						'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['news']
+														]
+						%}
+						
+						{% set topPost = news.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							<span class="byline_divider">|</span>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
-						<div class="grid_3">
-						{% fetch sports from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['sports']
-					]
-		%}
-		{% set topPost = sports.shift() %}
-				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
-				<div class="dark byline">
-				{% if topPost.authors.length %}
-						By {{ topPost.authors.splat('name')|join(', ') }}
-						<span class="byline_divider">|</span>
-					{% endif %}
-					Published {{ topPost.created|date('m/d') }}
 						<p>
-							</div>
 						{{ topPost.abstract_formatted }}
-					 <a href="#" class="dark"><span>More</span></a>
-				</p>				
-							
-						</div>		
-						<div class="grid_3 omega">
-							{% fetch opinion from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['opinion']
-					]
-		%}
-		{% set topPost = opinion.shift() %}
-				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
-				<div class="dark byline">
-				{% if topPost.authors.length %}
-						By {{ topPost.authors.splat('name')|join(', ') }}
-						<span class="byline_divider">|</span>
-					{% endif %}
-					Published {{ topPost.created|date('m/d') }}
+						<a href="#" class="dark"><span>More</span></a>
+						</p>				
+									
+					</div>		
+					<div class="grid_3">
+						{% fetch sports from article with [
+						'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['sports']
+														]
+						%}
+						{% set topPost = sports.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							<span class="byline_divider">|</span>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+						</div>
 						<p>
-							</div>
-					{{ topPost.abstract_formatted }}
-					 <a href="#" class="dark"><span>More</span></a>
-				</p>				
+						{{ topPost.abstract_formatted }}
+						 <a href="#" class="dark"><span>More</span></a>
+						</p>				
 							
-						</div>		
-					</div>
+					</div>		
+					<div class="grid_3 omega">
+						{% fetch opinion from article with [
+						'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['opinion']
+															]
+						%}
+						{% set topPost = opinion.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							<span class="byline_divider">|</span>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+						</div>
+						<p>
+						{{ topPost.abstract_formatted }}
+						<a href="#" class="dark"><span>More</span></a>
+						</p>				
+					</div>		
+		
+				<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->	
+				
+			
+				
+					<div class="grid_3 alpha">
+						{% fetch news from article with [
+							'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['news']
+						]
+						%}
+						
 					
-					{% fetch news from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['news']
-					]
-		%}
-					<div class="grid_9 alpha omega">
-						<div class="grid_3 alpha">
-							<ul class="more_from">
-								<li><h3>More from <a href="#">News</a>:</h3></li>
+								<ul class="more_from">
+									<li><h3>More from <a href="#">News</a>:</h3></li>
 								{% for article in articles %}
 								<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
 								{% endfor %}
 							</ul>
+							</div>
 							
-							</ul>
-
-						</div>
+					<div class="grid_3">	
 						
-		{% fetch sports from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['sports']
-					]
-		%}
-						<div class="grid_3">
+						{% fetch sports from article with [
+						'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['sports']
+						]
+						%}
+
+			
 							<ul class="more_from">
 								<li><h3>More from <a href="{{ 'section/sports'|url }}">Sports</a>:</h3></li>
 								{% for item in sports %}
 								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
-
-
 								{% endfor %}
 							</ul>
-						</div>
-						{% fetch opinion from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['opinion']
-					]
-		%}
+							
+					</div>
+					
 						<div class="grid_3 omega">
+							{% fetch opinion from article with [
+							'limit': 6,
+							'order': 'weight desc, created desc',
+							'where': 'status = 1',
+							'withTags': ['opinion']
+							]
+							%}
+					
 							<ul class="more_from">
-
-
 								<li><h3>More from <a href="{{ 'section/opinion'|url }}">Opinion</a>:</h3></li>
 								{% for item in opinion %}
 								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
-							{% endfor %}
+								{% endfor %}
 
 							</ul>
 						</div>
-					</div>
-				</div>
-				<div class="grid_3 omega" style="text-align: right;">
-					{% include "gryphon/ads/skyscraper.tpl" %}
-				</div>
+						
+				</div> <!-- this end tag coresponds to the div grid 9-->
+				
+						<div class="grid_3 omega">
+						<!--insert add here-->
+						</div>
+						
 			</div>
+		</div>
 			<div class="grid_12">
 					<div class="grid_4 alpha square">
 						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />

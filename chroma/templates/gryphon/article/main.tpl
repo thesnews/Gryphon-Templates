@@ -12,7 +12,7 @@
 {% helper dswSync %}
 {% import 'macros/tools.tpl' as tools %}
 
-{# we grab these ahead because they're all 'images' #}
+{# we grab these ahead because theyre all 'images' #}
 
 {% set infoGraphs = article.media.grab('meta', 'info graphic', true) %}
 {% set mugShots = article.media.grab('meta', 'mugshot', true) %}
@@ -29,6 +29,176 @@
 {% set sections = article.sections %}
 
 {% set domPhoto = images.shift() %}
+
+				<div class="grid_8 alpha">
+					<h1>{{ article.headline }}</h1>
+					
+					<div class="dark byline">
+						<span class="date">Original: {{ article.created|date('M d, Y') }}
+						{% if article.created != article.modified %}
+						| Modified: {{ article.modified|date('M d, Y') }}
+						{% endif %}</span>
+						<a class="author" href="#">John Doe</a>
+						<a class="comment" href="#secondary">6 Comments</a>
+						</div>
+										
+					<div id="article_body">
+										
+				{% if article.infobox or pdfs.length %}
+		<div class="sidebar-item">
+			{% if article.infobox %}
+				<h5>More information:</h5>
+				{{ article.infobox_formatted }}
+				<hr />
+			{% endif %}
+			{% if pdfs.length %}
+				<h5>Related Documents:</h5>
+				<ul class="media_pdf">	
+				{% for pdf in pdfs %}
+					<li><a href="{{ pdf.urlOriginal }}">{{ pdf.title }}</a> - PDF</li>
+				{% endfor %}
+				</ul>
+				<hr />
+			{% endif %}
+		</div>
+		{% endif %}
+		
+		
+		{% if mugShots.length %}
+			{% for mug in mugShots %}
+			<div class="mugshots">
+				<img src="{{ mug.url }}" alt="{{ mug.caption }}" />
+				<strong>{{ mug.caption_formatted }}</strong>
+			</div>
+			{% endfor %}
+		{% endif %}
+
+		{{ article.copy_formatted|extract(5) }}
+		
+		{% for image in images %}
+			<div class="photo sidebar-item expandable">
+				<a href="{{ image.urlDefault }}"><img src="{{ image.urlPreview }}" alt="{{ image.base_name }}" class="preview" /></a>
+				<span>Photo: {{ image.caption|clip(15) }}</span>
+			</div>
+		{% endfor %}
+
+		{% for gallery in galleries %}
+			<div class="gallery sidebar-item expandable">
+				<a href="{{ gallery.urlDefault }}"><img src="{{ gallery.urlPreview }}" alt="{{ gallery.base_name }}" class="preview" /></a>
+				<span>Gallery: {{ gallery.galleries[0].title|clip(15) }}</span>
+			</div>
+		{% endfor %}
+		
+		{% for video in videos %}
+			<div class="video sidebar-item expandable">
+				<a href="{{ video.urlDefault }}"><img src="{{ video.urlPreview }}" alt="{{ video.base_name }}" class="preview" /></a>
+				<span>Video: {{ video.title|clip(15) }}</span>
+			</div>
+		{% endfor %}
+
+		{% for slide in slides %}
+			<div class="slide sidebar-item expandable">
+				<a href="{{ slide.urlDefault }}"><img src="{{ slide.urlPreview }}" alt="{{ slide.base_name }}" class="preview" /></a>
+				<span>Slideshow: {{ slide.title|clip(15) }}</span>
+			</div>
+		{% endfor %}
+		
+		{% for sound in sounds %}
+			<div class="sound sidebar-item">
+				<h5>Audio: {{ sound.title }}</h5>
+				{{ render.media(sound, 'audio_article') }}
+			</div>
+		{% endfor %}
+
+						<div class="sidebar">
+							<ul id="text">
+								<li>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								</li>
+							</ul>
+							<ul id="images">
+								<li>
+									<a href="#"><img src="chroma_style/images/dummy/ftr1.jpg" alt="feature_3" /></a>
+									<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</div>
+								</li>
+							</ul>
+							<ul id="video">
+								<li>
+									<a href="#"><img src="img/dummy/ftr2.jpg" alt="video" /></a>
+									<div><b>Watch:</b> <a href="#">Lorem ipsum dolor sit amet</a></div>
+								</li>
+							</ul>
+							<ul id="interactive">
+								<li>
+									<a href="#"><img src="img/dummy/ftr3.jpg" alt="interactive" /></a>
+									<div><b>Interact:</b> <a href="#">Lorem ipsum dolor sit amet</a></div>
+								</li>
+							</ul>
+						</div>
+
+		{{ article.copy_formatted|extract(null, 5) }}
+
+								</div>
+				</div>
+				<div class="grid_4 omega">
+					<img src="img/ads/square.png" alt="advertisement" />
+					<ul class="more_stories">
+						<li><h3>Possibly Related:</h3></li>
+						<li>{% for item in article.getRelated() %}
+						<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
+							{% endfor %}
+				</li>
+					</ul>
+				</div>
+			</div>
+			<div class="grid_12" id="secondary">
+				<div class="grid_6 alpha">
+					<ul id="comments">
+						<li id="comment_count"><h2>6 Comments</h2></li>
+						<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><div class="author">Ð John Doe <span>(2 hrs ago)</span></div></li>
+						<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><div class="author">Ð John Doe <span>(2 hrs ago)</span></div></li>
+						<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><div class="author">Ð John Doe <span>(2 hrs ago)</span></div></li>
+						<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><div class="author">Ð John Doe <span>(2 hrs ago)</span></div></li>
+						<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><div class="author">Ð John Doe <span>(2 hrs ago)</span></div></li>
+						<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><div class="author">Ð John Doe <span>(2 hrs ago)</span></div></li>
+					</ul>
+					<div id="join_convo"><a href="#secondary">Join the Conversation!</a></div>
+				</div>
+				<div class="grid_4">
+					<h2>Have Something to Say?</h2>
+					<form id="comments" action="#" method="post">
+						<fieldset id="comment-userinfo">
+							<input type="text" name="name" id="comment_name" value="Your Name" class="clearMeFocus" />
+							<input type="text" name="email" id="comment_email" value="Your Email (Won't be published)" />
+						</fieldset>
+						<fieldset>
+							<textarea name="comment" id="comment_body">Your Comment</textarea>
+							<input type="text" name="answer" id="comment_turing" size="40" value="Where does the President live?" class="clearme rounded" />		
+						</fieldset>
+						<input type="submit" id="comment_submit" value="Add Comment" />			
+					</form>
+					<h3>You Should Know:</h3>
+					<p>Detroit Softworks reserves the right to remove any comment deemed racially derogatory, inflammatory, or spammatory. Repeat offenders may have their IP address banned from posting future comments. Please be nice.</p>
+					<ul id="format_options">
+						<lh>Formatting Options:</lh>
+						<li>Links: "my link":http://my.url.com</li>
+					    <li>Bold: *something!"</li>
+					    <li>Italic: _OMG!_</li>
+					</ul>
+					    
+				</div>
+				<div class="grid_2 omega">
+					<img src="img/ads/skyscraper.png" alt="advertisement" />
+				</div>
+			</div>
+
+
+
+
+
+
+
+
 
 <div class="grid_8">
 	

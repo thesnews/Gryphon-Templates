@@ -87,11 +87,8 @@
 </head>
 <body>
 
-
-	<div id="wrapper"> <!-- CENTERS EVERYTHING -->
+<div id="wrapper"> <!-- CENTERS EVERYTHING -->
 		
-		
-		<div id="border"> <!-- PUTS 1px GRAY BORDER WITH 1px PADDING AROUND NAV, CONTENT, FOOTER.  -->
 <!-- Amy's base	
 
 			<div class="container_12">
@@ -125,6 +122,7 @@
 -->
 	
 	<div class="container_12"> <!-- CENTERS EVERYTHING -->
+		
 		<div id="ticker">
 			<span id="date">{{ now|date('l F j, Y') }}</span>  &nbsp;&nbsp;  <span id="founded">Detroit, MI | Since 2009  </span>
 			&nbsp;&nbsp;
@@ -134,44 +132,38 @@
 				<form id="search" method="get" action="{{ 'search'|url }}" class="search-form">
 					<input class="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
 					<input id="search_field" class="search replace-text" type="text" name="search" value="Search Detroit Softworks" />
-				</form> 
+				</form>
 				
 		</div>
-	
-		<div id="logo_wrapper">
-			<a href="#"><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>
-		</div>
-	
 			
-		<div id="border"> <!-- PUTS 1px GRAY BORDER WITH 1px PADDING AROUND NAV, CONTENT, FOOTER.  -->
-				
-			<div id="header">
-				
-				
-				{% include "gryphon/navigation.tpl" %}
+		<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
+
+		<div id="header">
+			<br />
+				{% include 'gryphon/ads/leaderboard.tpl' %}
+	
 		
-			</div>
+			<a href=""><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>{% include "gryphon/navigation.tpl" %}
+		</div>
 		
 
-	<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
+		<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
 				
 
 				{# THIS IS THE MAIN CONTENT BLOCK #}
 					{% block content %}{% endblock %}
-
-
-			</div>
+					
+					
+		</div>
 
 
 			
-				<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
+		<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
 
-
-			</div>
 		
-			<div class="container_12" id="footer">
-				<div class="grid_2 alpha">
-						
+		<div class="container_12" id="footer">
+							
+						<div class="grid_2 alpha">
 							<ul>
 								<li><h3>News</h3></li>
 								<li><a href="{{ 'section/campus'|url }}">Campus</a></li>
@@ -265,28 +257,34 @@
 							</ul>
 						</div>
 						
-						<div class="grid_2">
+						<div class="grid_2 omega">
 							
 
 							<a id="gryphon_logo_footer" title="Gryphon CMS" href="http://detroitsoftworks.com/index.php/page/gryphon"></a>
 							<a id="dsw_logo_footer" title="Detroit Softworks" href="http://detroitsoftworks.com/"></a>
 
-						</div>
+						</div> 
+						
 						<p><b>Detroit Softworks</b> offers a hosted CMS, web ad management, and reprint sales solution for your publication. With unprecedented control over your site’s design and Web ads, content delivery, and ecommerce-grade security, you can rest easy in the knowledge that <b>It. Just. Works.</b></p>
 						
 										
-						<div class="clear"></div>
+						<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
+						
 						<div id="copyright" class="small">
 							All Content &copy; Copyright 2010, The State News | Valid <a href="http://validator.w3.org/check/referer">HTML</a> & <a href="http://jigsaw.w3.org/css-validator/validator?uri=#">CSS</a><br />
 						
 							<a id="powered" href="http://detroitsoftworks.com">Powered by Detroit Softworks</a>
 						</div>
+						
 						<div class="clear"></div>
 						
-			</div>
-		
 		</div>
+		
 	</div>
+
+</div>
+
+
 
 </body>
 </html>

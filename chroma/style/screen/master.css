@@ -81,7 +81,10 @@ img.cartoon {
 	padding: 3px;
 }
 
-
+div#cartoon {
+	background: url(../images/bg/divider_medium.png) no-repeat top center;
+	padding-top: 15px;
+}
 
 /* List Styling
 ***********************************/
@@ -457,7 +460,7 @@ div#ticker span#wx {
 
 div#header {
 	background: url(../images/bg/divider_large.png) no-repeat bottom center;
-	padding-bottom: 10px;
+	padding-bottom: 50px;
 	margin-bottom: 10px;
 }
 
@@ -493,9 +496,10 @@ div#header ul {
 ***********************************/		
 
 div#featured_stories {
-	height: 250px;
+	height: 227px;
 	background: url(../images/bg/dark.png);
 	padding: 10px;
+	float: left;
 }
 
 div#featured_stories div {
@@ -511,7 +515,6 @@ div#featured_stories div div.caption {
 	position: absolute;
 	bottom: 10px;
 	left: 10px;
-	width: 370px;
 	text-shadow: none;
 }
 
@@ -521,7 +524,7 @@ div#featured_stories div div.caption {
 
 div#featured_stories div img {
 	max-height: 239px;
-	width: 390px;
+	width: 410px;
 }
 
 div#featured_stories ul {
@@ -543,7 +546,6 @@ div#featured_stories ul li img {
 div#featured_stories ul li.ui-tabs-selected {
 	opacity: 1;
 }
-
 
 /* Gallery
 ***********************************/		
@@ -625,6 +627,10 @@ div.byline a.comment {
 div.byline a.rss, div#blog_info a#rss {
 	background-image: url(../images/icons/rss.png);
 	background-position: 0 2px;
+}
+
+div.cartoonbyline{
+	width:290px;
 }
 
 /* Section Tabs Module

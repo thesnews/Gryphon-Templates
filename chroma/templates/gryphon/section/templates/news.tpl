@@ -12,46 +12,82 @@
 
 {% import "macros/articlenew.tpl" as articleRender %}
 
+
+
+
 <div class="grid_12">
 				<div class="grid_4 alpha">
 					
 						{{ articleRender.abstract4Col(topStory) }}
 				</div>
-				<div class="grid_3">
-This is blank space for more articles
-				</div>		
-						
-				<div class="grid_3">
-				{% fetch news from article with [
-					'limit': 6,
-					'order': 'weight desc, created desc',
-					'where': 'status = 1',
-					'withTags': ['news']
-					]
-		%}
-					{% set topPost = news.shift() %}
-				<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
-					<div class="dark byline">
-						{% if topPost.authors.length %}
-						By {{ topPost.authors.splat('name')|join(', ') }}
-						<span class="byline_divider">|</span>
-					{% endif %}
-					Published {{ topPost.created|date('m/d') }}
-						<p>					
+				
+				<div class="grid_3 omega">
+						{% fetch news from article with [
+						'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['opinion']
+															]
+						%}
+						{% set topPost = news.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
-					{{ topPost.abstract_formatted }}
-					 <a href="#" class="dark"><span>More</span></a>
-					</p>
-					
-					<br />
-					
-					<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-					<div class="dark byline">
-						<span class="date">Jan 13, 2011</span>
-						<a class="author" href="#">John Doe</a>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. <a href="#" class="dark"><span>More</span></a></p>
-				</div>
+						<p>
+						{{ topPost.abstract_formatted }}
+						<a href="#" class="dark"><span>More</span></a>
+						</p>	
+						
+						<br />
+						
+						{% set topPost = news.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+						</div>
+						<p>
+						{{ topPost.abstract_formatted }}
+						<a href="#" class="dark"><span>More</span></a>
+						</p>						
+					</div>		
+	
+						
+				<div class="grid_3 omega">
+						{% set topPost = news.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+						</div>
+						<p>
+						{{ topPost.abstract_formatted }}
+						<a href="#" class="dark"><span>More</span></a>
+						</p>	
+						
+						<br />
+						
+							{% set topPost = news.shift() %}
+						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+						<div class="dark byline">
+							{% if topPost.authors.length %}
+							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+							{% endif %}
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+						</div>
+						<p>
+						{{ topPost.abstract_formatted }}
+						<a href="#" class="dark"><span>More</span></a>
+						</p>						
+					</div>		
 
 				<div class="grid_2 omega" style="text-align: right;">
 					<img src="style_chroma/images/ads/skyscraper.png" alt="advertisement" />

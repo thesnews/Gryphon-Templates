@@ -12,70 +12,52 @@
 
 <div class="grid_12">
 
-	<div class="grid_4 alpha">
-	
-		{{ articleRender.abstract4Col(topStory) }}	
-
-		
-		
+	<div class="grid_5 alpha">
+		{{ articleRender.abstract5Col(topStory) }}	
 	</div>
 
-	<div class="grid_3 omega">
+	<div class="grid_3">
 
-				{% for article in secondaryStories %}
-			{{ articleRender.abstract3Col(article) }}
+		{% for article in secondaryStories %}
+		{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
 
-		{% fetch multimedia from media with [
-			'limit': 2,
-			'order': 'self:weight desc, self:created desc',
-			'withTags': ['Multimedia Box','sports']
-		] %}
-
-
-
+	</div>
+	
+	<div class="grid_4 omega">
 	</div>
 	
 </div>
+<div class="clear"></div>
 
-<div class="grid_4">
+<div class="grid_12" id="secondary">
 	
-	{% include 'gryphon/main/sidebar-short.tpl' %}
-
-</div>
-
-<hr class="spacer" />
-<hr />
-
-
-<div class="grid_8">
-	
-	<div class="grid_6 alpha">
-		<div class="grid_3 alpha">
+		<div class="grid_4 alpha">
+		<h3>More Sports:</h3>
 			{% set topPost = articles.shift() %}
 			<h3><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h3>
-			<div class="small gray box">
+			<div class="dark byline">
 				{% if topPost.authors.length %}
 					By {{ topPost.authors.splat('name')|join(', ') }}
-					<span class="byline_divider">|</span>
+
 				{% endif %}
 				
-				Published {{ topPost.created|date('m/d') }}
+				<span class="date">{{ topPost.created|date('M d, Y') }}</span>
 
 			</div>
 			<p>{{ topPost.abstract_formatted }}</p>
-		</div>
-		<div class="grid_3 omega">
-			<ul>
-			{% for item in articles %}
-				<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4><br /><span class="small">{% if item.authors.length %}
-					By {{ item.authors.splat('name')|join(', ') }}
-				{% endif %}</span></li>
-			{% endfor %}
-			</ul>
-		</div>
 
-		<hr class="spacer" />
+<br />
+		<h3>Other Articles:</h3>
+		<ul>
+				
+			{% for item in articles %}
+				<li><h3><a href="{{ item.url }}">{{ item.headline }}</a></h3></li>
+			{% endfor %}
+			
+			</ul>
+			
+		</div>
 
 		{% fetch blogs from blog with [
 			'limit': 5,
@@ -83,49 +65,60 @@
 			'order': 'self:modified desc',
 			'withTags' : ['sports']
 		] %}
-
-		<h5 class="bordered">
-			RECENT BLOG POSTS:
-			<span><a href="{{ 'blog'|url }}">More Blogs &#187;</a></span>
-		</h5>
-		<div class="grid_3 alpha">
+		
+		<h3>Recent Blog Posts:</h3>
+		
+		<div class="grid_4 alpha">
 			{% set topPost = blogs.shift().mostRecent %}
 			<h3><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h3>
-			<div class="small gray box">
+			<div class="dark byline">
 				{% if topPost.authors.length %}
-					By {{ topPost.authors.splat('name')|join(', ') }}
-					<span class="byline_divider">|</span>
+					<a class="author"></a>{{ topPost.authors.splat('name')|join(', ') }}</a>
 				{% endif %}
 				
-				Published {{ topPost.created|date('m/d') }}
+				<span class="date">{{ topPost.created|date('M d, Y') }}</span>
 
 			</div>
 			<p>{{ topPost.abstract_formatted }}</p>
-		</div>
-		<div class="grid_3 omega">
+<br />
+
+			{% set topPost = blogs.shift().mostRecent %}
+			<h3><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h3>
+			<div class="dark byline">
+				{% if topPost.authors.length %}
+					<a class="author"></a>{{ topPost.authors.splat('name')|join(', ') }}</a>
+				{% endif %}
+				
+			<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+
+			</div>
+			<p>{{ topPost.abstract_formatted }}</p>
+		<br />
+			<h3>Other Blogs:</h3>
+			<div id="sportsblogs">
 			<ul>
 				{% for blog in blogs %}
 					{% set topPost = blog.mostRecent %}
-					<li><h4><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h4><br /><span class="small">From: {{ blog.name }}</span></li>
+					<li><h3><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h3>
+					From: {{ blog.name }}</li>
 				{% endfor %}
 			</ul>
-		</div>
+			</div>
+	</div>
 
-		<hr class="spacer" />
-
-		<h5 class="bordered">Sports:</h5>
-		<ul class="grid_3 alpha">
-
+		<div class="grid_4 omega">
+		
+		<h3>Sports:</h3>
+		<ul class="grid_2 alpha">
 			<li><h3><a href="/index.php/section/baseball">Baseball</a></h3></li>
 			<li><h3><a href="/index.php/section/basketball">Basketball</a></h3></li>
 			<li><h3><a href="/index.php/section/crosscountry">Cross Country</a></h3></li>
 			<li><h3><a href="/index.php/section/football">Football</a></h3></li>
 			<li><h3><a href="/index.php/section/Golf">Golf</a></h3></li>
 			<li><h3><a href="/index.php/section/gymnastics">Gymnastics</a></h3></li>
-
 			<li><h3><a href="/index.php/section/fieldhockey">Field Hockey</a></h3></li>
 		</ul>
-		<ul class="grid_3 omega">
+		<ul class="grid_2 alpha">
 			<li><h3><a href="/index.php/section/hockey">Ice Hockey</a></h3></li>
 			<li><h3><a href="/index.php/section/rowing">Rowing</a></h3></li>
 			<li><h3><a href="/index.php/section/soccer">Soccer</a></h3></li>
@@ -136,6 +129,8 @@
 			<li><h3><a href="/index.php/section/volleyball">Volleyball</a></h3></li>
 			<li><h3><a href="/index.php/section/wrestling">Wrestling</a></h3></li>
 		</ul>
+		
+<!-- Insert add gid_4 here-->
 
 	</div>
 	

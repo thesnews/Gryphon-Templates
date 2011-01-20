@@ -1,6 +1,6 @@
 {#
-	Our opinion section is a bit different. If you look in Gryphon you'll see
-	that opinion actually has an article limit of 0. In opinion we don't just
+	Our opinion section is a bit different. If you look in Gryphon youll see
+	that opinion actually has an article limit of 0. In opinion we dont just
 	want a ordered list of articles, we want specific numbers of specific types
 	of articles: Editorials, Columns ad Letters. So, we pull them out inside the
 	actual template file.
@@ -16,74 +16,55 @@
 {% block content %}
 
 
-{% import "macros/article.tpl" as articleRender %}
+{% import "macros/articleopinion.tpl" as articleRender %}
 
-<div class="grid_8">
+<div class="grid_12">
 
-	<div class="grid_5 alpha">
-		<h5 class="bordered">OUR VOICE: <span><a href="{{ 'gryphon:section/editorials'|url }}">More editorials &#187;</a></span></h5>
-		
+	<div class="grid_6 alpha">
 		{% fetch editorials from article with [
 			'where': 'status = 1',
 			'order': 'weight desc, created desc',
-			'limit': 3,
+			'limit': 2,
 			'withTags': ['Editorials']
 		] %}
 		
 		{% for article in editorials %}
-			{{ articleRender.abstract5Col(article) }}
+			{{ articleRender.abstract6Col(article) }}
 		{% endfor %}
 		
-	</div>
-	<div class="grid_3 omega">
-		{% if postStatus == 'success' %}
-			<div class="box gray">
-				<h3>Success</h3>
-				
-				<p>Your letter to the editor has been sent!</p>
-			</div>
-			<hr class="spacer" />
-		{% endif %}
-		<h5 class="bordered">CARTOON:</h5>
 		{% fetch cartoons from media with [
 			'where': 'status = 1',
 			'order': 'created desc',
 			'limit': 5,
 			'withTags': ['Editorial Cartoon']
 		] %}
+<br />
 
+		<div id="cartoon">		
+		
 		{% set cartoon = cartoons.shift() %}
-
-		<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" style="max-width:210px;" class="photo" /></a>
-		By <a href="{{ cartoon.authors[0].urlSearch }}">{{ cartoon.authors[0].name }}</a>
-		
-		<hr class="spacer" />
-		
-		<h5>MORE CARTOONS:</h5>
-		
-		<ul>
-			{% for cartoon in cartoons %}
-				<li><a href="{{ cartoon.urlDefault }}">Cartoon for {{ cartoon.created|date('m/d') }}</a></li>
-			{% endfor %}
-		</ul>
-		
-		<hr class="spacer" />
-
-		{#<h5 class="bordered">OPINION BLOGS: <span><a href="{{ 'gryphon:blog'|url }}">More blogs &#187;</a></span></h5>#}
-		
-		<div class="gray box">
-			<h4>Have something to say?</h4>
+	
+			<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" /></a>
+			<div class="dark byline cartoonbyline">
+			<a href="{{ cartoon.authors[0].urlSearch }}">{{ cartoon.authors[0].name }}</a>
+			</div>
 			
-			Send a <a href="{{ 'tsn:mail/opinion/1'|url }}">letter to the editor</a>.
-		</div>
+			<h3>More Cartoons:</h3>
+			
+			<ul>
+				{% for cartoon in cartoons %}
+					<li>Cartoon for <a href="{{ cartoon.urlDefault }}">{{ cartoon.created|date('M d, Y') }}</a></li>
+				{% endfor %}
+			</ul>
+	
+		</div>		
 
 	</div>
 
-	<hr class="spacer" />
 
 	<div class="grid_3 alpha">
-		<h5 class="bordered">COLUMNS: <span><a href="{{ 'gryphon:section/columns'|url }}">More columns &#187;</a></span></h5>
-
+		
+		<h3>Columns:</h3>
 		{% fetch articles from article with [
 			'where': 'status = 1',
 			'order': 'weight desc, created desc',
@@ -95,10 +76,20 @@
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
 
-	
+
+<ul class="more_from">
+	<li><h3>More from <a href="{{ 'gryphon:section/columns'|url }}">Columns</a></h3></li>
+							{% for article in articles %}
+							<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
+							{% endfor %}
+</ul>							
+							
 	</div>
 	<div class="grid_3">
-		<h5 class="bordered">LETTERS: <span><a href="{{ 'gryphon:section/letters'|url }}">More letters &#187;</a></span></h5>
+	
+		<h3>Letters:</h3>
+	
+	
 	
 		{% fetch articles from article with [
 			'where': 'status = 1',
@@ -110,19 +101,20 @@
 		{% for article in articles %}
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
-
+	
+	<ul class="more_from">
+	<li><h3>More from <a href="{{ 'gryphon:section/letters'|url }}">Letters:</a></h3></li>
+							{% for article in articles %}
+							<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
+							{% endfor %}
+</ul>							
+							
+	
+	
 	</div>
-	<div class="grid_2 omega">
-		{% include "gryphon/ads/skyscraper.tpl" %}
-	</div>
-	<hr class="spacer" />
-
+	
 </div>
 
-<div class="grid_4">
-	{% include "gryphon/main/sidebar-standard.tpl" %}
-</div>
 
-<hr class="spacer" />
 
 {% endblock content %}
