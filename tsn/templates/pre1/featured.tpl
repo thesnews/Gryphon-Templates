@@ -2,6 +2,11 @@
 	FEATURED CLASSIFIEDS:
 	<span><a href="{{ 'pre1:main'|url }}">More classifieds &#187;</a></span>
 </h5>
+
+<strong class="small">Sponsored by:</strong>
+{% include 'gryphon/ads/classifiedsponsor.tpl' %}
+<hr class="spacer" />
+
 {% fetch items from pre1:ad with [
 	'where': 'status = 1',
 	'order': 'category_id'
