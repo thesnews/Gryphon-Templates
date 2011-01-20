@@ -23,6 +23,7 @@
 
 	<script type="text/javascript" src="{{ 'javascript/vendor/mootools/mootools-1.2.4-compressed.js'|url }}"></script>
 
+
 	{% if noIndex %}
 		<meta name="robots" content="noindex, nofollow" />
 	{% endif %}
@@ -34,7 +35,6 @@
 		<script type="text/javascript" src="{{ 'javascript/vendor/rosewood.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'javascript/base.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'javascript/expandable.js'|url }}"></script>
-		
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-1.3.2.min.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
@@ -49,7 +49,9 @@
 	{% block links %}{% endblock %}
 
 	<link rel="icon" type="image/png" href="{{ 'style_chroma/images/favico.png'|url }}" />
+
 	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/master.css'|url }}" />
+
 	<link rel="stylesheet" type="text/css" media="print" href="{{ 'style_chroma/print/master.css'|url }}" />
 	<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/ie6.css'|url }}" />
@@ -79,12 +81,54 @@
 	  })();
 	
 	</script>
+	
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/calendar.css'|url }}" />
+	
 </head>
 <body>
+
+
+	<div id="wrapper"> <!-- CENTERS EVERYTHING -->
+		
+		
+		<div id="border"> <!-- PUTS 1px GRAY BORDER WITH 1px PADDING AROUND NAV, CONTENT, FOOTER.  -->
+<!-- Amy's base	
+
+			<div class="container_12">
+			<div class="grid_12 dark" id="ticker">
+				<div>
+					<span id="date">{{ now|date('l, F j, Y') }}</span> 
+					<span id="founded">Detroit, MI | Since 2009</span>
+					<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
+					<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="{{ 'classifieds'|url }}">Advertise</a> | <a href="#">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
+				</div>
+				<form method="get" action="{{ 'search'|url }}" class="search-form">
+					<input id="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
+					<input id="search_field" type="text" name="search" value="Search Detroit Softworks" />
+				</form>
+			</div>
+			<div class="grid_12 leaderboard">
+				<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url}} " alt="advertisement" />
+			</div>
+			<div class="grid_12" id="header">
+				<a href="#"><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>
+				<ul>
+					<li><a href="{{ 'main'|url }}">Front Page</a></li>
+					<li><a href="{{ 'section/news'|url }}">News</a></li>
+					<li><a href="{{ 'section/sports'|url }}">Sports</a></li>
+					<li><a href="{{ 'section/opinion'|url }}">Opinion</a></li>
+					<li><a href="{{ 'section/features'|url }}">Features</a></li>
+					<li><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
+				</ul>
+			</div>
+
+-->
 	
 	<div class="container_12"> <!-- CENTERS EVERYTHING -->
 		<div id="ticker">
-			<span id="date">{{ now|date('l F j, Y') }}  &nbsp;&nbsp;  Detroit, MI | Since 2009 | &nbsp;&nbsp;{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
+			<span id="date">{{ now|date('l F j, Y') }}</span>  &nbsp;&nbsp;  <span id="founded">Detroit, MI | Since 2009  </span>
+			&nbsp;&nbsp;
+			<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
 			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
 				
 				<form id="search" method="get" action="{{ 'search'|url }}" class="search-form">
@@ -105,39 +149,29 @@
 				
 				
 				{% include "gryphon/navigation.tpl" %}
-
 		
 			</div>
 		
 
-			<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
+	<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
 				
-				{# THIS IS THE MAIN CONTENT BLOCK #}
-				{% block content %}{% endblock %}
-				
-				<div class="grid_12">
-					<div class="advertisement leaderboard">
-						<script type="text/javascript"><!--
-						google_ad_client = "pub-3894131125488372";
-						/* SN Leaderboard Bottom */
-						google_ad_slot = "2177491549";
-						google_ad_width = 728;
-						google_ad_height = 90;
-						//-->
-						</script>
-						<script type="text/javascript"
-						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-						</script>
-					</div>
-				</div>
 
+				{# THIS IS THE MAIN CONTENT BLOCK #}
+					{% block content %}{% endblock %}
+
+
+			</div>
+
+
+			
 				<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
 
 
 			</div>
 		
 			<div class="container_12" id="footer">
-				<div class="grid_2">
+				<div class="grid_2 alpha">
+						
 							<ul>
 								<li><h3>News</h3></li>
 								<li><a href="{{ 'section/campus'|url }}">Campus</a></li>
@@ -244,8 +278,11 @@
 						<div class="clear"></div>
 						<div id="copyright" class="small">
 							All Content &copy; Copyright 2010, The State News | Valid <a href="http://validator.w3.org/check/referer">HTML</a> & <a href="http://jigsaw.w3.org/css-validator/validator?uri=#">CSS</a><br />
-							Proudly powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a><br />
+						
+							<a id="powered" href="http://detroitsoftworks.com">Powered by Detroit Softworks</a>
 						</div>
+						<div class="clear"></div>
+						
 			</div>
 		
 		</div>

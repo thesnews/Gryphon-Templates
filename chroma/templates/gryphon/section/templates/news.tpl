@@ -1,4 +1,4 @@
-   {% extends "gryphon/base.tpl" %}
+{% extends "gryphon/base.tpl" %}
 
 {% block title %} :: {{ section.name }}{% endblock %}
 {% block active %}news{% endblock %}
@@ -9,16 +9,18 @@
 
 {% set topStory = articles.shift() %}
 {% set featuredStories = articles.shift(2) %}
-{% import "macros/article.tpl" as articleRender %}
-<!DOCTYPE html>
 
-<div class="container_12">
-{% include "gryphon/ads/leaderboard.tpl" %}
-		
-			<div class="grid_12">
+{% import "macros/articlenew.tpl" as articleRender %}
+
+<div class="grid_12">
 				<div class="grid_4 alpha">
-					{{ articleRender.abstract5Col(topStory) }}
+					
+						{{ articleRender.abstract4Col(topStory) }}
 				</div>
+				<div class="grid_3">
+This is blank space for more articles
+				</div>		
+						
 				<div class="grid_3">
 				{% fetch news from article with [
 					'limit': 6,
@@ -40,7 +42,9 @@
 					{{ topPost.abstract_formatted }}
 					 <a href="#" class="dark"><span>More</span></a>
 					</p>
+					
 					<br />
+					
 					<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
 					<div class="dark byline">
 						<span class="date">Jan 13, 2011</span>
@@ -48,54 +52,37 @@
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. <a href="#" class="dark"><span>More</span></a></p>
 				</div>
-				<div class="grid_3">
-					<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-					<div class="dark byline">
-						<span class="date">Jan 13, 2011</span>
-						<a class="author" href="#">John Doe</a>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. <a href="#" class="dark"><span>More</span></a></p>
-					<br />
-					<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-					<div class="dark byline">
-						<span class="date">Jan 13, 2011</span>
-						<a class="author" href="#">John Doe</a>
-					</div>
-					<p><img class="section_sub" src="img/dummy/ftr3.jpg" />Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. <a href="#" class="dark"><span>More</span></a></p>
-				</div>
+
 				<div class="grid_2 omega" style="text-align: right;">
-				{% include "gryphon/ads/skyscraper.tpl" %}				</div>
-			</div>
+					<img src="style_chroma/images/ads/skyscraper.png" alt="advertisement" />
+					
+				</div>
+				
+</div>
+			
 			<div class="grid_12" id="secondary">
 				<div class="grid_4 alpha">
-					<img src="img/ads/square.png" alt="advertisement" />
-					<ul class="more_stories">
-						<li><h3>More Stories from <a href="#">News</a>:</h3></li>
-						<li><a href="#">Lorem ipsum dolor sit amet</a> <span>(Nov 10)</span></li>
-						<li><a href="#">Lorem ipsum dolor sit amet consectetur</a> <span>(Nov 10)</span></li>
-						<li><a href="#">Lorem ipsum dolor sit amet adipisicing</a> <span>(Nov 9)</span></li>
-						<li><a href="#">Lorem ipsum dolor sit amet adipisicing</a> <span>(Nov 8)</span></li>
-						<li><a href="#">Lorem ipsum dolor sit</a> <span>(Nov 2)</span></li>
-					</ul>
-						
+				
+					<img src="style_chroma/images/ads/square.png" alt="advertisement" />
+												
 				</div>
+				
 				<div class="grid_5">
-					<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-					<div class="dark byline">
-						<span class="date">Jan 13, 2011</span>
-						<a class="author" href="#">John Doe</a>
-						<a class="comment" href="#">0 Comments</a>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#" class="dark"><span>More</span></a></p>
-					<br />
-					<h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing</a></h2>
-					<div class="dark byline">
-						<span class="date">Jan 13, 2011</span>
-						<a class="author" href="#">John Doe</a>
-						<a class="comment" href="#">0 Comments</a>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Velit esse cillum dolore eu fugiat nulla pariatur. deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#" class="dark"><span>More</span></a></p>
+				{% for article in articles %}
+				<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
+						<div class="dark byline">
+							<span class="date">{{ article.created|date('m/d') }}</span>
+							<a class="author">
+							{% if article.authors.length %}
+							{{ article.authors.splat('name')|join(', ') }}
+							{% endif %}</a>
+						</div>
+						<p>{{ article.abstract_formatted|clip(300) }}<br /><a href="{{ article.url }}" class="dark"><span>More</span></a></p>
+						{% endfor %}
+
+					
 				</div>
+
 				<div class="grid_3 omega">
 					<div id="section_tabs">
 						<ul id="section_tabs_nav">
@@ -163,7 +150,7 @@
 								<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
 							</ul>
 						</div>
-					</div>
+
 					<div class="dark" id="newsletter">
 						<h3>Subscribe to our eNewsletter</h3>
 						<form method="post" action="#" id="newsletterform">
@@ -174,7 +161,4 @@
 					</div>
 				</div>
 			</div>
-
-
-
 {% endblock content %}

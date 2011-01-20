@@ -20,7 +20,6 @@
 	
 			</div></div>
 		{% else %}
-
 			<div class="image">
 				<a href="{{ article.url }}">
 					<img src="{{ topImage.url }}"  alt="{{ article.headline }}" class="col_4" />
@@ -30,9 +29,6 @@
 					
 				</div>
 			</div>
-
-			
-
 		{% endif %}
 	{% endif %}
 
@@ -41,23 +37,22 @@
 		{% if showHeadline %}
 			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 		{% endif %}
-
-		
-		<div class="dark byline">
-			<span class="date">{{ article.created|date('M d, Y') }}</span>&nbsp;
-			<a class="author">{% if article.authors.length %}
-				{{ article.authors.splat('name')|join(', ') }}
-			{% endif %}</a>&nbsp;
-
-			
-			<a class="comment" href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>
-
-			
-		</div>
-		
-		<p>{{ article.abstract_formatted }}<a href="{{ article.url }}" class="dark"><span>More</span></a></p>
-				
-	</div>
+					<div class="dark byline">
+					
+						<span class="date">{{ article.created|date('m/d') }}</span>
+						
+						<a class="author">
+						{% if article.authors.length %}
+							By {{ article.authors.splat('name')|join(', ') }}
+						{% endif %}</a>
+						
+						<a class="comment" href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>
+						
+					</div>
+					
+					<p>{{ article.abstract_formatted }} 
+					<a href="{{ article.url }}" class="dark"><span>More</span></a></p>
+					
 
 {% endmacro %}
 

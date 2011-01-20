@@ -10,6 +10,10 @@
 
 /* Generic Styling
 ***********************************/
+#topimage img {
+height: 205px;
+}
+
 
 body {
 	background-color: #8d8d9c;
@@ -539,6 +543,7 @@ div#featured_stories ul li img {
 div#featured_stories ul li.ui-tabs-selected {
 	opacity: 1;
 }
+
 
 /* Gallery
 ***********************************/		

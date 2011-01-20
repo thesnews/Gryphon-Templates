@@ -7,36 +7,38 @@
 {% import "macros/article.tpl" as articleRender %}
 
 
+
 <div class="container_12">
 			{% include "gryphon/ads/leaderboard.tpl" %}
 			
 			<div class="grid_12">
 				<div class="grid_5 alpha">
 					{{ articleRender.abstract5Col(topStory) }}
+
 				</div>
 				<div class="grid_7 omega">
 					<div id="featured_stories">
 					    <ul>
-					        <li class="active"><a href="#featured_story1"><img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="featured" /></a></li>
-					        <li><a href="#featured_story2"><img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="featured" /></a></li>
-					        <li><a href="#featured_story3"><img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="featured" /></a></li>
+					        <li class="active"><a href="#featured_story1"><img src="style_chroma/images/dummy/ftr1.jpg" alt="featured" /></a></li>
+					        <li><a href="#featured_story2"><img src="style_chroma/images/dummy/ftr2.jpg" alt="featured" /></a></li>
+					        <li><a href="#featured_story3"><img src="style_chroma/images/dummy/ftr3.jpg" alt="featured" /></a></li>
 					    </ul>
 					    <div id="featured_story1">
-					    	<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="featured" />
+					    	<img src="style_chroma/images/dummy/ftr1.jpg" alt="featured" />
 							<div class="caption">
 								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							</div>
 					    </div>
 					    <div id="featured_story2">
-					       <img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="featured" />
+					       <img src="style_chroma/images/dummy/ftr2.jpg" alt="featured" />
 							<div class="caption">
 								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							</div>
 					    </div>
 					    <div id="featured_story3">
-					        <img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="featured" />
+					        <img src="style_chroma/images/dummy/ftr3.jpg" alt="featured" />
 							<div class="caption">
 								<h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -49,6 +51,8 @@
 							<div class="grid_9 alpha">
 					<div class="grid_9 alpha omega">
 						<div class="grid_3 alpha">
+
+
 							{% fetch news from article with [
 					'limit': 6,
 					'order': 'weight desc, created desc',
@@ -136,6 +140,7 @@
 							</ul>
 							
 							</ul>
+
 						</div>
 						
 		{% fetch sports from article with [
@@ -147,9 +152,11 @@
 		%}
 						<div class="grid_3">
 							<ul class="more_from">
-								<li><h3>More from <a href="#">Sports</a>:</h3></li>
+								<li><h3>More from <a href="{{ 'section/sports'|url }}">Sports</a>:</h3></li>
 								{% for item in sports %}
 								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
+
+
 								{% endfor %}
 							</ul>
 						</div>
@@ -162,10 +169,13 @@
 		%}
 						<div class="grid_3 omega">
 							<ul class="more_from">
-								<li><h3>More from <a href="#">Opinion</a>:</h3></li>
+
+
+								<li><h3>More from <a href="{{ 'section/opinion'|url }}">Opinion</a>:</h3></li>
 								{% for item in opinion %}
 								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
 							{% endfor %}
+
 							</ul>
 						</div>
 					</div>
@@ -228,6 +238,7 @@
 									<li><a href="#">Here is an interesting news article!</a></li>
 								</ul>
 							</div>
+
 							<div id="sports">
 								<ul>
 									<li><h3>Top Stories in <a href="#">Sports</a>:</h3></li>
@@ -275,8 +286,10 @@
 									<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
 								</ul>
 							</div>
+
 						</div>
 					</div>
+
 					<div class="grid_2 omega">
 						<div class="dark" id="front_pdf">
 							<h3>Today's Front Page</h3>
@@ -326,15 +339,27 @@
 					    </ul>
 					</div>
 				</div>
+				
+				
 				<div class="grid_4">
 					<div id="upcoming_events">
 						<h3>Upcoming Events</h3>
 						<ul id="calendar">
-							<li><a href="#upcoming_events1"><?php echo "<span class=\"day\">",date("D"),"</span><span class=\"num\">",date("d"),"</span>"; ?></a></li>
-							<li><a href="#upcoming_events2"><?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+1, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+1, date("y"))),"</span>"; ?></a></li>
-							<li><a href="#upcoming_events3"><?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))),"</span>"; ?></a></li>
-							<li><a href="#upcoming_events4"><?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))),"</span>"; ?></a></li>
-							<li><a href="#upcoming_events5"><?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))),"</span>"; ?></a></li>
+							<li><a href="#upcoming_events1">
+							<?php echo "<span class=\"day\">",date("D"),"</span><span class=\"num\">",date("d"),"</span>"; ?>
+							</a></li>
+							<li><a href="#upcoming_events2">
+							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+1, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+1, date("y"))),"</span>"; ?>
+							</a></li>
+							<li><a href="#upcoming_events3">
+							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))),"</span>"; ?>
+							</a></li>
+							<li><a href="#upcoming_events4">
+							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))),"</span>"; ?>
+							</a></li>
+							<li><a href="#upcoming_events5">
+							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))),"</span>"; ?>
+							</a></li>
 						</ul>
 					    <div id="upcoming_events1">
 							<ul>
@@ -378,12 +403,15 @@
 					    </div>
 					</div>
 				</div>
+				
+				
 				<div class="grid_4 omega">
 					<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: left" />
 					<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: right" />
 				</div>
 			</div>
-			
+
 		</div>
+
 
 {% endblock content %}
