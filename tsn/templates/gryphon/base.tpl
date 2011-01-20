@@ -184,8 +184,8 @@
 							</ul>
 							<ul>
 								<li class="title"><a href="{{ 'section/features'|url }}">Features</a></li>
-								<li><a href="{{ 'tsn:dining'|url }}">Dining Guide</a></li>
-								<li><a href="{{ 'google:calendar'|url }}">Calendar</a></li>
+								{#<li><a href="{{ 'tsn:dining'|url }}">Dining Guide</a></li>#}
+								<li><a href="{{ 'google:calendar'|url }}">Event Calendar</a></li>
 							</ul>
 						</div>
 						

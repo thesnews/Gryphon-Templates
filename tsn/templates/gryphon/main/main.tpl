@@ -45,7 +45,7 @@
 		
 		<h5 class="bordered">
 			TOP STORIES:
-			<span><a href="{{ 'section/sports'|url }}">More news &#187;</a></span>
+			<span><a href="{{ 'section/news'|url }}">More news &#187;</a></span>
 		</h5>
 		
 		{% for article in secondaryStories %}
