@@ -1,0 +1,83 @@
+{% extends 'roost/roost/base.mbl' %}
+
+{% block content %}
+<div class="block" id="block-main">
+	<h1 id="header" class="box">
+		<a href="{{ 'roost:roost'|url }}"><img src="{{ 'roost/frontend/stylev2/images/hg_logo_mobile.png'|url }}" alt="HousingGuide" /></a>
+	</h1>
+	<hr class="shadow" />
+	
+	<div id="col1">
+		<h3 class="subhead box no-phone">Search</h3>
+		<div class="box">
+		
+			<form method="get" action="{{ 'roost:roost/search'|url }}">
+				<label for="input_city_zip">City or Zip Code:</label>
+				<input type="text" name="city_zip" id="input_city_zip" size="30" />
+				
+				<hr class="spacer" />
+				
+				<label>Rent: </label>
+				<select name="min_rent" id="min_rent">
+					{% for i in 100|range(4000, 100) %}
+						<option value="{{ i }}">${{ i }}</option>
+					{% endfor %}
+				</select>
+				to
+				<select name="max_rent" id="max_rent">
+					{% for i in 100|range(4000, 100) %}
+						<option value="{{ i }}"{% if i == 1000 %} selected="selected"{% endif %}>${{ i }}</option>
+					{% endfor %}
+				</select>
+				
+				<hr class="spacer" />
+	
+				<label for="beds">Bedrooms:</label>
+				<input type="text" name="bedrooms" id="beds" size="2" />
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<label for="baths">Bathrooms:</label>
+				<input type="text" name="bathrooms" id="baths" size="2" />
+	
+				<hr class="spacer" />
+	
+				<a href="#" class="button green submit">Search listings</a>
+			</form>
+		</div>
+
+		<h3 class="subhead box">Near you:</h3>
+		<div class="box right">
+			<div id="map_canvas" data-url="{{ 'roost:roost/near.json'|url}}"></div>
+		</div>
+
+	</div>
+	
+	<div id="col2">
+		<h3 class="box subhead">Recently updated:</h3>
+		
+		<div class="box">
+			{% fetch properties from roost:property with [
+				'limit': '5',
+				'order': 'modified desc'
+			] %}
+			{% for property in properties %}
+				<div class="summary">
+					<img src="{{ property.urlStaticMap }}" style="float: right;margin: 0 0 5px 5px;border: 1px solid #e1e1e1;" />
+					<h3><a href="{{ property.urlListing }}">{{ property.name }}</a></h3>
+					<strong>
+						{{ property.type }} | {{ property.rentLabel }} per {{ property.rent_modifier }}{% if property.lease %} | {{ property.leaseLabel }} lease {% endif %}
+					</strong><br />
+					{{ property.summary_formatted }}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	
+	<div id="footer" class="box">
+		&copy; 2010 The State News<br />
+		Viewing mobile version. | Switch to <a href="#">standard</a><br />
+		Powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a>.
+	</div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'gryphon/base_mm.mbl' %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ 'javascript/vendor/mootools/Touch.js'|url }}"></script>
+	<script type="text/javascript" src="{{ 'style/gryphon/mobile/js/gallery.js'|url }}"></script>
+{% endblock %}
+
+{% block header %}
+	<a href="{{ referrer|url }}" class="back btn">&larr; Back</a>
+	<h1>Gallery: {{ gallery.name }}</h1>
+{% endblock %}
+
+
+{% block content %}
+	{% helper dswSync %}
+
+	<div id="mobile_gallery">
+		<div class="pagination">
+			<a href="{{ gallery.urlDefault~'/'~previousImage.uid }}" class="previous"><span>&larr; Previous</span></a>
+			<a href="{{ gallery.urlDefault~'/'~nextImage.uid }}" class="next"><span>Next &rarr;</span></a>
+		</div>
+		
+		<div id="photo_container">
+			<img src="{{ image.url }}" class="photo"/>
+			<div class="info">
+				{{ image.authors.splat('name')|join(', ') }}
+				&middot; {{ image.source }}
+			</div>
+			
+			{{ image.caption_formatted }}
+		</div>
+	</div>
+	
+{% endblock %}

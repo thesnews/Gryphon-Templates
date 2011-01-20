@@ -1,0 +1,204 @@
+{% extends "gryphon/base.mbl" %}
+
+
+{% block title %}: {{ article.headline }}{% endblock %}
+
+
+
+{% block content %}
+
+	{% set domPhoto = article.media.grab('meta', 'dominant photo', true) %}
+	{% set infoGraphs = article.media.grab('meta', 'info graphic', true) %}
+	{% set mugShots = article.media.grab('meta', 'mugshot', true) %}
+	{% set galleries = article.media.grab('meta', 'gallery', true) %}
+	
+	<div id="fullcol">
+		<h1>{{ article.headline }}</h1>
+		{% if article.subhead %}
+			<h3 style="padding:.5em 0;">{{ article.subhead }}</h3>
+		{% endif %}
+	
+		{% if article.authors.length %}
+			{% set author = article.authors.shift() %}
+			<div class="small">
+				By <a href="{{ author.urlSearch }}">{{ author.name }}</a>
+				{% for author in authors %}
+					and <a href="{{ author.urlSearch }}">{{ author.name }}</a>
+				{% endfor %}
+				({{article.modified|timeSince }})
+			</div>
+		{% endif %}
+
+
+
+		
+		<div class="sidebar">
+		
+		{% set images = article.media.grab('type', 'image', true) %}
+		{% for image in images %}
+			<div class="image">
+				<a href="{{ ('gryphon:multimedia/image/'~image.uid)|url }}">
+					<img src="{{ image.urlPreview }}" alt="{{ image.base_name }}" class="photo" />
+				</a>
+				<div class="info">
+					{% if image.authors.length %}
+						<span class="credit"><a href="http://statenews.com/search.php?q=%22{{ image.authors.splat('name')|join(', ') }}%22">{{ image.authors.splat('name')|join(', ') }}</a> / {{ image.source }}</span>
+
+					{% endif %}
+					{% if dswSync.buyUrl(image) %}
+						<a class="reprint" href="{{ dswSync.buyUrl(image) }}"><img src="{{ 'style/gryphon/images/reprint.png'|url }}" alt="Reprints" /></a>
+					{% endif %}
+				</div>
+			<div class="caption">{{ image.caption_formatted }}</div>
+			</div>
+		{% endfor %}
+
+		{% for graphic in infoGraphs %}
+			<div class="image">
+				<a href="{{ graphic.urlDefault }}"><img src="{{ graphic.previewUrl }}" alt="{{ graphic.base_name }}" class="photo" /></a>
+				<div class="info">
+					{% if graphic.authors.length %}
+						<span class="credit"><a href="http://statenews.com/search.php?q=%22{{ graphic.authors.splat('name')|join(', ') }}%22">{{ graphic.authors.splat('name')|join(', ') }}</a><br />{{ graphic.source }}</span>
+					{% endif %}
+				</div>
+			<div class="caption">{{ graphic.caption_formatted }}</div>
+			</div>
+			<br />
+		{% endfor %}
+
+		{% set video = article.media.grab('type', 'video', true) %}				
+		{% if video.length %}
+			<ul class="media_video">
+			{% for vid in video %}
+				<li>
+					<a href="{{ ('gryphon:multimedia/video/'~vid.uid)|url }}"><img src="{{ vid.urlPreview }}" alt="#" class="photo" /><div class="vid_overlay"></div></a>
+					
+				</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+				
+		{% set pdfs = article.media.grab('type', 'pdf', true) %}
+		{% if pdfs.length %}
+			<h4 class="media_pdf">Documents:</h4>
+			<ul class="media_pdf">	
+			{% for pdf in pdfs %}
+				<li><a href="{{ pdf.urlOriginal }}">{{ pdf.title }}</a> - PDF</li>
+			{% endfor %}
+			</ul>
+			<br />
+		{% endif %}
+
+		{% set sounds = article.media.grab('type', 'audio', true) %}
+		{% if sounds.length %}
+			<h4 class="media_sound">Listen:</h4>
+			<ul class="media_sound">
+			{% for sound in sounds %}
+				<li>{{ render.audio(sound) }}</li>
+			{% endfor %}
+			</ul>
+			<br />
+		{% endif %}
+
+		{% set slides = article.media.grab('type', 'soundSlide', true) %}
+		{% if slides.length %}
+			<h4 class="media_slide">Audio Slideshows:</h4>
+			<ul class="media_slide">
+			{% for slide in slides %}
+				<li>
+					<a href="{{ slide.urlDefault }}"><img src="{{ slide.urlPreview }}" alt="#" class="photo" /></a>
+					<div class="meta">
+					Slideshow: <a href="{{ slide.urlDefault }}">{{ slide.title }}</a>
+					<span class="date">({{ slide.created|timeSince }})</span>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>	
+			<br />
+		{% endif %}
+
+		{# we set this variable earlier in the template #}
+		{% if galleries.length %}
+			<h4 class="media_slide">Galleries:</h4>
+			<ul class="media_slide">
+			{% for gallery in galleries %}
+				<li>
+					<a href="{{ gallery.urlDefault }}"><img src="{{ gallery.urlPreview }}" alt="#" class="photo" /></a>
+					<div class="meta">
+					Gallery: <a href="{{ gallery.urlDefault }}">{{ gallery.title }}</a>
+					<span class="date">({{ gallery.created|timeSince }})</span>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>	
+			<br />
+		{% endif %}
+
+						
+		{# we set this variable earlier in the template #}
+		{% if charts.length %}
+			{% for chart in charts %}{{ render.chart(chart) }}{% endfor %}		
+		{% endif %}
+
+		{{ article.infobox_formatted }}
+				
+		
+	</div>
+			
+		{{ article.copy_formatted|extract(1) }}	
+		
+		{{ article.copy_formatted|extract(null, 1) }}
+	
+			
+		<b>Originally Published:</b> {{ article.created|timeSince }}
+		<br />
+		<br />
+		
+	
+			{% include 'gryphon/ads/mobile.mbl' %}
+
+	
+	<div id="comments_label">
+		<h1>Comments</h1>
+		<a class="btn" href="#comment_form">Add a Comment</a>
+	</div>
+	
+			
+		<div id="comment_container">
+		
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			{% import 'macros/comment.mbl' as comment %}
+			
+			<div class="pagination"><span>
+				{{ comment.pagers(article) }}
+			</span></div>
+			
+			<div class="comments">
+				{{ comment.list(article) }}
+			</div>
+		
+			<div class="pagination"><span>
+				{{ comment.pagers(article) }}
+			</span></div>
+		
+			{% if article.shouldAllowComments %}
+		
+				{% set commentItem = article %}
+				{% include 'gryphon/comment/form.mbl' %}
+		
+			{% endif %}
+			
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+{% endblock content %}

@@ -1,0 +1,118 @@
+	#crime-map-header {
+		background: #f1f1f1;
+		padding: .5em;
+		font-size: .9em;
+	}
+	.calendar-picker {
+/*		width: 10em;
+		background: #fff url( images/date_add.png ) no-repeat center right;
+*/	}
+
+	#info-window {
+		background: #fff;
+	}
+
+	#list-container {
+		background: #f1f1f1;
+		width: 148px !important;
+		width: 150px;
+		height: 610px !important;
+		height: 620px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 5px;
+		overflow: auto;
+	}
+	
+	#list-container li {
+		margin: .5em 0;
+		padding: 0;
+		font-size: 12px;
+		list-style-type: none;
+		font-weight: bold;
+	}
+
+	#list-container li img {
+		padding-right: 10px;
+	}
+	
+	#intro {
+		position: absolute;
+		width: 320px;
+		height: 250px;
+		background: #fff;
+		border: 1px solid #e1e1e1;
+	}
+		#intro div {
+			padding: .5em;
+			text-align: left;
+		}
+
+	.message {
+		background:#FFFFCC;
+	}
+
+/**
+	Date Picker
+**/
+.dp_container{
+	position: absolute;
+	padding: 0;
+}
+.dp_cal{
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	width: 177px;
+	margin: 0px 0px 3px 0px;
+}
+.dp_cal table{
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.dp_cal select{
+	margin: 2px 3px;
+	font-size: 11px;
+}
+.dp_cal select option{
+	padding: 1px 3px;
+}
+.dp_cal th,
+.dp_cal td{
+	width: 14.2857%;
+	text-align: center;
+	font-size: 11px;
+	padding: 5px;
+}
+.dp_cal th{
+	border-width: 1px 0;
+	color: #fff;
+	background: #368;
+	font-weight: bold;
+}
+.dp_cal td{
+	cursor: pointer;
+}
+.dp_cal thead th{
+	background: #e1e1e1;
+}
+.dp_cal td.dp_roll{
+	color: #000;
+	background: #fff6bf;
+}
+/* must have this for the IE6 select box hiding */
+.dp_hide{
+	visibility: hidden;
+}
+.dp_empty{
+	background: #eee;
+}
+.dp_today{
+	background: #333;
+	color: #fff;
+}
+.dp_selected{
+	color: #fff;
+	background: #328dcf;
+}

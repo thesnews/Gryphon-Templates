@@ -1,0 +1,36 @@
+{% extends isXHR ? 'roost/roost/base.xhr.mbl' : 'roost/roost/base.mbl' %}
+
+{% block content %}
+<div class="block">
+	<h1 id="header" class="box">
+		<a href="{{ 'roost:roost'|url }}"><img src="{{ 'roost/frontend/stylev2/images/hg_logo_mobile.png'|url }}" alt="HousingGuide" /></a>
+	</h1>
+
+	<h2 class="subhead box">
+		
+		<a href="{{ 'roost:roost'|url }}" class="button back"><span class="beak"></span><span>Back</span></a>
+
+		Search Results		
+		
+	</h2>
+
+	<div class="box">
+		
+		<ul class="link-list">
+			{% if properties.length %}
+				{% for property in properties %}
+					<li class="item-link" data-url="{{ property.urlListing }}">
+						<h4><a href="{{ property.urlListing }}">{{ property.name }}</a></h4>
+						<strong>{{ property.type }} - {{ property.address }}</strong>
+						<div class="no-phone">
+							{{ property.summary_formatted }}
+						</div>
+					</li>
+				{% endfor %}
+			{% else %}
+				<li>Sorry, no properties could be found.</li>
+			{% endif %}
+		</ul>		
+	</div>
+</div>
+{% endblock %}

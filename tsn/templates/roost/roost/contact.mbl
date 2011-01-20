@@ -1,0 +1,80 @@
+{% extends isXHR ? 'roost/roost/base.xhr.mbl' : 'roost/roost/base.mbl' %}
+
+{% block content %}
+	{% helper config %}
+
+	{% set amenitiesMap = config.get('roost:amenitiesMap') %}
+	<div class="block">
+		<h1 id="header" class="box">
+			<a href="{{ 'roost:roost'|url }}"><img src="{{ 'roost/frontend/stylev2/images/hg_logo_mobile.png'|url }}" alt="HousingGuide" /></a>
+		</h1>
+	
+		<h2 class="subhead box">
+			
+			<a href="{{ property.urlListing }}" class="button back"><span class="beak"></span><span>Back</span></a>
+			
+			Contact
+			
+		</h2>
+	
+		<div class="box">
+
+			{% if success %}
+			<div id="message" class="box success">
+				<h4>Message sent</h4>
+				
+				Your message was successfully sent.
+			</div>
+			<hr class="spacer" />
+			{% elseif errors %}
+			<div id="message" class="box error">
+				<h3>Oops</h3>
+				
+				{% for id, label in errors %}
+					{{ label }}<br />
+				{% endfor %}
+			</div>
+			<hr class="spacer" />
+			{% endif %}
+	
+			<form method="post" action="{{ ('roost:roost/contact/'~property.uid)|url }}">
+			<div class="grid_5 alpha">
+				<input type="hidden" name="mailKey" value="{{ mailKey }}" />
+				<fieldset>
+					<label for="input_name">Your name:</label><br />
+					<input type="text" name="name" id="input_name" value="{{ posted.name }}"/>
+					
+					<hr class="spacer" />
+					
+					<label for="input_email">Your email:</label><br />
+					<input type="text" name="email" id="input_email" value="{{ posted.email }}"/>
+					
+					<hr class="spacer" />
+					
+					<label for="input_phone">Your phone number:</label><br />
+					<input type="text" name="phone" id="input_phone" value="{{ posted.phone }}"/>
+					
+					<hr class="spacer" />
+					
+					<label for="input_description">What do you want to ask? Please be as specific as possible.</label>
+					<textarea rows="10" cols="40" id="input_description" name="description">{{ posted.description }}</textarea>
+				</fieldset>
+				
+				<hr class="spacer" />
+				
+				<input type="submit" value="Send message" />
+			
+			</div>
+			</form>
+
+		</div>
+
+		<div id="footer" class="box">
+			&copy; 2010 The State News<br />
+			Viewing mobile version. | Switch to <a href="#">standard</a><br />
+			Powered by <a href="http://detroitsoftworks.com">Detroit Softworks</a>.
+		</div>
+	
+
+	</div>
+{% endblock %}
