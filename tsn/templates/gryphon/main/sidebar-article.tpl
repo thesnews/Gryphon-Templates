@@ -8,16 +8,7 @@
 
 <hr class="spacer" />
 
-<div class="grid_2 alpha">
-	{% include 'gryphon/ads/button.tpl' %}
-</div>
-<div class="grid_2 omega">
-	{% include 'gryphon/ads/button.tpl' %}
-</div>
-
-
 {% if article.copy|length > 1500 %}
-	<hr />
 	
 	{% include 'gryphon/main/featured.tpl' %}
 {% endif %}

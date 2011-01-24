@@ -136,7 +136,12 @@
 			<div class="container_12" id="main-content"> <!-- 960.GS STARTS HERE. DONT FORGET TO USE "CLEAR" DIVs AFTER EACH ROW! -->
 				{% if not suppressLeaderBoard %}
 					<div class="grid_12">
-						{% include 'gryphon/ads/leaderboard.tpl' %}
+						<div class="grid_2 alpha">
+							{% include 'gryphon/ads/button.tpl' %}
+						</div>
+						<div class="grid_10 omega">
+							{% include 'gryphon/ads/leaderboard.tpl' %}
+						</div>
 					</div>
 					<hr />
 				{% endif %}

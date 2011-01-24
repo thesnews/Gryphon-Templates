@@ -90,15 +90,6 @@
 
 	<hr class="spacer" />
 
-	<div class="alpha grid_2">
-		{% include 'gryphon/ads/button.tpl' %}
-	</div>
-	<div class="omega grid_2">
-		{% include 'gryphon/ads/button.tpl' %}
-	</div>
-
-	<hr class="spacer" />
-
 	<div class="box gray">
 		{% include 'tsn/poll/recent.tpl' %}
 	</div>
@@ -128,7 +119,12 @@
 <hr />
 
 <div class="grid_12">
-	{% include 'gryphon/ads/leaderboard.tpl' %}
+	<div class="grid_2 alpha">
+		{% include 'gryphon/ads/button.tpl' %}
+	</div>
+	<div class="grid_10 omega">
+		{% include 'gryphon/ads/leaderboard.tpl' %}
+	</div>
 </div>
 
 <hr />

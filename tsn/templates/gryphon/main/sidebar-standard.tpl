@@ -8,15 +8,6 @@
 
 <hr class="spacer" />
 
-<div class="grid_2 alpha">
-	{% include "gryphon/ads/button.tpl" %}
-</div>
-<div class="grid_2 omega">
-	{% include "gryphon/ads/button.tpl" %}
-</div>
-
-<hr />
-
 {% include 'gryphon/main/featured.tpl' %}
 
 <hr class="spacer" />
@@ -26,3 +17,5 @@
 <hr class="spacer" />
 
 {% include 'google/calendar/featured.tpl' %}
+
+<hr class="spacer" />

@@ -766,8 +766,9 @@ ul.frontpage_pdf div {
 	}
 	
 	.button {
-		height: 125px;
-		width: 125px;
+		margin: 0.5em auto;
+		height: 90px;
+		width: 120px;
 	}
 
 	.classsponsor {
