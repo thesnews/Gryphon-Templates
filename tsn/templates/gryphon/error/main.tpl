@@ -7,10 +7,10 @@
 		<h3>Something has gone awry</h3>
 		
 		<p>
-			Ahh man, looks like we've encountered an error. Don't worry it wasn't your fault. Try hitting your browser's back button and trying again.
+			Ahh man, looks like we've encountered an error. Don't worry, it wasn't your fault. Hit your browser's back button to try again.
 		</p>
 		<p>
-			If you think something has gone very, very wrong, please contact our <a href="mailto:webmaster@statenews.com">web team</a> and let give them the following info:
+			If you think something has gone very, very wrong, please contact our <a href="mailto:webmaster@statenews.com">web team</a> and  give them the following info:
 		</p>
 		<div class="gray box">
 <pre>
