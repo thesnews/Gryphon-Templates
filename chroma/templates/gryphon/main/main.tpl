@@ -147,7 +147,7 @@
 				</div> <!-- this end tag coresponds to the div grid 9-->
 				
 						<div class="grid_3 omega">
-						<!--insert add here-->
+						{% include 'gryphon/ads/skyscraper.tpl' %}
 						</div>
 						
 			</div>

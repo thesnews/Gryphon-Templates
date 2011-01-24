@@ -13,7 +13,7 @@
 <div class="grid_8">
 
 	{% if breaking %}
-		<div class="breaking-box">
+		<div>
 			<div>
 				<h3><a href="{{ breaking.url }}">{{ breaking.headline }}</a><span>Last updated {{ breaking.modified|timeSince }}</span></h3>
 				<a href="{{ breaking.url }}">Read more &#187;</a>
@@ -50,9 +50,6 @@
 		<hr class="spacer" />
 		end prod notice -->
 		
-		<h5 class="bordered">
-			FEATURES:
-		</h5>
 		
 		{% for article in secondaryStories %}
 			{{ articleRender.abstract3Col(article) }}

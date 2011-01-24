@@ -130,7 +130,7 @@
 			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
 				
 				<form id="search" method="get" action="{{ 'search'|url }}" class="search-form">
-					<input class="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
+					<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
 					<input id="search_field" class="search replace-text" type="text" name="search" value="Search Detroit Softworks" />
 				</form>
 				

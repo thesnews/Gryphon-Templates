@@ -90,7 +90,7 @@
 					</div>		
 
 				<div class="grid_2 omega" style="text-align: right;">
-					<img src="style_chroma/images/ads/skyscraper.png" alt="advertisement" />
+				{% include 'gryphon/ads/skyscraper.tpl' %}
 					
 				</div>
 				
@@ -99,11 +99,29 @@
 			<div class="grid_12" id="secondary">
 				<div class="grid_4 alpha">
 				
-					<img src="style_chroma/images/ads/square.png" alt="advertisement" />
-												
+						{% include 'gryphon/ads/button.tpl' %}
+						{% fetch news from article with [
+						'limit': 5,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+															]
+						%}
+					<h3>More Stories from News:</h3>
+					<ul>
+					{% for item in news %}
+					<li><h4><a href="{{ item.url }}">{{ item.headline }}</a> <span class="small">({{ article.created|date('M d') }})
+					</span></h4>
+					</li>
+					{% endfor %}
+				</ul>					
 				</div>
-				
 				<div class="grid_5">
+					{% fetch news from article with [
+						'limit': 2,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+															]
+						%}
 				{% for article in articles %}
 				<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
 						<div class="dark byline">
