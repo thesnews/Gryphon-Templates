@@ -29,7 +29,7 @@
 
 			<ul>
 				{% for article in articles %}
-					<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4> <span class="small">(updated {{ article.updated|timeSince }})</span></li>
+					<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4> <span class="small">(updated {{ article.modified|timeSince }})</span></li>
 				{% endfor %}
 			</ul>
 		
