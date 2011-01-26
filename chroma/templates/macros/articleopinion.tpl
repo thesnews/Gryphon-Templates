@@ -3,6 +3,8 @@
 	{% set topImage = article.media.grab('type', 'image')[0] %}
 	{% set showHeadline = 1 %}
 	
+	
+
 	{% if showHeadline %}
 			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 		{% endif %}

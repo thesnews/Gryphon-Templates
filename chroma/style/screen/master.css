@@ -10,16 +10,16 @@
 
 /* Generic Styling
 ***********************************/
-#topimage img {
-height: 205px;
-}
-
-
 body {
 	background-color: #8d8d9c;
 	font: normal 12px Helvetica, Arial, Sans-Serif;
 	color: #fff;
 	text-shadow: 1px 1px #505050;
+}
+
+
+.ui-tabs .ui-tabs-hide {
+     display: none;
 }
 
 a {
@@ -75,16 +75,6 @@ small {
 	font-size: 0.9em;
 }
 
-img.cartoon {
-	width: 290px;
-	background: url(../images/bg/darker.png);
-	padding: 3px;
-}
-
-div#cartoon {
-	background: url(../images/bg/divider_medium.png) no-repeat top center;
-	padding-top: 15px;
-}
 
 /* List Styling
 ***********************************/
@@ -109,6 +99,14 @@ ul.more_stories {
 
 ul.more_stories li span {
 	font-size: 0.9em;
+}
+
+/* Cartoon List
+***********************************/
+
+div#more_cartoons {
+	margin-left: 30px;
+
 }
 
 /* Article Styling
@@ -187,6 +185,17 @@ a#text_down {
 
 /* Article Comments
 *******************************/
+
+h3.commentauthor {
+	text-align: right
+}
+
+div.comments {
+	background: url(../images/bg/divider_medium.png)
+	float: left;
+	padding: 0 0 10px 0;
+	margin: 10px 0 0 0;
+}
 
 ul#comments li {
 	background: url(../images/bg/divider_medium.png) no-repeat bottom center;
@@ -460,7 +469,7 @@ div#ticker span#wx {
 
 div#header {
 	background: url(../images/bg/divider_large.png) no-repeat bottom center;
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 	margin-bottom: 10px;
 }
 
@@ -492,60 +501,40 @@ div#header ul {
 			text-decoration: none;
 		}
 		
-/* Featured Stories
+/* Featured Stories Main
 ***********************************/		
 
-div#featured_stories {
-	height: 227px;
-	background: url(../images/bg/dark.png);
-	padding: 10px;
+div#featured_main {
 	float: left;
-}
-
-div#featured_stories div {
-	float: left;
-	background: url(../images/bg/dark.png);
-	padding: 5px 5px 3px 5px;
 	position: relative;
-}
-
-div#featured_stories div div.caption {
-	background: url(../images/bg/darkest.png);
-	padding: 5px;
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-	text-shadow: none;
-}
-
-	div#featured_stories div div.caption p {
-		font-size: 0.9em;
-	}
-
-div#featured_stories div img {
-	max-height: 239px;
-	width: 410px;
-}
-
-div#featured_stories ul {
-	float: right;
-}
-
-div#featured_stories ul li {
 	background: url(../images/bg/dark.png);
-	padding: 4px 4px 0px 4px;
-	margin: 0 0 7px 0;
-	opacity: 0.5;
+	padding: 5px;
+
 }
 
-div#featured_stories ul li img {
-	width: 100px;
-	margin: 0 0 0px 0;
+div#featured_main img {
+	width: 400px;
 }
 
-div#featured_stories ul li.ui-tabs-selected {
-	opacity: 1;
+
+
+
+/* Featured Images on other pages
+***********************************/		
+
+div#featured_image {
+	float: left;
+	position: relative;
+	width: 290px;
+	background: url(../images/bg/dark.png);
+	padding: 5px;
+
 }
+
+div#featured_image img {
+	width: 290px;
+}
+
 
 /* Gallery
 ***********************************/		
@@ -610,7 +599,13 @@ div.byline {
 	margin: 10px 0;
 }
 
-div.byline span.date, div.byline a.author, div.byline a.comment, div.byline a.rss {
+div.byline span.modified {
+	background: url(../images/icons/pencil.gif) no-repeat;
+	padding: 0 0 0 13px;
+	margin: 0 5px 0 0;
+}
+
+div.byline span.date, div.byline a.author, div.byline a.comment, div.byline a.rss, div.byline a.source, div.byline a.report, div.byline a.author_comment {
 	background: url(../images/icons/clock.gif) no-repeat;
 	padding: 0 0 0 13px;
 	margin: 0 5px 0 0;
@@ -618,6 +613,14 @@ div.byline span.date, div.byline a.author, div.byline a.comment, div.byline a.rs
 
 div.byline a.author {
 	background-image: url(../images/icons/author.gif);
+}
+
+div.byline a.source {
+	background-image: url(../images/icons/source.gif);
+}
+
+div.byline a.report {
+	background-image: url(../images/icons/report.gif);
 }
 
 div.byline a.comment {
@@ -629,9 +632,37 @@ div.byline a.rss, div#blog_info a#rss {
 	background-position: 0 2px;
 }
 
-div.cartoonbyline{
-	width:290px;
+
+/* Photo Bylines
+***********************************/
+
+p.byline {
+	font-size: 0.9em;
 }
+
+p.byline span.date, p.byline a.author, p.byline a.comment, p.byline a.rss, p.byline a.source {
+	background: url(../images/icons/clock.gif) no-repeat;
+	padding: 0 0 0 13px;
+	margin: 0 5px 0 0;
+}
+
+p.byline a.author {
+	background-image: url(../images/icons/author.gif);
+}
+
+p.byline a.source {
+	background-image: url(../images/icons/source.gif);
+}
+
+p.byline a.comment {
+	background-image: url(../images/icons/comment.gif)
+}
+
+p.byline a.rss, p#blog_info a#rss {
+	background-image: url(../images/icons/rss.png);
+	background-position: 0 2px;
+}
+
 
 /* Section Tabs Module
 ***********************************/

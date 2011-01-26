@@ -1,39 +1,21 @@
 {% macro list(item) %}
 
 	{% helper commentHelper %}
+
 	{% set comments = commentHelper.commentsFor(item) %}
-	
-	<h3>Commentary</h3>
-	
-	<p>Add your $0.02, <a href="#comment_form">go to the comment form</a> or follow the <a href="{{ article.url }}.xml" class="feed_link">comment feed</a></p>
 	
 	{% set showAdmin = commentHelper.userHasSession() %}
 
 	{% for comment in comments %}
-		<div id="comment{{ comment.uid }}">
-			<div class="grid_2 alpha">
-				<h4>{{ comment.name }} says:</h4>
-				({{ comment.created|timeSince }})<br />
-				<a href="{{ ('gryphon:comment/flag/'~comment.hash)|url }}">Report</a>
-				{% if showAdmin %}
-					<br />
-					<a href="{{ comment.getEditURL() }}">Manage</a>
-				{% endif %}
-			</div>
-			<div class="grid_6 omega">
-				<div class="gray box">
-					<img class="comment_beak" src="{{ 'style/gryphon/images/beak_comment.png'|url }}" alt="Comment" />
-					{{ comment.comment_formatted }}
-				</div>
-				{% if showAdmin %}
-					<div class="quiet small">
-						Flagged: {{ comment.flagged|int2noun('time') }} | {{ comment.email }} | {{ comment.ip }}
-					</div>
-				{% endif %}
-			</div>
-		</div>
-		<div class="clear"></div>
-		<hr class="spacer" />	
+	
+	<p>{{ comment.comment_formatted }}</p>
+					
+						<div class="byline">
+						<h3>- {{ comment.name }}</a></h3>
+						<span class="date">{{ comment.created|date('M d, Y') }}</span><br />
+						<a href="{{ ('gryphon:comment/flag/'~comment.hash)|url }}" class="report">Report</a>
+						</div>
+			
 	{% endfor %}
 	
 	{% macro pagers(item) %}

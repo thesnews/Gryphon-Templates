@@ -4,35 +4,21 @@
 	{% set showHeadline = 1 %}
 	
 
-	<div id="topimage">
-	{% if topImage %}
-		{% if 'vertical'|in(topImage.meta) %}
-			{% set showHeadline = 0 %}
-			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
+		<div id="featured_image">
+
+	   		<a href="{{ article.url }}">
+				<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
+			</a>
+				   	<p class="byline">					
+						{% if article.authors.length %}
+						<a class="author">{{ topImage.authors.splat('name')|join(', ') }}</a>
+						{% endif %}
+						<a class="source">{{ topImage.source }}</a>
+					</p>	
+	    </div>
+
 	
-			<div class="grid_2 alpha omega"><div class="image">
-				<a href="{{ article.url }}">
-					<img src="{{ topImage.url }}"  alt="{{ article.headline }}" class="col_2" />
-				</a>
-
-				
 	
-			</div></div>
-		{% else %}
-			<div class="image">
-				<a href="{{ article.url }}">
-					<img src="{{ topImage.url }}"  alt="{{ article.headline }}" class="col_4" />
-				</a>
-				<div class="info">
-
-					
-				</div>
-			</div>
-		{% endif %}
-	{% endif %}
-
-
-
 		{% if showHeadline %}
 			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 		{% endif %}
@@ -46,12 +32,12 @@
 						{% endif %}
 						
 						<a class="comment" href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>
-						
+	
 					</div>
 					
 					<p>{{ article.abstract_formatted }} 
 					<a href="{{ article.url }}" class="dark"><span>More</span></a></p>
-			</div>		
+		
 
 {% endmacro %}
 

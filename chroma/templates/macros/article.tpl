@@ -5,8 +5,7 @@
 	
 
 				<div class="grid_5 alpha">
-					
-					
+										
 					{% if showHeadline %}
 						<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 					{% endif %}
@@ -21,20 +20,18 @@
 					
 				</div>
 				<div class="grid_7 omega">
-					<div id="featured_stories">
-					    <div id="featured_story1">
+					<div id="featured_main">
+				
 					   		<a href="{{ article.url }}">
 								<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
 							</a>
-							<div class="caption">
-								<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
-								<p>	{{ topImage.authors.splat('name')|join(', ') }} /
-									{{ topImage.source }}
-
-							</div>
-					    </div>
-					   
-					</div>
+						   	<p class="byline">					
+								{% if article.authors.length %}
+								<a class="author">{{ topImage.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+								<a class="source">{{ topImage.source }}</a>
+							</p>
+					 </div>
 				</div>
 
 	

@@ -12,8 +12,8 @@
 
 <div class="grid_12">
 
-	<div class="grid_5 alpha">
-		{{ articleRender.abstract5Col(topStory) }}	
+	<div class="grid_4 alpha">
+		{{ articleRender.abstract4Col(topStory) }}	
 	</div>
 
 	<div class="grid_3">
@@ -25,7 +25,7 @@
 
 	</div>
 	
-	<div class="grid_4 omega">
+	<div class="grid_5 omega">
 	{% include 'gryphon/ads/skyscraper.tpl' %}
 	</div>
 	

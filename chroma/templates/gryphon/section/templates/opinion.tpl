@@ -40,17 +40,26 @@
 		] %}
 <br />
 
-		<div id="cartoon">		
-		
-		{% set cartoon = cartoons.shift() %}
-	
-			<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" /></a>
-			<div class="dark byline cartoonbyline">
-			<a href="{{ cartoon.authors[0].urlSearch }}">{{ cartoon.authors[0].name }}</a>
+
+
+
+
+			<div id="featured_image">
+					{% set cartoon = cartoons.shift() %}
+					   		<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" /></a>
+							<div class="caption">
+								<p>	
+								{% if cartoon.authors.length %}
+								<a href="{{ cartoon.authors[0].urlSearch }}">{{ cartoon.authors[0].name }}</a>
+								{% endif %}
+								{{ topImage.source }}
+								</p>	
+							</div>
 			</div>
-			
-			<h3>More Cartoons:</h3>
-			
+					    
+		
+		<div id="more_cartoons">		
+		<h3>More Cartoons:</h3>
 			<ul>
 				{% for cartoon in cartoons %}
 					<li>Cartoon for <a href="{{ cartoon.urlDefault }}">{{ cartoon.created|date('M d, Y') }}</a></li>

@@ -28,7 +28,6 @@
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
-							<span class="byline_divider">|</span>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
@@ -51,7 +50,6 @@
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
-							<span class="byline_divider">|</span>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
@@ -74,7 +72,6 @@
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
-							<span class="byline_divider">|</span>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
@@ -206,7 +203,6 @@
 									<li><a href="#">Here is an interesting news article!</a></li>
 								</ul>
 							</div>
-
 							<div id="sports">
 								<ul>
 									<li><h3>Top Stories in <a href="#">Sports</a>:</h3></li>
@@ -254,9 +250,7 @@
 									<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
 								</ul>
 							</div>
-
-						</div>
-					</div>
+						</div>					</div>
 
 					<div class="grid_2 omega">
 						<div class="dark" id="front_pdf">
