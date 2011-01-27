@@ -17,8 +17,7 @@
 
 <div class="grid_12">
 				<div class="grid_4 alpha">
-					
-						{{ articleRender.abstract4Col(topStory) }}
+				{{ articleRender.abstract4Col(topStory) }}
 				</div>
 				
 				<div class="grid_3 omega">

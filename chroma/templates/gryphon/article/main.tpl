@@ -164,7 +164,7 @@
 					
 	{% import 'macros/comment.tpl' as comment %}
 	
-	<div class="pagination dark byline"><span>
+	<div class="pagination byline"><span>
 		{{ comment.pagers(article) }}
 	</span></div>
 	
@@ -172,7 +172,7 @@
 		{{ comment.list(article) }}
 	</div>
 
-	<div class="pagination dark byline"><span>
+	<div class="pagination byline"><span>
 		{{ comment.pagers(article) }}
 	</span></div>
 

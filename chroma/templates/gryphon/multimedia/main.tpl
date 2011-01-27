@@ -10,35 +10,35 @@
 
 {% set topMedia = media.shift() %}
 
-<div class="grid_8">
+<div class="grid_12">
 
-	<h1>{{ topMedia.fileType|capitalize }}: {{ topMedia.title }}</h1>
-	
-	{{ mediaRender.media(topMedia) }}
-
-	{{ topMedia.caption_formatted }}
-	
-	<h4>Related:</h4>
-	<ul>
-		{% for item in topMedia.articles %}
-			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
-		{% endfor %}
-	</ul>
-	
-	<hr />
-	
-	<hr class="spacer" />
-
-	<div class="pagination">
-		<h5>MULTIMEDIA</h5>
+	<div class="gir_12 alpha omega pagination dark byline">
 		<span>
 		{% for page in pagination %}
 			<a href="{{ page.url }}">{{ page.label }}</a>
 		{% endfor %}
 		</span>
 	</div>
-
 	
+	<div class="grid_8 alpha">
+	<h1>{{ topMedia.fileType|capitalize }}: {{ topMedia.title }}</h1>
+	
+	{{ mediaRender.media(topMedia) }}
+
+	{{ topMedia.caption_formatted }}
+	<br />
+	<h4>Related:</h4>
+	<ul>
+		{% for item in topMedia.articles %}
+			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
+		{% endfor %}
+	</ul>
+	</div>
+	
+	<div  class="grid_12 alpha omega">
+	</div>
+	
+	<div  class="">
 	{% for i in 0..(media.length-1) %}
 		{% set item = media[i] %}
 		
@@ -54,30 +54,13 @@
 			<h4><a href="{{ item.urlDefault }}">{{ item.title }}</a></h4>
 			<span class="small">Posted: {{ item.created|timeSince }}</span>
 			{{ item.description|clip(100) }}
-			
-			<hr class="spacer" />
-		</div>
+	</div>		
 
-		{% if i%2 != 0 %}
-			<hr class="clear-fix" />
-		{% endif %}
-		
+</div>
+
 	{% endfor %}
-	<hr class="spacer" />
-	<div class="pagination">
-		<span>
-		{% for page in pagination %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
-		{% endfor %}
-		</span>
-	</div>
 	
 </div>
 
-<div class="grid_4">
-
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
-	
-</div>
 
 {% endblock content %}

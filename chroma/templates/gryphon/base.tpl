@@ -217,8 +217,8 @@
 							</ul>
 						</div>
 						
+						
 						<div class="grid_2">
-
 								{% fetch pdf from media with [
 									'where': 'status = 1',
 									'limit': 1,
@@ -227,11 +227,18 @@
 								] %}
 							
 								<ul>
-								<li><a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" /></a></li>
+								<li><h3>Today's Front Page</h3></li>
+								<li>
+								<a href="{{ pdf[0].urlOriginal }}">
+								<img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" class="front_pdf" />
+								</a>
+								</li>
 								<li><a href="{{ 'page/pdf'|url }}">More Page Fronts</a></li>
 								<li><a href="http://reprints.statenews.com">Reprints</a></li>
 							</ul>
 						</div>
+					
+						
 						
 						<div class="grid_2 omega">
 							

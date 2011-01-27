@@ -42,9 +42,9 @@
 							</a>
 							{% endif %}
 							
-							<a href="{{ article.url }}" class="dark"><span>More</span></a>
+							
 						</div>
-						<p>{{ article.abstract_formatted|clip(190) }}</p>
+						<p>{{ article.abstract_formatted|clip(250) }}<a href="{{ article.url }}" class="dark"><span>More</span></a></p>
 <br />
 
 
