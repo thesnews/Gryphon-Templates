@@ -10,60 +10,36 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/article.tpl" as articleRender %}
 
-<div class="grid_8">
+<div class="grid_12">
 
-	{% if breaking %}
-		<div>
-			<div>
-				<h3><a href="{{ breaking.url }}">{{ breaking.headline }}</a><span>Last updated {{ breaking.modified|timeSince }}</span></h3>
-				<a href="{{ breaking.url }}">Read more &#187;</a>
-
-			</div>
-		</div>
-	
-		<hr class="spacer" />
-	{% endif %}
+<div class="grid_8 alpha">
 
 	<div class="grid_5 alpha">
-		{{ articleRender.abstract5Col(topStory) }}		
+		{{ articleRender.abstract5Col(topStory) }}	
 
-		<hr class="spacer" />
-
-		<h5 class="bordered">FEATURED MULTIMEDIA:<span><a href="{{ 'multimedia'|url }}">More multimedia &#187;</a></span></h5>	
+	</div>
+	
+	
+	<div class="grid_3 omega">
+		<h3>Featured Multimedia</h3>	
 		{% fetch multimedia from media with [
-			'limit': 10,
+			'limit': 7,
 			'order': 'self:weight desc, self:created desc',
 			'withTags': ['Multimedia Box']
-		] %}
-		{% include "gryphon/main/box.tpl" %}
-
-
+		] %}	
+		<ul class="more_from">
+			<li><h3>More from <a href="#">News</a>:</h3></li>
+			{% for article in articles %}
+			<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4>({{ article.created|date('M d') }})</li>
+			{% endfor %}
+		</ul><br />
+		<span><h3><a href="{{ 'multimedia'|url }}">More multimedia &#187;</a></h3></span>
 	</div>
 	
-<!-- Here is where the grid 3 columns start.  End of grid 8.  --->
-
-	<div class="grid_3 omega">
-		<!-- prod notice
-		<div class="box gray">
-			The State News will resume regular publication <strong>May 17</strong>. Check back with statenews.com for updates throughout the semester break.
-		</div>
-		<hr class="spacer" />
-		end prod notice -->
 		
-		
-		{% for article in secondaryStories %}
-			{{ articleRender.abstract3Col(article) }}
-		{% endfor %}
-		
-		
-	</div>
-	
-	<hr class="spacer">
-	<hr class="spacer">
-	
 	<div class="grid_6 alpha">
 		<div class="grid_3 alpha">
-			<h5 class="bordered">MORE FEATURES</h5>
+			<h5>MORE FEATURES</h5>
 	
 			<ul>
 				{% for article in articles %}
@@ -73,7 +49,7 @@
 	
 		</div>
 		<div class="grid_3 omega">
-			<h5 class="bordered">
+			<h5>
 				BLOGS:
 				<span><a href="{{ 'blog'|url }}">More blogs &#187;</a></span>
 			</h5>
@@ -99,7 +75,7 @@
 
 	</div>
 	<div class="grid_2 omega">
-		{% include 'gryphon/ads/skyscraper.tpl' %}
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" />
 	</div>
 </div>
 
@@ -107,7 +83,7 @@
 
 <!-- Here is where the grid 4 columns start.  End of grid 3.  --->
 
-<div class="grid_4">
+<div class="grid_4 alpha">
 	{% include 'gryphon/ads/rectangle.tpl' %}
 
 	<hr class="spacer" />
@@ -135,6 +111,7 @@
 
 </div>
 
+</div>
 
 
 
