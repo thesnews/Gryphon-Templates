@@ -30,19 +30,11 @@
 
 	<title>Detroit Softworks{{ title|default(" :: Detroit Softworks") }}</title>
 
-	{% if config.get('debug') %}
-		<script type="text/javascript" src="{{ 'javascript/vendor/offspring.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'javascript/vendor/rosewood.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'javascript/base.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'javascript/expandable.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>
+		
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-1.3.2.min.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>
 
-		<script src="{{ 'javascript/vendor/video-js/video.js'|url }}" type="text/javascript" charset="utf-8"></script>
-	{% else %}
-		<script src="{{ 'javascript/snews.compressed.js'|url }}" type="text/javascript"></script>
-	{% endif %}
 
 	{% block styles %}{% endblock %}
 	{% block scripts %}{% endblock %}
@@ -56,31 +48,13 @@
 	<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/ie6.css'|url }}" />
 	<![endif]-->
-	<link rel="stylesheet" href="{{ 'javascript/vendor/video-js/video-js.css'|url }}" type="text/css" media="screen" title="Video JS" charset="utf-8">
-	<script type="text/javascript" charset="utf-8">
-		VideoJS.setupAllWhenReady({
-			linksHiding: true,
-			controlsHiding: true
-		});
-	</script>
+
 
 
 	<link rel="alternate" type="application/rss+xml" title="Top Stories" href="http://feeds.feedburner.com/statenews/top" />
 
 
-	<script type="text/javascript">
-	
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-1362565-1']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
-	  })();
-	
-	</script>
+
 	
 	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/calendar.css'|url }}" />
 	
@@ -123,26 +97,28 @@
 	
 	<div class="container_12"> <!-- CENTERS EVERYTHING -->
 		
-		<div id="ticker">
-			<span id="date">{{ now|date('l F j, Y') }}</span>  &nbsp;&nbsp;  <span id="founded">Detroit, MI | Since 2009  </span>
-			&nbsp;&nbsp;
+		<div class="grid_12 dark" id="ticker">
+			<div>
+			<span id="date">{{ now|date('l F j, Y') }}</span> 
+			<span id="founded">Detroit, MI | Since 2009  </span>
 			<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
 			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
-				
+			</div>	
 				<form id="search" method="get" action="{{ 'search'|url }}" class="search-form">
-					<input class="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
+					<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
 					<input id="search_field" class="search replace-text" type="text" name="search" value="Search Detroit Softworks" />
 				</form>
 				
 		</div>
-			
-		<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
-
-		<div id="header">
-			<br />
-				{% include 'gryphon/ads/leaderboard.tpl' %}
-	
 		
+
+			<div class="grid_12 leaderboard">
+				<img src="style_chroma/images/ads/leaderboard.png" alt="advertisement" />
+			</div>
+
+
+
+		<div id="header" class="grid_12">
 			<a href=""><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>{% include "gryphon/navigation.tpl" %}
 		</div>
 		
@@ -241,8 +217,8 @@
 							</ul>
 						</div>
 						
+						
 						<div class="grid_2">
-
 								{% fetch pdf from media with [
 									'where': 'status = 1',
 									'limit': 1,
@@ -251,11 +227,18 @@
 								] %}
 							
 								<ul>
-								<li><a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" /></a></li>
+								<li><h3>Today's Front Page</h3></li>
+								<li>
+								<a href="{{ pdf[0].urlOriginal }}">
+								<img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" class="front_pdf" />
+								</a>
+								</li>
 								<li><a href="{{ 'page/pdf'|url }}">More Page Fronts</a></li>
 								<li><a href="http://reprints.statenews.com">Reprints</a></li>
 							</ul>
 						</div>
+					
+						
 						
 						<div class="grid_2 omega">
 							

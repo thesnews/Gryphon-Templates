@@ -42,7 +42,7 @@
 
 <ul id="cat"> <!-- TOP LEVEL NAVIGATION. "ACTIVE" CLASS GETS TABBED -->
 {% for url, info in navigation %}
-	<li id="{{ info['id'] }}"{% if active == info['id'] %} class="active"{% endif %}>
+	<li {% if active == info['id'] %} class="active"{% endif %}>
 		<a href="{{ url|url }}">{{ info['label'] }}</a>
 		{% if active == info['id'] and info['subcats'] %}
 			<ul id="subcat"> <!-- BOTTOM LEVEL NAVIGATION. "ACTIVE" CLASS GETS ARROWED -->

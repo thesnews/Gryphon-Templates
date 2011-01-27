@@ -3,6 +3,8 @@
 	{% set topImage = article.media.grab('type', 'image')[0] %}
 	{% set showHeadline = 1 %}
 	
+	
+
 	{% if showHeadline %}
 			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 		{% endif %}
@@ -40,9 +42,9 @@
 							</a>
 							{% endif %}
 							
-							<a href="{{ article.url }}" class="dark"><span>More</span></a>
+							
 						</div>
-						<p>{{ article.abstract_formatted|clip(190) }}</p>
+						<p>{{ article.abstract_formatted|clip(250) }}<a href="{{ article.url }}" class="dark"><span>More</span></a></p>
 <br />
 
 

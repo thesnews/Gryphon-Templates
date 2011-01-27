@@ -12,11 +12,12 @@
 
 <div class="grid_12">
 
-	<div class="grid_5 alpha">
-		{{ articleRender.abstract5Col(topStory) }}	
+	<div class="grid_4 alpha">
+		{{ articleRender.abstract4Col(topStory) }}	
 	</div>
 
-	<div class="grid_3">
+	<div class="grid_4">
+	
 
 		{% for article in secondaryStories %}
 		{{ articleRender.abstract3Col(article) }}
@@ -25,6 +26,7 @@
 	</div>
 	
 	<div class="grid_4 omega">
+	{% include 'gryphon/ads/skyscraper.tpl' %}
 	</div>
 	
 </div>
@@ -117,9 +119,9 @@
 			<li><h3><a href="/index.php/section/Golf">Golf</a></h3></li>
 			<li><h3><a href="/index.php/section/gymnastics">Gymnastics</a></h3></li>
 			<li><h3><a href="/index.php/section/fieldhockey">Field Hockey</a></h3></li>
-		</ul>
-		<ul class="grid_2 alpha">
 			<li><h3><a href="/index.php/section/hockey">Ice Hockey</a></h3></li>
+		</ul>
+		<ul class="grid_2 omega">
 			<li><h3><a href="/index.php/section/rowing">Rowing</a></h3></li>
 			<li><h3><a href="/index.php/section/soccer">Soccer</a></h3></li>
 			<li><h3><a href="/index.php/section/softball">Softball</a></h3></li>

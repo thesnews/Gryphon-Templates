@@ -4,6 +4,11 @@ body {
 	background: #fff;
 }
 
+
+.ui-tabs .ui-tabs-hide {
+     display: none;
+}
+
 h1,h2,h3,h4,h5 {
 	margin-bottom: .5em;
 	padding: 0;

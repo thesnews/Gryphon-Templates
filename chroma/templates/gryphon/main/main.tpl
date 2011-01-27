@@ -12,7 +12,7 @@
 					{{ articleRender.abstract5Col(topStory) }}
 			</div>
 			<div class="grid_12" id="secondary">
-				
+
 				<div class="grid_9 alpha">
 					<div class="grid_3 alpha">
 						{% fetch news from article with [
@@ -28,7 +28,6 @@
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
-							<span class="byline_divider">|</span>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
@@ -51,7 +50,6 @@
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
-							<span class="byline_divider">|</span>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
@@ -74,7 +72,6 @@
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
-							<span class="byline_divider">|</span>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span
 						</div>
@@ -99,7 +96,7 @@
 						
 					
 								<ul class="more_from">
-									<li><h3>More from <a href="#">News</a>:</h3></li>
+									<li><h3>More from <a href="{{ 'section/news'|url }}">News</a>:</h3></li>
 								{% for article in articles %}
 								<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
 								{% endfor %}
@@ -145,9 +142,15 @@
 						</div>
 						
 				</div> <!-- this end tag coresponds to the div grid 9-->
-				
-						<div class="grid_3 omega">
-						<!--insert add here-->
+			
+		
+					<div class="grid_1">
+					&nbsp;
+					</div>
+						<div class="grid_2 omega">
+						<img src="style_chroma/images/ads/skyscraper.png" alt="advertisement" />
+						{% include 'gryphon/ads/skyscraper.tpl' %}
+						
 						</div>
 						
 			</div>
@@ -198,15 +201,14 @@
 							</ul>
 							<div id="news">
 								<ul>
-									<li><h3>Top Stories in <a href="#">News</a>:</h3></li>
-									<li><a href="#">Here is an interesting news article!</a></li>
-									<li><a href="#">Here is an interesting news article!</a></li>
-									<li><a href="#">Here is an interesting news article!</a></li>
-									<li><a href="#">Here is an interesting news article!</a></li>
-									<li><a href="#">Here is an interesting news article!</a></li>
+									<li><h3>Top Stories in <a href="{{ 'section/news'|url }}">News</a>:</h3></li>
+									<ul>
+									{% for item in news %}
+										<li><a href="{{ item.url }}">{{ item.headline }}</a>
+									{% endfor %}
+									</ul>
 								</ul>
 							</div>
-
 							<div id="sports">
 								<ul>
 									<li><h3>Top Stories in <a href="#">Sports</a>:</h3></li>
@@ -254,16 +256,32 @@
 									<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
 								</ul>
 							</div>
+						</div>					</div>
 
+						<div class="grid_2 omega">
 						</div>
-					</div>
 
+
+
+				<!-- Front page
 					<div class="grid_2 omega">
+						{% fetch pdf from media with [
+							'where': 'status = 1',
+							'limit': 1,
+							'order': 'uid desc',
+							'withTags': ['frontpage', 'pdf']
+						] %}
 						<div class="dark" id="front_pdf">
 							<h3>Today's Front Page</h3>
-							<a href="#"><img class="front_pdf" src="{{ 'style_chroma/images/dummy/front_pdf.jpg'|url }}"></a>
+							<a href="{{ pdf[0].urlOriginal }}">
+							<img src="{{ pdf[0].urlPreview }}" alt="frontpage" class="front_pdf" />
+							</a>
 						</div>
 					</div>
+				-->
+				
+				
+				
 				</div>
 			<div class="grid_12">
 				<div class="grid_4 alpha">
@@ -310,66 +328,10 @@
 				
 				
 				<div class="grid_4">
-					<div id="upcoming_events">
-						<h3>Upcoming Events</h3>
-						<ul id="calendar">
-							<li><a href="#upcoming_events1">
-							<?php echo "<span class=\"day\">",date("D"),"</span><span class=\"num\">",date("d"),"</span>"; ?>
-							</a></li>
-							<li><a href="#upcoming_events2">
-							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+1, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+1, date("y"))),"</span>"; ?>
-							</a></li>
-							<li><a href="#upcoming_events3">
-							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))),"</span>"; ?>
-							</a></li>
-							<li><a href="#upcoming_events4">
-							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))),"</span>"; ?>
-							</a></li>
-							<li><a href="#upcoming_events5">
-							<?php echo "<span class=\"day\">",date("D", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))),"</span><span class=\"num\">",date("d", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))),"</span>"; ?>
-							</a></li>
-						</ul>
-					    <div id="upcoming_events1">
-							<ul>
-								<li>Events Scheduled for Today:</li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 7pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 8pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(All Day)</small></li>
-							</ul>
-					    </div>
-						<div id="upcoming_events2">
-							<ul>
-								<li>Events Scheduled for Tomorrow:</li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 7pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 8pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(All Day)</small></li>
-							</ul>
-					    </div>
-						<div id="upcoming_events3">
-							<ul>
-								<li>Events Scheduled for <?php echo date("l", mktime(0, 0, 0, date("m"), date("d")+2, date("y"))); ?>:</li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 7pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 8pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(All Day)</small></li>
-							</ul>
-					    </div>
-						<div id="upcoming_events4">
-							<ul>
-								<li>Events Scheduled for <?php echo date("l", mktime(0, 0, 0, date("m"), date("d")+3, date("y"))); ?>:</li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 7pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 8pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(All Day)</small></li>
-							</ul>
-					    </div>
-						<div id="upcoming_events5">
-							<ul>
-								<li>Events Scheduled for <?php echo date("l", mktime(0, 0, 0, date("m"), date("d")+4, date("y"))); ?>:</li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 7pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(Starts at 8pm)</small></li>
-								<li><a href="#">Lorem ipsum dolor sit amet</a> <small>(All Day)</small></li>
-							</ul>
-					    </div>
-					</div>
+				
+				
+				{% include 'google/calendar/featured.tpl' %}
+
 				</div>
 				
 				
