@@ -25,6 +25,7 @@
 {% set videos = article.media.grab('type', 'video', true) %}				
 {% set sounds = article.media.grab('type', 'audio', true) %}
 {% set slides = article.media.grab('type', 'soundSlide', true) %}
+{% set flash = article.media.grab('type', 'flash', true) %}
 
 {% set sections = article.sections %}
 
@@ -159,6 +160,15 @@
 				<a href="{{ slide.urlDefault }}"><img src="{{ slide.urlPreview }}" alt="{{ slide.base_name }}" class="preview" /></a>
 				<span>Slideshow: {{ slide.title|clip(15) }}</span>
 			</div>
+		{% endfor %}
+
+		{% for item in flash %}
+			{% if item.meta['flashembed'] %}
+				<div class="flash sidebar-item expandable">
+					<a href="{{ item.urlDefault }}"><img src="{{ item.urlPreview }}" alt="{{ item.base_name }}" class="preview" /></a>
+					<span>Interactive: {{ item.title|clip(15) }}</span>
+				</div>
+			{% endif %}
 		{% endfor %}
 		
 		{% for sound in sounds %}
