@@ -717,38 +717,38 @@ div#section_tabs ul#section_tabs_nav li#comments_tab a {
 /* Featured Multimedia Module
 ***********************************/
 
-div#featured_multimedia {
+div.featured_multimedia {
 	height: 254px; /* Setting height to prevent page from jumping during transition */
 }
 
-div#featured_multimedia ul {
+div.featured_multimedia ul {
 	text-align: center;
 	margin: 8px 0 0 0;
 }
 
-	div#featured_multimedia ul li {
+	div.featured_multimedia ul li {
 		display: inline;
 	}
 	
-	div#featured_multimedia ul li a {
+	div.featured_multimedia ul li a {
 		text-decoration: none;
 		background: url(../images/bg/dark.png);
 		padding: 5px 5px 4px 5px;
 		margin: 0 2px;
 	}
 	
-div#featured_multimedia div img {
+div.featured_multimedia div img {
 	width: 278px;
 	height: 190px;
 }
 
-div#featured_multimedia div {
+div.featured_multimedia div {
 	position: relative;
 	background: url(../images/bg/dark.png);
 	padding: 5px 5px 3px 5px;
 }
 
-div#featured_multimedia div div.caption {
+div.featured_multimedia div div.caption {
 	background: url(../images/bg/darkest.png);
 	padding: 5px;
 	position: absolute;
@@ -759,11 +759,11 @@ div#featured_multimedia div div.caption {
 	text-shadow: none;
 }
 
-div#featured_multimedia div a {
+div.featured_multimedia div a {
 	text-decoration: none;
 }
 
-div#featured_multimedia ul li.ui-tabs-selected a, div#featured_multimedia ul li a:hover, div#upcoming_events ul#calendar li.ui-tabs-selected a, div#upcoming_events ul#calendar li a:hover {
+div.featured_multimedia ul li.ui-tabs-selected a, div.featured_multimedia ul li a:hover, div#upcoming_events ul#calendar li.ui-tabs-selected a, div#upcoming_events ul#calendar li a:hover {
 	background: url(../images/bg/darker.png);
 }
 
@@ -780,7 +780,7 @@ div#upcoming_events ul#calendar li a {
 	background: url(../images/bg/dark.png);
 	display: block;
 	width: 38px;
-	height: 50px;
+	height: 55px;
 	margin-right: 10px;
 	padding: 5px 5px 3px 5px;
 	text-align: center;
@@ -800,6 +800,14 @@ div#upcoming_events ul#calendar li a span.num {
 	font-size: 2.7em;
 	line-height: 0.9;
 	font-style: italic;
+}
+
+ul#calendar h3.day {
+	margin-bottom: 0px;
+}
+
+ul#calendar h1.number {
+	margin-top: 0px;
 }
 
 /* Forms
@@ -949,7 +957,7 @@ img.section_sub.staff {
 /* Rounded Corners Option with Borders
 ****************************************/
 
-.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div#featured_multimedia div, div#featured_multimedia ul li a, div#upcoming_events ul li a, form#search, form#newsletterform input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff {
+.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div.featured_multimedia div, div.featured_multimedia ul li a, div#upcoming_events ul li a, form#search, form#newsletterform input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
@@ -972,3 +980,4 @@ div#ticker {
 	border: 1px solid rgba(0, 0, 0, 0.03);
 	
 }
+

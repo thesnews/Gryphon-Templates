@@ -285,55 +285,363 @@
 				</div>
 			<div class="grid_12">
 				<div class="grid_4 alpha">
-					<div class="dark" id="featured_multimedia">
+					<div class="dark featured_multimedia" id="featured_multimedia">
+				
 						<h3>Featured Multimedia</h3>
-					    <div id="featured_multimedia1">
-							<a href="#">
-					    		<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="featured" />
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</a>
-					    </div>
-					    <div id="featured_multimedia2">
-							<a href="#">
-					       		<img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="featured" />
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</a>
-					    </div>
-					    <div id="featured_multimedia3">
-							<a href="#">
-					        	<img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="featured" />
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								</div>
-							</a>
-					    </div>
+						
+						<div id="featured_multimedia1">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+
+						<div id="featured_multimedia2">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>		
+
+						<div id="featured_multimedia3">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>	
+
+						<div id="featured_multimedia4">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+							
+							<div id="featured_multimedia5">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+						
+						<div id="featured_multimedia6">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+
+						<div id="featured_multimedia7">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+
+						<div id="featured_multimedia8">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+
+						<div id="featured_multimedia9">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+
+						<div id="featured_multimedia10">
+							{% fetch multimedia from media with [
+							'limit': 1,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+							] %}
+							
+							{% include "gryphon/main/box.tpl" %}
+						</div>
+
 						<ul>
 					        <li><a href="#featured_multimedia1">1</a></li>
 					        <li><a href="#featured_multimedia2">2</a></li>
 					        <li><a href="#featured_multimedia3">3</a></li>
-							<li><a href="#featured_multimedia1">4</a></li>
-					        <li><a href="#featured_multimedia2">5</a></li>
-					        <li><a href="#featured_multimedia3">6</a></li>
-							<li><a href="#featured_multimedia1">7</a></li>
-					        <li><a href="#featured_multimedia2">8</a></li>
-					        <li><a href="#featured_multimedia3">9</a></li>
-							<li><a href="#featured_multimedia1">10</a></li>
+							<li><a href="#featured_multimedia4">4</a></li>
+					        <li><a href="#featured_multimedia5">5</a></li>
+					        <li><a href="#featured_multimedia6">6</a></li>
+							<li><a href="#featured_multimedia7">7</a></li>
+					        <li><a href="#featured_multimedia8">8</a></li>
+					        <li><a href="#featured_multimedia9">9</a></li>
+							<li><a href="#featured_multimedia10">10</a></li>
 					    </ul>
+				
 					</div>
+					
 				</div>
 				
 				
 				<div class="grid_4">
-				
-				
-				{% include 'google/calendar/featured.tpl' %}
+								
+					<div id="upcoming_events">
+						<h3>Upcoming Events</h3>
+												
+						
+						<ul id="calendar">
+						
+						{% set start = 'Today 00:00:00'|toTime %}
+						{% set end = '+0 days'|toTime(start) %}
+	
+						{% for i in start|range(end, 86400) %}
+						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+							<li>
+							<a href="#upcoming_events1">
+							<h3 class="day">{{ i|date('D') }}</h3>
+							<h1 class="number">{{ i|date('j') }}</h1>
+							</a>
+							</li>
+							
+						{% endfor %}
+							
+						{% set start = 'Tomorrow 00:00:00'|toTime %}
+						{% set end = '+0 days'|toTime(start) %}
+	
+						{% for i in start|range(end, 86400) %}
+						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
 
-				</div>
+							<li>
+							<a href="#upcoming_events2">
+							<h3 class="day">{{ i|date('D') }}</h3>
+							<h1 class="number">{{ i|date('j') }}</h1>
+							</a>
+							</li>
+						{% endfor %}	
+							
+						{% set start = '+2 days 00:00:00'|toTime %}
+						{% set end = '+0 days'|toTime(start) %}
+	
+						{% for i in start|range(end, 86400) %}
+						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+
+							<li>
+							<a href="#upcoming_events3">
+							<h3 class="day">{{ i|date('D') }}</h3>
+							<h1 class="number">{{ i|date('j') }}</h1>
+							</a>
+							</li>
+						{% endfor %}	
+						
+						{% set start = '+3 days 00:00:00'|toTime %}
+						{% set end = '+0 days'|toTime(start) %}
+	
+						{% for i in start|range(end, 86400) %}
+						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+
+							<li>
+							<a href="#upcoming_events4">
+							<h3 class="day">{{ i|date('D') }}</h3>
+							<h1 class="number">{{ i|date('j') }}</h1>
+							</a>
+							</li>
+						{% endfor %}	
+						
+						{% set start = '+4 days 00:00:00'|toTime %}
+						{% set end = '+0 days'|toTime(start) %}
+	
+						{% for i in start|range(end, 86400) %}
+						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+
+							<li>
+							<a href="#upcoming_events5">
+							<h3 class="day">{{ i|date('D') }}</h3>
+							<h1 class="number">{{ i|date('j') }}</h1>
+							</a>
+							</li>
+						{% endfor %}	
+						
+						</ul>
+					    				
+					   <div id="upcoming_events1">
+
+							<ul>
+								{% set start = 'Today 00:00:00'|toTime %}
+								{% set end = '+0 days'|toTime(start) %}
+			
+								{% for i in start|range(end, 86400) %}
+								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+								<li>Events Scheduled for Today:</li>
+								{% if events.length %}
+								{% for event in events %}
+						<li>
+							<a href="{{ event.url }}">{{ event.title }}</a><br />
+							<div class="small">
+								{% if event.allday %}
+									All day
+								{% else %}
+									starts at {{ event.start_time|date('g:ia') }}
+								{% endif %}
+								</div>
+								</li>
+								{% endfor %}
+								{% else %}
+								<li>Sorry, no events for this day</li>
+								{% endif %}
+		
+								{% endfor %}
+							</ul>
+					    </div>
+
+
+					   <div id="upcoming_events2">
+
+							<ul>
+								{% set start = 'Today 00:00:00'|toTime %}
+								{% set end = '+0 days'|toTime(start) %}
+			
+								{% for i in start|range(end, 86400) %}
+								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+								<li>Events Scheduled for Today:</li>
+								{% if events.length %}
+								{% for event in events %}
+						<li>
+							<a href="{{ event.url }}">{{ event.title }}</a><br />
+							<div class="small">
+								{% if event.allday %}
+									All day
+								{% else %}
+									starts at {{ event.start_time|date('g:ia') }}
+								{% endif %}
+								</div>
+								</li>
+								{% endfor %}
+								{% else %}
+								<li>Sorry, no events for this day</li>
+								{% endif %}
+		
+								{% endfor %}
+							</ul>
+					    </div>
+
+
+					   <div id="upcoming_events3">
+
+							<ul>
+								{% set start = 'Today 00:00:00'|toTime %}
+								{% set end = '+0 days'|toTime(start) %}
+			
+								{% for i in start|range(end, 86400) %}
+								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+								<li>Events Scheduled for Today:</li>
+								{% if events.length %}
+								{% for event in events %}
+						<li>
+							<a href="{{ event.url }}">{{ event.title }}</a><br />
+							<div class="small">
+								{% if event.allday %}
+									All day
+								{% else %}
+									starts at {{ event.start_time|date('g:ia') }}
+								{% endif %}
+								</div>
+								</li>
+								{% endfor %}
+								{% else %}
+								<li>Sorry, no events for this day</li>
+								{% endif %}
+		
+								{% endfor %}
+							</ul>
+					    </div>
+
+					   <div id="upcoming_events4">
+
+							<ul>
+								{% set start = 'Today 00:00:00'|toTime %}
+								{% set end = '+0 days'|toTime(start) %}
+			
+								{% for i in start|range(end, 86400) %}
+								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+								<li>Events Scheduled for Today:</li>
+								{% if events.length %}
+								{% for event in events %}
+						<li>
+							<a href="{{ event.url }}">{{ event.title }}</a><br />
+							<div class="small">
+								{% if event.allday %}
+									All day
+								{% else %}
+									starts at {{ event.start_time|date('g:ia') }}
+								{% endif %}
+								</div>
+								</li>
+								{% endfor %}
+								{% else %}
+								<li>Sorry, no events for this day</li>
+								{% endif %}
+		
+								{% endfor %}
+							</ul>
+					    </div>
+
+					   <div id="upcoming_events5">
+
+							<ul>
+								{% set start = 'Today 00:00:00'|toTime %}
+								{% set end = '+0 days'|toTime(start) %}
+			
+								{% for i in start|range(end, 86400) %}
+								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+								<li>Events Scheduled for Today:</li>
+								{% if events.length %}
+								{% for event in events %}
+						<li>
+							<a href="{{ event.url }}">{{ event.title }}</a><br />
+							<div class="small">
+								{% if event.allday %}
+									All day
+								{% else %}
+									starts at {{ event.start_time|date('g:ia') }}
+								{% endif %}
+								</div>
+								</li>
+								{% endfor %}
+								{% else %}
+								<li>Sorry, no events for this day</li>
+								{% endif %}
+		
+								{% endfor %}
+							</ul>
+					    </div>
+
+					</div>
 				
+				</div>
 				
 				<div class="grid_4 omega">
 					<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: left" />

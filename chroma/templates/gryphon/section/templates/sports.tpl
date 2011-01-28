@@ -16,8 +16,7 @@
 		{{ articleRender.abstract4Col(topStory) }}	
 	</div>
 
-	<div class="grid_4">
-	
+	<div class="grid_3">
 
 		{% for article in secondaryStories %}
 		{{ articleRender.abstract3Col(article) }}
@@ -25,7 +24,15 @@
 
 	</div>
 	
-	<div class="grid_4 omega">
+	<div class="grid_3">
+	
+
+		{% for article in secondaryStories %}
+		{{ articleRender.abstract3Col(article) }}
+		{% endfor %}
+	</div>
+
+	<div class="grid_2 omega">
 	{% include 'gryphon/ads/skyscraper.tpl' %}
 	</div>
 	

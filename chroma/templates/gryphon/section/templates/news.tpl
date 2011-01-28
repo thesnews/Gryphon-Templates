@@ -115,12 +115,8 @@
 				</ul>					
 				</div>
 				<div class="grid_5">
-					{% fetch news from article with [
-						'limit': 2,
-						'order': 'weight desc, created desc',
-						'where': 'status = 1',
-															]
-						%}
+					
+					
 				{% for article in articles %}
 				<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
 						<div class="dark byline">
