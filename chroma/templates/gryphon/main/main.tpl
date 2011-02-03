@@ -6,7 +6,7 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/article.tpl" as articleRender %}
 
-
+		
 			<div class="grid_12">
 				
 					{{ articleRender.abstract5Col(topStory) }}
@@ -148,9 +148,7 @@
 					&nbsp;
 					</div>
 						<div class="grid_2 omega">
-						<img src="style_chroma/images/ads/skyscraper.png" alt="advertisement" />
-						{% include 'gryphon/ads/skyscraper.tpl' %}
-						
+						<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 						</div>
 						
 			</div>
@@ -259,6 +257,7 @@
 						</div>					</div>
 
 						<div class="grid_2 omega">
+						
 						</div>
 
 
@@ -286,121 +285,15 @@
 			<div class="grid_12">
 				<div class="grid_4 alpha">
 					<div class="dark featured_multimedia" id="featured_multimedia">
-				
-						<h3>Featured Multimedia</h3>
-						
-						<div id="featured_multimedia1">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
+		<h3>Featured Multimedia</h3>
+		{% fetch multimedia from media with [
+			'limit': 10,
+			'order': 'self:weight desc, self:created desc',
+			'withTags': ['Multimedia Box']
+		] %}
+		{% include "gryphon/main/box.tpl" %}
+		
 						</div>
-
-						<div id="featured_multimedia2">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>		
-
-						<div id="featured_multimedia3">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>	
-
-						<div id="featured_multimedia4">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-							
-							<div id="featured_multimedia5">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-						
-						<div id="featured_multimedia6">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-
-						<div id="featured_multimedia7">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-
-						<div id="featured_multimedia8">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-
-						<div id="featured_multimedia9">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-
-						<div id="featured_multimedia10">
-							{% fetch multimedia from media with [
-							'limit': 1,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-							] %}
-							
-							{% include "gryphon/main/box.tpl" %}
-						</div>
-
-						<ul>
-					        <li><a href="#featured_multimedia1">1</a></li>
-					        <li><a href="#featured_multimedia2">2</a></li>
-					        <li><a href="#featured_multimedia3">3</a></li>
-							<li><a href="#featured_multimedia4">4</a></li>
-					        <li><a href="#featured_multimedia5">5</a></li>
-					        <li><a href="#featured_multimedia6">6</a></li>
-							<li><a href="#featured_multimedia7">7</a></li>
-					        <li><a href="#featured_multimedia8">8</a></li>
-					        <li><a href="#featured_multimedia9">9</a></li>
-							<li><a href="#featured_multimedia10">10</a></li>
-					    </ul>
 				
 					</div>
 					
@@ -416,7 +309,7 @@
 						<ul id="calendar">
 						
 						{% set start = 'Today 00:00:00'|toTime %}
-						{% set end = '+0 days'|toTime(start) %}
+						{% set end = '+4 days'|toTime(start) %}
 	
 						{% for i in start|range(end, 86400) %}
 						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
@@ -429,62 +322,7 @@
 							
 						{% endfor %}
 							
-						{% set start = 'Tomorrow 00:00:00'|toTime %}
-						{% set end = '+0 days'|toTime(start) %}
-	
-						{% for i in start|range(end, 86400) %}
-						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-
-							<li>
-							<a href="#upcoming_events2">
-							<h3 class="day">{{ i|date('D') }}</h3>
-							<h1 class="number">{{ i|date('j') }}</h1>
-							</a>
-							</li>
-						{% endfor %}	
-							
-						{% set start = '+2 days 00:00:00'|toTime %}
-						{% set end = '+0 days'|toTime(start) %}
-	
-						{% for i in start|range(end, 86400) %}
-						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-
-							<li>
-							<a href="#upcoming_events3">
-							<h3 class="day">{{ i|date('D') }}</h3>
-							<h1 class="number">{{ i|date('j') }}</h1>
-							</a>
-							</li>
-						{% endfor %}	
-						
-						{% set start = '+3 days 00:00:00'|toTime %}
-						{% set end = '+0 days'|toTime(start) %}
-	
-						{% for i in start|range(end, 86400) %}
-						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-
-							<li>
-							<a href="#upcoming_events4">
-							<h3 class="day">{{ i|date('D') }}</h3>
-							<h1 class="number">{{ i|date('j') }}</h1>
-							</a>
-							</li>
-						{% endfor %}	
-						
-						{% set start = '+4 days 00:00:00'|toTime %}
-						{% set end = '+0 days'|toTime(start) %}
-	
-						{% for i in start|range(end, 86400) %}
-						{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-
-							<li>
-							<a href="#upcoming_events5">
-							<h3 class="day">{{ i|date('D') }}</h3>
-							<h1 class="number">{{ i|date('j') }}</h1>
-							</a>
-							</li>
-						{% endfor %}	
-						
+													
 						</ul>
 					    				
 					   <div id="upcoming_events1">
@@ -495,6 +333,7 @@
 			
 								{% for i in start|range(end, 86400) %}
 								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
+								
 								<li>Events Scheduled for Today:</li>
 								{% if events.length %}
 								{% for event in events %}
@@ -516,129 +355,6 @@
 								{% endfor %}
 							</ul>
 					    </div>
-
-
-					   <div id="upcoming_events2">
-
-							<ul>
-								{% set start = 'Today 00:00:00'|toTime %}
-								{% set end = '+0 days'|toTime(start) %}
-			
-								{% for i in start|range(end, 86400) %}
-								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-								<li>Events Scheduled for Today:</li>
-								{% if events.length %}
-								{% for event in events %}
-						<li>
-							<a href="{{ event.url }}">{{ event.title }}</a><br />
-							<div class="small">
-								{% if event.allday %}
-									All day
-								{% else %}
-									starts at {{ event.start_time|date('g:ia') }}
-								{% endif %}
-								</div>
-								</li>
-								{% endfor %}
-								{% else %}
-								<li>Sorry, no events for this day</li>
-								{% endif %}
-		
-								{% endfor %}
-							</ul>
-					    </div>
-
-
-					   <div id="upcoming_events3">
-
-							<ul>
-								{% set start = 'Today 00:00:00'|toTime %}
-								{% set end = '+0 days'|toTime(start) %}
-			
-								{% for i in start|range(end, 86400) %}
-								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-								<li>Events Scheduled for Today:</li>
-								{% if events.length %}
-								{% for event in events %}
-						<li>
-							<a href="{{ event.url }}">{{ event.title }}</a><br />
-							<div class="small">
-								{% if event.allday %}
-									All day
-								{% else %}
-									starts at {{ event.start_time|date('g:ia') }}
-								{% endif %}
-								</div>
-								</li>
-								{% endfor %}
-								{% else %}
-								<li>Sorry, no events for this day</li>
-								{% endif %}
-		
-								{% endfor %}
-							</ul>
-					    </div>
-
-					   <div id="upcoming_events4">
-
-							<ul>
-								{% set start = 'Today 00:00:00'|toTime %}
-								{% set end = '+0 days'|toTime(start) %}
-			
-								{% for i in start|range(end, 86400) %}
-								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-								<li>Events Scheduled for Today:</li>
-								{% if events.length %}
-								{% for event in events %}
-						<li>
-							<a href="{{ event.url }}">{{ event.title }}</a><br />
-							<div class="small">
-								{% if event.allday %}
-									All day
-								{% else %}
-									starts at {{ event.start_time|date('g:ia') }}
-								{% endif %}
-								</div>
-								</li>
-								{% endfor %}
-								{% else %}
-								<li>Sorry, no events for this day</li>
-								{% endif %}
-		
-								{% endfor %}
-							</ul>
-					    </div>
-
-					   <div id="upcoming_events5">
-
-							<ul>
-								{% set start = 'Today 00:00:00'|toTime %}
-								{% set end = '+0 days'|toTime(start) %}
-			
-								{% for i in start|range(end, 86400) %}
-								{% set events = 'google:calendarEvent'|call('findInRange', [i, (i+86400), 3]) %}
-								<li>Events Scheduled for Today:</li>
-								{% if events.length %}
-								{% for event in events %}
-						<li>
-							<a href="{{ event.url }}">{{ event.title }}</a><br />
-							<div class="small">
-								{% if event.allday %}
-									All day
-								{% else %}
-									starts at {{ event.start_time|date('g:ia') }}
-								{% endif %}
-								</div>
-								</li>
-								{% endfor %}
-								{% else %}
-								<li>Sorry, no events for this day</li>
-								{% endif %}
-		
-								{% endfor %}
-							</ul>
-					    </div>
-
 					</div>
 				
 				</div>
@@ -649,7 +365,7 @@
 				</div>
 			</div>
 
-		</div>
+
 
 
 {% endblock content %}

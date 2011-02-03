@@ -27,16 +27,16 @@
 					
 						<a class="comment" href="{{ article.url }}#comments">{{ article.commentTotal|int2noun('comment') }}</a>
 					</div>
-					<p>{{ article.abstract_formatted }}<a href="{{ article.url }}" class="dark"><span>More</span></a></p>	
+					<p>{{ article.abstract_formatted|clip(450) }}<a href="{{ article.url }}" class="dark"><span>More</span></a></p>	
 					
 {% endmacro %}
 
 {% macro abstract3Col(article) %}
 
 					<div class="grid_3">
-						<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
+						<h2><a href="{{ article.url }}">{{ article.headline|clip(40) }}</a></h2>
 						<div class="dark byline">
-							<span class="date">{{ article.created|date('m/d') }}</span>
+							<span class="date">{{ article.created|date('M d, Y') }}</span>
 							<a class="author">
 							{% if article.authors.length %}
 							{{ article.authors.splat('name')|join(', ') }}
@@ -45,27 +45,5 @@
 						<p>{{ article.abstract_formatted|clip(300) }}<br /><a href="{{ article.url }}" class="dark"><span>More</span></a></p>
 						</div>
 
-
-
-
-
-
-<!--
-	<div class="article">
-		<h4><a href="{{ article.url }}">{{ article.headline }}</a></h4>
-		
-		<div class="small box gray">
-			{% if article.authors.length %}
-				By {{ article.authors.splat('name')|join(', ') }}
-			{% endif %}
-			<span class="byline_divider">|</span>
-			Published {{ article.created|date('m/d') }}
-		</div>
-		
-		<p>{{ article.abstract_formatted|clip(100) }} <a href="{{ article.url }}">More &#187;</a></p>
-	
-	</div>
-	
--->
 
 {% endmacro %}

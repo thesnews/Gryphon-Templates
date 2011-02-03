@@ -5,8 +5,8 @@
 	
 
 				<div class="grid_5 alpha">
-										
-					{% if showHeadline %}
+					
+										{% if showHeadline %}
 						<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 					{% endif %}
 					<div class="dark byline">
@@ -19,22 +19,26 @@
 					<p>{{ article.abstract_formatted }}<a href="{{ article.url }}" class="dark"><span>More</span></a></p>	
 					
 				</div>
-				<div class="grid_7 omega">
-					<div id="featured_main">
-				
-					   		<a href="{{ article.url }}">
-								<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
-							</a>
-						   	<p class="byline">					
-								{% if article.authors.length %}
-								<a class="author">{{ topImage.authors.splat('name')|join(', ') }}</a>
-								{% endif %}
-								<a class="source">{{ topImage.source }}</a>
-							</p>
-					 </div>
+
+					<div class="grid_7 omega">
+					<div id="featured_stories">
+					    <ul>
+					        <li class="active"><a href="#featured_story1">
+							<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
+					        </a></li>
+					        					    </ul>
+					    <div id="featured_story1">					   		
+					    <a href="{{ article.url }}">
+					    <img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
+					    </a>							
+					    <div class="caption">
+								<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
+								<p>{{ article.abstract_formatted|clip(200) }}</p>
+							</div>
+					    </div>
+					</div>
 				</div>
 
-	
 
 {% endmacro %}
 

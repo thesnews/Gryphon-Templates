@@ -8,30 +8,23 @@
 
 {% set topStory = articles.shift() %}
 {% set featuredStories = articles.shift(2) %}
-{% import "macros/article.tpl" as articleRender %}
+{% import "macros/articlecampus.tpl" as articleRender %}
 
 <div class="grid_8">
 	<div class="alpha grid_5">
 		{{ articleRender.abstract5Col(topStory) }}		
 		
-		<hr class="spacer" />
-
-		
 	</div>
 	<div class="omega grid_3">
-		<h5 class="bordered">
-			CAMPUS:
-		</h5>
+
 		{% for article in featuredStories %}
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
 	</div>
-
-	<hr class="spacer" />
 	
 	<div class="alpha grid_6">
-		<h5 class="bordered">
-			MORE CAMPUS:
+		<h3>
+			More from Campus:
 			
 		</h5>
 		
@@ -61,10 +54,5 @@
 
 </div>
 
-<div class="grid_4">
-	{% include "gryphon/main/sidebar-standard.tpl" %}
-</div>
-
-<hr class="spacer" />
 
 {% endblock content %}

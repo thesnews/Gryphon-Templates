@@ -10,68 +10,49 @@
 {% import 'macros/comment.tpl' as comment %}
 {% import 'macros/tools.tpl' as tools %}
 
-<div class="grid_8">
+<div class="grid_8 alpha">
 	<h1>{{ post.headline }}</h1>
 
-	<div class="gray box blogsize" id="toolsblogs">
-		By {{ post.authors.splat('name')|join(', ') }}
-		<br /><br />
-		<strong>Created:</strong><br />{{ post.created|timeSince }}
-		<br /><br />
-		<strong>Last updated:</strong> <br />{{ post.modified|timeSince }}
-		<br /><br />
-		<a href="{{ post.url }}#comments">{{ post.commentTotal|int2noun('comment') }}</a>
-		<br /><br />
-		<strong>Tools:</strong><br />
-		{{ tools.facebook(post) }}
-		{{ tools.twitter(post) }}
-		{{ tools.digg(post) }}
-		{{ tools.delicious(post) }}<br />
-		{{ tools.blogger(post) }}
-		{{ tools.feed(post) }}
-		{{ tools.print(post) }}</div>	
+	<div class="dark byline">
+		<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+
+		<span class="date">{{ post.created|timeSince }}</span>
+
+		<span class="modified">{{ post.modified|timeSince }}</span>
+
+		<a href="{{ post.url }}#comments" class="comment">{{ post.commentTotal|int2noun('comment') }}</a>
+	</div>
 	
 	<p>
 	{{ post.copy_formatted }}
 	</p>
 	
-	<hr />
-
-	<div class="pagination"><span>
-		{{ comment.pagers(post) }}
-	</span></div>
-	
-	<div class="comments">
-		{{ comment.list(post) }}
-	</div>
-
-	<div class="pagination"><span>
-		{{ comment.pagers(post) }}
-	</span></div>
-
-	{% if post.shouldAllowComments %}
-
-		{% set commentItem = post %}
-		{% include 'gryphon/comment/form.tpl' %}
-
-	{% endif %}
-
 </div>
+<div class="grid_4 omega">
 
-<div class="grid_4 standard-sidebar">
-	<div class="box gray">
-		<h5>About {{ blog.name }}</h5>
+	<div>
+		<h3>About {{ blog.name }}</h3>
 		
 		<p>{{ blog.description_formatted }}</p>
 		
-		<a href="{{ blog.url }}.xml" class="feed_link">Follow this blog in your feed reader</a>
 	</div>
-	
-	<hr class="spacer" />
+	<br />
+	<div>
+		<ul>
+		<li><h3>Tools:</h3></li>
+		<li>{{ tools.facebook(post) }}</li>
+		<li>{{ tools.twitter(post) }}</li>
+		<li>{{ tools.digg(post) }}</li>
+		<li>{{ tools.delicious(post) }}</li>
+		<li>{{ tools.blogger(post) }}</li>
+		<li>{{ tools.feed(post) }}</li>
+		<li>{{ tools.print(post) }}</li>
+		</ul>	
+	</div>	
+<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
 
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
 </div>
 
-<hr class="spacer" />
 
 {% endblock %}

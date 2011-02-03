@@ -17,7 +17,7 @@
 					</p>	
 	    </div>
 
-	
+
 	
 		{% if showHeadline %}
 			<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>

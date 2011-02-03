@@ -53,9 +53,8 @@
 				{% if article.infobox or pdfs.length %}
 		<div class="sidebar-item">
 			{% if article.infobox %}
-				<h5>More information:</h5>
 				{{ article.infobox_formatted }}
-				<hr />
+
 			{% endif %}
 			{% if pdfs.length %}
 				<h5>Related Documents:</h5>
@@ -64,7 +63,6 @@
 					<li><a href="{{ pdf.urlOriginal }}">{{ pdf.title }}</a> - PDF</li>
 				{% endfor %}
 				</ul>
-				<hr />
 			{% endif %}
 		</div>
 		{% endif %}
@@ -147,7 +145,7 @@
 								</div>
 				</div>
 				<div class="grid_4 omega">
-					<img src="img/ads/square.png" alt="advertisement" />
+						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
 					<ul class="more_stories">
 						<li><h3>Possibly Related:</h3></li>
 						<li>{% for item in article.getRelated() %}
@@ -204,7 +202,7 @@
 					    
 				</div>
 				<div class="grid_2 omega">
-					<img src="img/ads/skyscraper.png" alt="advertisement" />
+					<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 				</div>
 			</div>
 

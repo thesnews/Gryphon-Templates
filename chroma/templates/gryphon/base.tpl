@@ -21,7 +21,11 @@
 	<meta name="title" content="Detroit Softworks{{ title|default(" :: Detroit Softworks") }}" />
 	<meta name="description" content="{{ description|default("Detroit Softworks") }}" />
 
+	<script type="text/javascript" src="{{ 'javascript/base.js'|url }}"></script>
+
 	<script type="text/javascript" src="{{ 'javascript/vendor/mootools/mootools-1.2.4-compressed.js'|url }}"></script>
+
+	<script src="/javascript/snews.compressed.js" type="text/javascript"></script>
 
 
 	{% if noIndex %}
@@ -40,10 +44,10 @@
 	{% block scripts %}{% endblock %}
 	{% block links %}{% endblock %}
 
-	<link rel="icon" type="image/png" href="{{ 'style_chroma/images/favico.png'|url }}" />
+	<link rel="icon" type="image/ico" href="{{ 'style_chroma/images/client/favicon.ico'|url }}" />
 
 	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/master.css'|url }}" />
-
+	
 	<link rel="stylesheet" type="text/css" media="print" href="{{ 'style_chroma/print/master.css'|url }}" />
 	<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/ie6.css'|url }}" />
@@ -53,9 +57,6 @@
 
 	<link rel="alternate" type="application/rss+xml" title="Top Stories" href="http://feeds.feedburner.com/statenews/top" />
 
-
-
-	
 	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ 'style_chroma/screen/calendar.css'|url }}" />
 	
 </head>
@@ -63,38 +64,6 @@
 
 <div id="wrapper"> <!-- CENTERS EVERYTHING -->
 		
-<!-- Amy's base	
-
-			<div class="container_12">
-			<div class="grid_12 dark" id="ticker">
-				<div>
-					<span id="date">{{ now|date('l, F j, Y') }}</span> 
-					<span id="founded">Detroit, MI | Since 2009</span>
-					<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
-					<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="{{ 'classifieds'|url }}">Advertise</a> | <a href="#">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
-				</div>
-				<form method="get" action="{{ 'search'|url }}" class="search-form">
-					<input id="search_button" type="image" name="submit" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
-					<input id="search_field" type="text" name="search" value="Search Detroit Softworks" />
-				</form>
-			</div>
-			<div class="grid_12 leaderboard">
-				<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url}} " alt="advertisement" />
-			</div>
-			<div class="grid_12" id="header">
-				<a href="#"><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>
-				<ul>
-					<li><a href="{{ 'main'|url }}">Front Page</a></li>
-					<li><a href="{{ 'section/news'|url }}">News</a></li>
-					<li><a href="{{ 'section/sports'|url }}">Sports</a></li>
-					<li><a href="{{ 'section/opinion'|url }}">Opinion</a></li>
-					<li><a href="{{ 'section/features'|url }}">Features</a></li>
-					<li><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
-				</ul>
-			</div>
-
--->
-	
 	<div class="container_12"> <!-- CENTERS EVERYTHING -->
 		
 		<div class="grid_12 dark" id="ticker">
@@ -113,7 +82,7 @@
 		
 
 			<div class="grid_12 leaderboard">
-				<img src="style_chroma/images/ads/leaderboard.png" alt="advertisement" />
+						<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url }}" alt="advertisement" />
 			</div>
 
 
@@ -194,7 +163,7 @@
 							</ul>
 							<ul>
 								<li><h3>Features</h3></li>
-								<li></li><a href="{{ 'section/features'|url }}">Special Editions</a></li>
+								<li><a href="{{ 'section/features'|url }}">Special Editions</a></li>
 							</ul>
 						</div>
 						
@@ -261,7 +230,7 @@
 						
 						<div class="clear"></div>
 						
-		</div>
+		
 		
 	</div>
 

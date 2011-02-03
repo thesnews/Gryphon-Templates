@@ -15,7 +15,7 @@
 
 
 
-<div class="grid_12">
+			<div class="grid_12">
 				<div class="grid_4 alpha">
 				{{ articleRender.abstract4Col(topStory) }}
 				</div>
@@ -89,16 +89,20 @@
 					</div>		
 
 				<div class="grid_2 omega" style="text-align: right;">
-				{% include 'gryphon/ads/skyscraper.tpl' %}
-					
+				
+				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+
 				</div>
 				
-</div>
+			</div>
 			
 			<div class="grid_12" id="secondary">
 				<div class="grid_4 alpha">
 				
-						{% include 'gryphon/ads/button.tpl' %}
+						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
+						
 						{% fetch news from article with [
 						'limit': 5,
 						'order': 'weight desc, created desc',
@@ -115,12 +119,17 @@
 				</ul>					
 				</div>
 				<div class="grid_5">
-					
+						{% fetch articles from article with [
+						'limit': 3,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+															]
+						%}
 					
 				{% for article in articles %}
 				<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
 						<div class="dark byline">
-							<span class="date">{{ article.created|date('m/d') }}</span>
+							<span class="date">{{ article.created|date('M d, Y') }}</span>
 							<a class="author">
 							{% if article.authors.length %}
 							{{ article.authors.splat('name')|join(', ') }}
@@ -199,7 +208,7 @@
 								<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
 							</ul>
 						</div>
-
+<br />
 					<div class="dark" id="newsletter">
 						<h3>Subscribe to our eNewsletter</h3>
 						<form method="post" action="#" id="newsletterform">

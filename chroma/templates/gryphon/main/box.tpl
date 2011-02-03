@@ -1,15 +1,12 @@
-			
-
-	{% for media in multimedia %}
-		<a href="{{ media.urlDefault }}">
-	    <img src="{{ media.url }}" alt="{{ media.title }}" />
-	    </a>
-		<div class="caption">
-			<p>
-				{{ media.type }}: {{ media.title }}
-				<br />
-				{{ media.caption|clip }}
-	
-			</p>
-		</div>
-	{% endfor %}	
+<ul class="multimedia-box">
+{% for media in multimedia %}
+	<li>
+		<a href="{{ media.urlDefault }}"><img src="{{ media.url }}" alt="{{ media.title }}" /></a>
+		<p>
+			<strong>{{ media.type }}: {{ media.title }}</strong>
+			<br />
+			{{ media.caption|clip }}
+		</p>
+	</li>
+{% endfor %}
+</ul>

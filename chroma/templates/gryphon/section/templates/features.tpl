@@ -10,44 +10,17 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/articlefeatures.tpl" as articleRender %}
 
-<div class="grid_12">
 
-	<div class="grid_12 alpha">
-		{{ articleRender.abstract5Col(topStory) }}	
-
-	</div>
+<div class="grid_3 alpha">
 	
-		<div class="grid_12 alpha">
-		</div>
-	<div class="grid_3">
-		<h3>Featured Multimedia</h3>	
-		{% fetch multimedia from media with [
-			'limit': 7,
-			'order': 'self:weight desc, self:created desc',
-			'withTags': ['Multimedia Box']
-		] %}	
-		<ul class="more_from">
-			<li><h3>More from <a href="#">News</a>:</h3></li>
-			{% for article in articles %}
-			<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4>({{ article.created|date('M d') }})</li>
-			{% endfor %}
-		</ul><br />
-		<span><h3><a href="{{ 'multimedia'|url }}">More multimedia &#187;</a></h3></span>
-	</div>
-
-	<div class="grid_3 omega">
-	&nbsp	
-	</div>
+		{% for article in secondaryStories %}
+		{{ articleRender.abstract3Col(article) }}
+		{% endfor %}
 	
 	
-	
-	<div class="clear"></div>	
-	
-	
-	
-			<div class="grid_3 alpha">
-			<h5>MORE FEATURES</h5>
-			<ul>
+	<div>
+		<ul class="more_fromlarger">
+			<li><h3>More from Features:</h3></li>
 				{% for article in articles %}
 					<li>
 					<h4>
@@ -55,42 +28,81 @@
 					{{ article.headline }}
 					</a>
 					</h4> 
-					<span class="small">(updated {{ article.modified|timeSince }})</span></li>
+					</li>
 				{% endfor %}
-			</ul>
+		</ul>
+		
+		</div>
+</div>
+
+<div class="grid_5">
 	
-			</div>
-			<div class="grid_3">
-				<h5>
-					Blogs:
-					<span><a href="{{ 'blog'|url }}">More blogs &#187;</a></span>
-				</h5>
+	<div class="grid_5 alpha">
+		{{ articleRender.abstract5Col(topStory) }}	
+	</div>
+	
+	<div class="grid_3 alpha">
+	<h3>Featured Blogs</h3>
+			<ul class="more_from">
+					
 				{% fetch blogs from blog with [
-					'limit': 8,
+					'limit': 7,
 					'where': 'status = 1',
 					'order': 'self:modified desc'
 				] %}
-				<ul>
+			
 					{% for blog in blogs %}
 						<li>
 						<div class="small">
-							{{ blog.name }}
+							<h3>{{ blog.name }}</h3>
 						</div>
 						{% set topPost = blog.mostRecent %}
 						<h4><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h4>
 						</li>
 					{% endfor %}
+				<li><h3>More from <a href="{{ 'blog'|url }}">Blogs</a></h3></li>
 				</ul>
-			</div>		
+	</div>
+	
+	<div class="grid_2 omega">
+	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+	</div>
+	
+</div>
+
+
+<div class="grid_4 omega">
+	<div>
+			<div class="dark featured_multimedia" id="featured_multimedia">
+	
+			<h3>Featured Multimedia</h3>
 			
-			<div class="grid_2 omega">
-				<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" />
-			</div>
-			
-			<div class="grid_4 omega">
+			<div id="featured_multimedia1">
+				{% fetch multimedia from media with [
+				'limit': 1,
+				'order': 'self:weight desc, self:created desc',
+				'withTags': ['Multimedia Box']
+				] %}
+				
+				{% include "gryphon/main/box.tpl" %}
 			</div>
 
 
+			<ul>
+		        <li><a href="#featured_multimedia1">1</a></li>
+
+		    </ul>
+		    
+			</div>
+		
+	</div>
+	<br />
+	<img src="{{ 'style_chroma/images/ads/square.png'|url }}" />
+	<img src="{{ 'style_chroma/images/ads/square.png'|url }}" />
+	<br />
+</div>
 
 
 

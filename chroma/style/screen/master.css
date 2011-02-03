@@ -93,6 +93,12 @@ ul.more_from {
 	padding: 5px 0 0 0;
 }
 
+ul.more_fromlarger {
+	background: url(../images/bg/divider_medium.png) no-repeat top center;
+	margin: 10px 0 0 0;
+	padding: 5px 0 0 0;
+}
+
 ul.more_stories {
 	margin: 10px 0 0 0;
 }
@@ -400,6 +406,7 @@ h1 {
 	
 h2 {
 	font: italic 1.5em Georgia;
+	margin-top: 5px;
 }
 	
 	h2.topdiv, h3.topdiv {
@@ -505,10 +512,63 @@ div#featured_main {
 }
 
 div#featured_main img {
-	width: 400px;
+	width: 372px;
 }
 
+/* Featured Stories
+***********************************/		
 
+div#featured_stories {
+	height: 250px;
+	background: url(../images/bg/dark.png);
+	padding: 10px;
+}
+
+div#featured_stories div {
+	float: left;
+	background: url(../images/bg/dark.png);
+	padding: 5px 5px 3px 5px;
+	position: relative;
+}
+
+div#featured_stories div div.caption {
+	background: url(../images/bg/darkest.png);
+	padding: 5px;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 370px;
+	text-shadow: none;
+}
+
+	div#featured_stories div div.caption p {
+		font-size: 0.9em;
+	}
+
+div#featured_stories div img {
+	max-height: 239px;
+	width: 390px;
+}
+
+div#featured_stories ul {
+	float: right;
+}
+
+div#featured_stories ul li {
+	background: url(../images/bg/dark.png);
+	padding: 4px 4px 0px 4px;
+	margin: 0 0 7px 0;
+	opacity: 0.5;
+}
+
+div#featured_stories ul li img {
+	width: 100px;
+	margin: 0 0 0px 0;
+}
+
+div#featured_stories ul li.ui-tabs-selected {
+	opacity: 1;
+}
 
 
 /* Featured Images on other pages
@@ -623,6 +683,13 @@ div.byline a.rss, div#blog_info a#rss {
 	background-image: url(../images/icons/rss.png);
 	background-position: 0 2px;
 }
+
+.cartoonauthor{
+	background: url(../images/icons/author.gif) no-repeat;
+	padding: 0 0 0 13px;
+	margin: 0 5px 0 0;
+}
+
 
 
 /* Photo Bylines
@@ -766,6 +833,10 @@ div.featured_multimedia div a {
 div.featured_multimedia ul li.ui-tabs-selected a, div.featured_multimedia ul li a:hover, div#upcoming_events ul#calendar li.ui-tabs-selected a, div#upcoming_events ul#calendar li a:hover {
 	background: url(../images/bg/darker.png);
 }
+
+
+
+
 
 /* Upcoming Events Module
 ***********************************/
