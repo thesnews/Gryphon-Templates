@@ -9,23 +9,24 @@ window.addEvent('domready', function() {
 		}
 	});
 
-/* Handles nav */
-// we have to hide the nav, else it obscures the click targets below it
-if( $('section_selector') ) {
-	$('section_selector').setStyle('display', 'none');
-	$('section_select').addEvent('click', function(){
-		if( $('section_selector').hasClass('open') ) {
-			setTimeout(function() {
-				$('section_selector').setStyle('display', 'none');
-			}, 500); 
-		} else {
-			$('section_selector').setStyle('display', '');
-		}
-		$('section_selector').toggleClass('open');
-		return false;
-	});	
-}
-/* Handles input text clearing */
+	/* Handles nav */
+	// we have to hide the nav, else it obscures the click targets below it
+	if( $('section_selector') ) {
+		$('section_selector').setStyle('display', 'none');
+		$('section_select').addEvent('click', function(){
+			if( $('section_selector').hasClass('open') ) {
+				setTimeout(function() {
+					$('section_selector').setStyle('display', 'none');
+				}, 500); 
+			} else {
+				$('section_selector').setStyle('display', '');
+			}
+			$('section_selector').toggleClass('open');
+			return false;
+		});	
+	}
+
+	/* Handles input text clearing */
 
 	$$('input.replace-text').each( function(el) {
 		var text = el.value;
@@ -46,5 +47,17 @@ if( $('section_selector') ) {
 			}
 		});
 	});
+	/* handles preserving the second column when requested */
+	if( $$('#col2.preserve').length && window.getSize().y <= 480 ) {
+		var pContainer = new Element('div');
+		
+		pContainer.adopt($$('#col2.preserve').getChildren());
 
+		if( $$('#col1 .listview').length ) {
+			pContainer.inject($$('#col1 .listview')[0], 'before');
+		} else {
+			$('col1').adopt(pContainer);
+		}
+		
+	}
 });

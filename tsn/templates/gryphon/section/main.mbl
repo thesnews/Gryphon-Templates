@@ -22,7 +22,7 @@
 		</ul>
 	</div>
 	
-	<div id="col2">
+	<div id="col2" class="preserve">
 		{% for article in featuredStories %}
 			{{ articleRender.subFeatured(article) }}
 		{% endfor %}

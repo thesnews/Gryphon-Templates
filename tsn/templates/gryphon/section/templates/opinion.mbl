@@ -23,7 +23,7 @@
 	{% endfor %}
 	</div>
 	
-	<div id="col2">
+	<div id="col2" class="preserve">
 		{% fetch cartoons from media with [
 			'where': 'status = 1',
 			'order': 'created desc',
