@@ -93,6 +93,12 @@ ul.more_from {
 	padding: 5px 0 0 0;
 }
 
+ul.more_fromlarger {
+	background: url(../images/bg/divider_medium.png) no-repeat top center;
+	margin: 10px 0 0 0;
+	padding: 5px 0 0 0;
+}
+
 ul.more_stories {
 	margin: 10px 0 0 0;
 }
@@ -400,6 +406,7 @@ h1 {
 	
 h2 {
 	font: italic 1.5em Georgia;
+	margin-top: 5px;
 }
 	
 	h2.topdiv, h3.topdiv {
@@ -505,10 +512,63 @@ div#featured_main {
 }
 
 div#featured_main img {
-	width: 400px;
+	width: 372px;
 }
 
+/* Featured Stories
+***********************************/		
 
+div#featured_stories {
+	height: 250px;
+	background: url(../images/bg/dark.png);
+	padding: 10px;
+}
+
+div#featured_stories div {
+	float: left;
+	background: url(../images/bg/dark.png);
+	padding: 5px 5px 3px 5px;
+	position: relative;
+}
+
+div#featured_stories div div.caption {
+	background: url(../images/bg/darkest.png);
+	padding: 5px;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 370px;
+	text-shadow: none;
+}
+
+	div#featured_stories div div.caption p {
+		font-size: 0.9em;
+	}
+
+div#featured_stories div img {
+	max-height: 239px;
+	width: 390px;
+}
+
+div#featured_stories ul {
+	float: right;
+}
+
+div#featured_stories ul li {
+	background: url(../images/bg/dark.png);
+	padding: 4px 4px 0px 4px;
+	margin: 0 0 7px 0;
+	opacity: 0.5;
+}
+
+div#featured_stories ul li img {
+	width: 100px;
+	margin: 0 0 0px 0;
+}
+
+div#featured_stories ul li.ui-tabs-selected {
+	opacity: 1;
+}
 
 
 /* Featured Images on other pages
@@ -624,6 +684,13 @@ div.byline a.rss, div#blog_info a#rss {
 	background-position: 0 2px;
 }
 
+.cartoonauthor{
+	background: url(../images/icons/author.gif) no-repeat;
+	padding: 0 0 0 13px;
+	margin: 0 5px 0 0;
+}
+
+
 
 /* Photo Bylines
 ***********************************/
@@ -717,38 +784,38 @@ div#section_tabs ul#section_tabs_nav li#comments_tab a {
 /* Featured Multimedia Module
 ***********************************/
 
-div#featured_multimedia {
+div.featured_multimedia {
 	height: 254px; /* Setting height to prevent page from jumping during transition */
 }
 
-div#featured_multimedia ul {
+div.featured_multimedia ul {
 	text-align: center;
 	margin: 8px 0 0 0;
 }
 
-	div#featured_multimedia ul li {
+	div.featured_multimedia ul li {
 		display: inline;
 	}
 	
-	div#featured_multimedia ul li a {
+	div.featured_multimedia ul li a {
 		text-decoration: none;
 		background: url(../images/bg/dark.png);
 		padding: 5px 5px 4px 5px;
 		margin: 0 2px;
 	}
 	
-div#featured_multimedia div img {
+div.featured_multimedia div img {
 	width: 278px;
 	height: 190px;
 }
 
-div#featured_multimedia div {
+div.featured_multimedia div {
 	position: relative;
 	background: url(../images/bg/dark.png);
 	padding: 5px 5px 3px 5px;
 }
 
-div#featured_multimedia div div.caption {
+div.featured_multimedia div div.caption {
 	background: url(../images/bg/darkest.png);
 	padding: 5px;
 	position: absolute;
@@ -759,13 +826,17 @@ div#featured_multimedia div div.caption {
 	text-shadow: none;
 }
 
-div#featured_multimedia div a {
+div.featured_multimedia div a {
 	text-decoration: none;
 }
 
-div#featured_multimedia ul li.ui-tabs-selected a, div#featured_multimedia ul li a:hover, div#upcoming_events ul#calendar li.ui-tabs-selected a, div#upcoming_events ul#calendar li a:hover {
+div.featured_multimedia ul li.ui-tabs-selected a, div.featured_multimedia ul li a:hover, div#upcoming_events ul#calendar li.ui-tabs-selected a, div#upcoming_events ul#calendar li a:hover {
 	background: url(../images/bg/darker.png);
 }
+
+
+
+
 
 /* Upcoming Events Module
 ***********************************/
@@ -780,7 +851,7 @@ div#upcoming_events ul#calendar li a {
 	background: url(../images/bg/dark.png);
 	display: block;
 	width: 38px;
-	height: 50px;
+	height: 55px;
 	margin-right: 10px;
 	padding: 5px 5px 3px 5px;
 	text-align: center;
@@ -800,6 +871,14 @@ div#upcoming_events ul#calendar li a span.num {
 	font-size: 2.7em;
 	line-height: 0.9;
 	font-style: italic;
+}
+
+ul#calendar h3.day {
+	margin-bottom: 0px;
+}
+
+ul#calendar h1.number {
+	margin-top: 0px;
 }
 
 /* Forms
@@ -949,7 +1028,7 @@ img.section_sub.staff {
 /* Rounded Corners Option with Borders
 ****************************************/
 
-.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div#featured_multimedia div, div#featured_multimedia ul li a, div#upcoming_events ul li a, form#search, form#newsletterform input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff {
+.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div.featured_multimedia div, div.featured_multimedia ul li a, div#upcoming_events ul li a, form#search, form#newsletterform input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
@@ -972,3 +1051,4 @@ div#ticker {
 	border: 1px solid rgba(0, 0, 0, 0.03);
 	
 }
+

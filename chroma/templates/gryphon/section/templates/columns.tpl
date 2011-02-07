@@ -8,61 +8,67 @@
 
 {% set topStory = articles.shift() %}
 {% set featuredStories = articles.shift(2) %}
-{% import "macros/article.tpl" as articleRender %}
+{% import "macros/articleopinion.tpl" as articleRender %}
 
-<div class="grid_8">
 	<div class="alpha grid_5">
-		{{ articleRender.abstract5Col(topStory) }}		
-		
-		<hr class="spacer" />
-
-		
-	</div>
-	<div class="omega grid_3">
-		<h5 class="bordered">
-			COLMUNS:
-		</h5>
-		{% for article in featuredStories %}
-			{{ articleRender.abstract3Col(article) }}
-		{% endfor %}
-	</div>
-
-	<hr class="spacer" />
-	
-	<div class="alpha grid_6">
-		<h5 class="bordered">
-			MORE COLUMNS:
-			
-		</h5>
-		<ul>
+		{{ articleRender.abstract6Col(topStory) }}		
+		<div>
+			<ul class="more_fromlarger">
+			<li><h3 class="more_fromlarger">
+			More from Columns:</h3></li>
 				{% for article in articles %}
 					<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4> </li>
 				{% endfor %}
-		<div class="grid_6 alpha">
-			<ul>
-			{% for item in items.shift((items.length)/2) %}
-				<li>
-					<h4><a href="{{ item.url }}">{{ item.title }}</a></h4><br />
-					<span class="small">{{ item.byline }}</span>
-					
-					<p>{{ item.abstract }}</p>
-				</li>
-			{% endfor %}
 			</ul>
-		</div>
-
-		
+		</div>		
 	</div>
-	<div class="omega grid_2">
-		{% include "gryphon/ads/skyscraper.tpl" %}
+	<div class="grid_3">
+	{% set topPost = articles.shift() %}
+			<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+			<div class="dark byline">
+				{% if topPost.authors.length %}
+					<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+
+				{% endif %}
+				
+				<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+
+			</div>
+			<p>{{ topPost.abstract_formatted|clip(250) }}<a href="{{ topPost.url }}" class="dark"><span>More</span></a></p>
+
+
+				
+			{% set topPost = articles.shift() %}
+			<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+			<div class="dark byline">
+				{% if topPost.authors.length %}
+					<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+
+				{% endif %}
+				
+				<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+
+			</div>
+			<p>{{ topPost.abstract_formatted|clip(250) }}<a href="{{ topPost.url }}" class="dark"><span>More</span></a></p>
+
+{% set topPost = articles.shift() %}
+			<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
+			<div class="dark byline">
+				{% if topPost.authors.length %}
+					<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
+
+				{% endif %}
+				
+				<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+
+			</div>
+			<p>{{ topPost.abstract_formatted|clip(250) }}<a href="{{ topPost.url }}" class="dark"><span>More</span></a></p>
+
+
 	</div>
-
+	
+<div class="grid_4 omega">
+		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
 </div>
-
-<div class="grid_4">
-	{% include "gryphon/main/sidebar-standard.tpl" %}
-</div>
-
-<hr class="spacer" />
 
 {% endblock content %}

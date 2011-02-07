@@ -33,7 +33,7 @@
 			{{ articleRender.abstract6Col(article) }}
 		{% endfor %}
 
-			<ul class="more_from">
+			<ul class="more_fromlarger">
 				<li><h3>More from <a href="{{ 'gryphon:section/editorials'|url }}">Editorials:</a></h3></li>
 							{% for article in editorials %}
 							<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
@@ -58,7 +58,7 @@
 							<div class="caption">
 								<p>	
 								{% if cartoon.authors.length %}
-								<a href="{{ cartoon.authors[0].urlSearch }}">{{ cartoon.authors[0].name }}</a>
+								<a href="{{ cartoon.authors[0].urlSearch }}" class="cartoonauthor">{{ cartoon.authors[0].name }}</a>
 								{% endif %}
 								{{ topImage.source }}
 								</p>	
@@ -86,7 +86,7 @@
 		{% fetch articles from article with [
 			'where': 'status = 1',
 			'order': 'weight desc, created desc',
-			'limit': 2,
+			'limit': 3,
 			'withTags': ['Columns']
 		] %}
 		
@@ -96,10 +96,7 @@
 
 
 <ul class="more_from">
-	<li><h3>More from <a href="{{ 'gryphon:section/columns'|url }}">Columns</a>:</h3></li>
-							{% for article in articles %}
-							<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
-							{% endfor %}
+			<li><h3>More from <a href="{{ 'gryphon:section/columns'|url }}">Columns</a></h3></li>
 </ul>							
 							
 	</div>
@@ -112,7 +109,7 @@
 		{% fetch articles from article with [
 			'where': 'status = 1',
 			'order': 'weight desc, created desc',
-			'limit': 2,
+			'limit': 3,
 			'withTags': ['Letters']
 		] %}
 		
@@ -121,11 +118,8 @@
 		{% endfor %}
 	
 	<ul class="more_from">
-	<li><h3>More from <a href="{{ 'gryphon:section/letters'|url }}">Letters</a>:</h3></li>
-							{% for article in articles %}
-							<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
-							{% endfor %}
-</ul>							
+				<li><h3>More from <a href="{{ 'gryphon:section/letters'|url }}">Letters</a></h3></li>
+							</ul>							
 							
 	
 	

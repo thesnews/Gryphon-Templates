@@ -7,65 +7,85 @@
 
 {% block content %}
 
-<div class="grid_8">
-	<h1>{{ blog.name }}</h1>
-	<div class="pagination"><span>
-	{% for page in pagination %}
-		{% if page.isCurrent %}
-			<strong>{{ page.label }}</strong>
-		{% else %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
-		{% endif %}
-	{% endfor %}
-	</span></div>
-	
-	<hr class="spacer" />
-	
-	{% for post in posts %}
-	
-		<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
-		
-		<div class="gray box blogsize">
-		{% if post.authors.length %}
-			By {{ post.authors.splat('name')|join(', ') }}<br /><br />
-		{% endif %}
-		<strong>Created:</strong><br />{{ post.created|timeSince }}<br /><br />
-		<strong>Last updated:</strong> <br />{{ post.modified|timeSince }}<br /><br />
-		<a href="{{ post.url }}#comments">{{ post.commentTotal|int2noun('comment') }}</a>
-		</div>		
-		
-		<div>
-		{{ post.copy_formatted }}		
-		</div>
-		<hr class="spacer" />
-	
-	{% endfor %}
-	<hr class="spacer" />
-	
-	<div class="pagination"><span>
-	{% for page in pagination %}
-		{% if page.isCurrent %}
-			<strong>{{ page.label }}</strong>
-		{% else %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
-		{% endif %}
-	{% endfor %}
-	</span></div>
-	
-</div>
-
-<div class="grid_4 standard-sidebar">
-	<div class="box gray">
-		<h5>About {{ blog.name }}</h5>
-		
-		<p>{{ blog.description_formatted }}</p>
-		
-		<a href="{{ blog.url }}.xml" class="feed_link">Follow this blog in your feed reader</a>
+<div class="grid_8 alpha">
+	<div>
+		<h1>{{ blog.name }}</h1>
+		<p><br />{{ blog.description_formatted }}<br /></p>
 	</div>
+</div>
+		
+<div class="grid_4 omega">
+	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+	<br />
+	<br />
+</div>
+		
+<div class="grid_12" id="secondary">	
+
+	<div class="grid_10 alpha">
 	
-	<hr class="spacer" />
+		<div class="grid_2 alpha dark"><span>
+			{% for page in pagination %}
+				{% if page.isCurrent %}
+					<strong>{{ page.label }}</strong>
+				{% else %}
+					<a href="{{ page.url }}">{{ page.label }}</a>
+				{% endif %}
+			{% endfor %}
+			</span>
+		</div>
+			
+		<div class="grid_8 omega">
+		&nbsp;
+		<br />
+		<br />
+		<br />
+		</div>
 	
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
+		<div class="grid_10 alpha omega">
+	
+			{% for post in posts %}
+			
+				<h1><a href="{{ post.url }}">{{ post.headline }}</a></h1>
+				
+				<div class="dark byline">
+				{% if post.authors.length %}
+				<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+				{% endif %}
+				<span class="date">{{ post.created|timeSince }}</span>
+				<span class="modified">{{ post.modified|timeSince }}</span>
+				<a href="{{ post.url }}#comments" class="comment">{{ post.commentTotal|int2noun('comment') }}</a>
+				</div>		
+				
+				<p>
+				{{ post.copy_formatted|clip(1000) }}{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
+				<br /><br />	
+				</p>
+			
+			{% endfor %}
+			
+			
+		
+			<div class="grid_2 alpha dark"><span>
+				{% for page in pagination %}
+					{% if page.isCurrent %}
+						<strong>{{ page.label }}</strong>
+					{% else %}
+						<a href="{{ page.url }}">{{ page.label }}</a>
+					{% endif %}
+				{% endfor %}
+				</span>
+			</div>
+				
+			<div class="grid_10">
+			&nbsp;
+			</div>
+		</div>
+	</div>	
+	<div class="grid_2 omega">
+	<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+	</div>
 </div>
 
 {% endblock %}

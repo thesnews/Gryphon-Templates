@@ -7,16 +7,13 @@
 {% block content %}
 {% helper dswSync %}
 
-<div class="grid_8">
-	<h1>State News Blogs</h1>
-	
-	<p>
-		State News Blog posts are the opinion of the author. The State News Editorial Board is not responsible for the content contained herein. <a href="{{ 'tsn:mail/4'|url }}">Let us know about your blog ideas</a>.
-	</p>
-	
-	<hr class="spacer" />
+<div class="grid_4 alpha">
+	<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
+</div>
 
-<h2>Recent Posts</h2>
+<div class="grid_8 omega">
+
+	<h1>Recent Blog Posts</h1>
 	
 		{% fetch blogs from blog with [
 				'limit': 3,
@@ -30,32 +27,29 @@
 
 
 		{% set post = blog.mostRecent %}
-		<h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
 		
-		<div class="gray rpbox">
-			Blog: <a href="{{ blog.url }}" style="text-decoration:none">{{ blog.name }}</a>
-			 <span class="byline_divider">|</span>
-			 Last updated: {{ blog.modified|timeSince }}
-			 <span class="byline_divider">|</span>
-			By {{ post.authors.splat('name')|join(', ') }}
-			<span class="byline_divider">|</span>
-			<a href="{{ post.url }}">Read more &#187;</a>
+		<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
+		
+		<div class="dark byline">
+			<a href="{{ blog.url }}" style="text-decoration:none">{{ blog.name }}</a>
+			
+			<span class="modified">{{ blog.modified|date('M d, Y') }}</span>
+			 
+			<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+			
 		</div>	
 		
 		<p>
-			{{ post.abstract_formatted }}
+			{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
 		</p>
-		
-
-		
-	{% endfor %}
 	
+	{% endfor %}
 
-				
-		<hr class="spacer" />
-		
-		
-<h2>Recent Blogs</h2>
+</div>
+
+
+<div class="grid_9 alpha">
+<h1>Recent Blogs</h1>
 		
 		{% fetch blogs from blog with [
 				'where': 'status = 1',
@@ -64,36 +58,33 @@
 		%}	
 		
 		{% for blog in blogs %}
+		
+		<br /><br />
 		<h2 id="blogname"><a href="{{ blog.url }}">{{ blog.name }}</a>:</h2>
-
-
-		{% set post = blog.mostRecent %}
-		<h4><a href="{{ post.url }}">{{ post.headline }}</a></h4>
-		
-		
-		<div class="gray box landingsbox">
-			By {{ post.authors.splat('name')|join(', ') }}<br />
-				Last updated: {{ blog.modified|timeSince }}<br />
-				<a href="{{ post.url }}">Read more &#187;</a>
-		
-		</div>
-		
-		<p>
-			{{ post.abstract_formatted }}
-		</p>
-
+		<br />
 
 		
-		<hr style="margin-bottom:2em;" />
+
+			{% set post = blog.mostRecent %}
+			<h3><a href="{{ post.url }}">{{ post.headline|clip(50) }}</a></h3>
+			
+			
+			<div class="dark byline">
+				<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+					<span class="modified">{{ blog.modified|timeSince }}</span>	
+			</div>
+			
+			<p>
+				{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
+			</p>
 		
 	{% endfor %}
 	
 </div>
-
-<div class="grid_4 standard-sidebar">
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
+<div class="grid_1">&nbsp;</div>
+<div class="grid_2 omega">
+<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 </div>
-
-<hr class="spacer" />
-
 {% endblock %}

@@ -10,7 +10,7 @@
 		{% endif %}
 					<div class="dark byline">
 					
-						<span class="date">{{ article.created|date('m/d') }}</span>
+						<span class="date">{{ article.created|date('M d, Y') }}</span>
 						
 					
 						{% if article.authors.length %}
@@ -35,7 +35,7 @@
 
 						<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
 						<div class="dark byline">
-							<span class="date">{{ article.created|date('M d,Y') }}</span>
+							<span class="date">{{ article.created|date('M d, Y') }}</span>
 							{% if article.authors.length %}
 							<a class="author">
 							{{ article.authors.splat('name')|join(', ') }}
