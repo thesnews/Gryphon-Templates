@@ -41,7 +41,7 @@
 		{{ articleRender.abstract5Col(topStory) }}	
 	</div>
 	
-	<div class="grid_3 alpha">
+	<div class="grid_5 alpha omega">
 	<h3>Featured Blogs</h3>
 			<ul class="more_from">
 					
@@ -64,11 +64,6 @@
 				</ul>
 	</div>
 	
-	<div class="grid_2 omega">
-	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-	<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-	</div>
 	
 </div>
 

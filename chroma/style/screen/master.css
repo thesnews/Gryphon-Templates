@@ -93,6 +93,18 @@ ul.more_from {
 	padding: 5px 0 0 0;
 }
 
+ul.media_list {
+	background: url(../images/bg/divider_small.png) no-repeat top center;
+	margin: 10px 0 0 0;
+	padding: 5px 0 0 0;
+	min-height: 110px;
+}
+
+li.divider {	
+	background: url(../images/bg/divider_large.png) no-repeat top center;
+	height:3px;
+}
+
 ul.more_fromlarger {
 	background: url(../images/bg/divider_medium.png) no-repeat top center;
 	margin: 10px 0 0 0;
@@ -124,45 +136,31 @@ blockquote {
 
 div.sidebar {
 	float: right;
-	width: 200px;
+	width: 210px;
 	margin: 0 0 0 10px;
 }
 
-div.sidebar ul {
-	margin: 0 0 10px 0;
-}
 
-div.sidebar ul li {
-	position: relative;
-	background: url(../images/bg/dark.png);
-	padding: 5px 5px 1px 5px;
-}
-
-div.sidebar ul#text li {
-	padding: 5px;
-	font-size: 0.9em;
-}
-
-div.sidebar ul li div {
+div.sidebar div div {
 	position: absolute;
 	bottom: 5px;
 	font-size: 0.9em;
-	background: url(../images/bg/darkest.png);
+
 	padding: 5px;
 	width: 180px;
 	text-shadow: none;
 	line-height: 1.2em;
 }
 
-	div.sidebar ul li img {
+	div.sidebar div img {
 		width: 190px;
 	}
 	
-	div.sidebar ul li:hover {
+	div.sidebar div:hover {
 		background: url(../images/bg/darker.png);
 	}
 	
-	div.sidebar ul#text li:hover {
+	div.sidebar div:hover {
 		background: url(../images/bg/dark.png);
 	}
 	
@@ -519,9 +517,10 @@ div#featured_main img {
 ***********************************/		
 
 div#featured_stories {
-	height: 250px;
+	min-height: 220px;
 	background: url(../images/bg/dark.png);
 	padding: 10px;
+	width: 520px;
 }
 
 div#featured_stories div {
@@ -537,7 +536,7 @@ div#featured_stories div div.caption {
 	position: absolute;
 	bottom: 10px;
 	left: 10px;
-	width: 370px;
+	width: 300px;
 	text-shadow: none;
 }
 
@@ -546,8 +545,8 @@ div#featured_stories div div.caption {
 	}
 
 div#featured_stories div img {
-	max-height: 239px;
-	width: 390px;
+	max-width: 390px;
+	min-width: 350px;
 }
 
 div#featured_stories ul {
@@ -784,27 +783,80 @@ div#section_tabs ul#section_tabs_nav li#comments_tab a {
 /* Featured Multimedia Module
 ***********************************/
 
-div.featured_multimedia {
-	height: 254px; /* Setting height to prevent page from jumping during transition */
+div.mutimedia_box {
+	width: 300px;
 }
 
-div.featured_multimedia ul {
+.multimedia-pagers {
+	text-align: right;
+	background: #90aa90;
+	padding: 2px;
+	padding-top: 4px;
+	margin-bottom: 5px;
+}
+	.multimedia-pagers a {
+		margin-left: 0.5em;
+		text-decoration: none !important;
+		color: #fff;
+		font-weight: bold;
+		padding-bottom: 7px;
+	}
+	.multimedia-pagers a.active {
+		background: url( ../images/beak_small.png ) no-repeat center bottom;
+		color: #333;
+	}
+
+
+div.mutimedia_box ul#container_multimediaBox {
+	height: 220px;
+	width: 390px;
+	margin: 0px;
+	padding: 0px;
+}
+
+div.caption {
+	background: url(../images/bg/darkest.png);
+	padding: 5px;
+	position: absolute;
+	bottom: 17px;
+	left: 12px;
+	width: 255px;
+	font-size: 0.9em;
+	text-shadow: none;
+	text-align: left;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+div.image img {
+	position: relative;
+	background: url(../images/bg/dark.png);
+	padding: 5px 5px 5px 5px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	width: 280px;
+	height: 200px;
+}
+
+/*
+
+div.featured_multimedia ul#container_multimediaBox {
 	text-align: center;
 	margin: 8px 0 0 0;
 }
 
-	div.featured_multimedia ul li {
+	div.featured_multimedia ul#container_multimediaBox li {
 		display: inline;
 	}
 	
-	div.featured_multimedia ul li a {
+	div.featured_multimedia ul#container_multimediaBox li a {
 		text-decoration: none;
 		background: url(../images/bg/dark.png);
 		padding: 5px 5px 4px 5px;
 		margin: 0 2px;
 	}
 	
-div.featured_multimedia div img {
+div.featured_multimedia img {
 	width: 278px;
 	height: 190px;
 }
@@ -815,26 +867,14 @@ div.featured_multimedia div {
 	padding: 5px 5px 3px 5px;
 }
 
-div.featured_multimedia div div.caption {
-	background: url(../images/bg/darkest.png);
-	padding: 5px;
-	position: absolute;
-	bottom: 8px;
-	left: 8px;
-	width: 262px;
-	font-size: 0.9em;
-	text-shadow: none;
-}
+
 
 div.featured_multimedia div a {
 	text-decoration: none;
 }
 
-div.featured_multimedia ul li.ui-tabs-selected a, div.featured_multimedia ul li a:hover, div#upcoming_events ul#calendar li.ui-tabs-selected a, div#upcoming_events ul#calendar li a:hover {
-	background: url(../images/bg/darker.png);
-}
 
-
+*/
 
 
 
@@ -883,6 +923,9 @@ ul#calendar h1.number {
 
 /* Forms
 ***********************************/
+#main_search{
+	float: left;
+}
 
 form#search {
 	float: right;
@@ -1052,3 +1095,30 @@ div#ticker {
 	
 }
 
+/* Pagination
+***********************************/
+
+ul.page_numbers {
+	text-align: left;
+	margin: 8px 0 0 0;
+}
+
+	ul.page_numbers li {
+		display: inline;
+		text-align: center;
+	}
+	
+	ul.page_numbers li a {
+		text-decoration: none;
+		background: url(../images/bg/dark.png);
+		padding: 5px 5px 4px 5px;
+		margin: 0 2px;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border: 1px solid rgba(0, 0, 0, 0.03);
+		display: inline;
+	}
+	
+ul.page_numbers li a:active, ul.page_numbers li a:hover { 
+	background: url(../images/bg/darker.png);
+}

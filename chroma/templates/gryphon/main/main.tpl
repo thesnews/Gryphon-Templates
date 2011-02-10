@@ -6,10 +6,13 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/article.tpl" as articleRender %}
 
-		
 			<div class="grid_12">
-				
+					<div class="grid_5 alpha">
 					{{ articleRender.abstract5Col(topStory) }}
+					</div>
+					<div class="grid_7 omega">
+					{{ articleRender.abstract7Col(topStory) }}
+					</div>
 			</div>
 			<div class="grid_12" id="secondary">
 
@@ -29,7 +32,7 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -51,7 +54,7 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -73,7 +76,7 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -93,15 +96,13 @@
 						'withTags': ['news']
 						]
 						%}
-						
-					
-								<ul class="more_from">
-									<li><h3>More from <a href="{{ 'section/news'|url }}">News</a>:</h3></li>
+							<ul class="more_from">
+								<li><h3>More from <a href="{{ 'section/news'|url }}">News</a>:</h3></li>
 								{% for article in articles %}
 								<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4></li>
 								{% endfor %}
 							</ul>
-							</div>
+					</div>
 							
 					<div class="grid_3">	
 						
@@ -111,9 +112,7 @@
 						'where': 'status = 1',
 						'withTags': ['sports']
 						]
-						%}
-
-			
+						%}			
 							<ul class="more_from">
 								<li><h3>More from <a href="{{ 'section/sports'|url }}">Sports</a>:</h3></li>
 								{% for item in sports %}
@@ -123,23 +122,22 @@
 							
 					</div>
 					
-						<div class="grid_3 omega">
-							{% fetch opinion from article with [
-							'limit': 6,
-							'order': 'weight desc, created desc',
-							'where': 'status = 1',
-							'withTags': ['opinion']
-							]
-							%}
-					
-							<ul class="more_from">
-								<li><h3>More from <a href="{{ 'section/opinion'|url }}">Opinion</a>:</h3></li>
-								{% for item in opinion %}
-								<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
-								{% endfor %}
+					<div class="grid_3 omega">
+						{% fetch opinion from article with [
+						'limit': 6,
+						'order': 'weight desc, created desc',
+						'where': 'status = 1',
+						'withTags': ['opinion']
+						]
+						%}
+						<ul class="more_from">
+							<li><h3>More from <a href="{{ 'section/opinion'|url }}">Opinion</a>:</h3></li>
+							{% for item in opinion %}
+							<li><h4><a href="{{ item.url }}">{{ item.headline }}</a></h4></li>
+							{% endfor %}
 
-							</ul>
-						</div>
+						</ul>
+					</div>
 						
 				</div> <!-- this end tag coresponds to the div grid 9-->
 			
@@ -150,9 +148,8 @@
 						<div class="grid_2 omega">
 						<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 						</div>
-						
 			</div>
-		</div>
+		
 			<div class="grid_12">
 					<div class="grid_4 alpha square">
 						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
@@ -260,9 +257,6 @@
 						
 						</div>
 
-
-
-				<!-- Front page
 					<div class="grid_2 omega">
 						{% fetch pdf from media with [
 							'where': 'status = 1',
@@ -277,37 +271,42 @@
 							</a>
 						</div>
 					</div>
-				-->
-				
-				
-				
-				</div>
+			</div>
+			
+			
 			<div class="grid_12">
 				<div class="grid_4 alpha">
-					<div class="dark featured_multimedia" id="featured_multimedia">
-		<h3>Featured Multimedia</h3>
-		{% fetch multimedia from media with [
-			'limit': 10,
-			'order': 'self:weight desc, self:created desc',
-			'withTags': ['Multimedia Box']
-		] %}
-		{% include "gryphon/main/box.tpl" %}
-		
-						</div>
-				
+					
+					<div class="mutimedia_box dark">
+						<h3>Featured Multimedia</h3>
+						{% fetch multimedia from media with [
+							'limit': 10,
+							'order': 'self:weight desc, self:created desc',
+							'withTags': ['Multimedia Box']
+						] %}
+
+						<ul id="container_multimediaBox">
+						{% for media in multimedia %}
+							<li>
+								<div class="image">
+									<img src="{{ media.url }}" alt="{{ media.title }}" />
+									<div class="caption">
+										<h3>{{ media.title }}</h3>
+										<p>{{ media.type }}: {{ media.caption|clip(100) }}</p>
+									</div>
+								</div>
+							</li>
+							
+							
+						{% endfor %}
+						</ul>
 					</div>
 					
 				</div>
-				
-				
 				<div class="grid_4">
-								
 					<div id="upcoming_events">
 						<h3>Upcoming Events</h3>
-												
-						
 						<ul id="calendar">
-						
 						{% set start = 'Today 00:00:00'|toTime %}
 						{% set end = '+4 days'|toTime(start) %}
 	
@@ -319,14 +318,9 @@
 							<h1 class="number">{{ i|date('j') }}</h1>
 							</a>
 							</li>
-							
 						{% endfor %}
-							
-													
 						</ul>
-					    				
 					   <div id="upcoming_events1">
-
 							<ul>
 								{% set start = 'Today 00:00:00'|toTime %}
 								{% set end = '+0 days'|toTime(start) %}
@@ -364,8 +358,4 @@
 					<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: right" />
 				</div>
 			</div>
-
-
-
-
 {% endblock content %}

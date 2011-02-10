@@ -14,8 +14,9 @@
 
 	<div class="grid_4 alpha">
 		{{ articleRender.abstract4Col(topStory) }}	
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+		<br />
+		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: left" />
+		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float: right" />
 	</div>
 
 	<div class="grid_3">
@@ -102,11 +103,7 @@
 			{% endfor %}
 			
 			</ul>
-			
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-
-		</div>
+</div>
 
 		{% fetch blogs from blog with [
 			'limit': 5,
@@ -162,24 +159,24 @@
 		
 		<h3>Sports:</h3>
 		<ul class="grid_2 alpha">
-			<li><h3><a href="/index.php/section/baseball">Baseball</a></h3></li>
-			<li><h3><a href="/index.php/section/basketball">Basketball</a></h3></li>
-			<li><h3><a href="/index.php/section/crosscountry">Cross Country</a></h3></li>
-			<li><h3><a href="/index.php/section/football">Football</a></h3></li>
-			<li><h3><a href="/index.php/section/Golf">Golf</a></h3></li>
-			<li><h3><a href="/index.php/section/gymnastics">Gymnastics</a></h3></li>
-			<li><h3><a href="/index.php/section/fieldhockey">Field Hockey</a></h3></li>
-			<li><h3><a href="/index.php/section/hockey">Ice Hockey</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Baseball</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Basketball</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Cross Country</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Football</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Golf</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Gymnastics</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Field Hockey</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Ice Hockey</a></h3></li>
 		</ul>
 		<ul class="grid_2 omega">
-			<li><h3><a href="/index.php/section/rowing">Rowing</a></h3></li>
-			<li><h3><a href="/index.php/section/soccer">Soccer</a></h3></li>
-			<li><h3><a href="/index.php/section/softball">Softball</a></h3></li>
-			<li><h3><a href="/index.php/section/swimmingdiving">Swimming &amp; Diving</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Rowing</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Soccer</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Softball</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Swimming &amp; Diving</a></h3></li>
 
-			<li><h3><a href="/index.php/section/trackfield">Track &amp; Field</a></h3></li>
-			<li><h3><a href="/index.php/section/volleyball">Volleyball</a></h3></li>
-			<li><h3><a href="/index.php/section/wrestling">Wrestling</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Track &amp; Field</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Volleyball</a></h3></li>
+			<li><h3><a href="{{ 'section/baseball'|url }}">Wrestling</a></h3></li>
 		</ul>
 		
 		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />

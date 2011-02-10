@@ -10,9 +10,9 @@
 
 {% set topMedia = media.shift() %}
 
-<div class="grid_8">
+<div class="grid_12">
 
-	<h1>{{ topMedia.fileType }}: {{ topMedia.title }}</h1>
+	<h2>{{ topMedia.fileType }}:</h2><h1>{{ topMedia.title }}</h1>
 	
 	{{ mediaRender.media(topMedia) }}
 	<br />
@@ -20,16 +20,23 @@
 	<br />
 	{{ topMedia.caption_formatted }}
 	
-	<hr />
-	
-	<hr class="spacer" />
-	<br /><br />
-	<div class="pagination clear-fix"><span>
-		{% for page in pagination %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
+<br /><br />
+<h3>Related:</h3>
+	<ul>
+		{% for item in topMedia.articles %}
+			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
 		{% endfor %}
-	</span></div>
-	
+	</ul>
+
+	<div class="gir_12 alpha omega pagination dark byline">
+		<div class="pagination clear-fix">
+			<span>
+			{% for page in pagination %}
+				<a href="{{ page.url }}">{{ page.label }}</a>
+			{% endfor %}
+			</span>
+		</div>
+	</div>	
 	<ul>
 	{% for item in media %}
 		<li>
@@ -47,20 +54,17 @@
 	{% endfor %}
 	</ul>
 
-	<hr class="spacer" />
 	<br /><br />
-	<div class="pagination clear-fix"><span>
-		{% for page in pagination %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
-		{% endfor %}
-	</span></div>
-	
-</div>
-
-<div class="grid_4">
-
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
-	
+	<div class="gir_12 alpha omega pagination dark byline">
+		<div class="pagination clear-fix">
+			<span>
+			{% for page in pagination %}
+				<a href="{{ page.url }}">{{ page.label }}</a>
+			{% endfor %}
+			</span>
+		</div>
+	</div>
+</div>	
 </div>
 
 {% endblock content %}

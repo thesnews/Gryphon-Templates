@@ -56,14 +56,18 @@
 				{{ article.infobox_formatted }}
 
 			{% endif %}
+			
 			{% if pdfs.length %}
-				<h5>Related Documents:</h5>
 				<ul class="media_pdf">	
 				{% for pdf in pdfs %}
-					<li><a href="{{ pdf.urlOriginal }}">{{ pdf.title }}</a> - PDF</li>
+					<li><h3>Related Documents:</h3></li>
+					<li><a href="{{ pdf.urlOriginal }}">{{ pdf.title }}</a> (PDF)</li>
 				{% endfor %}
 				</ul>
 			{% endif %}
+			
+			<br />
+			
 		</div>
 		{% endif %}
 		
@@ -72,77 +76,62 @@
 			{% for mug in mugShots %}
 			<div class="mugshots">
 				<img src="{{ mug.url }}" alt="{{ mug.caption }}" />
-				<strong>{{ mug.caption_formatted }}</strong>
+				<h3>{{ mug.caption_formatted }}</h3>
 			</div>
 			{% endfor %}
 		{% endif %}
 
 		{{ article.copy_formatted|extract(5) }}
 		
+		
+	<div class="sidebar" style="text-align:center">
+		<div>
 		{% for image in images %}
-			<div class="photo sidebar-item expandable">
+			<div class="dark">
 				<a href="{{ image.urlDefault }}"><img src="{{ image.urlPreview }}" alt="{{ image.base_name }}" class="preview" /></a>
-				<span>Photo: {{ image.caption|clip(15) }}</span>
+				<span>Photo: {{ image.caption|clip(30) }}</span>
 			</div>
+			<br />
+		{% endfor %}
+		</div>
+		{% for gallery in galleries %}
+			<div class="dark">
+				<a href="{{ gallery.urlDefault }}"><img src="{{ gallery.urlPreview }}" alt="{{ gallery.base_name }}" class="preview" /></a>
+				<span>Gallery: {{ gallery.galleries[0].title|clip(30) }}</span>
+			</div>
+			<br />
 		{% endfor %}
 
-		{% for gallery in galleries %}
-			<div class="gallery sidebar-item expandable">
-				<a href="{{ gallery.urlDefault }}"><img src="{{ gallery.urlPreview }}" alt="{{ gallery.base_name }}" class="preview" /></a>
-				<span>Gallery: {{ gallery.galleries[0].title|clip(15) }}</span>
-			</div>
-		{% endfor %}
-		
 		{% for video in videos %}
-			<div class="video sidebar-item expandable">
+			<div class="dark">
 				<a href="{{ video.urlDefault }}"><img src="{{ video.urlPreview }}" alt="{{ video.base_name }}" class="preview" /></a>
-				<span>Video: {{ video.title|clip(15) }}</span>
+				<span>Video: {{ video.title|clip(30) }}</span>
 			</div>
+			<br />
 		{% endfor %}
 
 		{% for slide in slides %}
-			<div class="slide sidebar-item expandable">
+			<div class="dark">
 				<a href="{{ slide.urlDefault }}"><img src="{{ slide.urlPreview }}" alt="{{ slide.base_name }}" class="preview" /></a>
-				<span>Slideshow: {{ slide.title|clip(15) }}</span>
+				<span>Slideshow: {{ slide.title|clip(30) }}</span>
 			</div>
+			<br />
 		{% endfor %}
-		
+
 		{% for sound in sounds %}
-			<div class="sound sidebar-item">
-				<h5>Audio: {{ sound.title }}</h5>
+			<div class="dark sound sidebar-item">
 				{{ render.media(sound, 'audio_article') }}
+				<h5>Audio: {{ sound.title }}</h5>
 			</div>
+			<br />
 		{% endfor %}
 
-						<div class="sidebar">
-							<ul id="text">
-								<li>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								</li>
-							</ul>
-							<ul id="images">
-								<li>
-									<a href="#"><img src="chroma_style/images/dummy/ftr1.jpg" alt="feature_3" /></a>
-									<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</div>
-								</li>
-							</ul>
-							<ul id="video">
-								<li>
-									<a href="#"><img src="img/dummy/ftr2.jpg" alt="video" /></a>
-									<div><b>Watch:</b> <a href="#">Lorem ipsum dolor sit amet</a></div>
-								</li>
-							</ul>
-							<ul id="interactive">
-								<li>
-									<a href="#"><img src="img/dummy/ftr3.jpg" alt="interactive" /></a>
-									<div><b>Interact:</b> <a href="#">Lorem ipsum dolor sit amet</a></div>
-								</li>
-							</ul>
-						</div>
-
+	
+		</div>
+						
 		{{ article.copy_formatted|extract(null, 5) }}
 
-								</div>
+					</div>
 				</div>
 				<div class="grid_4 omega">
 						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
@@ -162,21 +151,28 @@
 					
 	{% import 'macros/comment.tpl' as comment %}
 	
-	<div class="pagination byline"><span>
-		{{ comment.pagers(article) }}
+	<div class="pagination">
+		<ul class="page_numbers">
+			<li>
+				{{ comment.pagers(article) }}
+			</li>
+		</ul>
 	</span></div>
 	
 	<div class="comments">
 		{{ comment.list(article) }}
 	</div>
 
-	<div class="pagination byline"><span>
-		{{ comment.pagers(article) }}
-	</span></div>
+	<div class="pagination">
+		<ul class="page_numbers">
+			<li>
+				{{ comment.pagers(article) }}
+			</li>
+		</ul>
+	</div>
 
-
-					
-					<div id="join_convo"><a href="#secondary">Join the Conversation!</a></div>
+	
+			<div id="join_convo"><a href="#secondary">Join the Conversation!</a></div>
 				</div>
 				<div class="grid_4">
 					<h2>Have Something to Say?</h2>
