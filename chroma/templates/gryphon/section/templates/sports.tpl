@@ -160,23 +160,23 @@
 		<h3>Sports:</h3>
 		<ul class="grid_2 alpha">
 			<li><h3><a href="{{ 'section/baseball'|url }}">Baseball</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Basketball</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Cross Country</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Football</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Golf</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Gymnastics</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Field Hockey</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Ice Hockey</a></h3></li>
+			<li><h3><a href="{{ 'section/basketball'|url }}">Basketball</a></h3></li>
+			<li><h3><a href="{{ 'section/crosscountry'|url }}">Cross Country</a></h3></li>
+			<li><h3><a href="{{ 'section/fooball'|url }}">Football</a></h3></li>
+			<li><h3><a href="{{ 'section/golf'|url }}">Golf</a></h3></li>
+			<li><h3><a href="{{ 'section/gymnastics'|url }}">Gymnastics</a></h3></li>
+			<li><h3><a href="{{ 'section/fieldhockey'|url }}">Field Hockey</a></h3></li>
+			<li><h3><a href="{{ 'section/icehockey'|url }}">Ice Hockey</a></h3></li>
 		</ul>
 		<ul class="grid_2 omega">
-			<li><h3><a href="{{ 'section/baseball'|url }}">Rowing</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Soccer</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Softball</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Swimming &amp; Diving</a></h3></li>
+			<li><h3><a href="{{ 'section/rowing'|url }}">Rowing</a></h3></li>
+			<li><h3><a href="{{ 'section/soccer'|url }}">Soccer</a></h3></li>
+			<li><h3><a href="{{ 'section/softball'|url }}">Softball</a></h3></li>
+			<li><h3><a href="{{ 'section/swimming'|url }}">Swimming &amp; Diving</a></h3></li>
 
-			<li><h3><a href="{{ 'section/baseball'|url }}">Track &amp; Field</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Volleyball</a></h3></li>
-			<li><h3><a href="{{ 'section/baseball'|url }}">Wrestling</a></h3></li>
+			<li><h3><a href="{{ 'section/track'|url }}">Track &amp; Field</a></h3></li>
+			<li><h3><a href="{{ 'section/volleyball'|url }}">Volleyball</a></h3></li>
+			<li><h3><a href="{{ 'section/wrestling'|url }}">Wrestling</a></h3></li>
 		</ul>
 		
 		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />

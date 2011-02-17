@@ -30,25 +30,25 @@
 
 {% set domPhoto = images.shift() %}
 
-				<div class="grid_8 alpha">
-					<h1>{{ article.headline }}</h1>
-					
-					<div class="dark byline">
-						<span class="date">{{ article.created|date('M d, Y') }}</span>
-						{% if article.created != article.modified %}
-						<span class="modified">Modified {{ article.modified|date('M d, Y') }}</span>
-						{% endif %}	
-						{% if article.authors.length %}
-						{% set author = article.authors.shift() %}
-						<a href="{{ author.url }}" class="author">{{ author.name }}</a>
-						{% for author in article.authors %}
-						and <a href="{{ author.url }}" class="author">{{ author.name }}</a>
-						{% endfor %}
-						{% endif %}
-						<a class="comment" href="#secondary">{{ article.commentTotal|int2noun('comment') }}</a>
-						</div>
+	<div class="grid_8 alpha">
+		<h1>{{ article.headline }}</h1>
+		
+		<div class="dark byline">
+			<span class="date">{{ article.created|date('M d, Y') }}</span>
+			{% if article.created != article.modified %}
+			<span class="modified">Modified {{ article.modified|date('M d, Y') }}</span>
+			{% endif %}	
+			{% if article.authors.length %}
+			{% set author = article.authors.shift() %}
+			<a href="{{ author.url }}" class="author">{{ author.name }}</a>
+			{% for author in article.authors %}
+			and <a href="{{ author.url }}" class="author">{{ author.name }}</a>
+			{% endfor %}
+			{% endif %}
+			<a class="comment" href="#secondary">{{ article.commentTotal|int2noun('comment') }}</a>
+		</div>
 										
-					<div id="article_body">
+		<div id="article_body">
 										
 				{% if article.infobox or pdfs.length %}
 		<div class="sidebar-item">
@@ -125,84 +125,80 @@
 			</div>
 			<br />
 		{% endfor %}
-
-	
 		</div>
-						
+	</div>			
 		{{ article.copy_formatted|extract(null, 5) }}
+		<br />
+</div>
+<div class="grid_4 omega">
+		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
+		<ul class="more_stories">
+			<li><h3>Possibly Related:</h3></li>
+			<li>{% for item in article.getRelated() %}
+			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
+			{% endfor %}
+		</ul>
+</div>
 
-					</div>
-				</div>
-				<div class="grid_4 omega">
-						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
-					<ul class="more_stories">
-						<li><h3>Possibly Related:</h3></li>
-						<li>{% for item in article.getRelated() %}
-						<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
-							{% endfor %}
+<div class="grid_12" id="secondary">
+	<div class="grid_6 alpha">
+		<h1>{{ article.commentTotal|int2noun('comment') }}</h1>
+					
+					
+		{% import 'macros/comment.tpl' as comment %}
+	
+		<div class="pagination">
+			<ul class="page_numbers">
+				<li>
+				{{ comment.pagers(article) }}
 				</li>
-					</ul>
-				</div>
-			</div>
-			<div class="grid_12" id="secondary">
-				<div class="grid_6 alpha">
-				<h1>{{ article.commentTotal|int2noun('comment') }}</h1>
-					
-					
-	{% import 'macros/comment.tpl' as comment %}
+			</ul>
+		</div>
 	
-	<div class="pagination">
-		<ul class="page_numbers">
-			<li>
-				{{ comment.pagers(article) }}
-			</li>
-		</ul>
-	</span></div>
-	
-	<div class="comments">
-		{{ comment.list(article) }}
-	</div>
+		<div class="comments">
+			{{ comment.list(article) }}
+		</div>
 
-	<div class="pagination">
-		<ul class="page_numbers">
-			<li>
-				{{ comment.pagers(article) }}
-			</li>
-		</ul>
-	</div>
+		<div class="pagination">
+			<ul class="page_numbers">
+				<li>
+					{{ comment.pagers(article) }}
+				</li>
+			</ul>
+		</div>
 
 	
 			<div id="join_convo"><a href="#secondary">Join the Conversation!</a></div>
-				</div>
-				<div class="grid_4">
-					<h2>Have Something to Say?</h2>
-					<form id="comments" action="#" method="post">
-						<fieldset id="comment-userinfo">
-							<input type="text" name="name" id="comment_name" value="Your Name" class="clearMeFocus" />
-							<input type="text" name="email" id="comment_email" value="Your Email (Won't be published)" />
-						</fieldset>
-						<fieldset>
-							<textarea name="comment" id="comment_body">Your Comment</textarea>
-							<input type="text" name="answer" id="comment_turing" size="40" value="Where does the President live?" class="clearme rounded" />		
-						</fieldset>
-						<input type="submit" id="comment_submit" value="Add Comment" />			
-					</form>
-					<h3>You Should Know:</h3>
-					<p>Detroit Softworks reserves the right to remove any comment deemed racially derogatory, inflammatory, or spammatory. Repeat offenders may have their IP address banned from posting future comments. Please be nice.</p>
-					<ul id="format_options">
-						<lh>Formatting Options:</lh>
-						<li>Links: "my link":http://my.url.com</li>
-					    <li>Bold: *something!"</li>
-					    <li>Italic: _OMG!_</li>
-					</ul>
-					    
-				</div>
-				<div class="grid_2 omega">
-					<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
-				</div>
-			</div>
-
+	</div>			
+	<div class="grid_4">
+		<h2>Have Something to Say?</h2>
+		<form id="comments" action="#" method="post">
+			<fieldset id="comment-userinfo">
+				<input type="text" name="name" id="comment_name" value="Your Name" class="clearMeFocus" />
+				<input type="text" name="email" id="comment_email" value="Your Email (Won't be published)" />
+			</fieldset>
+			<fieldset>
+				<textarea name="comment" id="comment_body">Your Comment</textarea>
+				<input type="text" name="answer" id="comment_turing" size="40" value="Where does the President live?" class="clearme rounded" />		
+			</fieldset>
+			<input type="submit" id="comment_submit" value="Add Comment" />			
+		</form>
+		<h3>You Should Know:</h3>
+		<p>Detroit Softworks reserves the right to remove any comment deemed racially derogatory, inflammatory, or spammatory. Repeat offenders may have their IP address banned from posting future comments. Please be nice.</p>
+		<ul id="format_options">
+			<lh>Formatting Options:</lh>
+			<li>Links: "my link":http://my.url.com</li>
+		    <li>Bold: *something!"</li>
+		    <li>Italic: _OMG!_</li>
+		</ul>
+		    
+	</div>
+	<div class="grid_2 omega">
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+	</div>
 </div>
+
+
 
 
 {% endblock %}

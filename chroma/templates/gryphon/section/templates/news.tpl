@@ -91,9 +91,8 @@
 
 				<div class="grid_2 omega" style="text-align: right;">
 				
-				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+				<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+
 
 				</div>
 				

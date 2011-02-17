@@ -27,13 +27,12 @@
 
 	<title>Detroit Softworks{{ title|default(" :: Detroit Softworks") }}</title>
 
-		{#<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-1.3.2.min.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>#}
-		
+
 		<script type="text/javascript" src="{{ 'style_chroma/js/mootools-1.2-min.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/rosewood.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/main.js'|url }}"></script>
+
+		<script type="text/javascript" src="{{ 'style_chroma/js/section_tab_module.js'|url }}"></script>
 
 	{% block styles %}{% endblock %}
 	{% block scripts %}{% endblock %}
@@ -93,11 +92,6 @@
 					
 					
 		</div>
-
-
-			
-		<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
-
 
 		<div class="grid_12" id="footer">
 							

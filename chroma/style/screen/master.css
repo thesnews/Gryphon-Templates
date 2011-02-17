@@ -8,6 +8,7 @@
 	margin-bottom: 15px; /* SETTING STANDARD VERTICAL SPACING BTWN ROWS */
 }
 
+
 /* Generic Styling
 ***********************************/
 body {
@@ -59,16 +60,19 @@ div#poll {
 	background: url(../images/client/logo_watermark.png) no-repeat bottom right;
 }
 
-div#front_pdf {
+div.front_pdf {
 	text-align: center;
+
 }
 
 	img.front_pdf {
 		opacity: 0.6;
+		width: 125px;
 	}
 	
  	img.front_pdf:hover {
 		opacity: 1;
+		
 	}
 	
 small {
@@ -466,7 +470,7 @@ div#ticker span#wx {
 
 div#header {
 	background: url(../images/bg/divider_large.png) no-repeat bottom center;
-	padding-bottom: 20px;
+	padding-bottom: 21px;
 	margin-bottom: 10px;
 }
 
@@ -780,6 +784,7 @@ div#section_tabs ul#section_tabs_nav li#comments_tab a {
 	background: url(../images/section_tabs/comments.png);
 }
 
+
 /* Featured Multimedia Module
 ***********************************/
 
@@ -787,29 +792,30 @@ div.mutimedia_box {
 	width: 300px;
 }
 
-.multimedia-pagers {
-	text-align: right;
-	background: #90aa90;
+.pagers {
+	text-align: center;
 	padding: 2px;
 	padding-top: 4px;
 	margin-bottom: 5px;
+	
 }
-	.multimedia-pagers a {
-		margin-left: 0.5em;
-		text-decoration: none !important;
-		color: #fff;
-		font-weight: bold;
-		padding-bottom: 7px;
+	.pagers a {
+		text-decoration: none;
+		background: url(../images/bg/dark.png);
+		padding: 5px 5px 4px 5px;
+		margin: 0 2px;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border: 1px solid rgba(0, 0, 0, 0.03);
+		display: inline;
 	}
-	.multimedia-pagers a.active {
-		background: url( ../images/beak_small.png ) no-repeat center bottom;
-		color: #333;
+	.pagers a.active {
+		background: url(../images/bg/darker.png);
 	}
 
 
 div.mutimedia_box ul#container_multimediaBox {
 	height: 220px;
-	width: 390px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -837,46 +843,6 @@ div.image img {
 	width: 280px;
 	height: 200px;
 }
-
-/*
-
-div.featured_multimedia ul#container_multimediaBox {
-	text-align: center;
-	margin: 8px 0 0 0;
-}
-
-	div.featured_multimedia ul#container_multimediaBox li {
-		display: inline;
-	}
-	
-	div.featured_multimedia ul#container_multimediaBox li a {
-		text-decoration: none;
-		background: url(../images/bg/dark.png);
-		padding: 5px 5px 4px 5px;
-		margin: 0 2px;
-	}
-	
-div.featured_multimedia img {
-	width: 278px;
-	height: 190px;
-}
-
-div.featured_multimedia div {
-	position: relative;
-	background: url(../images/bg/dark.png);
-	padding: 5px 5px 3px 5px;
-}
-
-
-
-div.featured_multimedia div a {
-	text-decoration: none;
-}
-
-
-*/
-
-
 
 /* Upcoming Events Module
 ***********************************/
@@ -1022,8 +988,10 @@ div#footer ul {
 
 div#footer img.front_pdf {
 	width: 100px;
-	background: url(../images/bg/darker.png);
-	padding: 3px;
+	background: url(../images/bg/dark.png);
+	padding: 5px 5px 5px 5px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 }
 
 div#footer li {

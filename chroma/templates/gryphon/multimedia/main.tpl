@@ -61,13 +61,7 @@
 		{% endif %}
 
 		<ul class="media_list">
-			<li><div class="grid_1 alpha">
-				<a href="{{ item.urlDefault }}">
-				<img src="{{ item.urlThumbnail }}" class="thumbnail" style="width:50px" />
-				</a>&nbsp;
-	
-			</div>
-			<div class="grid_4 omega">
+			<div class="grid_5 alpha omega">
 				
 				<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
 				<div class="byline dark" style="width:100px;">
