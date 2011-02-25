@@ -10,46 +10,34 @@
 {% set featuredStories = articles.shift(2) %}
 {% import "macros/articlecampus.tpl" as articleRender %}
 
-<div class="grid_8">
-	<div class="alpha grid_5">
+<div class="grid_12">
+
+	<div class="grid_5 alpha">
 		{{ articleRender.abstract5Col(topStory) }}		
 		
+
+			<ul class="more_fromlarger">
+			<li>
+			<h3>
+			More from Campus:
+			</h3>
+			</li>
+				{% for article in articles %}
+					<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4> </li>
+				{% endfor %}
+			</ul>
+		
 	</div>
-	<div class="omega grid_3">
+	<div class="grid_3">
 
 		{% for article in featuredStories %}
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
 	</div>
 	
-	<div class="alpha grid_6">
-		<h3>
-			More from Campus:
-			
-		</h5>
-		
-<ul>
-				{% for article in articles %}
-					<li><h4><a href="{{ article.url }}">{{ article.headline }}</a></h4> </li>
-				{% endfor %}
-			</ul>
-		<div class="grid_6 alpha">
-			<ul>
-			{% for item in items.shift((items.length)/2) %}
-				<li>
-					<h4><a href="{{ item.url }}">{{ item.title }}</a></h4><br />
-					<span class="small">{{ item.byline }}</span>
-					
-					<p>{{ item.abstract }}</p>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-			
 
-	</div>
-	<div class="omega grid_2">
-		{% include "gryphon/ads/skyscraper.tpl" %}
+	<div class="grid_4 omega">
+		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
 	</div>
 
 </div>

@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="grid_8">
+<div class="grid_12">
 
 	<h1>
 		{% if query	%}
@@ -16,62 +16,79 @@
 	{% if query %}
 		<p><strong>{{ pagination.total|int2noun('item') }}</strong> found for "{{ query }}". If you're looking for something specific, you can also try an <a href="#">Advanced Search</a>.</p>
 	{% else %}
-	<p>Use the field below to perform a basic search of The State News' archives. This will return articles, images, and multimedia relevant to your query. You can also try an <a href="{{ 'search/?a=1'|url }}">Advanced search</a></p>
+	<p>Use the field below to perform a basic search. This will return articles, images, and multimedia relevant to your query. You can also try an <a href="{{ 'search/?a=1'|url }}">Advanced Search</a>.</p>
 	{% endif %}
 	
 
 	<div id="main_search">
-	
-		<div class="pagination">
-			<span>
-			{% for page in pagination %}
-				<a href="{{ page.url }}">{{ page.label }}</a>
-			{% endfor %}
-			</span>
-		</div>
-		
-		
-		<form method="get" action="{{ 'gryphon:search'|url }}" class="search-form">
-			<input class="search replace-text" type="text" name="q" value="{% if query	%}{{ query }}{% else %}Search The State News{% endif %}" />
-	
-			<input class="search_button" type="image" name="submit" src="{{ 'style/gryphon/images/search_button.png'|url }}" width="24" height="24" alt="search">			
+		<br />
+		<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
+				<input id="search_field" class="search replace-text" type="text" name="q" value="Search The State News" />
+				<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">
 		</form>
 			
 	</div>
-	
-	<hr class="spacer" />
 
-{% if query %}<h5 class="bordered">SEARCH RESULTS:</h5>{% endif %}
+</div>
+
+<div class="grid_12" id="secondary">
+		<div class="pagination">
+			<span>
+			<ul class="page_numbers">
+			{% for page in pagination %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+			{% endfor %}
+			</ul>
+			</span>
+			<br />
+		</div>
 		
-	<ul class="search-results">
+
+<div class="grid_10 alpha">
+
+
+{% if query %}<h2>Search Results:</h2>{% endif %}
+		
+	<div>
+	<ul>
 		{% for item in hits %}
 			<li>
-				<h4><a href="{{ item.url|url }}">{{ item.title }}</a></h4> <em>({{ item.created|timeSince }})</em>
-				<br />
-				{{ item.description }}
+				<h3><a href="{{ item.url|url }}">{{ item.title }}</a></h3> 
+				{{ item.created|date(' M d, Y') }}
+				<p>
+				{{ item.description|clip(400) }}
+				</p>
 			</li>
+			<li  class="divider">&nbsp;</li>
 		{% endfor %}
 	</ul>
+	
+	</div>
 		
-	<br />
-	<br />
 	<div class="pagination">
+	<br />
 		<span>
-			{% for page in pagination %}
-				<a href="{{ page.url }}">{{ page.label }}</a>
-			{% endfor %}
+		<ul class="page_numbers">
+		{% for page in pagination %}
+			<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+		{% endfor %}
+		</ul>
 		</span>
 	</div>
-	
 
 
 </div>
 
 
 
-<div class="grid_4">
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
+<div class="grid_2 omega">
+	<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 </div>
+
+
+
+</div>
+
 
 <div class="clear"></div>
 

@@ -21,24 +21,18 @@
 	<meta name="title" content="Detroit Softworks{{ title|default(" :: Detroit Softworks") }}" />
 	<meta name="description" content="{{ description|default("Detroit Softworks") }}" />
 
-	<script type="text/javascript" src="{{ 'javascript/base.js'|url }}"></script>
-
-	<script type="text/javascript" src="{{ 'javascript/vendor/mootools/mootools-1.2.4-compressed.js'|url }}"></script>
-
-	<script src="/javascript/snews.compressed.js" type="text/javascript"></script>
-
-
 	{% if noIndex %}
 		<meta name="robots" content="noindex, nofollow" />
 	{% endif %}
 
 	<title>Detroit Softworks{{ title|default(" :: Detroit Softworks") }}</title>
 
-		
-		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-1.3.2.min.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/jquery-ui-1.7.2.min.js'|url }}"></script>
-		<script type="text/javascript" src="{{ 'style_chroma/js/jquery/effects.js'|url }}"></script>
 
+		<script type="text/javascript" src="{{ 'style_chroma/js/mootools-1.2-min.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style_chroma/js/rosewood.js'|url }}"></script>
+		<script type="text/javascript" src="{{ 'style_chroma/js/main.js'|url }}"></script>
+
+		<script type="text/javascript" src="{{ 'style_chroma/js/section_tab_module.js'|url }}"></script>
 
 	{% block styles %}{% endblock %}
 	{% block scripts %}{% endblock %}
@@ -73,19 +67,17 @@
 			<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
 			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
 			</div>	
-				<form id="search" method="get" action="{{ 'search'|url }}" class="search-form">
-					<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">			
-					<input id="search_field" class="search replace-text" type="text" name="search" value="Search Detroit Softworks" />
-				</form>
+		<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
+			<input id="search_field" class="search replace-text" type="text" name="q" value="{% if query	%}{{ query }}{% else %}Search The State News{% endif %}" />
+			<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">
+		</form>
+		
+		</form>
 				
 		</div>
-		
-
 			<div class="grid_12 leaderboard">
-						<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url }}" alt="advertisement" />
+				<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url }}" alt="advertisement" />
 			</div>
-
-
 
 		<div id="header" class="grid_12">
 			<a href=""><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>{% include "gryphon/navigation.tpl" %}
@@ -101,12 +93,7 @@
 					
 		</div>
 
-
-			
-		<div class="clear"></div> <!-- LEAVE THIS CLEAR DIV!! OTHERWISE, THE CONTAINER WILL COLLAPSE! -->
-
-		
-		<div class="container_12" id="footer">
+		<div class="grid_12" id="footer">
 							
 						<div class="grid_2 alpha">
 							<ul>
@@ -229,12 +216,10 @@
 						</div>
 						
 						<div class="clear"></div>
-						
-		
 		
 	</div>
-
 </div>
+
 
 
 

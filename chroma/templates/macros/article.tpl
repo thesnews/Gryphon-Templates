@@ -6,7 +6,7 @@
 
 				<div class="grid_5 alpha">
 					
-										{% if showHeadline %}
+					{% if showHeadline %}
 						<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 					{% endif %}
 					<div class="dark byline">
@@ -20,7 +20,14 @@
 					
 				</div>
 
-					<div class="grid_7 omega">
+{% endmacro %}
+
+{% macro abstract7Col(article) %}
+	{% helper dswSync %} {# bring the 'dswSync' helper into the macro context #}
+	{% set topImage = article.media.grab('type', 'image')[0] %}
+	{% set showHeadline = 1 %}
+	
+				
 					<div id="featured_stories">
 					    <ul>
 					        <li class="active"><a href="#featured_story1">
@@ -37,7 +44,7 @@
 							</div>
 					    </div>
 					</div>
-				</div>
+
 
 
 {% endmacro %}

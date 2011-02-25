@@ -12,9 +12,6 @@
 
 {% import "macros/articlenew.tpl" as articleRender %}
 
-
-
-
 			<div class="grid_12">
 				<div class="grid_4 alpha">
 				{{ articleRender.abstract4Col(topStory) }}
@@ -34,7 +31,8 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<a class="comment" href="{{ article.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -49,7 +47,8 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<a class="comment" href="{{ topPost.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -65,7 +64,8 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<a class="comment" href="{{ topPost.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -80,7 +80,8 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span
+							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<a class="comment" href="{{ topPost.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
 						{{ topPost.abstract_formatted }}
@@ -90,9 +91,8 @@
 
 				<div class="grid_2 omega" style="text-align: right;">
 				
-				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-				<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
+				<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+
 
 				</div>
 				
