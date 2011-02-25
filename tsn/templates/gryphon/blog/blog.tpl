@@ -8,7 +8,11 @@
 {% block content %}
 
 <div class="grid_8">
-	<h1>{{ blog.name }}</h1>
+	{% if blog.media.length %}
+		<img src="{{ blog.media[0].url }}" alt="{{ blog.name }}" title="{{ blog.name }}"/>
+	{% else %}
+		<h1>{{ blog.name }}</h1>
+	{% endif %}
 	<div class="pagination"><span>
 	{% for page in pagination %}
 		{% if page.isCurrent %}

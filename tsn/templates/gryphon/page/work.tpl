@@ -11,7 +11,9 @@
 	<div class="grid_4 alpha">
 		<h3 class="box gray">Current Openings</h3>
 		
-		<p>No current openings.</p>		
+		<p>
+			No current openings.
+		</p>		
 	
 		<hr />
 		<h3 class="box gray">Who we are</h3>

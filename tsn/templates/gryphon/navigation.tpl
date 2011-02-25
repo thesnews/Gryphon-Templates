@@ -63,9 +63,10 @@
 		'label': 'Blogs',
 		'subcats': [
 			'': 'Featured:',
-			'blog/dispatches': 'Dispatches',
-			'blog/msu_football_blog': 'Football Blog',
-			'blog/the_watercooler': 'The Watercooler'
+			'blog/can_i_get_a_whoop_whoop': 'Can I Get a Whoop Whoop?',
+			'blog/hoop_there_it_is': 'Hoop, There It Is!',
+			'blog/politicker': 'The PoliTicker',
+			'blog/entertainment_blog': 'Entertainment Blog'
 		]
 	],
 	

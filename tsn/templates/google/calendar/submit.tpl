@@ -23,6 +23,8 @@
 		
 		<p>If you have a big list of events you'd like considered or you provide a iCalendar based feed that you'd like us to import, send us an email at <a href="mailto:webmaster@statenews.com">webmaster@statenews.com</a>.</p>
 
+		<p><strong>Please note:</strong> Events are edited by actual humans (crazy, right?) and will not appear immediately. Under normal circumstances, your event will appear within 24 hours. Feel free to <a href="mailto:webmaster@statenews.com">contact us</a> with any questions.</p>
+
 		{% if error %}
 			<div class="box error">
 				<h3>Oops!</h3>
