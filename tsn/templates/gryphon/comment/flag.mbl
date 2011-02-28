@@ -1,0 +1,87 @@
+{% extends "gryphon/base.mbl" %}
+{% block title %}Verify email address{% endblock %}
+{% block content %}
+{% helper config %}
+
+<div id="fullcol">
+	
+	{% if flagged %}
+		<h1>Thanks for your help</h1>
+		
+		<p>
+			Our editors have been notified of this comment. We appreciate your feedback in keeping our comments relevant and spam free.
+		</p>
+		
+		<h3>Go back to <a href="{{ comment.item.getURL() }}">{{ comment.item.getTitle() }}</a></h3>
+		
+	{% else %}
+		
+		<h1>Flag comment for moderation</h1>
+		
+		{% if error %}
+			<div class="box error">
+				<h5>Oops!</h5>
+				{{ error }}
+			</div>
+			<hr class="spacer" />
+		{% endif %}
+		
+		You're flagging the following comment:
+		<hr class="spacer" />		
+		<div class="box gray">
+			{{ comment.comment_formatted }}
+			<hr />
+			Posted by {{ comment.name }} {{ comment.created|timeSince }}.
+		</div>
+		
+		<hr class="spacer" />
+		<script type="text/javascript">
+		var RecaptchaOptions = {
+			theme : 'custom',
+			custom_theme_widget: 'turing'
+		};
+		</script>
+	
+		<form method="post" action="{{ ('gryphon:comment/flag/'~comment.hash)|url }}">
+			<input type="hidden" name="flag" value="1" />
+			
+			<input type="checkbox" name="spam" value="1" id="input_spam" /> <label for="input_spam" style="display:inline;">This comment is spam</label>
+			
+			<hr class="spacer" />
+		
+			<label for="input_description">Is there anything you want to let the 
+	editor know about this comment?</label>
+			<textarea rows="5" cols="40" name="description" id="input_description" style="width:98%">{{ note }}</textarea>
+		
+			
+			<div id="turing" style="display:none;">
+				<br />
+				<span>We need to verify that you are a human:</span>
+				
+				<div id="recaptcha_image"></div>
+				<div class="recaptcha_links">
+					<a href="javascript:Recaptcha.reload()">Reload CAPTCHA</a>
+					<a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a>
+					<a href="javascript:Recaptcha.showhelp()">Help</a>
+
+				</div>
+
+				<span class="recaptcha_only_if_image">Enter the words above:</span>
+				<span class="recaptcha_only_if_audio">Enter the numbers you hear:</span><br />
+				<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+				<div class="recaptcha_links">
+					Powered by<a href="http://recaptcha.org">ReCAPTCHA</a>
+				</div>
+			</div>
+		
+			<hr class="spacer" />
+			
+			<input type="submit" value="Flag this comment" />
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			Return to: <a href="{{ comment.item.getURL() }}">{{ comment.item.getTitle() }}</a>
+		</form>
+	{% endif %}
+</div>
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k={{ config.get('gryphon:turing:keys:public') }}"></script>
+
+{% endblock %}
