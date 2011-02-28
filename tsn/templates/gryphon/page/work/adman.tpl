@@ -47,10 +47,10 @@
 		<div class="box gray">
 			<h3>Application Deadline:</h3>
 		
-			<p>Wednesday, March 17 at 5:00pm</p>
+			<p>Wednesday, March 16 at 5:00pm</p>
 
 			<p>
-				Board of Directors election will take place on Friday, March 23.
+				Board of Directors election will take place on Friday, March 25.
 			</p>
 
 			<hr class="spacer" /> 
