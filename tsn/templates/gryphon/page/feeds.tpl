@@ -9,7 +9,7 @@
 	
 	<div class="grid_8">
 	
-		<h1>Feeds, Syndication and Widges</h1>
+		<h1>Feeds, Syndication and Widgets</h1>
 		<h3>(oh my!)</h3>
 		
 		<hr class="spacer" />
@@ -117,6 +117,105 @@
 				behavior: 'all'
 			  }
 			}).render().setUser('thesnews').start();
+			</script>
+			
+			<hr class="spacer" />
+
+			<script>
+			new TWTR.Widget({
+			  version: 2,
+			  type: 'profile',
+			  rpp: 3,
+			  interval: 6000,
+			  width: 'auto',
+			  height: 225,
+			  theme: {
+				shell: {
+				  background: '#ffffff',
+				  color: '#333333'
+				},
+				tweets: {
+				  background: '#f1f1f1',
+				  color: '#333333',
+				  links: '#588658'
+				}
+			  },
+			  features: {
+				scrollbar: false,
+				loop: false,
+				live: true,
+				hashtags: true,
+				timestamp: true,
+				avatars: false,
+				behavior: 'all'
+			  }
+			}).render().setUser('thesnews_sports').start();
+			</script>
+			
+			<hr class="spacer" />
+
+			<script>
+			new TWTR.Widget({
+			  version: 2,
+			  type: 'profile',
+			  rpp: 3,
+			  interval: 6000,
+			  width: 'auto',
+			  height: 225,
+			  theme: {
+				shell: {
+				  background: '#ffffff',
+				  color: '#333333'
+				},
+				tweets: {
+				  background: '#f1f1f1',
+				  color: '#333333',
+				  links: '#588658'
+				}
+			  },
+			  features: {
+				scrollbar: false,
+				loop: false,
+				live: true,
+				hashtags: true,
+				timestamp: true,
+				avatars: false,
+				behavior: 'all'
+			  }
+			}).render().setUser('thesnews_photo').start();
+			</script>
+			
+			<hr class="spacer" />
+
+			<script>
+			new TWTR.Widget({
+			  version: 2,
+			  type: 'profile',
+			  rpp: 3,
+			  interval: 6000,
+			  width: 'auto',
+			  height: 225,
+			  theme: {
+				shell: {
+				  background: '#ffffff',
+				  color: '#333333'
+				},
+				tweets: {
+				  background: '#f1f1f1',
+				  color: '#333333',
+				  links: '#588658'
+				}
+			  },
+			  features: {
+				scrollbar: false,
+				loop: false,
+				live: true,
+				hashtags: true,
+				timestamp: true,
+				avatars: false,
+				behavior: 'all'
+			  }
+			}).render().setUser('thesnews_opine').start();
 			</script>
 			
 			<hr class="spacer" />

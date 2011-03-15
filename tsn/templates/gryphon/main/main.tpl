@@ -26,19 +26,20 @@
 		</div>
 		<hr class="spacer" />
 		end prod notice -->
-		
-<!--
-		<a href="#rundown">
-			<img src="{{ 'style/gryphon/images/rundown_ad.png'|url }}" alt="The Rundown Ad" style="border: none;"/>
-		</a>
--->
 
 		{#<a href="{{ 'calendar'|url }}">
 			<img src="{{ 'style/gryphon/images/calendar_ad.png'|url }}" alt="Event Calendar" style="border: none;"/>
 		</a>#}
-		<a href="{{ 'section/mlk'|url }}">
-			<img src="http://www.statenews.com/media/00/00/04/16/41623_mlk2011_linkerf.png" style="border:none;"/>
+		<a href="{{ 'index.php/bestof'|url }}">
+			<img src="{{ 'style/gryphon/images/bestof/bestof_minibanner.png'|url }}" style="border: none; margin-left: -30px;" alt="The Best of MSU"/>
 		</a>
+		
+		<br />
+		<br />
+		<a href="{{ 'section/housingguide'|url }}">
+			<img src="http://statenews.com/media/00/00/04/25/42541_hg_spring11_minibannero.png" style="border:none;" alt="Housing 2011" />
+		</a>
+		
 		<br />
 		<br />
 		

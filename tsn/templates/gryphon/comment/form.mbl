@@ -1,6 +1,12 @@
 {% helper config %}
+<script type="text/javascript">
+var RecaptchaOptions = {
+	theme : 'custom',
+	custom_theme_widget: 'turing'
+};
+</script>
 <a name="comment_form"></a>
-<form method="post" action="{{ commentUrl }}" class="gray">
+<form method="post" action="{{ commentUrl }}">
 	<input type="hidden" name="key" value="{{ commentKey }}" />
 	<input type="hidden" name="type" value="{{ commentItem.modelString }}" />
 	<input type="hidden" name="id" value="{{ commentItem.uid }}" />
@@ -12,25 +18,19 @@
 			
 			<p>The State News reserves the right to remove any comment deemed racially derogatory, inflammatory, or spammatory. Repeat offenders may have their IP address banned from posting future comments. Please be nice.</p>
 			
-			<p>
-				<b>Format options:</b><br />
-
-				Links: "my link":http://my.url.com<br />
-				Bold: *something!"<br />
-				Italic: _OMG!_
-			</p>
-			
 		</div>
 	
 		<div id="fields">
 		
 		<fieldset id="comment-userinfo">
 
-				<label for="comment-name">Name: </label>
+				<label for="comment-name">Name: </label><br />
 				<input type="text" name="name" id="comment-name" value="{{ comment.name }}" />
 
-				<label for="comment-email">Email address:</label>
-				<input type="text" name="email" id="comment-email" value="{{ comment.email }}" />
+				<br />
+
+				<label for="comment-email">Email address:</label><br />
+				<input type="email" name="email" id="comment-email" value="{{ comment.email }}" />
 	
 		</fieldset>
 
@@ -39,17 +39,24 @@
 				<label for="comment-body">Your comment (HTML not allowed).</label>
 				<textarea name="comment" id="comment-body" rows="6" cols="30">{{ comment.comment }}</textarea>
 				
-			<div id="turing">
-				<script type="text/javascript">
-				var RecaptchaOptions = {
-					theme : 'white'
-				};
-				</script>
-				{% if turing %}
-			
-					{{ turing }}
-			
-				{% endif %}
+			<div id="turing" style="display:none;">
+				<br />
+				<span>We need to verify that you are a human:</span>
+				
+				<div id="recaptcha_image"></div>
+				<div class="recaptcha_links">
+					<a href="javascript:Recaptcha.reload()">Reload CAPTCHA</a>
+					<a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a>
+					<a href="javascript:Recaptcha.showhelp()">Help</a>
+
+				</div>
+
+				<span class="recaptcha_only_if_image">Enter the words above:</span>
+				<span class="recaptcha_only_if_audio">Enter the numbers you hear:</span><br />
+				<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+				<div class="recaptcha_links">
+					Powered by<a href="http://recaptcha.org">ReCAPTCHA</a>
+				</div>
 			</div>
 			
 			
@@ -59,6 +66,6 @@
 		
 		</div>
 
-				
-
 </form>
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k={{ config.get('gryphon:turing:keys:public') }}"></script>
+

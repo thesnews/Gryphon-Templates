@@ -20,6 +20,9 @@
 	{{ topMedia.caption_formatted }}
 	
 	<hr />
+	{% include 'gryphon/ads/video.tpl' %}
+	
+	<hr />
 	
 	<hr class="spacer" />
 	<br /><br />

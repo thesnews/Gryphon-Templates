@@ -19,6 +19,11 @@
 {% set slides = post.media.grab('type', 'soundSlide', true) %}
 
 <div class="grid_8">
+	{% if blog.media.length %}
+		<img src="{{ blog.media[0].url }}" alt="{{ blog.name }}" title="{{ blog.name }}"/>
+		<hr class="spacer" />
+	{% endif %}
+
 	<h1>{{ post.headline }}</h1>
 
 	<div class="small gray box blogsize" id="toolsblogs">

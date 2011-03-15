@@ -16,13 +16,16 @@
 	{{ mediaRender.media(topMedia) }}
 
 	{{ topMedia.caption_formatted }}
-	
+		
 	<h4>Related:</h4>
 	<ul>
 		{% for item in topMedia.articles %}
 			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
 		{% endfor %}
 	</ul>
+
+	<hr />
+	{% include 'gryphon/ads/video.tpl' %}
 	
 	<hr />
 	

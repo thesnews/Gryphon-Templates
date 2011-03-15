@@ -39,6 +39,38 @@
 		{% for article in secondaryStories %}
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
+
+		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+		<script>
+		new TWTR.Widget({
+		  version: 2,
+		  type: 'profile',
+		  rpp: 10,
+		  interval: 10000,
+		  width: 'auto',
+		  height: 300,
+		  theme: {
+			shell: {
+			  background: '#94af94',
+			  color: '#ffffff'
+			},
+			tweets: {
+			  background: '#ffffff',
+			  color: '#333333',
+			  links: '#5e8c5e'
+			}
+		  },
+		  features: {
+			scrollbar: true,
+			loop: true,
+			live: false,
+			hashtags: true,
+			timestamp: true,
+			avatars: false,
+			behavior: 'default'
+		  }
+		}).render().setUser('thesnews_feat').start();
+		</script>
 		
 		
 	</div>

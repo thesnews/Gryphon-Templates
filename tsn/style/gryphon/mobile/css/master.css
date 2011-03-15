@@ -350,8 +350,8 @@ a#section_select {
 	float: left;
 	}	
 	
-input#comment-name, input#comment-email {
-	width: 100%;
+input#comment-name, input#comment-email, input#recaptcha_response_field {
+	width: 250px;
 	font: bold 18px Helvetica;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -363,7 +363,19 @@ input#comment-name, input#comment-email {
 		font: normal 18px Helvetica;
 		}
 	
-	
+#recaptcha_image {
+	border: 1px solid #333;
+}
+.recaptcha_links {
+	margin-bottom: 10px;
+	font-size: 11px;
+}
+	.recaptcha_links a {
+		color: #333;
+		font-weight: bold;
+		margin: 0 5px;
+	}
+
 #disclaimers {
 	background: #f3f3f3;
 	padding: 10px;
@@ -414,7 +426,7 @@ a.btn, #comment-submit {
 	width: 110px;
 	font-weight: bold;
 	text-align: center;
-	padding: 6px 0 8px 10px;
+	padding: 6px 10px 8px 10px;
 	color: #fff;
 	text-decoration: none;
 	text-shadow: 0 -1px 0 #000;
@@ -750,13 +762,11 @@ div.pagination span a:hover {
 		
 	#disclaimers {
 		float: none;
-		width: 250px;
 		padding: 0;
-		/*background: #fff;*/
+		background: #fff;
 		}
 		
 		#disclaimers p {
-			font-size: 10px;
 			}
 		
 	}

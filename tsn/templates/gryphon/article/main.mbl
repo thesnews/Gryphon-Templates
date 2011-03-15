@@ -13,6 +13,14 @@
 	{% set galleries = article.media.grab('meta', 'gallery', true) %}
 	
 	<div id="fullcol">
+
+		{% if message %}
+			<div class="box gray">
+				<h5>{{ message.value }}</h5>
+			</div>
+			<hr class="spacer" />
+		{% endif %}
+
 		<h1>{{ article.headline }}</h1>
 		{% if article.subhead %}
 			<h3 style="padding:.5em 0;">{{ article.subhead }}</h3>

@@ -11,8 +11,16 @@
 	<div class="grid_4 alpha">
 		<h3 class="box gray">Current Openings</h3>
 		
-		<p>No current openings.</p>		
-	
+		<p>
+			The State News is currently accepting applications for 2011-2012 <strong>Advertising Manager</strong>. Please see the <a href="{{ 'page/work/adman'|url }}">Advertising Manager page</a> for more information.
+		</p>		
+		
+		<hr />
+
+		<p>
+			The State News is currently accepting applications for 2011-2012 <strong>Editor-in-Chief</strong>. Please see the <a href="{{ 'page/work/enc'|url }}">ENC page</a> for more information.
+		</p>		
+		
 		<hr />
 		<h3 class="box gray">Who we are</h3>
 

@@ -49,13 +49,13 @@ document.addEvent('domready', function() {
 				reprint = reprint.pop();
 			}
 			
-			if( reprint ) {
-				var uri = reprint.get('href').toURI();
+			if( reprint.length ) {
+				var uri = reprint[0].get('href').toURI();
 				uri.setData({
 					'object_name': current.uid
 				}, true);
 				
-				reprint.set('href', uri);
+				reprint[0].set('href', uri);
 			}
 			
 			var base = data.gallery.urlDefault.unencode();
