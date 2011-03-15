@@ -2,9 +2,9 @@
 	{% helper dswSync %} {# bring the 'dswSync' helper into the macro context #}
 	{% set topImage = article.media.grab('type', 'image')[0] %}
 	{% set showHeadline = 1 %}
-
-					<div id="featured_image">
-				
+	
+	{% if article.image.length %}
+			<div id="featured_image">
 					   		<a href="{{ article.url }}">
 								<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
 							</a>
@@ -15,7 +15,8 @@
 								<a class="source">{{ topImage.source }}</a>
 							</p>
 					 </div>
-
+				{% endif %}
+				
 					{% if showHeadline %}
 						<h1><a href="{{ article.url }}">{{ article.headline }}</a></h1>
 					{% endif %}

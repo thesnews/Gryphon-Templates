@@ -76,7 +76,6 @@
 	</div>
 	
 </div>
-<div class="clear"></div>
 
 <div class="grid_12" id="secondary">
 	

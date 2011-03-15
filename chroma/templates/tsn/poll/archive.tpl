@@ -5,50 +5,54 @@
 
 {% block content %}
 
+<div class="grid_12">
 
-<div class="grid_8">
-	
-	<div class="pagination">
+	<div class="grid_10 alpha">
 		<h1>Poll Archive</h1>
-		<span>
-		{% for page in pagination %}
-			{% if page.isCurrent %}
-				<strong>{{ page.label }}</strong>
-			{% else %}
-				<a href="{{ page.url }}">{{ page.label }}</a>
-			{% endif %}
-		{% endfor %}
-		</span>
+	<br />
+	<div class="pagination">
+		<ul class="page_numbers">
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
+		</ul>
 	</div>
+		
+	<br />
 	
 	<ul class="search-results">
-	{% for poll in polls %}
-		<li><a href="{{ poll.url }}">{{ poll.title }}</a><br />
-		{{ poll.question }}</a></li>
-	{% endfor %}
+		{% for poll in polls %}
+			<li><img src="{{ 'style_chroma/images/icons/piechart.png'|url }}" />
+	<a href="{{ poll.url }}">{{ poll.question }}</a></li>
+		{% endfor %}
 	</ul>
-
-	<hr class="spacer" />
+	
+	<br />
 	
 	<div class="pagination">
-		<h1>&nbsp;</h1>
-		<span>
-		{% for page in pagination %}
-			{% if page.isCurrent %}
-				<strong>{{ page.label }}</strong>
-			{% else %}
-				<a href="{{ page.url }}">{{ page.label }}</a>
-			{% endif %}
-		{% endfor %}
-		</span>
+		<ul class="page_numbers">
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
+		</ul>
+	</div>
+	
+	</div>
+	
+	<div class="grid_2 omega">
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 	</div>
 
 </div>
-
-<div class="grid_4">
-	{% include "gryphon/main/sidebar-standard.tpl" %}
-</div>
-
-<hr class="spacer" />
 
 {% endblock content %}

@@ -10,6 +10,8 @@
 {% import 'macros/comment.tpl' as comment %}
 {% import 'macros/tools.tpl' as tools %}
 
+<div class="grid_12">
+
 <div class="grid_8 alpha">
 	<h1>{{ post.headline }}</h1>
 
@@ -54,5 +56,6 @@
 
 </div>
 
+</div>
 
 {% endblock %}

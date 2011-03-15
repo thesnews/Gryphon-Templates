@@ -19,11 +19,22 @@
 	{{ topMedia.caption_formatted }}
 	<br />
 	<h3>Related:</h3>
+	
+		{% if topMedia.articles.length %}
 	<ul>
 		{% for item in topMedia.articles %}
 			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
 		{% endfor %}
+
 	</ul>
+	
+	{% else %}
+	
+	Sorry, no related articles or media. 
+	
+	{% endif %}
+	
+	
 	</div>
 	<div class="grid_4 omega">
 		<br />
@@ -40,15 +51,18 @@
 
 <div class="grid_12" id="secondary">
 	<div class="grid_12 pagination">
-		
 		<ul class="page_numbers">
-		{% for page in pagination %}
-			<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-		{% endfor %}
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
 		</ul>
-		
 	</div>
-	
+			
 	<div class="grid_10 alpha">
 
 		{% for i in 0..(media.length-1) %}
@@ -76,9 +90,7 @@
 	
 	</div>
 
-		{% if i%2 != 0 %}
-		{% endif %}
-						
+					
 	{% endfor %}
 
 	</div>
@@ -89,9 +101,14 @@
 
 	<div class="grid_12 pagination">
 		<ul class="page_numbers">
-		{% for page in pagination %}
-			<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-		{% endfor %}
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
 		</ul>
 	</div>
 

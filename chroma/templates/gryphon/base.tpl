@@ -31,8 +31,9 @@
 		<script type="text/javascript" src="{{ 'style_chroma/js/mootools-1.2-min.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/rosewood.js'|url }}"></script>
 		<script type="text/javascript" src="{{ 'style_chroma/js/main.js'|url }}"></script>
+				
+		<script src="/javascript/snews.compressed.js" type="text/javascript"></script>
 
-		<script type="text/javascript" src="{{ 'style_chroma/js/section_tab_module.js'|url }}"></script>
 
 	{% block styles %}{% endblock %}
 	{% block scripts %}{% endblock %}
@@ -67,20 +68,18 @@
 			<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
 			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
 			</div>	
-		<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
-			<input id="search_field" class="search replace-text" type="text" name="q" value="{% if query	%}{{ query }}{% else %}Search The State News{% endif %}" />
+	<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
+			<input id="search_field" class="search replace-text" type="text" name="q" value="Search" />
 			<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">
-		</form>
+	</form>
 		
-		</form>
-				
 		</div>
 			<div class="grid_12 leaderboard">
 				<img src="{{ 'style_chroma/images/ads/leaderboard.png'|url }}" alt="advertisement" />
 			</div>
 
 		<div id="header" class="grid_12">
-			<a href=""><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" /></a>{% include "gryphon/navigation.tpl" %}
+			<a href="#"><img src="{{ 'style_chroma/images/client/logo_header.png'|url }}" style="width:350px;" /></a>{% include "gryphon/navigation.tpl" %}
 		</div>
 		
 
@@ -136,8 +135,8 @@
 						
 						<div class="grid_2">
 							<ul>
-								<li><a href="{{ 'blog'|url }}">blogs</a></li>
-								<li><a href="{{ 'smartPub'|url }}">Classifieds</a></li>
+								<li><a href="{{ 'blog'|url }}">Blogs</a></li>
+								<li><a href="{{ 'page/classifieds'|url }}">Classifieds</a></li>
 								<li><a href="{{ 'page/religious'|url }}">Religious Guide</a></li>
 								<li><a href="{{ 'page/puzzles'|url }}">Puzzles</a></li>
 								<li><a href="{{ 'page/mobile'|url }}">Mobile Edition</a></li>

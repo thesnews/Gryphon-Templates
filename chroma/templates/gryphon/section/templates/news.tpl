@@ -17,27 +17,31 @@
 				{{ articleRender.abstract4Col(topStory) }}
 				</div>
 				
-				<div class="grid_3 omega">
+				<div class="grid_3">
 						{% fetch news from article with [
-						'limit': 6,
+						'limit': 5,
 						'order': 'weight desc, created desc',
 						'where': 'status = 1',
-						'withTags': ['opinion']
+						'withTags': ['news']
 															]
 						%}
 						{% set topPost = news.shift() %}
+					
 						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
 						<div class="dark byline">
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<br />
 							<a class="comment" href="{{ article.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
+
 						<p>
-						{{ topPost.abstract_formatted }}
+						{{ topPost.abstract_formatted|clip(350) }}
 						<a href="#" class="dark"><span>More</span></a>
 						</p>	
+						
 						
 						<br />
 						
@@ -48,16 +52,18 @@
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<br />
 							<a class="comment" href="{{ topPost.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
-						{{ topPost.abstract_formatted }}
+						{{ topPost.abstract_formatted|clip(350) }}
 						<a href="#" class="dark"><span>More</span></a>
-						</p>						
+						</p>
+												
 					</div>		
 	
 						
-				<div class="grid_3 omega">
+				<div class="grid_3">
 						{% set topPost = news.shift() %}
 						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
 						<div class="dark byline">
@@ -65,10 +71,11 @@
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
 							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<br />
 							<a class="comment" href="{{ topPost.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
-						{{ topPost.abstract_formatted }}
+						{{ topPost.abstract_formatted|clip(350) }}
 						<a href="#" class="dark"><span>More</span></a>
 						</p>	
 						
@@ -80,16 +87,16 @@
 							{% if topPost.authors.length %}
 							<a class="author">{{ topPost.authors.splat('name')|join(', ') }}</a>
 							{% endif %}
-							<span class="date">{{ topPost.created|date('M d, Y') }}</span>
+							<br />
 							<a class="comment" href="{{ topPost.url }}#comments">{{ topPost.commentTotal|int2noun('comment') }}</a>
 						</div>
 						<p>
-						{{ topPost.abstract_formatted }}
+						{{ topPost.abstract_formatted|clip(350) }}
 						<a href="#" class="dark"><span>More</span></a>
 						</p>						
 					</div>		
 
-				<div class="grid_2 omega" style="text-align: right;">
+				<div class="grid_2 omega">
 				
 				<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 
@@ -142,72 +149,8 @@
 				</div>
 
 				<div class="grid_3 omega">
-					<div id="section_tabs">
-						<ul id="section_tabs_nav">
-							<li id="news_tab"><a href="#news">News</a></li>
-							<li id="sports_tab"><a href="#sports">Sports</a></li>
-							<li id="opinion_tab"><a href="#opinion">Opinion</a></li>
-							<li id="entertainment_tab"><a href="#entertainment">Entertainment</a></li>
-							<li id="multimedia_tab"><a href="#multimedia">Multimedia</a></li>
-							<li id="comments_tab"><a href="#comments">Comments</a></li>
-						</ul>
-						<div id="news">
-							<ul>
-								<li><h3>Top Stories in <a href="#">News</a>:</h3></li>
-								<li><a href="#">Here is an interesting news article!</a></li>
-								<li><a href="#">Here is an interesting news article!</a></li>
-								<li><a href="#">Here is an interesting news article!</a></li>
-								<li><a href="#">Here is an interesting news article!</a></li>
-								<li><a href="#">Here is an interesting news article!</a></li>
-							</ul>
-						</div>
-						<div id="sports">
-							<ul>
-								<li><h3>Top Stories in <a href="#">Sports</a>:</h3></li>
-								<li><a href="#">Here is a cool sports article!</a></li>
-								<li><a href="#">Here is a cool sports article!</a></li>
-								<li><a href="#">Here is a cool sports article!</a></li>
-								<li><a href="#">Here is a cool sports article!</a></li>
-							</ul>
-						</div>
-						<div id="opinion">
-							<ul>
-								<li><h3>Top Stories in <a href="#">Opinion</a>:</h3></li>
-								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
-								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
-								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
-								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
-								<li><a href="#">Here is a poorly written letter to the editor!</a></li>
-							</ul>
-						</div>
-						<div id="entertainment">
-							<ul>
-								<li><h3>Top Stories in <a href="#">Entertainment</a>:</h3></li>
-								<li><a href="#">Here is an interesting entertainment article!</a></li>
-								<li><a href="#">Here is an interesting entertainment article!</a></li>
-								<li><a href="#">Here is an interesting entertainment article!</a></li>
-							</ul>
-						</div>
-						<div id="multimedia">
-							<ul>
-								<li><h3>Top <a href="#">Multimedia</a> Pieces:</h3></li>
-								<li><a href="#">Here is a link to a multimedia piece!</a></li>
-								<li><a href="#">Here is a link to a multimedia piece!</a></li>
-								<li><a href="#">Here is a link to a multimedia piece!</a></li>
-								<li><a href="#">Here is a link to a multimedia piece!</a></li>
-								<li><a href="#">Here is a link to a multimedia piece!</a></li>
-							</ul>
-						</div>
-						<div id="comments">
-							<ul>
-								<li><h3>Recent Comments in <a href="#">News</a>:</h3></li>
-								<li><a href="#">John</a> said: "Lorem ipsum dolor sit amet..." <small>(21 mins ago)</small></li>
-								<li><a href="#">Bob</a> said: "Lorem ipsum dolor sit amet, consectetur adipisicing..." <small>(41 mins ago)</small></li>
-								<li><a href="#">Lenny</a> said: "Lorem ipsum dolor sit amet..." <small>(1 hrs ago)</small></li>
-								<li><a href="#">Curly</a> said: "Lorem ipsum dolor sit amet, consectetur adipisicing..." <small>(6 hrs ago)</small></li>
-								<li><a href="#">Moe</a> said: "Lorem ipsum dolor sit amet..." <small>(2 days ago)</small></li>
-							</ul>
-						</div>
+				{% include 'gryphon/main/section_tabs.tpl' %}
+				
 <br />
 					<div class="dark" id="newsletter">
 						<h3>Subscribe to our eNewsletter</h3>

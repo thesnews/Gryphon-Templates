@@ -4,11 +4,12 @@
 	{% helper config %}
 	<div class="grid_8">
 	
-		<h3>Something has gone awry</h3>
+		<h2>Something has gone awry</h2>
 		
 		<p>
 			Ahh man, looks like we've encountered an error. Don't worry it wasn't your fault. Try hitting your browser's back button and trying again.
 		</p>
+		<br />
 		<p>
 			If you think something has gone very, very wrong, please contact our <a href="mailto:webmaster@statenews.com">web team</a> and let give them the following info:
 		</p>
@@ -21,8 +22,7 @@
 </pre>
 		</div>
 		
-		<hr />
-		
+<br />		
 		{% if config.get('debug') %}
 			<h5>Extended debug</h5>
 			<div class="gray box">
@@ -37,8 +37,6 @@
 		
 	</div>
 	<div class="grid_4">
-	
+			<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />	
 	</div>
-	
-	<hr class="spacer" />
-{% endblock %}
+	{% endblock %}

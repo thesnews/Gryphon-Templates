@@ -25,22 +25,21 @@
 
 	<div class="grid_10 alpha">
 	
-		<div class="grid_2 alpha dark"><span>
+		<div class="grid_10">
+		
+		<ul class="page_numbers">
 			{% for page in pagination %}
-				{% if page.isCurrent %}
-					<strong>{{ page.label }}</strong>
-				{% else %}
-					<a href="{{ page.url }}">{{ page.label }}</a>
-				{% endif %}
-			{% endfor %}
-			</span>
-		</div>
 			
-		<div class="grid_8 omega">
-		&nbsp;
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
+		</ul>
+		
 		<br />
-		<br />
-		<br />
+
 		</div>
 	
 		<div class="grid_10 alpha omega">
@@ -65,22 +64,7 @@
 			
 			{% endfor %}
 			
-			
-		
-			<div class="grid_2 alpha dark"><span>
-				{% for page in pagination %}
-					{% if page.isCurrent %}
-						<strong>{{ page.label }}</strong>
-					{% else %}
-						<a href="{{ page.url }}">{{ page.label }}</a>
-					{% endif %}
-				{% endfor %}
-				</span>
-			</div>
-				
-			<div class="grid_10">
-			&nbsp;
-			</div>
+
 		</div>
 	</div>	
 	<div class="grid_2 omega">

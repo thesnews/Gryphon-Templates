@@ -13,7 +13,7 @@
 		{# loads jw-player as a fallback #}
 		<object class="vjs-flash-fallback" width="605" height="340" type="application/x-shockwave-flash"
 		  data="{{ 'flash/jwplayer/player-viral.swf'|url }}">
-		  <param name="movie" value="{{ media.urlOriginalFlv }}" />
+		  <param name="movie" value="{{ 'flash/jwplayer/player-viral.swf'|url }}" />
 		  <param name="allowfullscreen" value="true" />
 		  <param name="flashvars" value='file={{ media.urlOriginalFlv }}&image={{ media.urlFull }}&viral.callout=always&viral.onpause=false&viral.link={{ media.urlDefalut }}' />
 		  <!-- Image Fallback. Typically the same as the poster image. -->
@@ -34,7 +34,7 @@
 	{# this file doesn't have a MP4 and/or OGG version #}
     <object width="605" height="340" type="application/x-shockwave-flash"
       data="{{ 'flash/jwplayer/player-viral.swf'|url }}" class="shadow-item">
-      <param name="movie" value="{{ media.urlOriginalFlv }}" />
+      <param name="movie" value="{{ 'flash/jwplayer/player-viral.swf'|url }}" />
       <param name="allowfullscreen" value="true" />
       <param name="flashvars" value='file={{ media.urlOriginalFlv }}&image={{ media.urlFull }}&viral.callout=always&viral.onpause=false&viral.link={{ media.urlDefalut }}' />
       <!-- Image Fallback. Typically the same as the poster image. -->
@@ -55,3 +55,5 @@
 		
 		<span><a href="{{ 'gryphon:multimedia/video'|url }}">More video</a></span>
 	</div>
+	
+

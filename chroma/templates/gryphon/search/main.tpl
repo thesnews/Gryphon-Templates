@@ -20,26 +20,29 @@
 	{% endif %}
 	
 
-	<div id="main_search">
-		<br />
-		<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
-				<input id="search_field" class="search replace-text" type="text" name="q" value="Search The State News" />
-				<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">
-		</form>
-			
-	</div>
+<div id="main_search">
+	<br />
+	<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
+			<input id="search_field" class="search replace-text" type="text" name="q" value="Search" />
+			<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">
+	</form>
+</div>
 
 </div>
 
 <div class="grid_12" id="secondary">
 		<div class="pagination">
-			<span>
-			<ul class="page_numbers">
+		<ul class="page_numbers">
 			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
 				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-			{% endfor %}
-			</ul>
-			</span>
+				{% endif %}
+				{% endfor %}
+		</ul>
+
 			<br />
 		</div>
 		
@@ -54,12 +57,10 @@
 		{% for item in hits %}
 			<li>
 				<h3><a href="{{ item.url|url }}">{{ item.title }}</a></h3> 
-				{{ item.created|date(' M d, Y') }}
-				<p>
-				{{ item.description|clip(400) }}
+			
+				<p style="margin-left:10px;">{{ item.created|date(' M d, Y') }} - {{ item.description|clip(400) }}
 				</p>
 			</li>
-			<li  class="divider">&nbsp;</li>
 		{% endfor %}
 	</ul>
 	
@@ -67,13 +68,17 @@
 		
 	<div class="pagination">
 	<br />
-		<span>
 		<ul class="page_numbers">
-		{% for page in pagination %}
-			<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-		{% endfor %}
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
 		</ul>
-		</span>
+
 	</div>
 
 
