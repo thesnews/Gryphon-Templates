@@ -17,22 +17,15 @@
 				'order': 'self:modified desc'
 				] 
 		%}	
-	
 	{% for blog in blogs %}
-
 		{% set post = blog.mostRecent %}
 		<div class="grid_4 alpha">
 			<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
-			
 			<div class="dark byline">
 				<a href="{{ blog.url }}" style="text-decoration:none">{{ blog.name }}</a>
-				
 				<span class="modified">{{ blog.modified|date('M d, Y') }}</span>
-				 
 				<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
-				
 			</div>	
-			
 			<p>
 				{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
 			</p>
@@ -44,8 +37,7 @@
 <div class="grid_12" id="secondary">
 	
 	<h1>Recent Blogs</h1>
-
-		<div class="grid_3 alpha">
+	<div class="grid_12">
 			{% fetch blogs from blog with [
 					'where': 'status = 1',
 					'order': 'self:modified desc'
@@ -54,6 +46,12 @@
 			
 			{% for blog in blogs %}
 			
+				{% if i%2 == 0 %}
+					<div class="grid_3 alpha">
+				{% else %}
+					<div class="grid_3 omega">
+				{% endif %}
+
 
 			<h2 id="blogname"><a href="{{ blog.url }}">{{ blog.name }}</a>:</h2>
 			<br />
@@ -72,11 +70,11 @@
 					{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
 				</p>
 		
-		{% endfor %}
+			{% endfor %}
 			</div>
-		<div class="grid_3 omega">
-			<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />		
-		</div>
+		
+		
+	</div>
 </div>
 
 {% endblock %}
