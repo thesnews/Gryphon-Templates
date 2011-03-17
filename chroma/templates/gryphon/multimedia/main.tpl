@@ -12,95 +12,49 @@
 
 <div class="grid_12">
 	<div class="grid_8 alpha">
-	<h3>{{ topMedia.fileType }}:</h3><h2>{{ topMedia.title }}</h2>
-		<br />
-	{{ mediaRender.media(topMedia) }}
-		<br />
-	{{ topMedia.caption_formatted }}
-	<br />
-	<h3>Related:</h3>
-	
-		{% if topMedia.articles.length %}
-	<ul>
-		{% for item in topMedia.articles %}
-			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
-		{% endfor %}
+		<div id="multipage">
+			<ul class="tab-box">
+				<li>
+					<div>
+						<a href="#" class="tab-header">
+							Images
+						</a>
+					</div>
+					<div class="bullet">
 
-	</ul>
-	{% else %}	
-	Sorry, no related articles or media. 
-	{% endif %}
-	
-	
+this is image content
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="#" class="tab-header">
+							video
+						</a>
+					</div>
+					<div class="bullet">
+
+this is video content
+					</div>
+				</li>
+				<li>
+					<div>
+						<a href="#" class="tab-header">
+							sound
+						</a>
+					</div>
+					<div class="bullet">
+
+this is sound content
+					</div>
+				</li>
+				
+			</ul>
+		</div>
 	</div>
 	<div class="grid_4 omega">
-		<br />
-
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement"/>
-
+		{% include 'gryphon/main/box.tpl' %}
+		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement"/>
 	</div>
-</div>
-
-<div class="grid_12" id="secondary">
-	<div class="grid_12 pagination">
-		<ul class="page_numbers">
-			{% for page in pagination %}
-			
-				{% if page.isCurrent %}
-				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% else %}
-				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% endif %}
-				{% endfor %}
-		</ul>
-	</div>
-			
-	<div class="grid_10 alpha">
-
-		{% for i in 0..(media.length-1) %}
-		{% set item = media[i] %}
-
-		{% if i%2 == 0 %}
-			<div class="grid_5 alpha">
-		{% else %}
-			<div class="grid_5 omega">
-		{% endif %}
-
-						
-				<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
-				<div class="byline dark" style="width:100px;">
-			
-				<span class="date">{{ item.created|date('M d, Y') }}</span>
-			
-				</div>
-				{{ item.description|clip(100) }}
-
-		</div>
-		{% if i%2 != 0 %}
-			<div class="clear" /></div>
-		{% endif %}
-					
-	{% endfor %}
-
-	</div>
-
-	<div class="grid_2 omega">
-	<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
-	</div>
-
-	<div class="grid_12 pagination">
-		<ul class="page_numbers">
-			{% for page in pagination %}
-			
-				{% if page.isCurrent %}
-				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% else %}
-				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% endif %}
-				{% endfor %}
-		</ul>
-	</div>
-
 </div>
 
 {% endblock content %}

@@ -1,54 +1,41 @@
 <div id="featured_stories">
 	<ul class="tab-box">
-		<li>
-			<div>
-				<a href="#" class="tab-header">
-					<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="" />
-				</a>
-			</div>
-			<div class="bullet">
-				<a href="">
-					<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="" />
-				</a>
-				<div class="caption">
-					<h3>This is an article!</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div>
-			</div>
-		</li>
+	
+		{% fetch articles from article with [
+			'limit': 3,
+			'withTags': ['featuredSlider']
+			] 
+		%}
 
-		<li>
-			<div>
-				<a href="#" class="tab-header">
-					<img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="" />
-				</a>
-			</div>
-			<div class="bullet">
-				<a href="">
-					<img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="" />
-				</a>
-				<div class="caption">
-					<h3>This is another article!</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div>
-			</div>
-		</li>
+		{% for article in articles %}
+		
+		{% set images = article.media.grab('type', 'image', true) %}
 
+	
+		
+	
+		
 		<li>
 			<div>
+				{% for image in images %}
 				<a href="#" class="tab-header">
-					<img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="" />
+					<img src="{{ image.url }}"  alt="{{ article.headline }}" />
 				</a>
+				{% endfor %}
 			</div>
 			<div class="bullet">
-				<a href="">
-					<img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="" />
+				{% for image in images %}
+				<a href="{{ article.url }}">
+					<img src="{{ image.url }}"  alt="{{ article.headline }}" />
 				</a>
+				{% endfor %}
 				<div class="caption">
-					<h3>This is the third article!</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
+					<p>{{ article.abstract_formatted|clip(300) }}</p>
 				</div>
 			</div>
 		</li>
+		
+		{% endfor %}
 	</ul>
 </div>

@@ -1199,15 +1199,15 @@ div.tab-box-header div.nth-child-1, div.tab-box-header div.nth-child-2, div.tab-
 	height: 100px;
 }
 
-div.tab-box-header div.nth-child-2 {
+div#featured_stories  div.tab-box-header div.nth-child-2 {
 	top: 97px;
 } 
 
-div.tab-box-header div.nth-child-3 {
+div#featured_stories  div.tab-box-header div.nth-child-3 {
 	top: 180px;
 } 
 
-a.tab-header img {
+div#featured_stories div.tab-box-header div a.tab-header img {
 	background: url(../images/bg/dark.png);
 	padding: 5px;
 	margin: 0px;
@@ -1216,7 +1216,7 @@ a.tab-header img {
 	height: 65px;
 }
 
-div.tab-header-active a img {
+div#featured_stories div.tab-box-header div.tab-header-active a.tab-header img {
 	opacity: 1;
 }
 
@@ -1230,11 +1230,52 @@ div#featured_stories ul li div.bullet div.caption {
 	width: 360px;
 }
 
-div.bullet img {
+div#featured_stories ul li div.bullet img {
 	width: 385px;
 	height: 230px;
 	background: url(../images/bg/dark.png);
 	padding: 5px;
 	margin: 0px 0px 0px 5px;
 
+}
+
+/* Multimedia Page layout
+***********************************/
+div#multipage {
+	min-height: 500px;
+	padding: 10px;
+	width: 520px;
+	position: relative;
+}
+
+div#multipage ul.tab-box {
+	width: 402px;
+	float: right;
+		background: url(../images/bg/dark.png);
+
+}
+
+div#multipage div.tab-box-header div.nth-child-1, div#multipage div.tab-box-header div.nth-child-2, div#multipage div.tab-box-header div.nth-child-3 {
+	position: absolute;
+	top: 15px;
+	left: 0px;
+	width: 50px;
+	height: 50px;
+}
+
+div.tab-box-header div.nth-child-2 {
+
+} 
+
+div.tab-box-header div.nth-child-3 {
+
+} 
+
+div#multipage div.tab-box-header div a.tab-header img {
+	background: url(../images/bg/dark.png);
+	padding: 5px;
+	margin: 0px;
+	opacity: 0.5;
+	width: 100px;
+	height: 65px;
 }
