@@ -27,24 +27,16 @@
 		{% endfor %}
 
 	</ul>
-	
-	{% else %}
-	
+	{% else %}	
 	Sorry, no related articles or media. 
-	
 	{% endif %}
 	
 	
 	</div>
 	<div class="grid_4 omega">
 		<br />
-		<br />
-		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
-		<br />
-		<br />
-		<br />
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float:left"/>
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float:right"/>
+
+		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement"/>
 
 	</div>
 </div>
@@ -74,9 +66,7 @@
 			<div class="grid_5 omega">
 		{% endif %}
 
-		<ul class="media_list">
-			<div class="grid_5 alpha omega">
-				
+						
 				<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
 				<div class="byline dark" style="width:100px;">
 			
@@ -84,12 +74,11 @@
 			
 				</div>
 				{{ item.description|clip(100) }}
-				
-			</div></li>
-		</ul>
-	
-	</div>
 
+		</div>
+		{% if i%2 != 0 %}
+			<div class="clear" /></div>
+		{% endif %}
 					
 	{% endfor %}
 

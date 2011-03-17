@@ -167,14 +167,7 @@
 				</div>
 			</div>
 			<br />
-			<div class="dark" id="newsletter">
-				<h3>Subscribe to our eNewsletter</h3>
-				<form method="post" action="#" id="newsletterform">
-					<p>Fresh headlines, delivered daily, to your inbox.</p>
-					<input id="subscribe" type="text" name="subscribe" value="Your Email" />
-					<input type="submit" value="Subscribe" />&nbsp;<input type="submit" value="Unsubscribe" />
-				</form>
-			</div>
+			{% include 'gryphon/main/enewsletter.tpl' %}	
 		</div>
 		
 		<div class="grid_3">

@@ -31,50 +31,61 @@
 			</p>
 		</div>
 	{% endfor %}
+	<div class="clear"></div>
 
 </div>
 
 <div class="grid_12" id="secondary">
-	
-	<h1>Recent Blogs</h1>
-	<div class="grid_12">
-			{% fetch blogs from blog with [
-					'where': 'status = 1',
-					'order': 'self:modified desc'
-					] 
-			%}	
-			
-			{% for blog in blogs %}
-			
-				{% if i%2 == 0 %}
-					<div class="grid_3 alpha">
-				{% else %}
-					<div class="grid_3 omega">
-				{% endif %}
+	<div class="grid_10 alpha">
+		<h1>Recent Blogs</h1>
 
-
-			<h2 id="blogname"><a href="{{ blog.url }}">{{ blog.name }}</a>:</h2>
-			<br />
-	
+		{% fetch blogs from blog with [
+				'where': 'status = 1',
+				'order': 'self:modified desc'
+				] 
+		%}	
 			
-				{% set post = blog.mostRecent %}
-				<h3><a href="{{ post.url }}">{{ post.headline|clip(50) }}</a></h3>
-				
-				
-				<div class="dark byline">
-					<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+		{% for blog in blogs %}
+			
+		{% if i%2 == 0 %}
+			<div class="grid_5 alpha">
+		{% else %}
+			<div class="grid_5 omega">
+		{% endif %}
+
+			
+				<h2 id="blogname"><a href="{{ blog.url }}">{{ blog.name }}</a>:</h2>
+				<br />
+
+					{% set post = blog.mostRecent %}
+					<h3><a href="{{ post.url }}">{{ post.headline|clip(50) }}</a></h3>
+					<div class="dark byline">
+						<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
 						<span class="modified">{{ blog.modified|timeSince }}</span>	
-				</div>
-				
-				<p>
-					{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
-				</p>
+					</div>
+					<p>
+						{{ post.abstract_formatted|clip(300) }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
+					</p>
 		
-			{% endfor %}
 			</div>
 		
-		
+		{% if i%2 != 0 %}
+			<div class="clear" /></div>
+		{% endif %}
+				
+			{% endfor %}
+			
 	</div>
+			
+	
+		
+	<div class="grid_2 omega">
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+	</div>
+
+		
+		
+
 </div>
 
 {% endblock %}

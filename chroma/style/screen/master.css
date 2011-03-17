@@ -1094,7 +1094,7 @@ img.section_sub.staff {
 /* Rounded Corners Option with Borders
 ****************************************/
 
-.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div.featured_multimedia div, div.featured_multimedia ul li a, div#upcoming_events ul li a, form#search, form#search_ticker form#newsletterform input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff {
+.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div.featured_multimedia div, div.featured_multimedia ul li a, div#upcoming_events ul li a, form#search, input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff, div.bullet img, a.tab-header img {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
@@ -1225,9 +1225,9 @@ div#featured_stories ul li div.bullet {
 }
 
 div#featured_stories ul li div.bullet div.caption {
-	margin-left: 20px;
+	margin-left: 15px;
 	margin-bottom: 10px;
-	width: 345px;
+	width: 360px;
 }
 
 div.bullet img {

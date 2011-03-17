@@ -95,21 +95,16 @@
 						<a href="#" class="dark"><span>More</span></a>
 						</p>						
 					</div>		
-
-				<div class="grid_2 omega">
-				
-				<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
-
-
+					<div class="grid_2 omega">
+					<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+					</div>
 				</div>
-				
-			</div>
 			
 			<div class="grid_12" id="secondary">
 				<div class="grid_4 alpha">
 				
-						<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
-						
+						{% include 'gryphon/main/box.tpl' %}
+						<br />
 						{% fetch news from article with [
 						'limit': 5,
 						'order': 'weight desc, created desc',
@@ -152,14 +147,8 @@
 				{% include 'gryphon/main/section_tabs.tpl' %}
 				
 <br />
-					<div class="dark" id="newsletter">
-						<h3>Subscribe to our eNewsletter</h3>
-						<form method="post" action="#" id="newsletterform">
-							<p>Fresh headlines, delivered daily, to your inbox.</p>
-							<input id="subscribe" type="text" name="subscribe" value="Your Email" />
-							<input type="submit" value="Subscribe" />&nbsp;<input type="submit" value="Unsubscribe" />
-						</form>
-					</div>
+			{% include 'gryphon/main/enewsletter.tpl' %}	
+
 				</div>
 			</div>
 {% endblock content %}
