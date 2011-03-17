@@ -772,8 +772,10 @@ ul.frontpage_pdf div {
 	}
 
 	.classsponsor {
+		background: url( ../images/ad_placeholders/sponsor_vert_234x60.png ) no-repeat center left;
+		padding-left: 10px;
 		height: 60px;
-		width: 234px;
+		width: 244px;
 	}
 	
 	.rectangle {

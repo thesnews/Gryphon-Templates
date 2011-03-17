@@ -12,16 +12,20 @@
 		<h3 class="box gray">Current Openings</h3>
 		
 		<p>
-			The State News is currently accepting applications for 2011-2012 <strong>Advertising Manager</strong>. Please see the <a href="{{ 'page/work/adman'|url }}">Advertising Manager page</a> for more information.
+			The State News is currently seeking <strong>distribution drivers</strong>. Reliable transportation required, hours are from 6 a.m. to 8 a.m. Monday through Friday. Please submit completed <a href="http://statenews.com/docs/applications/app_distrib.pdf">application</a> to:<br />
+			Distribution Manager<br />
+			435 E. Grand River. Ave<br />
+			East Lansing
 		</p>		
 		
 		<hr />
-
+		
 		<p>
-			The State News is currently accepting applications for 2011-2012 <strong>Editor-in-Chief</strong>. Please see the <a href="{{ 'page/work/enc'|url }}">ENC page</a> for more information.
-		</p>		
+			The State News is currently hiring <strong>web designers and developers</strong>. Please send resume and work samples to <a href="mailto:webmaster@statenews.com">webmaster@statenews.com</a>.
+		</p>
 		
 		<hr />
+		
 		<h3 class="box gray">Who we are</h3>
 
 		<p>The State News is brought to you through the hard work of five departments:</p>
