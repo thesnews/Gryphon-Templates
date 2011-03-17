@@ -54,24 +54,24 @@
 	<div class="grid_4 alpha">
 			<div id="featured_image">
 					{% set cartoon = cartoons.shift() %}
-					   		<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" /></a>
-							<div class="caption">
-								<p>	
-								{% if cartoon.authors.length %}
-								<a href="{{ cartoon.authors[0].urlSearch }}" class="cartoonauthor">{{ cartoon.authors[0].name }}</a>
-								{% endif %}
-								{{ topImage.source }}
-								</p>	
-							</div>
+		   		<a href="{{ cartoon.urlDefault }}"><img src="{{ cartoon.urlPreview }}" /></a>
+				<div>
+					<p>	
+					{% if cartoon.authors.length %}
+					<a href="{{ cartoon.authors[0].url }}" class="cartoonauthor">{{ cartoon.authors[0].name }}</a>
+					{% endif %}
+					{{ topImage.source }}
+					</p>	
+				</div>
 			</div>
 	</div>				    
 		
-		<div class="gird_2 omega"		
+		<div class="gird_2 omega">	
 
 			<ul>
 			<li><h3>More Cartoons:</h3></li>
 				{% for cartoon in cartoons %}
-					<li>Cartoon for <a href="{{ cartoon.urlDefault }}">{{ cartoon.created|date('M d, Y') }}</a></li>
+				<li>Cartoon for <a href="{{ cartoon.urlDefault }}">{{ cartoon.created|date('M d, Y') }}</a></li>
 				{% endfor %}
 			</ul>
 	

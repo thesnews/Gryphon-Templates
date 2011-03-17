@@ -8,7 +8,75 @@
 	margin-bottom: 15px; /* SETTING STANDARD VERTICAL SPACING BTWN ROWS */
 }
 
+/* STANDARD MODAL
+*******/
 
+.rose_modal_container {
+	color: #333;
+	border: 11px solid #375137;
+	-webkit-border-image: url( ../images/box_shadow.png ) 10 10 10 10;
+	-moz-border-image: url( ../images/box_shadow.png ) 10 10 10 10;
+	border-image: url( ../images/box_shadow.png ) 10 10 10 10;
+}
+	.rose_modal_title {
+		background: #375137;
+		color: #fff;
+		padding: .4em 10px;
+		font-size: .8em;
+		text-transform: uppercase;
+		font-weight: bold;
+		-moz-border-radius-topLeft: 5px;
+		-moz-border-radius-topRight: 5px;
+		-webkit-border-radius-topLeft: 5px;
+		-webkit-border-radius-topRight: 5px;
+		border-radius-topLeft: 5px;
+		border-radius-topRight: 5px;
+	}
+	.rose_modal_content {
+		background: #fff;
+		padding: 10px;
+		-moz-border-radius-bottomLeft: 5px;
+		-moz-border-radius-bottomRight: 5px;
+		-webkit-border-radius-bottomLeft: 5px;
+		-webkit-border-radius-bottomRight: 5px;
+		border-radius-bottomLeft: 5px;
+		border-radius-bottomRight: 5px;
+	}
+	.rose_modal_contentIndeterminate {
+		text-align: center;
+		padding: 1.5em 0;
+		background: #fff url( ../images/ajax-loader.gif ) no-repeat center center;
+	}
+	.rose_modal_buttonBar {
+		height: 25px;
+		padding-right: 10px;
+		text-align: right;
+	}
+		.rose_modal_buttonBar > * {
+			display: block;
+			float: left;
+		}
+		.rose_modal_buttonBar img {
+			position: relative;
+			top: 3px;
+			margin-right: 1em;
+		}
+	.rose_modal_closeLink {
+		display: block;
+		width: 16px;
+		height: 16px;
+		background: url( ../images/close_sprite.gif ) 0 0;
+	}
+		.rose_modal_closeLink:hover {
+			background: url( ../images/close_sprite.gif ) -16px 0;
+		}
+		.rose_modal_closeLink:active {
+			background: url( ../images/close_sprite.gif ) -32px 0;
+		}
+		.rose_modal_closeLink span {
+			display: none;
+		}
+		
 /* Generic Styling
 ***********************************/
 body {
@@ -502,76 +570,6 @@ div#header ul {
 			text-decoration: none;
 		}
 		
-/* Featured Stories Main
-***********************************/		
-
-div#featured_main {
-	float: left;
-	position: relative;
-	background: url(../images/bg/dark.png);
-	padding: 5px;
-
-}
-
-div#featured_main img {
-	width: 372px;
-}
-
-/* Featured Stories
-***********************************/		
-
-div#featured_stories {
-	min-height: 220px;
-	background: url(../images/bg/dark.png);
-	padding: 10px;
-	width: 520px;
-}
-
-div#featured_stories div {
-	float: left;
-	background: url(../images/bg/dark.png);
-	padding: 5px 5px 3px 5px;
-	position: relative;
-}
-
-div#featured_stories div div.caption {
-	background: url(../images/bg/darkest.png);
-	padding: 5px;
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-	width: 300px;
-	text-shadow: none;
-}
-
-	div#featured_stories div div.caption p {
-		font-size: 0.9em;
-	}
-
-div#featured_stories div img {
-	max-width: 390px;
-	min-width: 350px;
-}
-
-div#featured_stories ul {
-	float: right;
-}
-
-div#featured_stories ul li {
-	background: url(../images/bg/dark.png);
-	padding: 4px 4px 0px 4px;
-	margin: 0 0 7px 0;
-	opacity: 0.5;
-}
-
-div#featured_stories ul li img {
-	width: 100px;
-	margin: 0 0 0px 0;
-}
-
-div#featured_stories ul li.ui-tabs-selected {
-	opacity: 1;
-}
 
 
 /* Featured Images on other pages
@@ -728,60 +726,93 @@ p.byline a.rss, p#blog_info a#rss {
 
 /* Section Tabs Module
 ***********************************/
-
-div#section_tabs {
-	margin-bottom: 20px;
+div.section_tabs {
+	margin-left: 17px;
 }
 
-div#section_tabs ul#section_tabs_nav {
-	width: 203px;
-	height: 24px;
-	background-image: url(../images/section_tabs/bg.png);
-	background-position: -1100px 22px;
+
+ul#section_tabs_nav li {
+	margin: 5px 0 0 0;
+}
+
+div.news_content, div.sports_content, div.opinion_content, div.entertainment_content, div.multimedia_content, div.comments_content {
+	background-image: url(../images/section_tabs/news_bg.png);
+	background-position: 0px 1px;
 	background-repeat: no-repeat;
-	padding-left: 17px;
-	margin: 0 0 5px 0;
+	margin-top: 5px;
+	margin-left: -17px;
+	width: 220px;
 }
 
-div#section_tabs div {
-	padding: 0 8px;
+div.sports_content {
+	background-image: url(../images/section_tabs/sports_bg.png);
 }
 
-div#section_tabs ul#section_tabs_nav li {
-	float: left;
-	margin: 4px 8px 0 0;
+div.opinion_content {
+	background-image: url(../images/section_tabs/opinion_bg.png);
 }
 
-div#section_tabs div ul li {
-	margin: 10px 0 0 0;
+div.entertainment_content {
+	background-image: url(../images/section_tabs/entertainment_bg.png);
 }
 
-div#section_tabs ul#section_tabs_nav li#news_tab a, div#section_tabs ul#section_tabs_nav li#sports_tab a, div#section_tabs ul#section_tabs_nav li#opinion_tab a, div#section_tabs ul#section_tabs_nav li#entertainment_tab a, div#section_tabs ul#section_tabs_nav li#multimedia_tab a, div#section_tabs ul#section_tabs_nav li#comments_tab a {
+div.multimedia_content {
+	background-image: url(../images/section_tabs/multimedia_bg.png);
+}
+
+div.comments_content {
+	background-image: url(../images/section_tabs/comments_bg.png);
+}
+
+
+
+div.news_content h3, div.sports_content h3, div.opinion_content h3, div.entertainment_content h3, div.multimedia_content h3, div.comments_content h3{
+	padding-top: 10px;
+
+}
+
+div.section_tabs {
+	width: 195px;
+	background-position: top;
+	background-position: 0px 23px;
+	background-repeat: no-repeat;
+	padding-left: 0px;
+	margin: 0px:
+}
+
+li#news_tab a.tab-header, li#sports_tab a.tab-header, li#opinion_tab a.tab-header, li#entertainment_tab a.tab-header, li#multimedia_tab a.tab-header,  li#comments_tab a.tab-header {
 	display: block;
 	height: 18px;
-	width: 24px;
+	width: 35px;
 	text-indent: -9999px;
 	background: url(../images/section_tabs/news.png);
+	background-repeat: no-repeat;
 }
 
-div#section_tabs ul#section_tabs_nav li#sports_tab a {
-	background: url(../images/section_tabs/sports.png);
+
+li#sports_tab a.tab-header {
+	background: url(../images/section_tabs/sports.png);	
+	background-repeat: no-repeat;
 }
 
-div#section_tabs ul#section_tabs_nav li#opinion_tab a {
+li#opinion_tab a.tab-header {
 	background: url(../images/section_tabs/opinion.png);
+	background-repeat: no-repeat;
 }
 
-div#section_tabs ul#section_tabs_nav li#entertainment_tab a {
+li#entertainment_tab a.tab-header {
 	background: url(../images/section_tabs/entertainment.png);
+	background-repeat: no-repeat;
 }
 
-div#section_tabs ul#section_tabs_nav li#multimedia_tab a {
+li#multimedia_tab a.tab-header {
 	background: url(../images/section_tabs/multimedia.png);
+	background-repeat: no-repeat;
 }
 
-div#section_tabs ul#section_tabs_nav li#comments_tab a {
+li#comments_tab a.tab-header {
 	background: url(../images/section_tabs/comments.png);
+	background-repeat: no-repeat;
 }
 
 
@@ -790,14 +821,19 @@ div#section_tabs ul#section_tabs_nav li#comments_tab a {
 
 div.mutimedia_box {
 	width: 300px;
+	padding:0px;
 }
+
+div.mutimedia_box h3 {
+	margin: 6px 10px;
+}
+
 
 .pagers {
 	text-align: center;
 	padding: 2px;
 	padding-top: 4px;
 	margin-bottom: 5px;
-	
 }
 	.pagers a {
 		text-decoration: none;
@@ -812,7 +848,9 @@ div.mutimedia_box {
 	.pagers a.active {
 		background: url(../images/bg/darker.png);
 	}
-
+	.pagers a:hover {
+		background: url(../images/bg/darker.png);
+	}
 
 div.mutimedia_box ul#container_multimediaBox {
 	height: 220px;
@@ -846,45 +884,45 @@ div.image img {
 
 /* Upcoming Events Module
 ***********************************/
-
-div#upcoming_events ul#calendar li {
-	float: left;
-	margin-bottom: 10px;
-}
-
-div#upcoming_events ul#calendar li a {
+li.calendar_date a {
 	text-decoration: none;
 	background: url(../images/bg/dark.png);
 	display: block;
 	width: 38px;
-	height: 55px;
+	height: 50px;
 	margin-right: 10px;
-	padding: 5px 5px 3px 5px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding: 5px 5px 5px 5px;
 	text-align: center;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	
 }
 
-div#upcoming_events ul#calendar li a span {
+div#calendar div ul.tab-header-active li a{
+	background: url(../images/bg/darker.png);
+}
+
+li.calendar_date a:hover {
+	background: url(../images/bg/darker.png);
+
+}
+
+li.calendar_date a span {
 	display: block;
 	font-family: Georgia;
 }
 
-div#upcoming_events ul#calendar li a span.day {
+li.calendar_date a span.day {
 	text-transform: uppercase;
 	font-size: 1.3em;
 }
 
-div#upcoming_events ul#calendar li a span.num {
+li.calendar_date a span.num {
 	font-size: 2.7em;
 	line-height: 0.9;
 	font-style: italic;
-}
-
-ul#calendar h3.day {
-	margin-bottom: 0px;
-}
-
-ul#calendar h1.number {
-	margin-top: 0px;
 }
 
 /* Forms
@@ -893,13 +931,13 @@ ul#calendar h1.number {
 	float: left;
 }
 
-form#search {
+form#search, form#search_ticker {
 	float: right;
 	padding: 3px;
 	background: #fff;
 }
 
-	input#search_field, input#subscribe {
+	input#search_field, input#search_field_ticker, input#subscribe {
 		font-size: 0.9em;
 		color: #808080;
 		border: 0;
@@ -914,9 +952,10 @@ form#search {
 		width: 200px;
 	}
 	
-	form#search input#search_button {
+	form#search_ticker input#search_button {
 		float: right;
 	}
+		
 	
 /* Poll Module
 *******************************/
@@ -945,13 +984,17 @@ img#poll_chart {
 	margin: 5px 0;
 }
 
+div#poll div div {
+	text-align: right;
+	width:100%;
+}
 
 
 /* Footer
 ***********************************/
 
 div#footer {
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 0;
 	background: url(../images/bg/dark.png);
 	padding: 10px;
@@ -1006,6 +1049,18 @@ div#footer li h3 {
 /* General Image Formatting
 ***********************************/
 
+#featured_main {
+	background: url(../images/bg/dark.png);
+	padding: 7px; 
+	width: 365;
+	overflow: hidden;
+}
+
+	#featured_main img {
+		width:365px;
+		max-height: 400px;
+	}
+
 img.section_lead {
 	width: 290px;
 	background: url(../images/bg/dark.png);
@@ -1039,7 +1094,7 @@ img.section_sub.staff {
 /* Rounded Corners Option with Borders
 ****************************************/
 
-.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div.featured_multimedia div, div.featured_multimedia ul li a, div#upcoming_events ul li a, form#search, form#newsletterform input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff {
+.dark, li.active, div#footer, div#featured_stories, div#featured_stories div, div#featured_stories ul li, div.featured_multimedia div, div.featured_multimedia ul li a, div#upcoming_events ul li a, form#search, input#subscribe, img#poll_chart, form#comments input, form#comments textarea, div#join_convo a, p#adv_search, p#basic_search, img.staff, div.bullet img, a.tab-header img {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
@@ -1072,8 +1127,12 @@ ul.page_numbers {
 }
 
 	ul.page_numbers li {
-		display: inline;
-		text-align: center;
+	display: inline;
+	text-align: center;
+	}
+	
+	ul.page_numbers li.act a {
+		background: url(../images/bg/darker.png);
 	}
 	
 	ul.page_numbers li a {
@@ -1087,6 +1146,95 @@ ul.page_numbers {
 		display: inline;
 	}
 	
-ul.page_numbers li a:active, ul.page_numbers li a:hover { 
+ul.page_numbers li a:active, ul.page_numbers li a:hover { 	
 	background: url(../images/bg/darker.png);
+}
+
+
+
+/* STANDARD MODAL
+***********************************/
+
+
+table.standard {
+	width: 50%;
+	margin-top: 1em;
+}
+	table.standard thead {
+		font-size: 14px;
+		font-weight: bold;
+	}
+		table.standard thead th {
+			border-bottom: 1px solid #333;
+		}
+	table.standard tbody td, table.standard tbody th {
+		padding-top: 15px;
+		border-bottom: 1px solid #e1e1e1;
+	}
+	
+		
+/* Featured Stories
+***********************************/
+
+div#featured_stories {
+	min-height: 220px;
+	background: url(../images/bg/dark.png);
+	padding: 10px;
+	width: 520px;
+	position: relative;
+}
+
+div#featured_stories ul.tab-box {
+	max-height: 245px;
+	padding: 0px;
+	margin: 0px;
+	width: 400px;
+}
+
+div.tab-box-header div.nth-child-1, div.tab-box-header div.nth-child-2, div.tab-box-header div.nth-child-3 {
+	position: absolute;
+	top: 15px;
+	right: 0px;
+	width: 100px;
+	height: 100px;
+}
+
+div.tab-box-header div.nth-child-2 {
+	top: 97px;
+} 
+
+div.tab-box-header div.nth-child-3 {
+	top: 180px;
+} 
+
+a.tab-header img {
+	background: url(../images/bg/dark.png);
+	padding: 5px;
+	margin: 0px;
+	opacity: 0.5;
+	width: 100px;
+	height: 65px;
+}
+
+div.tab-header-active a img {
+	opacity: 1;
+}
+
+div#featured_stories ul li div.bullet {
+	height: 240;
+}
+
+div#featured_stories ul li div.bullet div.caption {
+	margin-left: 15px;
+	margin-bottom: 10px;
+	width: 360px;
+}
+
+div.bullet img {
+	width: 385px;
+	height: 230px;
+	background: url(../images/bg/dark.png);
+	padding: 5px;
+	margin: 0px 0px 0px 5px;
+
 }

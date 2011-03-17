@@ -8,7 +8,7 @@
 {% block content %}
 
 
-<div class="grid_8">
+<div class="grid_12">
 	<h1>Classifieds</h1>
 
 	<p>Sit back, relax, and enjoy our daily puzzles or download recent print edition solutions.<br /><br />
@@ -18,10 +18,5 @@
 	
 </div>
 
-<div class="grid_4">
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
-</div>
-
-<div class="clear"></div>
 
 {% endblock content %}

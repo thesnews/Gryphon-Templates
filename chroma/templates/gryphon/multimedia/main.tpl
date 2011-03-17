@@ -19,36 +19,42 @@
 	{{ topMedia.caption_formatted }}
 	<br />
 	<h3>Related:</h3>
+	
+		{% if topMedia.articles.length %}
 	<ul>
 		{% for item in topMedia.articles %}
 			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
 		{% endfor %}
+
 	</ul>
+	{% else %}	
+	Sorry, no related articles or media. 
+	{% endif %}
+	
+	
 	</div>
 	<div class="grid_4 omega">
 		<br />
-		<br />
-		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
-		<br />
-		<br />
-		<br />
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float:left"/>
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" style="float:right"/>
+
+		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement"/>
 
 	</div>
 </div>
 
 <div class="grid_12" id="secondary">
 	<div class="grid_12 pagination">
-		
 		<ul class="page_numbers">
-		{% for page in pagination %}
-			<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-		{% endfor %}
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
 		</ul>
-		
 	</div>
-	
+			
 	<div class="grid_10 alpha">
 
 		{% for i in 0..(media.length-1) %}
@@ -60,9 +66,7 @@
 			<div class="grid_5 omega">
 		{% endif %}
 
-		<ul class="media_list">
-			<div class="grid_5 alpha omega">
-				
+						
 				<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
 				<div class="byline dark" style="width:100px;">
 			
@@ -70,15 +74,12 @@
 			
 				</div>
 				{{ item.description|clip(100) }}
-				
-			</div></li>
-		</ul>
-	
-	</div>
 
+		</div>
 		{% if i%2 != 0 %}
+			<div class="clear" /></div>
 		{% endif %}
-						
+					
 	{% endfor %}
 
 	</div>
@@ -89,9 +90,14 @@
 
 	<div class="grid_12 pagination">
 		<ul class="page_numbers">
-		{% for page in pagination %}
-			<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-		{% endfor %}
+			{% for page in pagination %}
+			
+				{% if page.isCurrent %}
+				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% else %}
+				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
+				{% endif %}
+				{% endfor %}
 		</ul>
 	</div>
 

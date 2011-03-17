@@ -132,12 +132,26 @@
 </div>
 <div class="grid_4 omega">
 		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
+		
 		<ul class="more_stories">
+		
 			<li><h3>Possibly Related:</h3></li>
-			<li>{% for item in article.getRelated() %}
+			
+			{% if article.getRelated().length %}
+			
+			{% for item in article.getRelated() %}
 			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
 			{% endfor %}
+			
+			{% else %}
+			<li>Sorry, no related articles or media. </li>
+			{% endif %}
+		
+		
+		
 		</ul>
+		
+		
 </div>
 
 <div class="grid_12" id="secondary">
@@ -155,6 +169,7 @@
 			</ul>
 		</div>
 	
+
 		<div class="comments">
 			{{ comment.list(article) }}
 		</div>

@@ -7,11 +7,7 @@
 {% block content %}
 {% helper dswSync %}
 
-<div class="grid_4 alpha">
-	<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
-</div>
-
-<div class="grid_8 omega">
+<div class="grid_12">
 
 	<h1>Recent Blog Posts</h1>
 	
@@ -21,70 +17,75 @@
 				'order': 'self:modified desc'
 				] 
 		%}	
-	
-	
 	{% for blog in blogs %}
-
-
 		{% set post = blog.mostRecent %}
-		
-		<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
-		
-		<div class="dark byline">
-			<a href="{{ blog.url }}" style="text-decoration:none">{{ blog.name }}</a>
-			
-			<span class="modified">{{ blog.modified|date('M d, Y') }}</span>
-			 
-			<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
-			
-		</div>	
-		
-		<p>
-			{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
-		</p>
-	
+		<div class="grid_4 alpha">
+			<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
+			<div class="dark byline">
+				<a href="{{ blog.url }}" style="text-decoration:none">{{ blog.name }}</a>
+				<span class="modified">{{ blog.modified|date('M d, Y') }}</span>
+				<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+			</div>	
+			<p>
+				{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
+			</p>
+		</div>
 	{% endfor %}
+	<div class="clear"></div>
 
 </div>
 
+<div class="grid_12" id="secondary">
+	<div class="grid_10 alpha">
+		<h1>Recent Blogs</h1>
 
-<div class="grid_9 alpha">
-<h1>Recent Blogs</h1>
-		
 		{% fetch blogs from blog with [
 				'where': 'status = 1',
 				'order': 'self:modified desc'
 				] 
 		%}	
-		
+			
 		{% for blog in blogs %}
-		
-		<br /><br />
-		<h2 id="blogname"><a href="{{ blog.url }}">{{ blog.name }}</a>:</h2>
-		<br />
-
-		
-
-			{% set post = blog.mostRecent %}
-			<h3><a href="{{ post.url }}">{{ post.headline|clip(50) }}</a></h3>
 			
+		{% if i%2 == 0 %}
+			<div class="grid_5 alpha">
+		{% else %}
+			<div class="grid_5 omega">
+		{% endif %}
+
 			
-			<div class="dark byline">
-				<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
-					<span class="modified">{{ blog.modified|timeSince }}</span>	
+				<h2 id="blogname"><a href="{{ blog.url }}">{{ blog.name }}</a>:</h2>
+				<br />
+
+					{% set post = blog.mostRecent %}
+					<h3><a href="{{ post.url }}">{{ post.headline|clip(50) }}</a></h3>
+					<div class="dark byline">
+						<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
+						<span class="modified">{{ blog.modified|timeSince }}</span>	
+					</div>
+					<p>
+						{{ post.abstract_formatted|clip(300) }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
+					</p>
+		
 			</div>
-			
-			<p>
-				{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
-			</p>
 		
-	{% endfor %}
+		{% if i%2 != 0 %}
+			<div class="clear" /></div>
+		{% endif %}
+				
+			{% endfor %}
+			
+	</div>
+			
 	
+		
+	<div class="grid_2 omega">
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+	</div>
+
+		
+		
+
 </div>
-<div class="grid_1">&nbsp;</div>
-<div class="grid_2 omega">
-<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
-<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement" />
-<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
-</div>
+
 {% endblock %}

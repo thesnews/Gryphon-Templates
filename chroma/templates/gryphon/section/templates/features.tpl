@@ -16,10 +16,14 @@
 		{% for article in secondaryStories %}
 		{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
+
+</div>
+
+<div class="grid_5">
+
+		{{ articleRender.abstract5Col(topStory) }}	
 	
-	
-	<div>
-		<ul class="more_fromlarger">
+	<ul class="more_fromlarger">
 			<li><h3>More from Features:</h3></li>
 				{% for article in articles %}
 					<li>
@@ -31,17 +35,14 @@
 					</li>
 				{% endfor %}
 		</ul>
-		
-		</div>
+
 </div>
 
-<div class="grid_5">
-	
-	<div class="grid_5 alpha">
-		{{ articleRender.abstract5Col(topStory) }}	
-	</div>
-	
-	<div class="grid_5 alpha omega">
+<div class="grid_4 omega">
+
+		{% include 'gryphon/main/box.tpl' %}	
+		
+	<br />
 	<h3>Featured Blogs</h3>
 			<ul class="more_from">
 					
@@ -62,40 +63,7 @@
 					{% endfor %}
 				<li><h3>More from <a href="{{ 'blog'|url }}">Blogs</a></h3></li>
 				</ul>
-	</div>
-	
-	
-</div>
 
-
-<div class="grid_4 omega">
-
-					<div class="mutimedia_box dark">
-						<h3>Featured Multimedia</h3>
-						{% fetch multimedia from media with [
-							'limit': 10,
-							'order': 'self:weight desc, self:created desc',
-							'withTags': ['Multimedia Box']
-						] %}
-
-						<ul id="container_multimediaBox">
-						{% for media in multimedia %}
-							<li>
-								<div class="image">
-									<img src="{{ media.url }}" alt="{{ media.title }}" />
-									<div class="caption">
-										<h3>{{ media.title }} | {{ media.type }}</h3>
-										<p>{{ media.caption|clip(125) }}</p>
-									</div>
-								</div>
-							</li>
-						{% endfor %}
-						</ul>
-					</div>
-	<br />
-	<img src="{{ 'style_chroma/images/ads/square.png'|url }}" />
-	<img src="{{ 'style_chroma/images/ads/square.png'|url }}" />
-	<br />
 </div>
 
 

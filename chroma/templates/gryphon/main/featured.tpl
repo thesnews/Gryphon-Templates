@@ -1,42 +1,54 @@
-{#	$popular = _M( 'article' )->popular( 10, time(), strtotime( '-2 weeks' ) ); #}
-<ul class="tab-box box gray">
-	<li><a href="#" class="tab-header">Popular</a>
-		<ul class="bullet">
-		{% set popular = 'article'|call('popular', [10, '-2 weeks', 'today']) %}
-		{% for article in popular %}
-			<li><a href="{{ article.url }}">{{ article.headline }}</a> </li>
-		{% endfor %}
-		</ul>
-	</li>
-	<li><a href="#" class="tab-header">Newest</a>
-		<ul class="bullet">
-		{% fetch recently from article with [
-			'where': 'status = 1',
-			'order': 'created desc',
-			'limit': 10
-		] %}
-		{% for article in recently %}
-			<li><a href="{{ article.url }}">{{ article.headline }}</a> </li>
-		{% endfor %}
-		</ul>
-	</li>
-	<li><a href="#" class="tab-header">Comments</a>
-		<ul>
-			{% fetch comments from comment with [
-				'where': 'status = 1',
-				'order': 'created desc',
-				'limit': 5,
-				'forceCache': true
-			] %}
-			{% for comment in comments %}
-				<li>
-					<strong>{{ comment.name }} said:</strong> {{ comment.preview }}<br />
-					<span class="small">(added {{ comment.created|timeSince }})</span>
-					<a href="{{ comment.url }}">more &#187;</a>
-				</li>
-			{% endfor %}
-		</ul>
-	</li>
-</ul>
+<div id="featured_stories">
+	<ul class="tab-box">
+		<li>
+			<div>
+				<a href="#" class="tab-header">
+					<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="" />
+				</a>
+			</div>
+			<div class="bullet">
+				<a href="">
+					<img src="{{ 'style_chroma/images/dummy/ftr1.jpg'|url }}" alt="" />
+				</a>
+				<div class="caption">
+					<h3>This is an article!</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+		</li>
 
+		<li>
+			<div>
+				<a href="#" class="tab-header">
+					<img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="" />
+				</a>
+			</div>
+			<div class="bullet">
+				<a href="">
+					<img src="{{ 'style_chroma/images/dummy/ftr2.jpg'|url }}" alt="" />
+				</a>
+				<div class="caption">
+					<h3>This is another article!</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+		</li>
 
+		<li>
+			<div>
+				<a href="#" class="tab-header">
+					<img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="" />
+				</a>
+			</div>
+			<div class="bullet">
+				<a href="">
+					<img src="{{ 'style_chroma/images/dummy/ftr3.jpg'|url }}" alt="" />
+				</a>
+				<div class="caption">
+					<h3>This is the third article!</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

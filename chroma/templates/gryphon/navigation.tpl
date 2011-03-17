@@ -26,14 +26,16 @@
 		'label': 'Features'
 	],
 	
+	'blog': [
+		'id': 'blogs',
+		'label': 'Blogs',
+	],
+
 	'multimedia': [
 		'id': 'multimedia',
 		'label': 'Multimedia'
 	]
-	
-	
-	
-	
+		
 ] %}
 
 {% if not active %}
@@ -48,13 +50,6 @@
 {% for url, info in navigation %}
 	<li {% if active == info['id'] %} class="active"{% endif %}>
 		<a href="{{ url|url }}">{{ info['label'] }}</a>
-		{% if active == info['id'] and info['subcats'] %}
-			<ul id="subcat"> <!-- BOTTOM LEVEL NAVIGATION. "ACTIVE" CLASS GETS ARROWED -->
-				{% for sUri, sLabel in info['subcats'] %}
-					<li{% if sLabel == subActive %} class="active"{% endif %}><a href="{{ sUri|url }}">{{ sLabel }}</a></li>
-				{% endfor %}
-			</ul>
-		{% endif %}
 	</li>
 {% endfor %}
 </ul>

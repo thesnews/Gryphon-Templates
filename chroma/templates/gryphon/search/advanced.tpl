@@ -27,7 +27,7 @@
 	'comment'
 ] %}
 
-<div class="grid_8">
+<div class="grid_12 alpha omega">
 
 <h1>
 		{% if query	%}
@@ -162,11 +162,5 @@
 	</div>
 
 </div>
-
-<div class="grid_4">
-		{% include 'gryphon/main/sidebar-standard.tpl' %}
-</div>
-
-<div class="clear"></div>
 
 {% endblock %}

@@ -23,9 +23,6 @@
 		<input type="submit" value="Search" />
 	</form>
 	
-	
-	<hr class="spacer" />
-	
 	<h3 class="gray box">Quick Date Search</h3>
 	
 	<form method="get" action="/index.php/search/" class="search-advanced">
@@ -169,8 +166,6 @@
 		
 		<input type="submit" value="Search" />
 	</form>
-
-<hr class="spacer" />
 
 <h3 class="gray box">Advanced Search</h3>
 
@@ -365,10 +360,9 @@
 	</form>
 	
 </div>
-
 <div class="grid_4">
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
-</div>
+<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
+	</div>
 
 <div class="clear"></div>
 

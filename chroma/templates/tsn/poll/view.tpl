@@ -10,12 +10,15 @@
 
 {% block content %}
 
+<div class="grid_12">
 
-<div class="grid_8">
+<div class="grid_8 alpha">
 	
-	<h2>{{ poll.title }}</h2>
+	<h1>{{ poll.title }}</h1>
 	
-	<h4>{{ poll.question }}</h4>
+	<br />
+	
+	<h3>{{ poll.question }}</h3>
 	
 	<table class="standard graphable-pie">
 		<thead>
@@ -36,10 +39,10 @@
 
 </div>
 
-<div class="grid_4">
-	{% include "gryphon/main/sidebar-short.tpl" %}
+<div class="grid_4 omega">
+		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
 </div>
 
-<hr class="spacer" />
+</div>
 
 {% endblock content %}
