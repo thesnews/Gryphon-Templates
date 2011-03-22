@@ -1248,27 +1248,57 @@ div#multipage {
 	position: relative;
 }
 
-div#multipage ul.tab-box {
-	width: 402px;
-	float: right;
-		background: url(../images/bg/dark.png);
+div#multipage ul.tab-box li.image div.bullet, div#multipage ul.tab-box li.video div.bullet, div#multipage ul.tab-box li.sound div.bullet {
+	background-image: url(../images/icons/mp_bg_image.png);
+	background-position: 0px 1px;
+	background-repeat: no-repeat;
+	min-height: 500px;
+	width: 500px;
+	margin-left: 57px;
+}
 
+div#multipage ul.tab-box li.video div.bullet {
+	background-image: url(../images/icons/mp_bg_video.png);
+}
+
+div#multipage ul.tab-box li.sound div.bullet {
+	background-image: url(../images/icons/mp_bg_sound.png);
+}
+
+div#multipage ul.tab-box li div.bullet div {
+	margin-left: 30px;
+}
+
+div#multipage ul.tab-box li div.bullet img {
+	max-width: 150px;
+	margin-right: 10px;
+	float: left;
+	background: url(../images/bg/dark.png);
+	padding: 5px 5px 5px 5px;
+}
+
+div#multipage ul.tab-box li div.bullet dov {
+	float: right;
 }
 
 div#multipage div.tab-box-header div.nth-child-1, div#multipage div.tab-box-header div.nth-child-2, div#multipage div.tab-box-header div.nth-child-3 {
 	position: absolute;
-	top: 15px;
+	top: 40px;
 	left: 0px;
-	width: 50px;
-	height: 50px;
+	width: 67px;
+	height: 67px;
+	display: block;
+	text-indent: -9999px;
+	background: url(../images/icons/video.png);
+	background-repeat: no-repeat;
 }
 
-div.tab-box-header div.nth-child-2 {
-
+div#multipage div.tab-box-header div.nth-child-2 {
+	top: 122px;
 } 
 
-div.tab-box-header div.nth-child-3 {
-
+div#multipage div.tab-box-header div.nth-child-3 {
+	top: 205px;
 } 
 
 div#multipage div.tab-box-header div a.tab-header img {
