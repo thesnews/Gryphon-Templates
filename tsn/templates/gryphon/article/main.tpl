@@ -99,9 +99,13 @@
 				{{ domPhoto.caption_formatted }}
 				</div>
 			</div>
-
+			<br />
 
 		{% endif %}
+		
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="thesnews">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>		
+
+			<iframe src="http://www.facebook.com/plugins/like.php?href={{ article.urlShort }}%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=200&amp;action=recommend&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
 		
 		{% if article.infobox or pdfs.length %}
 		<div class="sidebar-item">

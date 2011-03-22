@@ -18,6 +18,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="generator" content="Gryphon {{ config.appVersion }} (Foundry {{ config.foundryVersion }})" />
 
+	<meta name="google-site-verification" content="pUNkh9fQRUX_qOesZxatbobuWgkhz_z-XGZrN9o27mo" />
 	<meta name="title" content="The State News{{ title|default(" :: Michigan State University's Independent Voice") }}" />
 	<meta name="description" content="{{ description|default("Michigan State University's Independent Voice") }}" />
 

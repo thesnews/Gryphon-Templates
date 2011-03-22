@@ -47,11 +47,11 @@
 						<li><a href="{{ 'gryphon:section/pageOne.xml'|url }}">Top Stories</a></li>
 						<li><a href="{{ 'gryphon:section/news.xml'|url }}">News</a>
 							<ul>
-								<li><a href="<?php echo Foundry::link( 'section/city.xml' ) ?>">City</a></li>
-								<li><a href="<?php echo Foundry::link( 'section/campus.xml' ) ?>">Campus</a></li>
+								<li><a href="{{ 'gryphon:section/city.xml'|url }}">City</a></li>
+								<li><a href="{{ 'gryphon:section/campus.xml'|url }}">Campus</a></li>
 							</ul>
 						</li>
-						<li><a href="<?php echo Foundry::link( 'section/sports.xml' ) ?>">Sports</a>
+						<li><a href="{{ 'gryphon:section/sports.xml'|url }}">Sports</a>
 							<ul>
 								<li><a href="{{ 'gryphon:section/baseball.xml'|url }}">Baseball</a></li>
 								<li><a href="{{ 'gryphon:section/basketball.xml'|url }}">Basketball</a></li>

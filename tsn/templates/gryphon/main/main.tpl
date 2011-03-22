@@ -30,12 +30,7 @@
 		{#<a href="{{ 'calendar'|url }}">
 			<img src="{{ 'style/gryphon/images/calendar_ad.png'|url }}" alt="Event Calendar" style="border: none;"/>
 		</a>#}
-		<a href="{{ 'index.php/bestof'|url }}">
-			<img src="{{ 'style/gryphon/images/bestof/bestof_minibanner.png'|url }}" style="border: none; margin-left: -30px;" alt="The Best of MSU"/>
-		</a>
-		
-		<br />
-		<br />
+
 		<a href="{{ 'section/housingguide'|url }}">
 			<img src="http://statenews.com/media/00/00/04/25/42541_hg_spring11_minibannero.png" style="border:none;" alt="Housing 2011" />
 		</a>
