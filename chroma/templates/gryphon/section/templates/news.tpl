@@ -38,6 +38,7 @@
 						</div>
 
 						<p>
+				
 						{{ topPost.abstract_formatted|clip(350) }}
 						<a href="#" class="dark"><span>More</span></a>
 						</p>	

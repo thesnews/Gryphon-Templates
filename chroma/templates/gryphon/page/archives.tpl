@@ -12,10 +12,7 @@
 
 	<p>The State News provides full access to content dating back to September 2000. If you have questions or concerns, please send us a message.</p>
 
-<p><strong>Important Note:</strong> While the State News does correct factual errors in our archive, it is our policy to not remove items from our database for any reason.</p>
-
-
-	<h3 class="gray box">Basic Search</h3>
+	<h2>Basic Search</h2>
 	<p>Perform a basic search of the State News' archives. We will search from September 2000 forward.</p>
 		
 		<form method="get" action="/index.php/search/">
@@ -23,7 +20,7 @@
 		<input type="submit" value="Search" />
 	</form>
 	
-	<h3 class="gray box">Quick Date Search</h3>
+	<h2>Quick Date Search</h2>
 	
 	<form method="get" action="/index.php/search/" class="search-advanced">
 		<input type="hidden" name="a" value="1" />
@@ -167,7 +164,7 @@
 		<input type="submit" value="Search" />
 	</form>
 
-<h3 class="gray box">Advanced Search</h3>
+<h2>Advanced Search</h2>
 
 <p>Perform an advanced search of the State News' archives. You may specify a date range. If no range is supplied, we will search from September 2000 forward.</p>
 

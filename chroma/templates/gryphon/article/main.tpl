@@ -170,10 +170,11 @@
 		</div>
 	
 
-		<div class="comments">
+	<div>
 			{{ comment.list(article) }}
-		</div>
-
+	
+	</div>
+	
 		<div class="pagination">
 			<ul class="page_numbers">
 				<li>

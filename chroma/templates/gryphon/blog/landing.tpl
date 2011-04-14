@@ -53,7 +53,7 @@
 		{% fetch blogs from blog with [
 				'where': 'status = 1',
 				'order': 'self:modified desc',
-				'limit': 12
+				'limit': 9
 				] 
 		%}	
 			
@@ -98,7 +98,7 @@
 	
 		
 	<div class="grid_3 omega">
-		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" align="right" />
 	</div>
 
 		

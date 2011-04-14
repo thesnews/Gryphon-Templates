@@ -96,28 +96,28 @@
 							
 						<div class="grid_2 alpha">
 							<ul>
-								<li><h3>News</h3></li>
-								<li><a href="{{ 'section/campus'|url }}">Campus</a></li>
-								<li><a href="{{ 'section/city'|url }}">City</a></li>
-								<li><a href="{{ 'section/briefs'|url }}">Police Briefs</a></li>
-								<li><a href="{{ 'crime'|url }}">Crime Map</a></li>
+								<li><a href="{{ 'section/news'|url }}">News</a></li>
 							</ul>
 							<ul>
-								<li><h3>Opinion</h3></li>
+								<li><a href="{{ 'section/opinion'|url }}">Opinion</a></li>
 								<li><a href="{{ 'section/editorials'|url }}">Editorials</a></li>
 								<li><a href="{{ 'section/columns'|url }}">Columns</a></li>	
 								<li><a href="{{ 'section/letters'|url }}">Letters</a></li>				
 							</ul>
 							<ul>
-								<li><h3>Entertainment</h3></li>
-								<li><a href="{{ 'section/dining'|url }}">Dining Guide</a></li>
-								<li><a href="{{ 'section/calendar'|url }}">Calendar</a></li>
+								<li><a href="{{ 'section/features'|url }}">Features</a></li>
 							</ul>
+							<ul>
+								<li><a href="{{ 'blog'|url }}">Blogs</a></li>
+							</ul>							
+							<ul>
+								<li><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
+							</ul>						
 						</div>
 						
 						<div class="grid_2">
 							<ul>
-								<li><h3>Sports</h3></li>
+								<li><a href="{{ 'section/sports'|url }}">Sports</a></li>
 								<li><a href="{{ 'section/baseball'|url }}">Baseball</a></li>
 								<li><a href="{{ 'section/basketball'|url }}">Basketball</a></li>	
 								<li><a href="{{ 'section/crosscountry'|url }}">Cross Country</a></li>
@@ -134,46 +134,24 @@
 						</div>
 						
 						<div class="grid_2">
-							<ul>
-								<li><a href="{{ 'blog'|url }}">Blogs</a></li>
-								<li><a href="{{ 'page/classifieds'|url }}">Classifieds</a></li>
-								<li><a href="{{ 'page/religious'|url }}">Religious Guide</a></li>
-								<li><a href="{{ 'page/puzzles'|url }}">Puzzles</a></li>
-								<li><a href="{{ 'page/mobile'|url }}">Mobile Edition</a></li>
-							</ul>
-							<ul>
-								<li><h3>Multimedia</h3></li>
-								<li><a href="{{ 'multimedia/flashVideo'|url }}">Videos</a></li>
-								<li><a href="{{ 'gallery'|url }}">Photo Galleries</a></li>
-								<li><a href="{{ 'multimedia'|url }}">Podcasts</a></li>
-							</ul>
-							<ul>
-								<li><h3>Features</h3></li>
-								<li><a href="{{ 'section/features'|url }}">Special Editions</a></li>
-							</ul>
-						</div>
-						
-						<div class="grid_2">
+
+
 							<ul class="title_links">
+							<li></li>
+								<li><a href="{{ '#'|url }}">Contact Us</a></li>
 								<li><a href="{{ 'page/archives'|url }}">Archives</a></li>
+								<li><a href="{{ '#'|url }}">Classifieds</a></li>
+								<li><a href="{{ '#'|url }}">Feeds</a></li>
 								<li><a href="{{ 'search'|url }}">Search</a></li>
-								<li><a id="feeds" href="{{ 'page/feeds'|url }}">Feeds</a></li>
-								<li><a href="http://reprints.statenews.com">Photo Reprints</a></li>
-								<li><a href="http://advertise.statenews.com">Advertise With Us</a></li>
-								<li><a href="http://snaa.statenews.com">Alumni</a></li>
-								<li><a href="{{ 'page/work'|url }}">Work Here</a></li>
-								<li><a href="{{ 'page/contact'|url }}">Contact Us</a></li>
 								<li><a href="{{ 'page/privacy'|url }}">Privacy Policy</a></li>
 							</ul>
-							<ul>
-								<li class="title">Follow Us:</li>
-								<li><a id="facebook" href="http://www.facebook.com/pages/The-State-News/62758758853">Facebook</a></li>
-								<li><a id="twitter" href="http://twitter.com/thesnews">Twitter</a></li>
-							</ul>
+
 						</div>
 						
+
 						
-						<div class="grid_2">
+						
+						<div class="grid_3">
 								{% fetch pdf from media with [
 									'where': 'status = 1',
 									'limit': 1,
@@ -188,14 +166,12 @@
 								<img id="paper" src="{{ pdf[0].urlPreview }}" alt="frontpage" class="front_pdf" />
 								</a>
 								</li>
-								<li><a href="{{ 'page/pdf'|url }}">More Page Fronts</a></li>
-								<li><a href="http://reprints.statenews.com">Reprints</a></li>
 							</ul>
 						</div>
 					
 						
 						
-						<div class="grid_2 omega">
+						<div class="grid_3 omega">
 							
 
 							<a id="gryphon_logo_footer" title="Gryphon CMS" href="http://detroitsoftworks.com/index.php/page/gryphon"></a>
