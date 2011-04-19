@@ -10,6 +10,7 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/articlefeatures.tpl" as articleRender %}
 
+<div class="grid_12">
 
 <div class="grid_3 alpha">
 	
@@ -66,6 +67,7 @@
 
 </div>
 
+</div>
 
 
 {% endblock content %}

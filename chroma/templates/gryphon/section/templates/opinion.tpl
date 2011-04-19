@@ -50,7 +50,6 @@
 			'withTags': ['Editorial Cartoon']
 		] %}
 						
-<br />
 	<div class="grid_4 alpha">
 			<div id="featured_image">
 					{% set cartoon = cartoons.shift() %}
@@ -80,7 +79,7 @@
 	</div>
 
 
-	<div class="grid_3 alpha">
+	<div class="grid_3">
 		
 		<h3>Columns:</h3>
 		{% fetch articles from article with [
@@ -100,7 +99,7 @@
 </ul>							
 							
 	</div>
-	<div class="grid_3">
+	<div class="grid_3 omega">
 	
 		<h3>Letters:</h3>
 	

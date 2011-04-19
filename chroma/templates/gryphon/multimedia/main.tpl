@@ -43,7 +43,7 @@
 				<li class="image">
 					<div>
 						<a href="#">
-						<h1>Images</h1>
+						<h2>Images</h2>
 						</a>
 					</div>
 					<div class="bullet">
@@ -73,9 +73,14 @@
 								<a href="{{ item.urlDefault }}"><img src="{{ item.url }}" alt="{{ item.title }}"></a>
 								<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
 								<div class="byline dark">
-								<p>Posted: {{ item.created|date('M d, Y') }}
+
+								{% if item.authors.length %}
+								<a class="author">{{ item.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+
+								<span class="date">{{ item.created|date('M d, Y') }}</date>								
 								</div>
-								{{ item.description|clip(100) }}</p><br />
+								<p>{{ item.description|clip(100) }}</p>
 								</li>
 								
 								</div>
@@ -85,17 +90,14 @@
 								{% endif %}
 								
 								{% endfor %}	
-								
 							</ul>
-
-					
 						</div>
 					</div>
 				</li>
 				<li class="video">
 					<div>
 						<a href="#" class="tab-header">
-						<h1>Videos</h1>
+						<h2>Videos</h2>
 						</a>
 					</div>
 					<div class="bullet video_bullet">
@@ -125,9 +127,12 @@
 								<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
 								
 								<div class="byline dark">
-								<p>Posted: {{ item.created|date('M d, Y') }}
+								{% if item.authors.length %}
+								<a class="author">{{ item.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+								<span class="date">{{ item.created|date('M d, Y') }}</date>
 								</div>					
-								{{ item.description|clip(100) }}</p><br />
+								<p>{{ item.description|clip(100) }}</p><br />
 								</li>
 								
 								</div>
@@ -147,7 +152,7 @@
 				<li class="audio">
 					<div>
 						<a href="#" class="tab-header">
-						<h1>Sound Clips</h1>
+						<h2>Sound Clips</h2>
 						</a>
 					</div>
 					<div class="bullet">
@@ -181,11 +186,13 @@
 								</h3>
 								
 								<div class="byline dark">
-								<p>Posted: {{ item.created|date('M d, Y') }}
+								{% if item.authors.length %}
+								<a class="author">{{ item.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+								<span class="date">{{ item.created|date('M d, Y') }}</date>
 								</div>
-								
-								
-								{{ item.description|clip(100) }}</p>
+														
+								<p>{{ item.description|clip(100) }}</p>
 							
 								<div class="clear"></div>
 								</li>

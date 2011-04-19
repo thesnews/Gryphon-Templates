@@ -13,7 +13,7 @@
 					
 		<div>
 		<h2>- {{ comment.name }}</h2>
-		<span>({{ comment.created|date('M d, Y') }})</span>
+		<span>{{ comment.created|date('M d, Y') }}</span>
 		</div>
 	</div>
 		

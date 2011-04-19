@@ -66,7 +66,7 @@
 			<span id="date">{{ now|date('l F j, Y') }}</span> 
 			<span id="founded">Detroit, MI | Since 2009  </span>
 			<span id="wx">{{ weather }}, {{ weather.temp }}&deg; F | {{ weather.tempC }}&deg; C</span>
-			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="#">Advertise</a> | <a href="{{ 'classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
+			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="{{ 'page/archives'|url }}">Archives</a> | <a href="{{ 'page/classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
 			</div>	
 	<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
 			<input id="search_field" class="search replace-text" type="text" name="q" value="Search" />
@@ -106,9 +106,6 @@
 							</ul>
 							<ul>
 								<li><a href="{{ 'section/features'|url }}">Features</a></li>
-							</ul>
-							<ul>
-								<li><a href="{{ 'blog'|url }}">Blogs</a></li>
 							</ul>							
 							<ul>
 								<li><a href="{{ 'multimedia'|url }}">Multimedia</a></li>
@@ -134,24 +131,31 @@
 						</div>
 						
 						<div class="grid_2">
-
-
+							<ul>
+								<li>Blogs</li>
+								{% fetch blogs from blog with [
+									'where': 'status = 1',
+									'order': 'name asc'
+								] %}
+								{% for blog in blogs %}
+									<li><a href="{{ blog.url }}.xml">{{ blog.name }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+						
+						<div class="grid_2">
 							<ul class="title_links">
 							<li></li>
-								<li><a href="{{ '#'|url }}">Contact Us</a></li>
+								<li><a href="{{ 'page/contact'|url }}">Contact Us</a></li>
 								<li><a href="{{ 'page/archives'|url }}">Archives</a></li>
-								<li><a href="{{ '#'|url }}">Classifieds</a></li>
-								<li><a href="{{ '#'|url }}">Feeds</a></li>
+								<li><a href="{{ 'page/classifieds'|url }}">Classifieds</a></li>
+								<li><a href="{{ 'page/feeds'|url }}">Feeds</a></li>
 								<li><a href="{{ 'search'|url }}">Search</a></li>
 								<li><a href="{{ 'page/privacy'|url }}">Privacy Policy</a></li>
 							</ul>
-
 						</div>
-						
-
-						
-						
-						<div class="grid_3">
+												
+						<div class="grid_2">
 								{% fetch pdf from media with [
 									'where': 'status = 1',
 									'limit': 1,
@@ -171,7 +175,7 @@
 					
 						
 						
-						<div class="grid_3 omega">
+						<div class="grid_2 omega">
 							
 
 							<a id="gryphon_logo_footer" title="Gryphon CMS" href="http://detroitsoftworks.com/index.php/page/gryphon"></a>

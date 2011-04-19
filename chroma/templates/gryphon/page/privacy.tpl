@@ -81,6 +81,6 @@
 		
 	</div>
 	<div class="grid_4">
-		{% include 'gryphon/main/sidebar-short.tpl' %}
+		<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
 	</div>
 {% endblock %}
