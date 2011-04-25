@@ -12,6 +12,18 @@
 		<h3 class="box gray">Current Openings</h3>
 		
 		<p>
+			The State News is currently hiring <strong>photographers</strong> for the summer semester. Please submit applications, resume and/or work samples to <a href="mailto:photo@statenews.com">photo@statenews.com</a>.
+		</p>
+		
+		<hr />
+		
+		<p>
+			The State News is looking for <strong>reporters, designers and copy editors</strong> for the summer semester. Applications are due April 15. If you have any questions, please contact Kate Jacobson at <a href="mailto:feedback@statenews.com">feedback@statenews.com</a>.
+		</p>
+		
+		<hr />
+		
+		<p>
 			The State News is currently seeking <strong>distribution drivers</strong>. Reliable transportation required, hours are from 6 a.m. to 8 a.m. Monday through Friday. Please submit completed <a href="http://statenews.com/docs/applications/app_distrib.pdf">application</a> to:<br />
 			Distribution Manager<br />
 			435 E. Grand River. Ave<br />

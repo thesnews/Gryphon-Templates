@@ -82,6 +82,40 @@
 	<hr class="spacer" />
 
 	<div class="grid_3 alpha">
+		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+		<script>
+		new TWTR.Widget({
+		  version: 2,
+		  type: 'profile',
+		  rpp: 10,
+		  interval: 10000,
+		  width: 'auto',
+		  height: 500,
+		  theme: {
+			shell: {
+			  background: '#94af94',
+			  color: '#ffffff'
+			},
+			tweets: {
+			  background: '#ffffff',
+			  color: '#333333',
+			  links: '#5e8c5e'
+			}
+		  },
+		  features: {
+			scrollbar: true,
+			loop: true,
+			live: false,
+			hashtags: true,
+			timestamp: true,
+			avatars: false,
+			behavior: 'default'
+		  }
+		}).render().setUser('thesnews_opine').start();
+		</script>
+	
+	</div>
+	<div class="grid_3">
 		<h5 class="bordered">COLUMNS: <span><a href="{{ 'gryphon:section/columns'|url }}">More columns &#187;</a></span></h5>
 
 		{% fetch articles from article with [
@@ -94,10 +128,9 @@
 		{% for article in articles %}
 			{{ articleRender.abstract3Col(article) }}
 		{% endfor %}
+		
+		<hr class="spacer" />
 
-	
-	</div>
-	<div class="grid_3">
 		<h5 class="bordered">LETTERS: <span><a href="{{ 'gryphon:section/letters'|url }}">More letters &#187;</a></span></h5>
 	
 		{% fetch articles from article with [

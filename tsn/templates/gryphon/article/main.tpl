@@ -5,6 +5,10 @@
 {% block links %}
 	<link rev="canonical" type="text/html" href="{{ article.url }}" />
 	<link rel="alternate shorter" type="text/html" href="{{ shortUrl }}" />
+
+	{% if article.created|date('Ymd') <= '-2 years'|date('Ymd') %}
+		<meta name="robots" content="noindex, nofollow"> 
+	{% endif %}
 {% endblock %}
 
 

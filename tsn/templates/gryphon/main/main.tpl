@@ -31,9 +31,10 @@
 			<img src="{{ 'style/gryphon/images/calendar_ad.png'|url }}" alt="Event Calendar" style="border: none;"/>
 		</a>#}
 
-		<a href="{{ 'section/housingguide'|url }}">
-			<img src="http://statenews.com/media/00/00/04/25/42541_hg_spring11_minibannero.png" style="border:none;" alt="Housing 2011" />
+		<a href="{{ 'page/bestof'|url }}" style="display:block;margin-left:-30px;">
+			<img src="{{ 'style/gryphon/images/bestof/bestof_minibanner.png'|url }}" alt="Event Calendar" style="border: none;"/>
 		</a>
+		
 		
 		<br />
 		<br />
