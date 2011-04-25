@@ -1,15 +1,19 @@
 {% helper dswSync %}
-<div class="image">
-	<div style="text-align: center;">
-	<a href="{{ media.urlDefault }}"><img src="{{ media.url }}" /></a>
+<div>
+	<div>
+		<img src="{{ media.url }}" />
 	</div>
-	<div class="info">
-		{{ media.authors.splat('name')|join(', ') }}
-		&middot; {{ media.source }}
-
-		{% if dswSync.buyURL(media) %}
-			<a href="{{ dswSync.buyURL(media) }}" class="reprint"><img style="border: none;" class="reprint_icon" src="{{ 'style/gryphon/images/reprint.png'|url }}" alt="Reprints" /></a>
-		{% endif %}
+	<div>
+		<h2>{{ media.title }}</h2>
+	
+		<div class="dark byline">
+			{{ media.fileType|capitalize }}:
+			{% if media.authors.length %}
+			<a class="author">{{ media.authors.splat('name')|join(', ') }}</a>
+			{% endif %}
+			<span class="date">{{ media.created|date('M d, Y') }}</span>
+		</div>
+		{{ media.caption_formatted }}
 		
 	</div>
 </div>

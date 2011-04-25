@@ -8,14 +8,15 @@
 
 	{% for comment in comments %}
 	
-	<p>{{ comment.comment_formatted }}</p>
+	<div class="comments">
+		<p>{{ comment.comment_formatted }}</p>
 					
-						<div class="byline">
-						<h3>- {{ comment.name }}</a></h3>
-						<span class="date">{{ comment.created|date('M d, Y') }}</span><br />
-						<a href="{{ ('gryphon:comment/flag/'~comment.hash)|url }}" class="report">Report</a>
-						</div>
-			
+		<div>
+		<h2>- {{ comment.name }}</h2>
+		<span>{{ comment.created|date('M d, Y') }}</span>
+		</div>
+	</div>
+		
 	{% endfor %}
 	
 	{% macro pagers(item) %}

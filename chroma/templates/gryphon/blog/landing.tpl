@@ -17,9 +17,19 @@
 				'order': 'self:modified desc'
 				] 
 		%}	
-	{% for blog in blogs %}
+		{% for i in 0..(blogs.length-1) %}
+		{% set blog = blogs[i] %}
+			
+		{% if i%3 == 0 %}
+			<div class="grid_4 alpha">
+		{% elseif (i-2)%3 == 0 %}
+			<div class="grid_4 omega">
+		{% else %}
+			<div class="grid_4">
+		{% endif %}
+		
 		{% set post = blog.mostRecent %}
-		<div class="grid_4 alpha">
+
 			<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
 			<div class="dark byline">
 				<a href="{{ blog.url }}" style="text-decoration:none">{{ blog.name }}</a>
@@ -30,27 +40,32 @@
 				{{ post.abstract_formatted }}<a href="{{ post.url }}" class="dark"><span>More</span></a>
 			</p>
 		</div>
+				
 	{% endfor %}
 	<div class="clear"></div>
 
 </div>
 
 <div class="grid_12" id="secondary">
-	<div class="grid_10 alpha">
+	<div class="grid_9 alpha">
 		<h1>Recent Blogs</h1>
 
 		{% fetch blogs from blog with [
 				'where': 'status = 1',
-				'order': 'self:modified desc'
+				'order': 'self:modified desc',
+				'limit': 9
 				] 
 		%}	
 			
-		{% for blog in blogs %}
+		{% for i in 0..(blogs.length-1) %}
+		{% set blog = blogs[i] %}
 			
-		{% if i%2 == 0 %}
-			<div class="grid_5 alpha">
+		{% if i%3 == 0 %}
+			<div class="grid_3 alpha">
+		{% elseif (i-2)%3 == 0 %}
+			<div class="grid_3 omega">
 		{% else %}
-			<div class="grid_5 omega">
+			<div class="grid_3">
 		{% endif %}
 
 			
@@ -69,9 +84,12 @@
 		
 			</div>
 		
-		{% if i%2 != 0 %}
-			<div class="clear" /></div>
-		{% endif %}
+		
+			{% if (i-2)%3 == 0 %}
+			<div class="clear"></div>
+			<br />
+			{% endif %}
+	
 				
 			{% endfor %}
 			
@@ -79,8 +97,8 @@
 			
 	
 		
-	<div class="grid_2 omega">
-		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+	<div class="grid_3 omega">
+		<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" align="right" />
 	</div>
 
 		

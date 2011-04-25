@@ -21,34 +21,6 @@
 
 {% endmacro %}
 
-{% macro abstract7Col(article) %}
-
-	{% helper dswSync %} {# bring the 'dswSync' helper into the macro context #}
-	{% set topImage = article.media.grab('type', 'image')[0] %}
-	{% set showHeadline = 1 %}
-
-<div id="featured_stories">
-	<ul class="tab-box">
-		<li>
-			<div class="img_button_1">
-				<a href="#" class="tab-header">
-				<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
-				</a>
-			</div>
-			<div class="bullet">
-	   		<a href="{{ article.url }}">
-				<img src="{{ topImage.url }}"  alt="{{ article.headline }}" />
-			</a>
-				<div class="caption">
-								<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
-								<p>{{ article.abstract_formatted|clip(200) }}</p>
-				</div>
-			</div>
-		</li>
-	</ul>
-</div>
-
-{% endmacro %}
 
 {% macro abstract3Col(article) %}
 

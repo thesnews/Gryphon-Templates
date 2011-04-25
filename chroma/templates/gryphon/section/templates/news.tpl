@@ -26,6 +26,7 @@
 															]
 						%}
 						{% set topPost = news.shift() %}
+						{% set topPost = news.shift() %}
 					
 						<h2><a href="{{ topPost.url }}">{{ topPost.headline }}</a></h2>
 						<div class="dark byline">
@@ -38,6 +39,7 @@
 						</div>
 
 						<p>
+				
 						{{ topPost.abstract_formatted|clip(350) }}
 						<a href="#" class="dark"><span>More</span></a>
 						</p>	

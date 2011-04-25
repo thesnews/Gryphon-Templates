@@ -16,7 +16,7 @@
 	{% if query %}
 		<p><strong>{{ pagination.total|int2noun('item') }}</strong> found for "{{ query }}". If you're looking for something specific, you can also try an <a href="#">Advanced Search</a>.</p>
 	{% else %}
-	<p>Use the field below to perform a basic search. This will return articles, images, and multimedia relevant to your query. You can also try an <a href="{{ 'search/?a=1'|url }}">Advanced Search</a>.</p>
+	<p>Use the field below to perform a basic search. This will return articles, images, and multimedia relevant to your query. You can also try to search the <a href="{{ 'page/archives'|url }}">archives</a>.</p>
 	{% endif %}
 	
 
@@ -30,6 +30,7 @@
 
 </div>
 
+{% if query %}
 <div class="grid_12" id="secondary">
 		<div class="pagination">
 		<ul class="page_numbers">
@@ -49,8 +50,8 @@
 
 <div class="grid_10 alpha">
 
-
-{% if query %}<h2>Search Results:</h2>{% endif %}
+{% if query %}
+<h2>Search Results:</h2>
 		
 	<div>
 	<ul>
@@ -80,8 +81,10 @@
 		</ul>
 
 	</div>
+{% else %}
 
-
+Sorry, no search results.
+{% endif %}
 </div>
 
 
@@ -93,7 +96,7 @@
 
 
 </div>
-
+{% endif %}
 
 <div class="clear"></div>
 

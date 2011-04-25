@@ -11,96 +11,215 @@
 {% set topMedia = media.shift() %}
 
 <div class="grid_12">
-	<div class="grid_8 alpha">
-	<h3>{{ topMedia.fileType }}:</h3><h2>{{ topMedia.title }}</h2>
-		<br />
-	{{ mediaRender.media(topMedia) }}
-		<br />
-	{{ topMedia.caption_formatted }}
-	<br />
-	<h3>Related:</h3>
-	
-		{% if topMedia.articles.length %}
-	<ul>
-		{% for item in topMedia.articles %}
-			<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
-		{% endfor %}
-
-	</ul>
-	{% else %}	
-	Sorry, no related articles or media. 
-	{% endif %}
-	
-	
-	</div>
-	<div class="grid_4 omega">
-		<br />
-
-		<img src="{{ 'style_chroma/images/ads/button.png'|url }}" alt="advertisement"/>
-
-	</div>
-</div>
-
-<div class="grid_12" id="secondary">
-	<div class="grid_12 pagination">
-		<ul class="page_numbers">
-			{% for page in pagination %}
+		<div class="grid_8 alpha" id="top_media">
+		 	
 			
-				{% if page.isCurrent %}
-				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% else %}
-				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% endif %}
-				{% endfor %}
-		</ul>
-	</div>
+			{{ mediaRender.media(topMedia) }}
 			
-	<div class="grid_10 alpha">
-
-		{% for i in 0..(media.length-1) %}
-		{% set item = media[i] %}
-
-		{% if i%2 == 0 %}
-			<div class="grid_5 alpha">
-		{% else %}
-			<div class="grid_5 omega">
-		{% endif %}
-
-						
-				<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
-				<div class="byline dark" style="width:100px;">
+			<div>
+			<h3>Related:</h3>
+			<ul>
+			{% if topMedia.articles.length %}
+			{% else %}
+				<li>Sorry, no related articles or media. </li>
+			{% endif %}
+			{% for item in topMedia.articles %}
+				<li><a href="{{ item.url }}">{{ item.headline }}</a></li>
+			{% endfor %}
+			</ul>
+			</div>
 			
-				<span class="date">{{ item.created|date('M d, Y') }}</span>
 			
-				</div>
-				{{ item.description|clip(100) }}
-
 		</div>
-		{% if i%2 != 0 %}
-			<div class="clear" /></div>
-		{% endif %}
-					
-	{% endfor %}
+		 
+		<div class="grid_4 omega">
+		{% include 'gryphon/main/box.tpl' %}
+		</div>
+</div>
+<div class="grid_12" id="secondary">
+	<div class="grid_9 alpha">
+		<div id="multipage">
+			<ul class="tab-box">
+				<li class="image">
+					<div>
+						<a href="#">
+						<h2>Images</h2>
+						</a>
+					</div>
+					<div class="bullet">
+						<div>
+						<br />
+							<ul>
+								{% fetch media from media with [
+									'limit': '6',
+									'order': 'weight desc, created desc',
+									'where': 'type = "image"'
+									
+									]
+								%}
+						 		
+						 		{% for i in 0..(media.length-1) %}
+									{% set item = media[i] %}
+						 								
+								{% if i%3 == 0 %}
+									<div class="grid_3 alpha">
+								{% elseif (i-2)%3 == 0 %}
+									<div class="grid_3 omega">
+								{% else %}
+									<div class="grid_3">
+								{% endif %}
 
+						 		<li>
+								<a href="{{ item.urlDefault }}"><img src="{{ item.url }}" alt="{{ item.title }}"></a>
+								<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
+								<div class="byline dark">
+
+								{% if item.authors.length %}
+								<a class="author">{{ item.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+
+								<span class="date">{{ item.created|date('M d, Y') }}</date>								
+								</div>
+								<p>{{ item.description|clip(100) }}</p>
+								</li>
+								
+								</div>
+													
+								{% if (i-2)%3 == 0 %}
+								<div class="clear"></div>
+								{% endif %}
+								
+								{% endfor %}	
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="video">
+					<div>
+						<a href="#" class="tab-header">
+						<h2>Videos</h2>
+						</a>
+					</div>
+					<div class="bullet video_bullet">
+						<br />
+						<div>
+						<ul>
+							{% fetch media from media with [
+									'limit': '6',
+									'order': 'weight desc, created desc',
+									'where': 'type = "video"'
+									]
+								%}
+						 		
+						 		{% for i in 0..(media.length-1) %}
+									{% set item = media[i] %}
+						 								
+								{% if i%3 == 0 %}
+									<div class="grid_3 alpha">
+								{% elseif (i-2)%3 == 0 %}
+									<div class="grid_3 omega">
+								{% else %}
+									<div class="grid_3">
+								{% endif %}
+
+						 		<li>
+								<a href="{{ item.urlDefault }}"><img src="{{ item.url }}" alt="{{ item.title }}"></a>
+								<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
+								
+								<div class="byline dark">
+								{% if item.authors.length %}
+								<a class="author">{{ item.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+								<span class="date">{{ item.created|date('M d, Y') }}</date>
+								</div>					
+								<p>{{ item.description|clip(100) }}</p><br />
+								</li>
+								
+								</div>
+								
+								{% if (i-2)%3 == 0 %}
+								<div class="clear"></div>
+								<br />
+								{% endif %}
+								
+								{% endfor %}	
+						</ul>	
+
+	
+						</div>
+					</div>
+				</li>
+				<li class="audio">
+					<div>
+						<a href="#" class="tab-header">
+						<h2>Sound Clips</h2>
+						</a>
+					</div>
+					<div class="bullet">
+						<br />
+						<div>
+						<ul>
+								{% fetch media from media with [
+									'limit': '9',
+									'order': 'weight desc, created desc',
+									'where': 'type = "audio"'
+									]
+								%}
+						 		
+						 		{% for i in 0..(media.length-1) %}
+									{% set item = media[i] %}
+						 								
+								{% if i%3 == 0 %}
+									<div class="grid_3 alpha">
+								{% elseif (i-2)%3 == 0 %}
+									<div class="grid_3 omega">
+								{% else %}
+									<div class="grid_3">
+								{% endif %}
+						 		
+						 		<li>
+						 		
+								<h3>
+								<a href="{{  item.urlDefault  }}">
+								{{ item.title }}
+								</a>
+								</h3>
+								
+								<div class="byline dark">
+								{% if item.authors.length %}
+								<a class="author">{{ item.authors.splat('name')|join(', ') }}</a>
+								{% endif %}
+								<span class="date">{{ item.created|date('M d, Y') }}</date>
+								</div>
+														
+								<p>{{ item.description|clip(100) }}</p>
+							
+								<div class="clear"></div>
+								</li>
+								</div>
+								
+								{% if (i-2)%3 == 0 %}
+								<div class="clear"></div>
+								<br />
+								{% endif %}
+								
+								{% endfor %}		
+				
+							</ul>
+								
+						</div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
 	</div>
-
+	<div class="grid_1">
+	&nbsp;
+	</div>
 	<div class="grid_2 omega">
-	<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+				<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
 	</div>
-
-	<div class="grid_12 pagination">
-		<ul class="page_numbers">
-			{% for page in pagination %}
-			
-				{% if page.isCurrent %}
-				<li class="act"><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% else %}
-				<li><a href="{{ page.url }}">{{ page.label }}</a></li>
-				{% endif %}
-				{% endfor %}
-		</ul>
-	</div>
-
 </div>
 
 {% endblock content %}
