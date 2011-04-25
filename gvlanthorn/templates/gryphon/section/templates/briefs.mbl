@@ -1,0 +1,1 @@
+<?php Foundry::import( 'global:main', $data ); ?>

@@ -1,0 +1,1 @@
+<img src="<?php echo $this->bigURL ?>" alt="<?php echo $this->title ?>" />

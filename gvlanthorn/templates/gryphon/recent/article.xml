@@ -1,0 +1,39 @@
+<?php
+	$articles = $data['articles'];
+	
+	$rss = new Foundry_XML_RSSBuilder;
+			
+	$description = $section->description;
+	if( !$description ) {
+		$description = 'Most recent stories from '.Foundry_Registry::get(
+			'gfn:publication.name' );
+	}
+			
+	$rss->title = 'Fresh content feed';
+	$rss->link = Foundry::config( 'serverPrefix' );
+	$rss->description = $description;
+	$rss->webMaster = Foundry_Registry::get( 'gfn:mail.webmasterAddress' );
+	$rss->generator = 'Gryphon '.__VERSION.'/'.$rss->generator;
+			
+	$mostRecent = 0;
+	foreach( $articles as $article ) {
+		if( $article->created > $mostRecent ) {
+			$mostRecent = $article->created;
+		}
+
+		$item = new Foundry_XML_RSS_Item;
+		
+		$item->title = $article->headline;
+		$item->author = $authors;
+		$item->link = $article->url;
+		$item->guid = $article->url;
+		$item->description = $article->abstract_formatted;
+		$item->pubDate = $article->created;
+
+		$rss->addItem( $item );
+	}
+
+	$rss->lastBuildDate = $mostRecent;
+	
+	echo $rss;
+?>

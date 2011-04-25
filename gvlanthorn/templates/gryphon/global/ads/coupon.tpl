@@ -1,0 +1,1 @@
+<div class="mb"><a href="http://www.lakercouponconnection.com" target="_blank"><img src="<?php echo Foundry::path('gfn-lanthorn/assets/couponconnection.jpg'); ?>" alt="Coupon Connection" /></a></div>

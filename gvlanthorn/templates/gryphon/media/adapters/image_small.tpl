@@ -1,0 +1,1 @@
+<img src="<?php echo $this->smallURL ?>" alt="<?php echo $this->base_name ?>" />

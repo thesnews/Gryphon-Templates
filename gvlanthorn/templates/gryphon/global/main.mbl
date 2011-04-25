@@ -1,0 +1,24 @@
+<?php Foundry::import( 'global:header' ) ?>
+
+<?php foreach( $data['articles'] as $article ) :
+$images = $article->mediaByType( 'image' );
+?>
+	<div class="content preview" rel="<?php echo $article->url ?>">
+		<?php if ( $images->length() ) : ?>
+		<div style="float:left;width:100px; margin-right:10px;">
+			<img src="<?php echo $images[0]->previewUrl ?>" alt="<?php echo $images[0]->title ?>" />
+		</div>
+		<?php endif; ?>
+		<h2><a href="<?php echo $article->url ?>"><?php echo $article->headline ?></a></h2>
+		<div class="table">
+			<span><strong>Published:</strong> <?php echo date( 'm/d g:ia', $article->created ) ?></span>
+			<?php if( $article->authors->length ) : ?>
+				<span><strong>By:</strong> <?php echo implode( ', ', $article->authors->splat( 'name' ) ) ?></span>
+			<?php else : ?>
+				<span>&nbsp;</span>
+			<?php endif ?>
+		</div>
+	</div>
+<?php endforeach ?>
+
+<?php Foundry::import( 'global:footer' ) ?>

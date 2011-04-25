@@ -1,0 +1,54 @@
+<?php 
+	$article = $data['article'];
+	$images = $article->mediaByType( 'image' );
+?>
+
+<?php Foundry::import( 'global:header' ) ?>
+
+<div class="content">
+	<h2><?php echo $article->headline ?></h2>
+	
+	<div class="table">
+		<span><strong>Published:</strong> <?php echo date( 'm/d g:ia', $article->created ) ?></span>
+		<?php if( $article->authors->length ) : ?>
+			<span><strong>By:</strong> <?php echo implode( ', ', $article->authors->splat( 'name' ) ) ?></span>
+		<?php endif ?>
+	</div>
+
+	<hr class="spacer" />
+	
+	<?php if( $images->length ) : ?>
+		<div class="photo">
+			<?php $images[0]->display('small') ?>
+			<span><?php echo implode( ', ', $images[0]->authors->splat( 'name' ) ) ?></span>
+			<?php echo $images[0]->caption_formatted ?>
+		</div>
+	<?php endif ?>
+	
+	<?php echo $article->copy_formatted ?>
+
+	<a name="comments"></a>
+	<?php if( $article->comments->length ) : ?>
+		<hr />
+		<h3>Commentary:</h3>
+		<div class="comments">
+			<!-- Foundry::import() takes a number of parameters, aside
+				 from the template name. The second parameter allows you 
+				 to send data to the template. Check out the 
+				 app/views/comment/display.tpl template to 
+				 see how it works -->
+			<?php Foundry::import( 'comment:display', $article->comments ) ?>
+		</div>
+	<?php endif ?>
+	
+	<?php if( $article->allow_comments ) : ?>
+		<hr class="spacer" />
+		<?php Foundry::import( 'comment:form' ) ?>
+		
+	<?php endif ?>
+
+</div>
+
+<hr />
+
+<?php Foundry::import( 'global:footer' ) ?>

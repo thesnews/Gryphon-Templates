@@ -1,0 +1,41 @@
+<form id="add-comment" action="<?php echo Foundry::link( 'comment/' ) ?>" method="post">
+
+	<!-- The commentFormHelper automatically inserts all the required form
+		 data to make the comment system work. If you remove this line, comments
+		 will cease to work. -->
+	<?php echo $this->commentFormHelper() ?>
+	
+	<h3>Add your comment:</h3>
+	
+	<fieldset id="comment-userinfo">
+		<div class="table">
+			<label for="comment-name">Name:</label>
+			<input type="text" name="name" id="comment-name" value="<?php echo Foundry_Request::post( 'name', 'specialChars' ) ?>" />
+		</div>
+		
+		<hr class="spacer" />
+		
+		<div class="table">
+			<label for="comment-email">Email address:</label>
+			<input type="text" name="email" id="comment-email" value="<?php echo Foundry_Request::post( 'email', 'email' ) ?>" />
+		</div>
+
+	</fieldset>
+	
+	<fieldset>
+		<label for="comment-body" style="width: 400px;">Your comment (HTML not allowed).</label>
+		<textarea name="comment" id="comment-body" rows="6" cols="20" style="width:95%"><?php echo Foundry_Request::post( 'comment', 'specialChars' ) ?></textarea>
+	
+		<hr class="spacer" />
+
+		<strong>We need to verify that you are, in fact, human.</strong><br />
+		<!-- the turingFormHelper automatically generates all the necessary
+			 information and form fields to make Gryphon's Turing system work.
+			 Turing questions help to reduce spam. -->
+		<?php echo $this->turingFormHelper(); ?>
+	
+	</fieldset>
+	
+	<input type="submit" id="comment-submit" value="Add Comment" />			
+		
+</form>

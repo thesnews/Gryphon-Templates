@@ -1,0 +1,17 @@
+<?php foreach( $data as $comment ) : ?>
+
+<div class="comment">
+	<a name="comment<?php echo $comment->uid ?>"></a>
+	<div class="table">
+		<span><strong><?php echo $comment->name ?></strong></span>
+		<span><?php echo date( 'm/d/y @ g:ia', $comment->created ) ?></span>
+	</div>
+	<div class="table">
+		<span>&nbsp;</span>
+		<span><a href="<?php echo Foundry::link( 'comment/flag/'.$comment->uid ) ?>">Flag this comment</a></span>
+	</div>
+	
+	<?php echo $comment->comment_formatted ?>
+</div>
+
+<?php endforeach ?>

@@ -1,0 +1,32 @@
+{% macro list(item) %}
+
+	{% helper commentHelper %}
+	{% set comments = commentHelper.commentsFor(item) %}
+
+	{% for comment in comments %}
+			
+				<div class="small" id="comment{{ comment.uid }}">
+					<b>{{ comment.name }}</b> said: ({{ comment.created|timeSince }})
+					<a style="float: right;"href="{{ ('gryphon:comment/flag/'~comment.hash)|url }}">Flag</a>
+				</div>
+				
+				<div class="comment_copy">
+				
+					{{ comment.comment_formatted }}
+				
+				</div>
+				
+	{% endfor %}
+
+{% endmacro %}
+
+{% macro pagers(item) %}
+
+	{% helper commentHelper %}
+	{% set pages = commentHelper.pagesFor(item) %}
+
+	{% for label, url in pages %}
+		<a href="{{ url }}">{{ label }}</a>
+	{% endfor %}
+
+{% endmacro %}
