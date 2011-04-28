@@ -38,25 +38,40 @@
 			<br />
 		</div>
 	
-		<div class="grid_10 alpha omega">
-			{% for post in posts %}
-			<h1><a href="{{ post.url }}">{{ post.headline }}</a></h1>
+		
+		{% for i in 0..(posts.length-1) %}
+		{% set post = posts[i] %}
+			
+		{% if i%2 == 0 %}
+			<div class="grid_5 alpha">
+		{% else %}
+			<div class="grid_5 omega">
+		{% endif %}
+
+			<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
 			<div class="dark byline">
 				{% if post.authors.length %}
 				<a class="author">{{ post.authors.splat('name')|join(', ') }}</a>
 				{% endif %}
 				<span class="date">{{ post.created|timeSince }}</span>
 				<span class="modified">{{ post.modified|timeSince }}</span>
-				<a href="{{ post.url }}#comments" class="comment">{{ post.commentTotal|int2noun('comment') }}</a>
 			</div>		
 			<p>
-				{{ post.copy_formatted|clip(1000) }}
-				{{ post.abstract_formatted }}
+				{{ post.copy_formatted|clip(500) }}
+			
 				<a href="{{ post.url }}" class="dark"><span>More</span></a>
 				<br /><br />	
 			</p>
+			</div>
+			
+			{% if i%2 == 0 %}
+			{% else %}
+			<div class="clear"></div>
+			{% endif %}			
+			
+			
 			{% endfor %}
-					</div>
+
 	</div>	
 	<div class="grid_2 omega">
 	<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />

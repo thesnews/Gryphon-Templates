@@ -16,7 +16,7 @@
 			<h2>RSS/Atom Feeds:</h2>
 			
 			<p>
-				RSS and Atom feeds allow you to add State News content to your favorite feed reader, like <a href="http://reader.google.com">Google Reader</a> or add us to your <a href="http://facebook.com">Facebook</a> news feed.
+				RSS and Atom feeds allow you to add Detroit Softworks content to your favorite feed reader, like <a href="http://reader.google.com">Google Reader</a> or add us to your <a href="http://facebook.com">Facebook</a> news feed.
 			</p>
 </div>
 <div class="grid_12" id="feeds">
@@ -74,45 +74,8 @@
 	</div>
 			
 		
-	<div class="grid_3">
-			
-			<h2>We're social too!</h2>
-			
-			<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-			<script>
-			new TWTR.Widget({
-			  version: 2,
-			  type: 'profile',
-			  rpp: 3,
-			  interval: 6000,
-			  width: 'auto',
-			  height: 225,
-			  theme: {
-				shell: {
-				  background: '#ffffff',
-				  color: '#333333'
-				},
-				tweets: {
-				  background: '#f1f1f1',
-				  color: '#333333',
-				  links: '#588658'
-				}
-			  },
-			  features: {
-				scrollbar: false,
-				loop: false,
-				live: true,
-				hashtags: true,
-				timestamp: true,
-				avatars: false,
-				behavior: 'all'
-			  }
-			}).render().setUser('thesnews').start();
-			</script>
-		</div>
-		
-		<div class="grid_2 omega">
-			<img src="{{ 'style_chroma/images/ads/skyscraper.png'|url }}" alt="advertisement" />
+		<div class="grid_5 omega">
+			<img src="{{ 'style_chroma/images/ads/square.png'|url }}" alt="advertisement" />
 		</div>
 </div>
 

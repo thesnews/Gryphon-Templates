@@ -27,8 +27,7 @@
 	
 	<ul class="search-results">
 		{% for poll in polls %}
-			<li><img src="{{ 'style_chroma/images/icons/piechart.png'|url }}" />
-	<a href="{{ poll.url }}">{{ poll.question }}</a></li>
+			<li><a href="{{ poll.url }}">{{ poll.question }}</a></li>
 		{% endfor %}
 	</ul>
 	

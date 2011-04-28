@@ -16,4 +16,5 @@
 		{{ media.caption_formatted }}
 		
 	</div>
+	
 </div>

@@ -43,7 +43,7 @@
 				<li class="image">
 					<div>
 						<a href="#">
-						<h2>Images</h2>
+						<p>Images</p>
 						</a>
 					</div>
 					<div class="bullet">
@@ -71,7 +71,7 @@
 
 						 		<li>
 								<a href="{{ item.urlDefault }}"><img src="{{ item.url }}" alt="{{ item.title }}"></a>
-								<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
+								<!--<h2><a href="{{ item.urlDefault }}">{{ item.title }}</a></h2>-->
 								<div class="byline dark">
 
 								{% if item.authors.length %}
@@ -97,7 +97,7 @@
 				<li class="video">
 					<div>
 						<a href="#" class="tab-header">
-						<h2>Videos</h2>
+						<p>Videos</p>
 						</a>
 					</div>
 					<div class="bullet video_bullet">
@@ -124,7 +124,7 @@
 
 						 		<li>
 								<a href="{{ item.urlDefault }}"><img src="{{ item.url }}" alt="{{ item.title }}"></a>
-								<h3><a href="{{ item.urlDefault }}">{{ item.title }}</a></h3>
+								<!--<h2><a href="{{ item.urlDefault }}">{{ item.title }}</a></h2>-->
 								
 								<div class="byline dark">
 								{% if item.authors.length %}
@@ -152,7 +152,7 @@
 				<li class="audio">
 					<div>
 						<a href="#" class="tab-header">
-						<h2>Sound Clips</h2>
+						<p>Sound Clips</p>
 						</a>
 					</div>
 					<div class="bullet">
@@ -179,11 +179,11 @@
 						 		
 						 		<li>
 						 		
-								<h3>
+								<h2>
 								<a href="{{  item.urlDefault  }}">
 								{{ item.title }}
 								</a>
-								</h3>
+								</h2>
 								
 								<div class="byline dark">
 								{% if item.authors.length %}

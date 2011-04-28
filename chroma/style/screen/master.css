@@ -9,7 +9,7 @@
 }
 
 /* STANDARD MODAL
-*******/
+***********************************/
 
 .rose_modal_container {
 	color: #333;
@@ -109,6 +109,10 @@ a.dark span {
 	background: url(../images/icons/arrow_right.gif) no-repeat top right;
 	padding: 0 13px 0 0;
 	}
+
+a.dark { 
+	margin: 2px;
+}
 
 .dark {
 	background: url(../images/bg/dark.png);
@@ -358,63 +362,6 @@ div#join_convo a {
 
 div#join_convo a:hover {
 	background: url(../images/bg/darker.png);
-}
-
-
-/* Search-specific styling
-***********************************/
-
-form#basic_search {
- text-align: center;
- margin-bottom: 20px;
-}
-
-form#basic_search input#submit_query, form#adv_search input#submit_query {
-	background: url(../images/bg/button_bg.png);
-	padding: 7px;
-	color: #424242;
-	font-weight: bold;
-	font-size: 1.2em;
-	text-shadow: 0 1px #fff;
-	border: 1px solid #808080;
-}
-
-form#basic_search input#query_field, form#adv_search input#query_field {
-	padding: 5px;
-	font-size: 1.5em;
-	border: 1px solid #808080;
-	color: #808080;
-	width: 530px;
-	
-}
-
-p#adv_search, p#basic_search {
-	background: url(../images/bg/dark.png);
-	padding: 5px;
-	text-align: center;
-}
-
-p#basic_search {
-	display: none;
-}
-
-form#adv_search {
-	margin-top: 20px;
-	display: none;
-	text-align: center;
-}
-
-form#adv_search input {
-	color: #808080;
-	padding: 5px;
-	width: 260px;
-	margin: 0 10px;
-}
-
-form#adv_search fieldset {
-	margin: 0 0 10px 0;
-	padding: 0 0 10px 0;
-	background: url(../images/bg/divider_medium.png) bottom center no-repeat;
 }
 
 /* Blog-specific styling
@@ -699,8 +646,6 @@ div.byline a.rss, div#blog_info a#rss {
 	margin: 0 5px 0 0;
 }
 
-
-
 /* Photo Bylines
 ***********************************/
 
@@ -730,7 +675,6 @@ p.byline a.rss, p#blog_info a#rss {
 	background-image: url(../images/icons/rss.png);
 	background-position: 0 2px;
 }
-
 
 /* Section Tabs Module
 ***********************************/
@@ -1138,7 +1082,7 @@ div#ticker {
 
 ul.page_numbers {
 	text-align: left;
-	margin: 8px 0 0 0;
+	margin: 10px 0 10px 0;
 }
 
 	ul.page_numbers li {
@@ -1281,9 +1225,10 @@ div#multipage div.tab-box-header div {
 	width:175px;
 }
 
-div#multipage div.tab-box-header div h2 {
-padding-top: 5px;
-margin-bottom: 12px; 
+div#multipage div.tab-box-header div p {
+	font-size: 1.3em;
+	padding-top: 9px;
+	margin-bottom: 12px; 
 }
 
 div#multipage div.tab-box-header a {
@@ -1385,12 +1330,17 @@ div#top_media div img {
 
 div#top_media div div#soundplayer{
 	margin-top: 100px;
-	margin-bottom: 50px; 
+	margin-bottom: 100px; 
 	width: 290px;
 	background: url(../images/bg/dark.png);
 	padding: 6px 6px 4px 6px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
+}
+
+div#top_media div div#videoplayer {
+	margin-top: 20px;
+	margin-bottom: 75px;
 }
 
 div#top_media div div#videoplayer div.video-js-box video{
@@ -1402,39 +1352,45 @@ div#top_media div div#videoplayer div.video-js-box video{
 }
 
 
-/* Archive Page layout
+/* Archive and Search Page layout
 ***********************************/
 
 div#form_right {
-	float: right;
+	position: absolute;
+	left: 326px;
+}
+
+div#form_right div {
+	margin-top: 1px;
+	margin-bottom: 5px;
 }
 
 div#form_left {
 	float: left;
 }
 
-form.search-advanced {
-	width:500px;
-	margin-top: 20px;
-	margin-left: 50px;
+input.search_field_archives {
+		font-size: 0.9em;
+		border: 0;
+		padding: 0 0 0 2px;
+		width: 300px;
+		float: left;
+		padding: 3px;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+div#form_submit_archives {
+	margin-top: 15px;
 }
 
-form.search-advanced input {
-	margin-bottom: 10px;
-	float: right;
+form#advanced_search {
+	margin-top: 15px;
 }
 
-form.search-advanced select {
-	margin-bottom: 15px;
-}
-
-form.search-advanced div#form_submit {
-	margin-top:20px;
-}
-
-form.search-advanced textarea, form.search-advanced input { 
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+div#main_search {
+	margin-top: 15px;
 }
 
 /* Contact Page layout
@@ -1445,7 +1401,7 @@ img#map {
 	padding: 6px 6px 6px 6px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
-	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 div#address {

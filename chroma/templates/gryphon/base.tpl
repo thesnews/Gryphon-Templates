@@ -69,7 +69,7 @@
 			<span id="links"><a href="{{ 'page/contact'|url }}">Contact Us</a> | <a href="{{ 'page/archives'|url }}">Archives</a> | <a href="{{ 'page/classifieds'|url }}">Classifieds</a> | <a href="{{ 'page/feeds'|url }}">Feeds</a></span>
 			</div>	
 	<form id="search" method="get" action="{{ 'gryphon:search'|url }}" class="search-form search2">
-			<input id="search_field" class="search replace-text" type="text" name="q" value="Search" />
+			<input id="search_field" class="replace-text" type="text" name="q" value="Search" />
 			<input class="search_button" type="image" name="submit" style="float: right;" src="{{ 'style_chroma/images/search_icon.png'|url }}" width="13" height="13" alt="search">
 	</form>
 		
@@ -132,13 +132,13 @@
 						
 						<div class="grid_2">
 							<ul>
-								<li>Blogs</li>
+								<li><a href="{{ 'blog'|url }}">Blogs</a></li>
 								{% fetch blogs from blog with [
 									'where': 'status = 1',
 									'order': 'name asc'
 								] %}
 								{% for blog in blogs %}
-									<li><a href="{{ blog.url }}.xml">{{ blog.name }}</a></li>
+									<li><a href="{{ blog.url }}">{{ blog.name }}</a></li>
 								{% endfor %}
 							</ul>
 						</div>

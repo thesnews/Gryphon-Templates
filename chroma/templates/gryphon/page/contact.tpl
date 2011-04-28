@@ -109,14 +109,17 @@
 </div>
 
 <div class="grid_6 omega">
-			<img id="map" src="http://maps.google.com/staticmap?zoom=14&markers=42.734752,-84.479649,midgreen&size=440x350&key=ABQIAAAAOAJJSVnRhiCfDawwOL-wDxTTK3WMb6Y_3oBU9NJeBkSCoFhVMhSAjX2xNFBXWPNSCKDIqwceDiNWtA&sensor=false%22" />
-
 	<div id="legal_notice">
 		<h2>Legal Notice</h2>
 		<p>By accessing this website, user agrees that jurisdiction and venue for any and all legal actions or disputes against The State News and any of its employees shall be governed by the laws of the United States of America and the State of Michigan. Any legal action must be commenced in the 54B District Court of Michigan in East Lansing, Michigan, the Ingham County Circuit Court in Lansing, Michigan or the U.S. District Court, Western District of Michigan in Grand Rapids, Michigan.</p>
 		<p>Columns and editorial cartoons are opinions of the writers or artists, not of The State News. The State News encourages readers to submit letters to the editor. Because of space limitations, letters that are 250 words or less will be given priority. Letters can be dropped off or mailed to The State News at 435 E. Grand River Ave., East Lansing, MI 48823, or faxed to (517) 432-3075. Letters also may be submitted through this address. Please include your year, major and phone number for confirmation on all letters. Letters may run in the print or World Wide Web versions, and all are subject to editing for length and clarity. The State News will not intentionally alter a viewpoint presented in a letter, and opinions in letters are not necessarily the views of this newspaper. Anonymous letters will not be considered for publication.</p>
 	
 	</div>
+
+	<img id="map" src="http://maps.google.com/staticmap?zoom=13&markers=42.734752,-84.479649,midgreen&size=200x200&key=ABQIAAAAOAJJSVnRhiCfDawwOL-wDxTTK3WMb6Y_3oBU9NJeBkSCoFhVMhSAjX2xNFBXWPNSCKDIqwceDiNWtA&sensor=false%22" alt="Google Map" />
+
+
+
 
 </div>
 

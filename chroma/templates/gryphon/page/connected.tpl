@@ -67,7 +67,7 @@
 	
 	<div class="grid_4">
 	
-		{% include 'gryphon/main/sidebar-short.tpl' %}
+	
 	
 	</div>
 	

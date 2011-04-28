@@ -87,7 +87,6 @@
 		
 			{% if (i-2)%3 == 0 %}
 			<div class="clear"></div>
-			<br />
 			{% endif %}
 	
 				

@@ -9,7 +9,7 @@
 		<div class="grid_6 alpha">
 			<h1>Classifieds</h1>
 			
-			<div class="gray box">
+			<div>
 				<form id="classifieds-search-form" method="post" action="{{ 'pre1:main/search'|url }}">
 					<input type="text" id="classifieds-search-terms" name="token" value="Search Classifieds" />
 					<select id="classifieds-search-category" name="category">
@@ -20,8 +20,6 @@
 					</select>
 				</form>
 			</div>
-
-			<hr class="spacer" />
 			
 			{% if featured.length %}
 				<h3>Featured:</h3>
@@ -47,7 +45,7 @@
 			{% endif %}
 		</div>
 		<div class="grid_2 omega">
-			<h5 class="bordered">CATEGORIES:</h5>
+			<h5>CATEGORIES:</h5>
 			<ul class="link-list">
 			{% for category in categories %}
 				<li><a href="{{ category.url }}">{{ category.name }}</a></li>
