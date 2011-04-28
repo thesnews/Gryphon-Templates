@@ -1,0 +1,65 @@
+<?php
+	$scripts	= Foundry_Registry::get( 'gfn:include.scripts' );
+	$styles		= Foundry_Registry::get( 'gfn:include.styles' );
+	$namespaces = Foundry_Registry::get( 'gfn:include.xmlNamespaces' );
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"<?php if( $namespaces ) : foreach( $namespaces as $ns => $url ) : echo ' '.$ns.'="'.$url.'"'; endforeach; endif; ?>>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="generator" content="Gryphon <?php echo __VERSION ?>" />
+	<script type="text/javascript" src="<?php echo Foundry::js( 'vendor/mootools/mootools-1.2.js' ) ?>"></script>
+	<script type="text/javascript" src="<?php echo Foundry::js( 'vendor/tsn/tsn.compressed.js' ) ?>"></script>
+
+	<?php if( $styles ) : foreach( $styles as $style ) : ?>
+		<link rel="stylesheet" type="text/css" href="<?php echo $style ?>"
+			media="screen" />
+	<?php endforeach; endif ?>
+	<?php if( $scripts ) : foreach( $scripts as $script ) : ?>
+		<script
+			src="<?php echo $script ?>"
+			type="text/javascript"></script>
+	<?php endforeach; endif ?>
+	
+	<meta name="viewport" content="width=320;initial-scale=1.0;"/>
+
+	<title><?php echo Foundry_Registry::get('gfn:publication.shortname') ?> Mobile</title>
+	<script type="text/javascript" src="<?php echo Foundry::js( 'vendor/offspring/offspring.js' ) ?>"></script>
+	<script type="text/javascript" src="<?php echo Foundry::js( 'vendor/tsn/tsn.release.js' ) ?>"></script>
+	<script type="text/javascript" src="<?php echo Foundry::js( 'mobile.js' ) ?>"></script>
+
+	<link rel="stylesheet" type="text/css" href="<?php echo Foundry::style( 'screen/960.css' ) ?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Foundry::style( 'screen/reset.css' ) ?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Foundry::style( 'screen/text.css' ) ?>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Foundry::style( 'screen/mobile.css' ) ?>" media="screen" />
+
+    <link rel="apple-touch-icon" href="<?php echo Foundry::path( 'style/images/gvl-webclip.png' ) ?>"/>
+</head>
+<body>
+
+<div id="fill">
+<div id="header">
+	<?php echo WeatherBugPlugin::metar()->temperature_f ?> &deg;F
+	<img src="<?php echo WeatherBugPlugin::icon(); ?>" class="icon" height="16" alt="" />
+</div>
+</div>
+
+<div id="navbar">
+	<select id="action_sectionNavigation">
+		<option value="0">Select a section:</option>
+		<option value="<?php echo Foundry::link( '/' ) ?>">Home</option>
+		<option value="<?php echo Foundry::link( 'section/news' ) ?>">News</option>
+		<option value="<?php echo Foundry::link( 'section/sports' ) ?>">Sports</option>
+		<option value="<?php echo Foundry::link( 'section/ae' ) ?>">A&amp;E</option>
+		<option value="<?php echo Foundry::link( 'section/laker_life' ) ?>">Laker Life</option>
+		<option value="<?php echo Foundry::link( 'section/editorial' ) ?>">Editorial</option>
+		
+		<option>--</option>
+		<option value="<?php echo Foundry::link( 'classified' ) ?>">Classifieds</option>
+	</select>
+	<span>
+		<strong><?php echo date( 'M. jS, Y' ) ?></strong>
+	</span>
+</div>

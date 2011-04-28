@@ -1,0 +1,12 @@
+
+
+<div id="footer">
+	&copy;<?php echo date('Y') ?> <em><?php echo Foundry_Registry::get('gfn:publication.name') ?></em>
+	<br />
+	Viewing <strong>mobile version</strong>. | Switch to <a href="<?php echo Foundry::link( '/?edition=standard' ) ?>">standard</a>.
+	<br />
+</div>
+
+<?php Foundry::import( 'global:tracker' ); ?>
+</body>
+</html>
