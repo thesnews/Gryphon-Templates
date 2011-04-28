@@ -4,6 +4,26 @@
 	{% set topImage = article.media.grab('type', 'image')[0] %}
 	{% set showHeadline = 1 %}
 	
+	<div class="image mmb">
+		<a  href="{{ article.url }}">
+		<img src="{{ topImage.url }}"  alt="{{ article.headline }}" class="col_2" />
+		</a>
+	</div>
+	<a class="reprints-button" href="http://reprints.lanthorn.com"></a>
+	<div class="clear mmb">&nbsp;</div>
+		<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
+	<div class="byline aside mmb">
+		{{ article.authors.splat('name')|join(', ') }} | <span class="dateline aside">{{ article.created|date('m/d') }}</span>
+	</div>
+	<div class="abstract mb">
+		{{ article.abstract_formatted }}
+	</div>
+
+{% endmacro %}
+
+<!--
+	
+{% macro abstract5Coloriginal(article) %}	
 	{% if topImage %}
 		{% if 'vertical'|in(topImage.meta) %}
 			{% set showHeadline = 0 %}
@@ -75,7 +95,26 @@
 	</div>
 {% endmacro %}
 
+
+-->
 {% macro abstract3Col(article) %}
+		<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
+		
+		<div class="byline aside mmb">
+			{% if article.authors.length %}By {{ article.authors.splat('name')|join(', ') }}{% endif %} | <span class="dateline aside">{{ article.created|date('m/d') }}</span></div>
+
+				
+		<div class="thumbright">
+				<a href=""><img src="" alt="" /></a>
+		</div>
+				
+		<div class="abstract mb">
+			{{ article.abstract_formatted|clip(200) }}
+		</div>
+
+
+
+<!--
 	<div class="article">
 		<h4><a href="{{ article.url }}">{{ article.headline }}</a></h4>
 		
@@ -90,4 +129,5 @@
 		<p>{{ article.abstract_formatted|clip(100) }} <a href="{{ article.url }}">More &#187;</a></p>
 	
 	</div>
+-->
 {% endmacro %}
