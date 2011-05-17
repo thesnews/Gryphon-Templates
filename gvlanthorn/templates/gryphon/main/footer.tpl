@@ -1,5 +1,3 @@
-</div><!-- #main -->
-
 <div id="leaderboard">
 	<?php Foundry::import( 'global:ads/leaderboard_728x90' ); ?>
 </div><!-- #leaderboard -->

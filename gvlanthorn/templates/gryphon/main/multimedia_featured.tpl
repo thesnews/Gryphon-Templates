@@ -39,3 +39,16 @@
 	</ul>
 
 <div class="aside2 mb" style="text-align:right"><a href="/index.php/multimedia/">SEE MORE MULTIMEDIA &raquo;</a></div>
+
+<ul class="multimedia-box">
+{% for media in multimedia %}
+	<li>
+		<a href="{{ media.urlDefault }}"><img src="{{ media.url }}" alt="{{ media.title }}" /></a>
+		<p>
+			<strong>{{ media.type }}: {{ media.title }}</strong>
+			<br />
+			{{ media.caption|clip }}
+		</p>
+	</li>
+{% endfor %}
+</ul>

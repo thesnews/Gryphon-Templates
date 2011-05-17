@@ -6,6 +6,10 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/article.tpl" as articleRender %}
 
+{% include 'gryphon/main/header.tpl' %}
+
+
+<!-- When working on the main page I used the html from the source page of the Lanthorn home. To view the original php, open the main page in the global folder. I'm attempting to fill in the twig based on whats there, rather than use the php because php will break it and I will not be able to see the actual site I am working on. -->
 
 <div id="main" class="container_12">
 	
@@ -21,8 +25,6 @@
 		{% endfor %}			
 				
 	</div>
-
-
 
 	<div class="grid_4">
 		<form method="get" id="searchform" class="mb" action="/index.php/search/" >
@@ -943,14 +945,18 @@
 
 <div class="grid_4">
 	<div class="mb">
+<!-- UMD LAW IS NOT ON CURENT HOMEPAGE
+
 	<a href="http://www.law.udmercy.edu/" target="new" title="UDM Law" onclick="pageTracker._trackEvent('Ads', 'Click', '/media/ads/currentads/UDL-064A_300x250OpenHseSpr2011GVSU.jpg')">
-		<img src="/media/ads/currentads/UDL-064A_300x250OpenHseSpr2011GVSU.jpg" alt="UDM Law" border="0" /></a>
-		<script type="text/javascript">
+	<img src="/media/ads/currentads/UDL-064A_300x250OpenHseSpr2011GVSU.jpg" alt="UDM Law" border="0" /></a>
+	<script type="text/javascript">
 		$(document).ready(function () {
 			pageTracker._trackEvent("Ads", "Impression", "/media/ads/currentads/UDL-064A_300x250OpenHseSpr2011GVSU.jpg");
 		});
-		</script></div>	
+	</script></div>	
 	<div class="mod-head">
+-->	
+	
 	<h4>Briefs</h4>
 
 </div>
@@ -1111,42 +1117,8 @@
 
 </div><!-- #main -->
 
-<div id="leaderboard">
 
-	<a href="http://www.grhopper.com/" target="new" title="" onclick="pageTracker._trackEvent('Ads', 'Click', '/media/ads/currentads/GR_hopper_728x90_onlinead.jpg')">
-		<img src="/media/ads/currentads/GR_hopper_728x90_onlinead.jpg" alt="" border="0" /></a>
-		<script type="text/javascript">
-		$(document).ready(function () {
-			pageTracker._trackEvent("Ads", "Impression", "/media/ads/currentads/GR_hopper_728x90_onlinead.jpg");
-		});
-		</script></div><!-- #leaderboard -->
-
-<div id="footer">
-	<div id="footer-content">
-		<div class="right">
-			<p>
-				<a href="/index.php/">Home</a> | <a href="/index.php/section/news">News</a> | <a href="/index.php/section/sports">Sports</a> | <a href="/index.php/section/ae">A&amp;E</a> | <a href="/index.php/section/laker_life">Laker Life</a> | <a href="/index.php/section/editorial">Editorial</a> | <a href="/index.php/blog/">Blogs</a> | <a href="/index.php/multimedia/">Multimedia</a><br /><a href="/index.php/search/?a=1">Archives</a> | <a href="/index.php/page/advertising">Advertising</a> | <a href="/index.php/page/contact">Contact Us</a> | <a href="/index.php/page/about_us">About Us</a> | <a href="/index.php/calendar/">Event Calendar</a> | <a href="/index.php/page/feeds">RSS</a><br /><a href="/index.php/classified/">Classifieds</a> | <a href="http://reprints.lanthorn.com">Photo Store</a> | <a href="http://www.gvsuoffcampushousing.com">Housing</a> | <a href="/index.php/page/travel">Travel</a> | <a href="/index.php/page/privacy">Privacy Policy</a>
-
-			</p>
-			<p class="copy">Copyright &copy;2011 Grand Valley Lanthorn. All rights reserved.</p>
-		</div>
-		
-		<div class="clear">&nbsp;</div>
-		
-		<a href="http://detroitsoftworks.com" target="_blank" class="icn">Powered by Detroit Softworks</a>
-	</div><!-- #footer-content -->
-</div><!-- #footer -->
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-9985660-8");
-pageTracker._trackPageview();
-} catch(err) {}</script></body>
-
+{% include 'gryphon/main/footer.tpl' %}
 
 
 {% endblock content %}
