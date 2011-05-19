@@ -1,0 +1,40 @@
+html, body {
+	color:#666;
+	background-color:#222;
+}
+
+a {color:#ccc;}
+a:active, a:hover {outline-color:#222;}
+h1, h2, h3, h4 {color:#666;}
+h5, h6 {color:#666;}
+
+.attn {color:#880101;}
+
+.head3 {color:#666;}
+.head3 a {color:#666;}
+.head4 {color:#000;}
+.head4 a {color:#000;}
+
+#header {border-top-color:#000;}
+#header a {color:#666;}
+
+#navbar {background-color:#000;}
+	#navbar ul li a {color:#666;}
+	#navbar .ui-tabs-selected a {color:#ccc; border-color:#ddd; background:#222 url('../assets/bkg-nav-mm.gif') top left repeat-x; }
+	
+#subnav {border-bottom-color:#000;}
+	#subnav a {color:#666;}
+
+#leaderboard {border-bottom-color:#333;}
+
+#footer {border-top-color:#444; color:#444; font-size:11px;}
+	#footer a {color:#666;}
+
+#footer .icn {background:url('../assets/gear_lt.png') top center no-repeat; text-shadow: 1px 1px #ccc; color:#666;}
+
+.hat {border-top-color:#333;}
+.boot {border-bottom-color:#444;}
+.wrap {border-top-color:#333; border-bottom-color:#444;}
+
+.dateline {color:#444;}
+.caption {color:#666;}

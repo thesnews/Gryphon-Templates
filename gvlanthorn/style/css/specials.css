@@ -1,0 +1,8 @@
+#specials_header {
+	background: #333;
+	color: #f1f1f1;
+	margin-bottom: 1em;
+}
+	#specials_header .container_16 {
+		background: url( ../images/specials_header.gif ) no-repeat bottom right;
+	}

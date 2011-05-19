@@ -1,0 +1,14 @@
+.mod-head {background:transparent url('../assets/bkg-mod.gif') top left no-repeat;}
+.mod-sub {background:transparent url('../assets/bkg-mod.gif') bottom left no-repeat;}
+.col8head {background:transparent url('../assets/bkg-mod-grid8.gif') top left no-repeat;}
+.col8sub {background:transparent url('../assets/bkg-mod-grid8.gif') bottom left no-repeat;}
+
+
+h4 a, h4 a:link, h4 a:visited {color:#111;}
+h3.link {color:#225091;}
+.mod-head h4 a {color:#fff;}
+
+.aside2 a {color:#666;}
+.mod-head ul li a {color:#fff;}
+ul.wrap li a {color:#111;}
+ul.links li a {color:#333;}

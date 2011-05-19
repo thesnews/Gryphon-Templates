@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="generator" content="Gryphon <?php echo __VERSION ?>" />
-
-	<title></title>
-	
-	<link rel="stylesheet" type="text/css" href="<?php echo Foundry::path( 'gfn-lanthorn/css/master.css' ) ?>" media="all" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Foundry::path( 'gfn-lanthorn/css/thickbox.css' ) ?>" media="screen" />
 		
-	<link rel="shortcut icon" href="<?php echo Foundry::path( 'favicon.ico' ) ?>" />
-	
-	<link rel="alternate" type="application/rss+xml" title="<?php echo Foundry_Registry::get('gfn:publication.name') ?> : Top Stories" href="<?php echo Foundry::link( 'section/pageOne.xml' ) ?>" />
-	
-	<script type="text/javascript" src="{{ 'style/js/vendor/mootools/mootools-1.2.compressed.js'|url }}"></script>
-	<script type="text/javascript" src="{{ 'style/js/base.js'|url }}"></script>
-	<script type="text/javascript" src="{{ 'style/js/vendor/plugins/accordian.js'|url }}"></script>
-	<script type="text/javascript" src="{{ 'style/js/frontend.js'|url }}"></script>
-	
-	<script type="text/javascript" src="<?php echo Foundry::path( 'gfn-lanthorn/js/functions.js' ) ?>"></script>
-		
-</head>
-<body>
 
 <div id="header">
 	<div id="subnav">
@@ -43,7 +19,10 @@
 		<img src="{{ 'style/images/logo_header.png'|url }}" alt="logo_header" />
 		<div id="tagline">Allendale and Grand Rapids, Mich. | www.Lanthorn.com</div>
 	</div>
-			
+	
+	
+	{% include 'gryphon/navigation.tpl' %}
+
 <!-- old nav
 
 	<div style="border-top:1px solid #fff; border-left:1px solid #fff;">

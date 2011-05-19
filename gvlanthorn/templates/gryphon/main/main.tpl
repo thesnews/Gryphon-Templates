@@ -8,9 +8,6 @@
 
 {% include 'gryphon/main/header.tpl' %}
 
-
-<!-- When working on the main page I used the html from the source page of the Lanthorn home. To view the original php, open the main page in the global folder. I'm attempting to fill in the twig based on whats there, rather than use the php because php will break it and I will not be able to see the actual site I am working on. -->
-
 <div id="main" class="container_12">
 	
 	<div class="grid_5">
