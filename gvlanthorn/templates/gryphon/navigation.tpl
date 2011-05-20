@@ -2,7 +2,7 @@
 
 {% set navigation = [
 	'/': [
-		'id': 'home',
+		'id': 'frontpage',
 		'label': 'HOME'
 	],
 
@@ -37,7 +37,7 @@
 	],
 
 	'blog': [
-		'id': 'blog',
+		'id': 'blogs',
 		'label': 'BLOGS'
 	],
 

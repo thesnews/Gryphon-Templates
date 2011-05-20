@@ -41,7 +41,18 @@
 
 </head>
 <body>
+			
+	{% include 'gryphon/main/header.tpl' %}
+
+	<div id="main" class="container_12">
+
+			
 				{# THIS IS THE MAIN CONTENT BLOCK #}
 				{% block content %}{% endblock %}
+				
+	</div><!-- #main -->
+
+	{% include 'gryphon/main/footer.tpl' %}
+	
 </body>
 </html>

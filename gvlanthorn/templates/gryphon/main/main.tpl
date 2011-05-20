@@ -6,9 +6,6 @@
 {% set secondaryStories = articles.shift(3) %}
 {% import "macros/article.tpl" as articleRender %}
 
-{% include 'gryphon/main/header.tpl' %}
-
-<div id="main" class="container_12">
 	
 	<div class="grid_5">
 
@@ -1112,10 +1109,7 @@
 
 <div class="clear">&nbsp;</div>
 
-</div><!-- #main -->
 
-
-{% include 'gryphon/main/footer.tpl' %}
 
 
 {% endblock content %}

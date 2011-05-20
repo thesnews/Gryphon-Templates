@@ -98,27 +98,35 @@ ul#cat {
 }
 
 
-ul#cat li {
-	display:inline;
-	margin:0px;
-	padding: 5px 6.82px;
-	border-right: 1px solid #fff;
-	text-align: center;
+	ul#cat li {
+		display:inline;
+		margin:0px;
+		padding: 5px 6.82px;
+		border-right: 1px solid #fff;
+		text-align: center;
+		
+	}
 	
-}
-
-ul#cat li a {
-	text-decoration:none;
-}
-
-ul#cat li:hover {
-	background-color:#fff;
+		ul#cat li a {
+			text-decoration:none;
+		}
 	
-}
-
-ul#cat li:hover a {
-	color:#225091; color:#111; text-decoration:none;
-}
+	ul#cat li:hover {
+		background-color:#fff;
+		
+	}
+	
+		ul#cat li:hover a {
+			color:#225091; color:#111; text-decoration:none;
+		}
+	
+	ul#cat li.active {	
+		background-color:#fff;
+	}
+	
+		ul#cat li.active a {
+			color:#225091; color:#111; text-decoration:none;
+		}
 
 /*
 #nav {width:100%; border-collapse:collapse;}

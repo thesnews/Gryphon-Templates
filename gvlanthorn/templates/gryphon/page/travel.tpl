@@ -1,9 +1,11 @@
-<?php
-Foundry::import( 'global:header', array(
-	'title' => 'Travel',
-	'activeTab' => 'travel'
-));
-?>
+{% extends "gryphon/base.tpl" %}
+{% block title %}:: Travel{% endblock %}
+
+
+{% block active %}travel{% endblock %}
+{% block subActive %}Travel{% endblock %}
+
+{% block content %}
 
 <div class="grid_8">
 	<div id="Partner_API_CampusHwy" partnerid="93453">
@@ -28,8 +30,12 @@ Foundry::import( 'global:header', array(
 </div>
 
 <div class="grid_4">
-	<?php Foundry::import( 'article:sidebar', 'short' ); ?>
+
+<!--Side bad goes here-->
+
 </div>
 
 <div class="clear">&nbsp;</div>
-<?php Foundry::import( 'global:footer' ); ?>
+
+
+{% endblock content %}
