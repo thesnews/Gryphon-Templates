@@ -36,7 +36,7 @@ $(function(){
 
 /* Clearing Forms
 	*******************************/
-	
+
 	$("input#search_field, input#comment_name, input#comment_email, input#comment_turing, textarea#comment_body, input#subscribe").focus(function() {
 		if( this.value == this.defaultValue ) {
 			this.value = "";
