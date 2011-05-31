@@ -122,9 +122,8 @@
 
 <div class="grid_4">
 			
-	<div class="mod mb">
+	
 		{% include 'gryphon/main/popular.tpl' %}
-	</div>	
 	
 	<div class="mod-head">
 		<h4>PDF Archives</h4>
