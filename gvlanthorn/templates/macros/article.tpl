@@ -13,7 +13,7 @@
 	<div class="clear mmb">&nbsp;</div>
 		<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
 	<div class="byline aside mmb">
-		{{ article.authors.splat('name')|join(', ') }} | <span class="dateline aside">{{ article.created|date('m/d') }}</span>
+		<span class="dateline aside">{{ article.authors.splat('name')|join(', ') }} | {{ article.created|date('M d') }}</span>
 	</div>
 	<div class="abstract mb">
 		{{ article.abstract_formatted }}
@@ -97,17 +97,20 @@
 
 
 -->
+
 {% macro abstract3Col(article) %}
 		<h3><a href="{{ article.url }}">{{ article.headline }}</a></h3>
 		
 		<div class="byline aside mmb">
-			{% if article.authors.length %}By {{ article.authors.splat('name')|join(', ') }}{% endif %} | <span class="dateline aside">{{ article.created|date('m/d') }}</span></div>
-
-				
-		<div class="thumbright">
-				<a href=""><img src="" alt="" /></a>
+			<span class="aside dateline">{% if article.authors.length %}By {{ article.authors.splat('name')|join(', ') }}{% endif %} | {{ article.created|date('M d') }}</span>
 		</div>
-				
+
+			
+		<div class="thumbright">
+				<a href="{{ article.url }}"><img src="{{ media.urlThumbnail }}" alt="{{ article.headline }}" /></a>
+		</div>
+
+
 		<div class="abstract mb">
 			{{ article.abstract_formatted|clip(200) }}
 		</div>

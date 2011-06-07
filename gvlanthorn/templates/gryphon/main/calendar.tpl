@@ -1,3 +1,28 @@
+<!- html copy ->
+	<div class="mod-head">
+		<h4>Upcoming Events</h4>
+	</div>
+
+	<div id="events-mod" class="tabheader">
+		<ul id="event-dates">
+			<li><span>Wed</span><a href="#d-27">27</a></li>
+			
+			<li><span>Thu</span><a href="#d-28">28</a></li>
+			
+			<li><span>Fri</span><a href="#d-29">29</a></li>
+			
+			<li><span>Sat</span><a href="#d-30">30</a></li>
+			
+			<li><span>Sun</span><a href="#d-01">01</a></li>
+		</ul>
+		<div class="clear">&nbsp;</div>
+	</div>
+	
+	
+	
+	
+	
+
 <div id="calendar">
 
 <div class="mod-head">

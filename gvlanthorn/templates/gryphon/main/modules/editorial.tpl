@@ -1,31 +1,34 @@
-<?php
-$section = _M('section')->findBySlug('editorial')->shift();
-$articles = _M('article')->findByTags( $section->tags )->shift(3);
-
-//$letters = $articles->withTagName( 'letters' )->shift(3);
-//$columns = $articles->withTagName( 'column' )->shift(3);
-
-$cartoon = _M( 'media' )->
-	setInverseRelationship( 'tag', array( 'limit' => 1 ) )->
-	findByTag( _M( 'tag')->findByName( 'cartoon' ) )->shift();
-?>
-<div class="mod-head">
-	<h4><?php echo $section->name ?></h4>
-</div>
-<div class="mod mb">
-	<div class="inner">
-		<?php if( $cartoon->status == 0 ) echo '<div class="unp">'; ?>
-		<div class="image">
-			<a href="<?php echo $section->url ?>"><img src="<?php echo $cartoon->smallUrl ?>" alt="<?php echo $cartoon->base_name ?>" /></a>
-		</div>
-		<div class="caption aside mb">Editorial cartoon</div>
-		<?php if( $cartoon->status == 0 ) echo '</div>'; ?>
-		
-		<hr class="mmb" />
-		<ul class="links mb">
-			<?php foreach( $articles as $article ) : ?>
-				<li<?php if( $article->status == 0 ) echo ' class="unp"'; ?>><a href="<?php echo $article->url ?>"><?php echo $article->headline ?></a>&nbsp;&nbsp;<?php echo $this->datelineHelper( 'Time', $article->created ) ?></li>
-			<?php endforeach; ?>
-		</ul>
+	<div class="mod-head">
+		<h4>Editorial</h4>
 	</div>
-</div>
+	<div class="mod mb">
+		<div class="inner">
+		
+		{% fetch cartoon from media with [
+			'limit': 1,
+			'order': 'self:weight desc, self:created desc',
+			'withTags': ['cartoon']
+		] %}
+
+			{% for media in cartoon %}
+					<div class="image">
+					<a href="{{ media.urlDefault }}"><img src="{{ media.url }}" alt="{{ media.title }}" /></a>
+					</div>
+					<div class="caption aside mb">Editorial cartoon</div>
+			{% endfor %}
+
+			<hr class="mmb" />
+		{% fetch editorials from article with [
+		'limit': 3,
+		'order': 'weight desc, created desc',
+		'where': 'status = 1',
+		'withTags': ['editorial']
+		]
+		%}
+		<ul class="links mb">
+			{% for article in editorials %}
+				<li><a href="{{ article.url }}">{{ article.headline }}</a>&nbsp;<span class="dateline aside">{{ article.created|date('M d') }}</span></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>	
