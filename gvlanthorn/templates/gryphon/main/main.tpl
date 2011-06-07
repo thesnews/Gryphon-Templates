@@ -23,7 +23,7 @@
 	<div class="grid_4">
 	
 		<!- search needs to be updated >
-		<form method="get" id="searchform" class="mb" action="/index.php/search/" >
+		<form method="get" id="searchform" class="mb" action="" >
 			<input type="text" name="q" size="30" value="" /> <input type="submit" id="searchsubmit" value="Search" />
 		</form>
 		
@@ -92,7 +92,9 @@
 		{% fetch ae from article with [
 		'limit': 6,
 		'order': 'weight desc, created desc',
-		'where': 'status = 1'
+		'where': 'status = 1',
+		'withTags': ['artsentertainment']
+
 		]
 		%}
 		<ul class="links mb">
@@ -108,7 +110,9 @@
 		{% fetch laker_life from article with [
 		'limit': 6,
 		'order': 'weight desc, created desc',
-		'where': 'status = 1'
+		'where': 'status = 1',
+		'withTags': ['lakerlife']
+
 		]
 		%}
 		<ul class="links mb">
@@ -130,6 +134,21 @@
 	</div>
 	<div class="mod mb">
 		<div class="inner">
+		
+		
+			{% fetch pdf from media with [
+				'where': 'status = 1',
+				'limit': 1,
+				'order': 'uid desc',
+				'withTags': ['frontpagepdf']
+			] %}
+		<div class="mmb" style="text-align:center">
+			<a href="{{ pdf[0].urlOriginal }}"><img id="paper" src="{{ pdf[0].urlPreview }}" alt="Frontpage Preview" /></a>
+		</div>
+
+		<div class="aside2" style="text-align:right"><a href="http://www.gvlarchives.com/pdfs">VIEW THE LANTHORN ONLINE &raquo;</a></div>
+
+		
 		</div>	
 	</div>
 	
@@ -143,28 +162,29 @@
 	<div class="mod mb">
 		<div class="inner">
 		
-			{% fetch editorials from article with [
+		{% fetch cartoon from media with [
 			'limit': 1,
-			'order': 'weight desc, created desc',
-			'where': 'status = 1',
+			'order': 'self:weight desc, self:created desc',
 			'withTags': ['cartoon']
-			]
-			%}
-			<ul class="links mb">
-				{% for article in editorials %}
-				<li><a href="{{ article.url }}">{{ article.headline }}</a>&nbsp;<span class="dateline aside">{{ article.created|date('M d') }}</span></li>
-				{% endfor %}
+		] %}
+
+			{% for media in cartoon %}
+					<div class="image">
+					<a href="{{ media.urlDefault }}"><img src="{{ media.url }}" alt="{{ media.title }}" /></a>
+					</div>
+					<div class="caption aside mb">Editorial cartoon</div>
+			{% endfor %}
 
 			<hr class="mmb" />
-			{% fetch editorials from article with [
-			'limit': 6,
-			'order': 'weight desc, created desc',
-			'where': 'status = 1',
-			'withTags': ['letters','column']
-			]
-			%}
-			<ul class="links mb">
-				{% for article in editorials %}
+		{% fetch editorials from article with [
+		'limit': 3,
+		'order': 'weight desc, created desc',
+		'where': 'status = 1',
+		'withTags': ['editorial']
+		]
+		%}
+		<ul class="links mb">
+			{% for article in editorials %}
 				<li><a href="{{ article.url }}">{{ article.headline }}</a>&nbsp;<span class="dateline aside">{{ article.created|date('M d') }}</span></li>
 				{% endfor %}
 			</ul>
@@ -177,7 +197,7 @@
 	<div class="mod mb">
 		<div class="inner">
 	
-			<h5>Online poll: 4/21/2011</h5>
+			<h5>Online poll: </h5>
 			
 		</div>
 	</div>
@@ -189,24 +209,32 @@
 		<div class="mod mb">
 			<div class="inner">
 				<ul class="links">
-								<li>
-				<img src="{{ 'style/assets/twitter.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="" class="head4">Twitter</a></li>
-			</li>
-								
-					<li><img src="{{ 'style/assets/twitter.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="" class="head4">Twitter (Sports)</a></li>
+				
+					{% set urls = config.get('dsw:twitterurl') %}
+					{% if urls %}
+					<li><img src="{{ 'style/assets/twitter.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="{{ 'dsw:twitterurl'|url }}" class="head4">Twitter</a></li>
+					{% endif %}
+					
+					<li><img src="{{ 'style/assets/twitter.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="http://www.twitter.com/lanthornsports" class="head4">Twitter (Sports)</a></li>
+			
+					<li><img src="{{ 'style/assets/twitter.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="http://www.twitter.com/gvlarts" class="head4">Twitter (A&amp;E)</a></li>
 		
-					
-					<li><img src="{{ 'style/assets/twitter.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="" class="head4">Twitter (A&amp;E)</a></li>
-					
-								<li><img src="{{ 'style/assets/facebook.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="" class="head4">Facebook</a></li>
-								
-					<li><img src="{{ 'style/assets/youtube.png'|url }}" style="position:relative;top:2px;left:-1px;" alt="icn" />&nbsp;&nbsp;<a href="" class="head4" style="margin-left:-1px;">YouTube</a></li>
-					
-								<li><img src="{{ 'style/assets/icons/email_14.gif'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="" target="_blank" class="head4">Email Edition</a></li>
-								
-					<li><img src="{{ 'style/assets/29.png'|url }}" style="position:relative;top:1px;margin-right:2px;" alt="icn" />&nbsp;&nbsp;<a href="{{ '' }}" class="head4">RSS Feeds</a></li>
+					{% set urls = config.get('dsw:facebookurl') %}
+					{% if urls %}
+			<li><img src="{{ 'gfn-lanthorn/assets/facebook.png'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="{{ 'dsw:facebookurl'|url }}" class="head4">Facebook</a></li>
+					{% endif %}
+			
+			<li><img src="{{ 'gfn-lanthorn/assets/youtube.png'|url }}" style="position:relative;top:2px;left:-1px;" alt="icn" />&nbsp;&nbsp;<a href="http://www.youtube.com/user/gvsulanthorn" class="head4" style="margin-left:-1px;">YouTube</a></li>
+			
+					{% set urls = config.get('dsw:emailurl') %}
+					{% if urls %}			
+			<li><img src="{{ 'gfn-lanthorn/assets/icons/email_14.gif'|url }}" style="position:relative;top:2px;" alt="icn" />&nbsp;&nbsp;<a href="{{ 'dsw:emailurl'|url }}" target="_blank" class="head4">Email Edition</a></li>
+					{% endif %}
+			
+			<li><img src="{{ 'gfn-lanthorn/assets/29.png'|url }}" style="position:relative;top:1px;margin-right:2px;" alt="icn" />&nbsp;&nbsp;<a href="{{ 'page/feeds'|url }}" class="head4">RSS Feeds</a></li>
+
+
 				</ul>
-		
 			</div>
 		</div>	
 	</div>
@@ -226,8 +254,6 @@
 	<div class="clear">&nbsp;</div>
 	
 	<div class="mb">
-	<!-- Begin Monster Career Ad Network Creative for TRAK_JSW_grandval_co -->
-	<!-- End Monster Career Ad Network Creative for TRAK_JSW_grandval_co -->
 </div>	
 		
 </div>
@@ -238,18 +264,22 @@
 	</div>
 	<div class="mod mb">
 		<div class="inner">
-			{% fetch briefs from article with [
-			'limit': 6,
-			'order': 'weight desc, created desc',
-			'where': 'status = 1',
-			]
-			%}
+
+
+<!-- briefs does not work as tag
+
+		{% fetch briefs from article with [
+		'limit': 3,
+		'order': 'weight desc, created desc',
+		'where': 'status = 1'
+		]
+		%}
 			<ul class="links mb">
 				{% for article in briefs %}
 				<li><a href="{{ article.url }}">{{ article.headline }}</a>&nbsp;<span class="dateline aside">{{ article.created|date('M d') }}</span></li>
 				{% endfor %}
 			</ul>
-	
+	-->
 		</div>
 	</div>
 	
@@ -259,31 +289,9 @@
 	<div class="mod mb">
 		<div class="inner">
 					
-			<h5>In <a href="/index.php/classified/housing__roommates">Housing / Roommates</a></h5>
-			<hr />
-			<ul class="links mb">
-				<li>
-				<a href="/index.php/classified/housing__roommates#ad-273">Looking for 1 or 2 people to take over our 12 month lease starting in August. Its a 2&nbsp;&#133;</a>
-				</li>
-			</ul>
+
 					
-			<h5>In <a href="/index.php/classified/services">Services</a></h5>
-			<hr />
-			<ul class="links mb">
-				<li>
-					<a href="/index.php/classified/services#ad-272">Wanted: hard working individual to strip wall paper and paint in a dining room.  Job&nbsp;&#133;</a>
-				</li>
-			</ul>
-					
-			<h5>In <a href="/index.php/classified/housing__roommates">Housing / Roommates</a></h5>
-			<hr />
-			<ul class="links mb">
-				<li>
-					<a href="/index.php/classified/housing__roommates#ad-271">Looking to sublease 2 bedrooms at Copper Beech in a 4 bedroom apartment (guys).  Own&nbsp;&#133;</a>
-				</li>
-			</ul>
-					
-			<div class="aside2" style="text-align:right"><a href="/index.php/classified/">SEE MORE CLASSIFIEDS &raquo;</a></div>
+			<div class="aside2" style="text-align:right"><a href="">SEE MORE CLASSIFIEDS &raquo;</a></div>
 		</div>
 	</div>	
 	<!-- calendar widget -->
@@ -307,43 +315,9 @@
 		<div class="clear">&nbsp;</div>
 	</div>
 
-	<div class="mod mb">
-		<div class="inner">
-	
-			<div id="d-27" class="eventtab">
-				<p><span class="dateline aside">10:00 am | </span><a href="/index.php/calendar/event/1ooouojvuo4t8nrvqba96s78fg?time=1303912800">Overeaters Anonymous (OA) Meeting</a></p>
-				<p><span class="dateline aside">11:00 am | </span><a href="/index.php/calendar/event/r3lj0sjp98oe0j44695euhof6c?time=1303916400">CFI Secular Lunch Hour</a></p>
-				<p><span class="dateline aside">12:00 pm | </span><a href="/index.php/calendar/event/gsgntd10ke7n5jlljfr1uuvgfs?time=1303920000">12-Step Meeting</a></p>
-				<p><span class="dateline aside">3:00 pm | </span><a href="/index.php/calendar/event/vbnp9hqgve3u38i9ora8ctdt8s?time=1303930800">12-Step Meeting</a></p>
-				<p><span class="dateline aside">6:00 pm | </span><a href="/index.php/calendar/event/m5pm3e5k6747p0g98bflcclmh4?time=1303941600">12-Step Meeting</a></p>
-			</div>
-			
-			<div id="d-28" class="eventtab">
-				<p><span class="dateline aside">11:00 am | </span><a href="/index.php/calendar/event/r3lj0sjp98oe0j44695euhof6c?time=1304002800">CFI Secular Lunch Hour</a></p>
-				<p><span class="dateline aside">3:00 pm | </span><a href="/index.php/calendar/event/vbnp9hqgve3u38i9ora8ctdt8s?time=1304017200">12-Step Meeting</a></p>
-				<p><span class="dateline aside">6:00 pm 	| </span><a href="/index.php/calendar/event/m5pm3e5k6747p0g98bflcclmh4?time=1304028000">12-Step Meeting</a></p>
-			</div>
-	
-			
-			<div id="d-29" class="eventtab">
-				<p><span class="dateline aside">3:00 pm | </span><a href="/index.php/calendar/event/vbnp9hqgve3u38i9ora8ctdt8s?time=1304103600">12-Step Meeting</a></p>
-				<p><span class="dateline aside">6:00 pm | </span><a href="/index.php/calendar/event/m5pm3e5k6747p0g98bflcclmh4?time=1304114400">12-Step Meeting</a></p>
-			</div>
-			
-			<div id="d-30" class="eventtab">
-				<p>No events for this date</p>		
-			</div>
-			
-			<div id="d-01" class="eventtab">
-				<p><span class="dateline aside">All day | </span><a href="/index.php/calendar/event/raift0u3siuocpvqc16bp0fgkc?time=1304222400">Alpha Sigma Phi Bike Trip</a></p>
-			</div>
-			
-			<div class="aside2" style="text-align:right"><a href="/index.php/calendar/" class="head4">FULL CALENDAR &raquo;</a></div>
-	
+	{% include 'gryphon/main/calendar.tpl' %}
 
-	
-		</div>
-	</div>	
+
 </div>
 
 <div class="clear">&nbsp;</div>
