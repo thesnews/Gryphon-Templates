@@ -1,19 +1,25 @@
-<?php
-$section = _M('section')->findBySlug('briefs')->shift();
-if( $section ) :
-$articles = _M('article')->findByTags( $section->tags )->shift(5);
-if( $articles->length ) :
-?>
-<div class="mod-head">
-	<h4><?php echo $section->name ?></h4>
-</div>
-<div class="mod mb">
-	<div class="inner">
-		<ul class="links mb">
-			<?php foreach( $articles as $article ) : ?>
-				<li<?php if( $article->status == 0 ) echo ' class="unp"'; ?>><a href="<?php echo $section->url ?>"><?php echo $article->headline ?></a>&nbsp;&nbsp;<?php echo $this->datelineHelper( 'Time', $article->created ) ?></li>
-			<?php endforeach; ?>
-		</ul>
+<!-- this is a temporary template for briefs -->
+
+	<div class="mod-head">
+		<h4>Briefs</h4>
 	</div>
-</div>
-<?php endif; endif; ?>
+	<div class="mod mb">
+		<div class="inner">
+
+
+<!-- briefs does not work as tag
+
+		{% fetch briefs from article with [
+		'limit': 3,
+		'order': 'weight desc, created desc',
+		'where': 'status = 1'
+		]
+		%}
+			<ul class="links mb">
+				{% for article in briefs %}
+				<li><a href="{{ article.url }}">{{ article.headline }}</a>&nbsp;<span class="dateline aside">{{ article.created|date('M d') }}</span></li>
+				{% endfor %}
+			</ul>
+	-->
+		</div>
+	</div>

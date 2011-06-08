@@ -31,7 +31,8 @@
 
 <div class="grid_4">
 
-<!--Side bad goes here-->
+	{% include 'gryphon/main/side_bar.tpl' %}
+
 
 </div>
 

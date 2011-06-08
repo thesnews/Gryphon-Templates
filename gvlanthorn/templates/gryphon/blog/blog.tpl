@@ -8,64 +8,43 @@
 {% block content %}
 
 <div class="grid_8">
-	<h1>{{ blog.name }}</h1>
-	<div class="pagination"><span>
-	{% for page in pagination %}
-		{% if page.isCurrent %}
-			<strong>{{ page.label }}</strong>
-		{% else %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
-		{% endif %}
-	{% endfor %}
-	</span></div>
-	
-	<hr class="spacer" />
-	
-	{% for post in posts %}
-	
-		<h2><a href="{{ post.url }}">{{ post.headline }}</a></h2>
-		
-		<div class="gray box blogsize">
-		{% if post.authors.length %}
-			By {{ post.authors.splat('name')|join(', ') }}<br /><br />
-		{% endif %}
-		<strong>Created:</strong><br />{{ post.created|timeSince }}<br /><br />
-		<strong>Last updated:</strong> <br />{{ post.modified|timeSince }}<br /><br />
-		<a href="{{ post.url }}#comments">{{ post.commentTotal|int2noun('comment') }}</a>
-		</div>		
-		
-		<div>
-		{{ post.copy_formatted }}		
-		</div>
-		<hr class="spacer" />
-	
-	{% endfor %}
-	<hr class="spacer" />
-	
-	<div class="pagination"><span>
-	{% for page in pagination %}
-		{% if page.isCurrent %}
-			<strong>{{ page.label }}</strong>
-		{% else %}
-			<a href="{{ page.url }}">{{ page.label }}</a>
-		{% endif %}
-	{% endfor %}
-	</span></div>
-	
-</div>
 
-<div class="grid_4 standard-sidebar">
-	<div class="box gray">
-		<h5>About {{ blog.name }}</h5>
+
+
+
+	<div class="right"><img src="{{ 'style/assets/29.png'|url }}" style="position:relative;top:2px;" /> <a href="<?php echo $blog->url ?>.xml">RSS</a></div>
+	<h1>{{ blog.name }}</h1>
 		
-		<p>{{ blog.description_formatted }}</p>
-		
-		<a href="{{ blog.url }}.xml" class="feed_link">Follow this blog in your feed reader</a>
+	<div class="mmb">&nbsp;</div>
+	
+	<div class="body-copy boot mmb">
+		{{ blog.description_formatted }}
 	</div>
 	
-	<hr class="spacer" />
 	
-	{% include 'gryphon/main/sidebar-standard.tpl' %}
+	{% for post in posts %}
+
+		<h3 class="mmb"><a href="{{ post.url }}">{{ post.headline }}</a> &nbsp;<span class="byline aside">{{ post.comments.length }} comments |</span> <span class="dateline  aside">{{ post.created|date('M d') }}</span></h3>
+		
+		<div class="body-copy">
+			{{ post.abstract_formatted }}
+			<p><a href="{{ post.url }}">Continue reading &raquo;</a></p>
+		</div>
+		
+		<hr class="mb" />
+	
+	{% endfor %}
+
+
+
+
 </div>
+
+<div class="grid_4">
+	{% include 'gryphon/main/side_bar.tpl' %}
+</div>
+
+<div class="clear">&nbsp;</div>
+
 
 {% endblock %}

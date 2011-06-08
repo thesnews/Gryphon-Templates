@@ -30,7 +30,9 @@
 		{% include 'gryphon/main/modules/mm_viewer.tpl' %}
 
 	</div>
-	
+		
+		<div class="clear">&nbsp;</div>
+		
 	<hr class="grid_12 thick" />
 
 	<div class="grid_3">
@@ -103,6 +105,8 @@
 		</ul>
 	</div>
 
+	<div class="clear">&nbsp;</div>
+
 <hr class="grid_12 thick mb" />
 
 <div class="grid_4">
@@ -146,14 +150,14 @@
 </div>
 
 <div class="grid_4">
-	{% include 'gryphon/main/briefs.tpl' %}
+	{% include 'gryphon/main/modules/briefs.tpl' %}
 	
-	{% include 'gryphon/main/classifieds.tpl' %}
+	{% include 'gryphon/main/modules/classifieds.tpl' %}
 
 	
 	<!-- calendar widget -->
 
-	{% include 'gryphon/main/calendar.tpl' %}
+	{% include 'gryphon/main/modules/calendar.tpl' %}
 
 </div>
 

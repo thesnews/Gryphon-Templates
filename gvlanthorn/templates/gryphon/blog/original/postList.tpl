@@ -10,7 +10,7 @@ Foundry::import( 'global:header', array(
 ?>
 
 <div class="grid_8">
-	<div class="right"><img src="<?php echo Foundry::path('gfn-lanthorn/assets/29.png') ?>" style="position:relative;top:2px;" /> <a href="<?php echo $blog->url ?>.xml">RSS</a></div>
+	<div class="right"><img src="<?php echo Foundry::path('gfn-lanthorn/assets/29.png') ?>" style="position:relative;top:2px;" /> <a href="{{ blog.url }}.xml">RSS</a></div>
 	<h1><?php echo $blog->name ?></h1>
 		
 	<div class="mmb">&nbsp;</div>

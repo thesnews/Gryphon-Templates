@@ -15,9 +15,9 @@
 	</div>
 	
 	<div class="grid_4 alpha omega">
-	{% include 'gryphon/main/calendar.tpl' %}
+	{% include 'gryphon/main/modules/calendar.tpl' %}
 	</div>
 	
 	<div class="grid_4 alpha omega">
-	{% include 'gryphon/main/classifieds.tpl' %}
+	{% include 'gryphon/main/modules/classifieds.tpl' %}
 	</div>

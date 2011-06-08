@@ -10,5 +10,14 @@
 
 {% set topMedia = media.shift() %}
 
+<div class="grid_8">
+&nbsp;
+</div>
+
+<div class="grid_4">
+	{% include 'gryphon/main/modules/gallery_box.tpl' %}
+</div>
+
+<div class="clear">&nbsp;</div>
 
 {% endblock content %}
