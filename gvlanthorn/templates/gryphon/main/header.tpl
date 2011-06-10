@@ -16,7 +16,7 @@
 	
 	<div class="mb">
 		<?php Foundry::import( 'global:ads/header_banner_468x60' ); ?>
-		<img src="{{ 'style/images/logo_header.png'|url }}" alt="logo_header" />
+		<h1 id="flag"><img src="{{ 'style/images/logo_header.png'|url }}" alt="logo_header" /></h1>
 		<div id="tagline">Allendale and Grand Rapids, Mich. | www.Lanthorn.com</div>
 	</div>
 	

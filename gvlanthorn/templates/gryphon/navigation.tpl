@@ -22,7 +22,7 @@
 	],
 
 	'section/laker_life': [
-		'id': 'lake_life',
+		'id': 'laker_life',
 		'label': 'LAKER LIFE'
 	],
 	
