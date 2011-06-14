@@ -13,7 +13,11 @@
 	<div class="clear mmb">&nbsp;</div>
 		<h2><a href="{{ article.url }}">{{ article.headline }}</a></h2>
 	<div class="byline aside mmb">
-		<span class="dateline aside">{{ article.authors.splat('name')|join(', ') }} | {{ article.created|date('M d') }}</span>
+		<span class="dateline aside">{{ article.authors.splat('name')|join(', ') }} | 
+		
+		<span {% if article.modified > (now - 86400) %}class="attn"{% endif %}>{{ article.created|date('M d') }}</span>
+		
+		</span>
 	</div>
 	<div class="abstract mb">
 		{{ article.abstract_formatted }}
