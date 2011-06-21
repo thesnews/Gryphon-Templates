@@ -34,11 +34,6 @@
 		
 	<script type="text/javascript" src="{{ 'style/js/functions.js'|url }}"></script>
 
-		
-<!--	<script type="text/javascript" src="{{ 'style/js/vendor/mootools/mootools-1.2-min.js'|url }}"></script>
-	<script type="text/javascript" src="{{ 'style/js/rosewood.js'|url }}"></script>
-	<script type="text/javascript" src="{{ 'style/js/main.js'|url }}"></script>
- -->
 	<title>Grand Valley Lanthorn</title>
 
 </head>

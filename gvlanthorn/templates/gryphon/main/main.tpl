@@ -156,9 +156,8 @@
 
 	
 	<!-- calendar widget -->
-
-	{% include 'gryphon/main/modules/calendar.tpl' %}
-
+	{% include 'google/calendar/featured.tpl' %}
+	
 </div>
 
 <div class="clear">&nbsp;</div>
