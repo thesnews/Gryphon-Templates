@@ -8,7 +8,7 @@
 
 {% set topStory = articles.shift() %}
 {% set featuredStories = articles.shift(2) %}
-{% import "macros/article_wo_img.tpl" as articleRender %}
+{% import "macros/article.tpl" as articleRender %}
 
 <div class="grid_8">
 
@@ -24,7 +24,7 @@
 
 			{% for media in cartoon %}
 					<div class="image">
-					<a href="{{ media.urlDefault }}"><img src="{{ media.url }}" alt="{{ media.title }}" /></a>
+					<img src="{{ media.url }}" alt="{{ media.title }}" />
 					</div>
 					<div class="caption aside mb">Editorial cartoon</div>
 			{% endfor %}

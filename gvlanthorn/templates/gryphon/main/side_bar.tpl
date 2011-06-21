@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="grid_4 alpha omega">
-	{% include 'gryphon/main/modules/calendar.tpl' %}
+	{% include 'google/calendar/featured.tpl' %}
 	</div>
 	
 	<div class="grid_4 alpha omega">

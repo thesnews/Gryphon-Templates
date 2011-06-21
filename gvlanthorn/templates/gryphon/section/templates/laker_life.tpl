@@ -65,7 +65,7 @@
 		
 					
 				<div class="thumb">
-						<a href="{{ article.url }}"><img src="{{ media.urlThumbnail }}" alt="{{ article.headline }}" /></a>
+						<a href="{{ article.url }}"><img src="{{ article.media[0].urlThumbnail }}" alt="{{ article.media[0].title }}" /></a>
 				</div>
 		
 		

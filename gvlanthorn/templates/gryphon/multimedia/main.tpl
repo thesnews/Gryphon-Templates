@@ -15,31 +15,33 @@
 		
 	<div class="mmb">{{ mediaRender.media(topMedia) }}</div>
 	<div class="clear"></div>
-	
+		
 	<div class="grid_6 alpha">
-		<h3 class="mmb"><a href="<?php echo $top->url ?>">{{ topMedia.title }}</a></h3>
+	
+	
+	
+		<h3 class="mmb"><a href="{{ top.url }}">{{ topMedia.title }}</a></h3>
 		
-		<div class="aside mmb">{{ topMedia.byLine }}</div>
 		<div class="abstract">
-			<p>{{ topMedia.caption_formatted }}<span class="dateline aside">{{ article.authors.splat('name')|join(', ') }} | 
-		
-		<span {% if article.modified > (now - 86400) %}class="attn"{% endif %}>{{ article.created|date('M d') }}</span>
-		
-		</span></p>
-		</div>
-	</div>
+		<p><span class="dateline aside">{{ article.authors.splat('name')|join(', ') }}<span {% if article.modified > (now - 86400) %}class="attn"{% endif %}>{{ article.created|date('M d') }}</span></span></p>
+
+	
+
 	
 	<div class="grid_2 omega">
-		</div>
+	
+	&nbsp;
+	
+	</div>
 
+	</div>
 	
 	<div class="clear mb">&nbsp;</div>
 
+</div>	
 	
 	
 	
-	
-<!--
 	<div class="pagination">
 		<h5>MULTIMEDIA</h5>
 		<span>
@@ -83,7 +85,6 @@
 		</span>
 	</div>
 
--->
 
 </div>
 

@@ -13,6 +13,37 @@
 <div class="grid_8">
 
 
+	<h1 class="article-head mmb{% if not post.status %} unp{% endif %}">{{ post.headline }}</h1>
+
+
+		
+	<span class="dateline aside{% if article.modified > now - 86400 %} attn{% endif %}">{{ article.modified|date('M d') }}</span>
+		
+	<p>
+	{{ post.copy_formatted }}
+	</p>
+	
+	<hr />
+
+	<div class="pagination"><span>
+		{{ comment.pagers(post) }}
+	</span></div>
+	
+	<div class="comments">
+	<a id="comments"></a>
+		{{ comment.list(post) }}
+	</div>
+
+	<div class="pagination"><span>
+		{{ comment.pagers(post) }}
+	</span></div>
+
+	{% if post.shouldAllowComments %}
+
+		{% set commentItem = post %}
+		{% include 'gryphon/comment/form.tpl' %}
+
+	{% endif %}
 
 
 
